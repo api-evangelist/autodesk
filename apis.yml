@@ -1,0 +1,31 @@
+aid: autodesk
+name: Autodesk
+description: >-
+  It provides a single, unified place to view and manage photos and videos in
+  Autodesk Build. This is useful, such as for documenting progress photos.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - API
+created: '2024-11-13'
+modified: '2024-11-13'
+url: https://raw.githubusercontent.com/api-search/autodesk/refs/heads/main/apis.yml
+specificationVersion: '0.19'
+apis:
+  - aid: autodesk:autodesk
+    name: Autodesk
+    description: >-
+      It provides a single, unified place to view and manage photos and videos
+      in Autodesk Build. This is useful, such as for documenting progress
+      photos.
+    humanURL: https://aps.autodesk.com/blog/autodesk-build-photos-api
+    tags:
+      - API
+    properties:
+      - type: Documentation
+        url: https://aps.autodesk.com/blog/autodesk-build-photos-api
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com
