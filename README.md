@@ -26,6 +26,7 @@ Autodesk is a global leader in software solutions for design, engineering, and m
 It provides a single, unified place to view and manage photos and videos in Autodesk Build. This is useful, such as for documenting progress photos.
 
 **Human URL:** [https://aps.autodesk.com/blog/autodesk-build-photos-api](https://aps.autodesk.com/blog/autodesk-build-photos-api)
+r
 
 #### Tags
 
