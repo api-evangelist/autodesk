@@ -1,37 +1,51 @@
 aid: autodesk
 url: https://raw.githubusercontent.com/api-search/autodesk/refs/heads/main/apis.yml
 apis:
-  - aid: autodesk:autodesk
-    name: Autodesk
-    tags:
-      - API
-    humanURL: https://aps.autodesk.com/blog/autodesk-build-photos-api
-    properties:
-      - url: https://aps.autodesk.com/blog/autodesk-build-photos-api
-        type: Documentation
-    description: >-
-      It provides a single, unified place to view and manage photos and videos
-      in Autodesk Build. This is useful, such as for documenting progress
-      photos.
+- aid: autodesk:autodesk
+  name: Autodesk
+  tags:
+  - API
+  humanURL: https://aps.autodesk.com/blog/autodesk-build-photos-api
+  properties:
+  - url: https://aps.autodesk.com/blog/autodesk-build-photos-api
+    type: Documentation
+  description: It provides a single, unified place to view and manage photos and videos in Autodesk Build. This is useful, such as for documenting progress photos.
 name: Autodesk
 tags:
-  - CAD
-  - Engineering
-  - Architecture
-  - Manufacturing
-  - Construction
+- 3D Modeling
+- Architecture
+- BIM
+- CAD
+- Construction
+- Design
+- Engineering
+- Manufacturing
 type: Contract
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://www.autodesk.com/favicon.ico
 access: 3rd-Party
 created: '2024-11-13'
 modified: '2025-02-28'
 position: Consuming
-description: >-
-  Autodesk is a global leader in software solutions for design, engineering, and
-  media industries. Its tools empower professionals and organizations to design,
-  visualize, and create across a wide range of industries, including
-  architecture, construction, manufacturing, and entertainment.
+description: A collection of APIs provided by Autodesk for design, engineering, and entertainment software solutions
 maintainers:
-  - FN: Kin Lane
-    email: info@apievangelist.com
+- FN: Kin Lane
+  email: info@apievangelist.com
+- name: Autodesk
+  email: aps.help@autodesk.com
+  url: https://www.autodesk.com
 specificationVersion: '0.19'
+common:
+- url: https://aps.autodesk.com/
+  type: X-portal
+- url: https://aps.autodesk.com/blog
+  type: X-blog
+- url: https://aps.autodesk.com/en/support/get-help
+  type: X-support
+- url: https://aps.autodesk.com/en/docs/oauth/v2/tutorials/get-started-with-aps/
+  type: X-getting-started
+- url: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  type: X-terms-of-service
+- url: https://www.autodesk.com/company/legal-notices-trademarks/privacy-statement
+  type: X-privacy-policy
+- url: https://github.com/autodesk-platform-services
+  type: X-github
