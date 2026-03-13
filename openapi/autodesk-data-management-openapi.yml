@@ -1,0 +1,1503 @@
+openapi: 3.1.0
+info:
+  title: Autodesk Data Management API
+  description: >-
+    The Data Management API enables management of data across Autodesk cloud
+    services including Autodesk Docs, BIM 360, Fusion Team, and the Object
+    Storage Service (OSS). It provides a consistent interface for navigating
+    projects, managing folders, uploading and downloading files, and tracking
+    item versions using a JSON:API compliant data model.
+  version: 2.0.0
+  termsOfService: >-
+    https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  contact:
+    name: Autodesk Platform Services
+    url: https://aps.autodesk.com
+    email: aps.help@autodesk.com
+  license:
+    name: Autodesk API Terms of Service
+    url: >-
+      https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+servers:
+  - url: https://developer.api.autodesk.com
+    description: Production
+security:
+  - OAuth2ThreeLegged:
+      - data:read
+paths:
+  /project/v1/hubs:
+    get:
+      operationId: getHubs
+      summary: List Hubs
+      description: >-
+        Returns a collection of accessible hubs for the authenticated user.
+        A hub represents an Autodesk account or BIM 360 account.
+      tags:
+        - Hubs
+      parameters:
+        - name: filter[id]
+          in: query
+          required: false
+          description: Filter by hub ID.
+          schema:
+            type: string
+        - name: filter[name]
+          in: query
+          required: false
+          description: Filter by hub name.
+          schema:
+            type: string
+        - name: filter[extension.type]
+          in: query
+          required: false
+          description: Filter by extension type.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved hubs.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/HubsResponse'
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+  /project/v1/hubs/{hub_id}:
+    get:
+      operationId: getHub
+      summary: Get Hub
+      description: Returns data for a specific hub.
+      tags:
+        - Hubs
+      parameters:
+        - name: hub_id
+          in: path
+          required: true
+          description: The unique identifier of the hub.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved hub.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/HubResponse'
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Hub not found.
+  /project/v1/hubs/{hub_id}/projects:
+    get:
+      operationId: getHubProjects
+      summary: List Projects
+      description: Returns a collection of projects for a given hub.
+      tags:
+        - Projects
+      parameters:
+        - name: hub_id
+          in: path
+          required: true
+          description: The unique identifier of the hub.
+          schema:
+            type: string
+        - name: filter[id]
+          in: query
+          required: false
+          description: Filter by project ID.
+          schema:
+            type: string
+        - name: page[number]
+          in: query
+          required: false
+          description: Page number for pagination.
+          schema:
+            type: integer
+        - name: page[limit]
+          in: query
+          required: false
+          description: Number of results per page (max 200).
+          schema:
+            type: integer
+            maximum: 200
+      responses:
+        '200':
+          description: Successfully retrieved projects.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/ProjectsResponse'
+        '401':
+          description: Unauthorized.
+        '403':
+          description: Forbidden.
+  /project/v1/hubs/{hub_id}/projects/{project_id}:
+    get:
+      operationId: getProject
+      summary: Get Project
+      description: Returns a specific project within a hub.
+      tags:
+        - Projects
+      parameters:
+        - name: hub_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: project_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved project.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/ProjectResponse'
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Project not found.
+  /project/v1/hubs/{hub_id}/projects/{project_id}/topFolders:
+    get:
+      operationId: getProjectTopFolders
+      summary: List Top Folders
+      description: Returns the top-level folders for a project.
+      tags:
+        - Projects
+      parameters:
+        - name: hub_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: project_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved top folders.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/FoldersResponse'
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Project not found.
+  /data/v1/projects/{project_id}/folders/{folder_id}:
+    get:
+      operationId: getFolder
+      summary: Get Folder
+      description: Returns a specific folder.
+      tags:
+        - Folders
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: folder_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved folder.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/FolderResponse'
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Folder not found.
+  /data/v1/projects/{project_id}/folders/{folder_id}/contents:
+    get:
+      operationId: getFolderContents
+      summary: List Folder Contents
+      description: Returns a collection of items and folders within a folder.
+      tags:
+        - Folders
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: folder_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: filter[type]
+          in: query
+          required: false
+          description: Filter by resource type (items, folders).
+          schema:
+            type: string
+            enum:
+              - items
+              - folders
+        - name: filter[id]
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: filter[extension.type]
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: page[number]
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: page[limit]
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully retrieved folder contents.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/FolderContentsResponse'
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Folder not found.
+  /data/v1/projects/{project_id}/folders/{folder_id}/search:
+    get:
+      operationId: searchFolder
+      summary: Search Folder
+      description: Searches for items within a folder hierarchy.
+      tags:
+        - Folders
+      security:
+        - OAuth2ThreeLegged:
+            - data:search
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: folder_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: filter[displayName]
+          in: query
+          required: false
+          description: Filter by display name.
+          schema:
+            type: string
+        - name: filter[fileType]
+          in: query
+          required: false
+          description: Filter by file type extension.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully searched folder.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/FolderContentsResponse'
+  /data/v1/projects/{project_id}/folders:
+    post:
+      operationId: createFolder
+      summary: Create Folder
+      description: Creates a new folder in the specified project.
+      tags:
+        - Folders
+      security:
+        - OAuth2ThreeLegged:
+            - data:create
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/CreateFolderRequest'
+      responses:
+        '201':
+          description: Folder created successfully.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/FolderResponse'
+        '400':
+          description: Bad request.
+        '403':
+          description: Forbidden.
+  /data/v1/projects/{project_id}/items:
+    post:
+      operationId: createItem
+      summary: Create Item
+      description: >-
+        Creates a new item in the specified project. The item references a
+        storage location containing the uploaded file.
+      tags:
+        - Items
+      security:
+        - OAuth2ThreeLegged:
+            - data:create
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/CreateItemRequest'
+      responses:
+        '201':
+          description: Item created successfully.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/ItemResponse'
+        '400':
+          description: Bad request.
+        '403':
+          description: Forbidden.
+  /data/v1/projects/{project_id}/items/{item_id}:
+    get:
+      operationId: getItem
+      summary: Get Item
+      description: Returns a specific item within a project.
+      tags:
+        - Items
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: item_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved item.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/ItemResponse'
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Item not found.
+    patch:
+      operationId: patchItem
+      summary: Update Item
+      description: Updates the display name or other properties of an item.
+      tags:
+        - Items
+      security:
+        - OAuth2ThreeLegged:
+            - data:write
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: item_id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/PatchItemRequest'
+      responses:
+        '200':
+          description: Item updated successfully.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/ItemResponse'
+  /data/v1/projects/{project_id}/items/{item_id}/versions:
+    get:
+      operationId: getItemVersions
+      summary: List Item Versions
+      description: Returns all versions of a given item.
+      tags:
+        - Versions
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: item_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: page[number]
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: page[limit]
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully retrieved versions.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/VersionsResponse'
+  /data/v1/projects/{project_id}/versions:
+    post:
+      operationId: createVersion
+      summary: Create Version
+      description: >-
+        Creates a new version of an existing item. The version references
+        a storage location containing the uploaded file.
+      tags:
+        - Versions
+      security:
+        - OAuth2ThreeLegged:
+            - data:create
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/CreateVersionRequest'
+      responses:
+        '201':
+          description: Version created successfully.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/VersionResponse'
+  /data/v1/projects/{project_id}/versions/{version_id}:
+    get:
+      operationId: getVersion
+      summary: Get Version
+      description: Returns a specific version of an item.
+      tags:
+        - Versions
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved version.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/VersionResponse'
+  /oss/v2/buckets:
+    get:
+      operationId: getBuckets
+      summary: List Buckets
+      description: Returns a list of buckets owned by the application.
+      tags:
+        - Object Storage Service
+      security:
+        - OAuth2TwoLegged:
+            - bucket:read
+      parameters:
+        - name: region
+          in: query
+          required: false
+          description: Region for the bucket (US, EMEA).
+          schema:
+            type: string
+            enum:
+              - US
+              - EMEA
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: startAt
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved buckets.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BucketsResponse'
+    post:
+      operationId: createBucket
+      summary: Create Bucket
+      description: Creates a new OSS bucket.
+      tags:
+        - Object Storage Service
+      security:
+        - OAuth2TwoLegged:
+            - bucket:create
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateBucketRequest'
+      responses:
+        '200':
+          description: Bucket created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bucket'
+        '409':
+          description: Bucket already exists.
+  /oss/v2/buckets/{bucketKey}:
+    get:
+      operationId: getBucketDetails
+      summary: Get Bucket Details
+      description: Returns details of a specific bucket.
+      tags:
+        - Object Storage Service
+      security:
+        - OAuth2TwoLegged:
+            - bucket:read
+      parameters:
+        - name: bucketKey
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved bucket details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bucket'
+    delete:
+      operationId: deleteBucket
+      summary: Delete Bucket
+      description: Deletes a bucket. The bucket must be empty.
+      tags:
+        - Object Storage Service
+      security:
+        - OAuth2TwoLegged:
+            - bucket:delete
+      parameters:
+        - name: bucketKey
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Bucket deleted successfully.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Bucket not found.
+  /oss/v2/buckets/{bucketKey}/objects:
+    get:
+      operationId: getObjects
+      summary: List Objects
+      description: Returns a list of objects in a bucket.
+      tags:
+        - Object Storage Service
+      security:
+        - OAuth2TwoLegged:
+            - data:read
+      parameters:
+        - name: bucketKey
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: beginsWith
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: startAt
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectsResponse'
+  /oss/v2/buckets/{bucketKey}/objects/{objectKey}:
+    get:
+      operationId: getObject
+      summary: Download Object
+      description: Downloads an object from a bucket.
+      tags:
+        - Object Storage Service
+      security:
+        - OAuth2TwoLegged:
+            - data:read
+      parameters:
+        - name: bucketKey
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: objectKey
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: Range
+          in: header
+          required: false
+          description: Byte range for partial downloads.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully downloaded object.
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+    put:
+      operationId: uploadObject
+      summary: Upload Object
+      description: Uploads an object to a bucket.
+      tags:
+        - Object Storage Service
+      security:
+        - OAuth2TwoLegged:
+            - data:write
+      parameters:
+        - name: bucketKey
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: objectKey
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: Content-Length
+          in: header
+          required: true
+          schema:
+            type: integer
+        - name: Content-Type
+          in: header
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '200':
+          description: Object uploaded successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectDetail'
+    delete:
+      operationId: deleteObject
+      summary: Delete Object
+      description: Deletes an object from a bucket.
+      tags:
+        - Object Storage Service
+      security:
+        - OAuth2TwoLegged:
+            - data:write
+      parameters:
+        - name: bucketKey
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: objectKey
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Object deleted successfully.
+        '404':
+          description: Object not found.
+  /oss/v2/buckets/{bucketKey}/objects/{objectKey}/details:
+    get:
+      operationId: getObjectDetails
+      summary: Get Object Details
+      description: Returns metadata about a specific object.
+      tags:
+        - Object Storage Service
+      security:
+        - OAuth2TwoLegged:
+            - data:read
+      parameters:
+        - name: bucketKey
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: objectKey
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved object details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectDetail'
+  /oss/v2/buckets/{bucketKey}/objects/{objectKey}/signed:
+    post:
+      operationId: createSignedUrl
+      summary: Create Signed URL
+      description: >-
+        Creates a signed URL for downloading or uploading an object without
+        requiring an access token.
+      tags:
+        - Object Storage Service
+      security:
+        - OAuth2TwoLegged:
+            - data:write
+      parameters:
+        - name: bucketKey
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: objectKey
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: access
+          in: query
+          required: false
+          description: Access level for the signed URL.
+          schema:
+            type: string
+            enum:
+              - read
+              - write
+              - readwrite
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                minutesExpiration:
+                  type: integer
+                  description: Expiration time in minutes (default 60).
+      responses:
+        '200':
+          description: Signed URL created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignedUrlResponse'
+components:
+  securitySchemes:
+    OAuth2TwoLegged:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            data:read: Read access to data
+            data:write: Write access to data
+            data:create: Create new data
+            data:search: Search data
+            bucket:create: Create OSS buckets
+            bucket:read: Read OSS bucket metadata
+            bucket:update: Update OSS buckets
+            bucket:delete: Delete OSS buckets
+    OAuth2ThreeLegged:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: >-
+            https://developer.api.autodesk.com/authentication/v2/authorize
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            data:read: Read access to data
+            data:write: Write access to data
+            data:create: Create new data
+            data:search: Search data
+  schemas:
+    HubsResponse:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hub'
+    HubResponse:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          $ref: '#/components/schemas/Hub'
+    Hub:
+      type: object
+      properties:
+        type:
+          type: string
+          example: hubs
+        id:
+          type: string
+          description: The unique hub identifier.
+        attributes:
+          type: object
+          properties:
+            name:
+              type: string
+            extension:
+              $ref: '#/components/schemas/Extension'
+            region:
+              type: string
+              enum:
+                - US
+                - EMEA
+        relationships:
+          type: object
+          properties:
+            projects:
+              type: object
+              properties:
+                links:
+                  type: object
+                  properties:
+                    related:
+                      type: object
+                      properties:
+                        href:
+                          type: string
+                          format: uri
+        links:
+          type: object
+          properties:
+            self:
+              type: object
+              properties:
+                href:
+                  type: string
+                  format: uri
+    ProjectsResponse:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
+        links:
+          $ref: '#/components/schemas/PaginationLinks'
+    ProjectResponse:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          $ref: '#/components/schemas/Project'
+    Project:
+      type: object
+      properties:
+        type:
+          type: string
+          example: projects
+        id:
+          type: string
+        attributes:
+          type: object
+          properties:
+            name:
+              type: string
+            extension:
+              $ref: '#/components/schemas/Extension'
+        relationships:
+          type: object
+          properties:
+            hub:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                    id:
+                      type: string
+            rootFolder:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                    id:
+                      type: string
+            topFolders:
+              type: object
+              properties:
+                links:
+                  type: object
+                  properties:
+                    related:
+                      type: object
+                      properties:
+                        href:
+                          type: string
+                          format: uri
+    FoldersResponse:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Folder'
+    FolderResponse:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          $ref: '#/components/schemas/Folder'
+    Folder:
+      type: object
+      properties:
+        type:
+          type: string
+          example: folders
+        id:
+          type: string
+        attributes:
+          type: object
+          properties:
+            name:
+              type: string
+            displayName:
+              type: string
+            createTime:
+              type: string
+              format: date-time
+            createUserId:
+              type: string
+            createUserName:
+              type: string
+            lastModifiedTime:
+              type: string
+              format: date-time
+            lastModifiedUserId:
+              type: string
+            lastModifiedUserName:
+              type: string
+            objectCount:
+              type: integer
+            extension:
+              $ref: '#/components/schemas/Extension'
+            hidden:
+              type: boolean
+    FolderContentsResponse:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/Folder'
+              - $ref: '#/components/schemas/Item'
+        links:
+          $ref: '#/components/schemas/PaginationLinks'
+    CreateFolderRequest:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+              example: folders
+            attributes:
+              type: object
+              properties:
+                name:
+                  type: string
+                extension:
+                  $ref: '#/components/schemas/Extension'
+            relationships:
+              type: object
+              properties:
+                parent:
+                  type: object
+                  properties:
+                    data:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: folders
+                        id:
+                          type: string
+    ItemResponse:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          $ref: '#/components/schemas/Item'
+    Item:
+      type: object
+      properties:
+        type:
+          type: string
+          example: items
+        id:
+          type: string
+        attributes:
+          type: object
+          properties:
+            displayName:
+              type: string
+            createTime:
+              type: string
+              format: date-time
+            createUserId:
+              type: string
+            createUserName:
+              type: string
+            lastModifiedTime:
+              type: string
+              format: date-time
+            lastModifiedUserId:
+              type: string
+            lastModifiedUserName:
+              type: string
+            hidden:
+              type: boolean
+            reserved:
+              type: boolean
+            extension:
+              $ref: '#/components/schemas/Extension'
+        relationships:
+          type: object
+          properties:
+            tip:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                    id:
+                      type: string
+            versions:
+              type: object
+              properties:
+                links:
+                  type: object
+                  properties:
+                    related:
+                      type: object
+                      properties:
+                        href:
+                          type: string
+                          format: uri
+    CreateItemRequest:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+              example: items
+            attributes:
+              type: object
+              properties:
+                displayName:
+                  type: string
+                extension:
+                  $ref: '#/components/schemas/Extension'
+            relationships:
+              type: object
+              properties:
+                tip:
+                  type: object
+                  properties:
+                    data:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: versions
+                        id:
+                          type: string
+                parent:
+                  type: object
+                  properties:
+                    data:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: folders
+                        id:
+                          type: string
+        included:
+          type: array
+          items:
+            type: object
+    PatchItemRequest:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+              example: items
+            id:
+              type: string
+            attributes:
+              type: object
+              properties:
+                displayName:
+                  type: string
+    VersionsResponse:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Version'
+        links:
+          $ref: '#/components/schemas/PaginationLinks'
+    VersionResponse:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          $ref: '#/components/schemas/Version'
+    Version:
+      type: object
+      properties:
+        type:
+          type: string
+          example: versions
+        id:
+          type: string
+        attributes:
+          type: object
+          properties:
+            name:
+              type: string
+            displayName:
+              type: string
+            versionNumber:
+              type: integer
+            mimeType:
+              type: string
+            fileType:
+              type: string
+            storageSize:
+              type: integer
+            createTime:
+              type: string
+              format: date-time
+            createUserId:
+              type: string
+            createUserName:
+              type: string
+            lastModifiedTime:
+              type: string
+              format: date-time
+            lastModifiedUserId:
+              type: string
+            lastModifiedUserName:
+              type: string
+            extension:
+              $ref: '#/components/schemas/Extension'
+    CreateVersionRequest:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+              example: versions
+            attributes:
+              type: object
+              properties:
+                name:
+                  type: string
+                extension:
+                  $ref: '#/components/schemas/Extension'
+            relationships:
+              type: object
+              properties:
+                item:
+                  type: object
+                  properties:
+                    data:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: items
+                        id:
+                          type: string
+                storage:
+                  type: object
+                  properties:
+                    data:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: objects
+                        id:
+                          type: string
+    BucketsResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bucket'
+        next:
+          type: string
+    Bucket:
+      type: object
+      properties:
+        bucketKey:
+          type: string
+          description: The unique bucket key.
+        bucketOwner:
+          type: string
+          description: The application client ID that owns the bucket.
+        createdDate:
+          type: string
+          format: date-time
+        permissions:
+          type: array
+          items:
+            type: object
+            properties:
+              authId:
+                type: string
+              access:
+                type: string
+                enum:
+                  - full
+                  - read
+        policyKey:
+          type: string
+          description: Retention policy.
+          enum:
+            - transient
+            - temporary
+            - persistent
+    CreateBucketRequest:
+      type: object
+      required:
+        - bucketKey
+        - policyKey
+      properties:
+        bucketKey:
+          type: string
+          description: >-
+            Unique bucket key (3-128 characters, lowercase letters, digits,
+            hyphens, underscores).
+          pattern: ^[-_.a-z0-9]{3,128}$
+        policyKey:
+          type: string
+          description: Retention policy for the bucket.
+          enum:
+            - transient
+            - temporary
+            - persistent
+        allow:
+          type: array
+          items:
+            type: object
+            properties:
+              authId:
+                type: string
+              access:
+                type: string
+                enum:
+                  - full
+                  - read
+    ObjectsResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ObjectDetail'
+        next:
+          type: string
+    ObjectDetail:
+      type: object
+      properties:
+        bucketKey:
+          type: string
+        objectKey:
+          type: string
+        objectId:
+          type: string
+          description: URN-encoded object identifier.
+        sha1:
+          type: string
+        size:
+          type: integer
+        contentType:
+          type: string
+        location:
+          type: string
+          format: uri
+    SignedUrlResponse:
+      type: object
+      properties:
+        signedUrl:
+          type: string
+          format: uri
+        expiration:
+          type: integer
+          description: Expiration time as Unix timestamp.
+    Extension:
+      type: object
+      properties:
+        type:
+          type: string
+        version:
+          type: string
+        data:
+          type: object
+    JsonApiVersion:
+      type: object
+      properties:
+        version:
+          type: string
+          example: '1.0'
+    PaginationLinks:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
+        first:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
+        prev:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
+        next:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri

@@ -1,0 +1,468 @@
+openapi: 3.1.0
+info:
+  title: Autodesk Webhooks API
+  description: >-
+    The Webhooks API enables applications to listen for events from Autodesk
+    services by creating webhook subscriptions. When events occur (such as file
+    modifications, model derivative completions, or folder changes), Autodesk
+    sends HTTP POST callbacks to a registered URL. This API manages webhook
+    CRUD operations for the Data Management and Model Derivative event systems.
+  version: 1.0.0
+  termsOfService: >-
+    https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  contact:
+    name: Autodesk Platform Services
+    url: https://aps.autodesk.com
+    email: aps.help@autodesk.com
+  license:
+    name: Autodesk API Terms of Service
+    url: >-
+      https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+servers:
+  - url: https://developer.api.autodesk.com
+    description: Production
+security:
+  - OAuth2ThreeLegged:
+      - data:read
+      - data:write
+paths:
+  /webhooks/v1/systems:
+    get:
+      operationId: getSystems
+      summary: List Event Systems
+      description: >-
+        Returns a list of available event systems that support webhook
+        subscriptions (e.g., data, derivative, adsk.c4r, adsk.docs).
+      tags:
+        - Systems
+      responses:
+        '200':
+          description: Successfully retrieved systems.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SystemsResponse'
+  /webhooks/v1/systems/{system}/events:
+    get:
+      operationId: getSystemEvents
+      summary: List System Events
+      description: Returns a list of events available for a specific system.
+      tags:
+        - Systems
+      parameters:
+        - name: system
+          in: path
+          required: true
+          description: >-
+            The system identifier (e.g., data, derivative, adsk.c4r).
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved events.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventsResponse'
+  /webhooks/v1/systems/{system}/events/{event}/hooks:
+    get:
+      operationId: getHooks
+      summary: List Hooks for Event
+      description: >-
+        Returns a paginated list of webhook subscriptions for a specific
+        system and event.
+      tags:
+        - Hooks
+      parameters:
+        - name: system
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: event
+          in: path
+          required: true
+          description: >-
+            The event type (e.g., dm.version.added, dm.version.deleted,
+            extraction.finished).
+          schema:
+            type: string
+        - name: pageState
+          in: query
+          required: false
+          description: Pagination state token.
+          schema:
+            type: string
+        - name: status
+          in: query
+          required: false
+          description: Filter by hook status.
+          schema:
+            type: string
+            enum:
+              - active
+              - inactive
+      responses:
+        '200':
+          description: Successfully retrieved hooks.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HooksResponse'
+    post:
+      operationId: createHook
+      summary: Create Hook
+      description: >-
+        Creates a new webhook subscription for a specific event in a system.
+      tags:
+        - Hooks
+      parameters:
+        - name: system
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: event
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateHookPayload'
+      responses:
+        '201':
+          description: Hook created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Hook'
+        '400':
+          description: Bad request.
+        '409':
+          description: Hook already exists for this callback URL and event.
+  /webhooks/v1/systems/{system}/events/{event}/hooks/{hook_id}:
+    get:
+      operationId: getHook
+      summary: Get Hook
+      description: Returns details of a specific webhook subscription.
+      tags:
+        - Hooks
+      parameters:
+        - name: system
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: event
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: hook_id
+          in: path
+          required: true
+          description: The unique hook identifier.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved hook.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Hook'
+        '404':
+          description: Hook not found.
+    patch:
+      operationId: updateHook
+      summary: Update Hook
+      description: Updates properties of an existing webhook subscription.
+      tags:
+        - Hooks
+      parameters:
+        - name: system
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: event
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: hook_id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateHookPayload'
+      responses:
+        '200':
+          description: Hook updated successfully.
+        '404':
+          description: Hook not found.
+    delete:
+      operationId: deleteHook
+      summary: Delete Hook
+      description: Deletes a webhook subscription.
+      tags:
+        - Hooks
+      parameters:
+        - name: system
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: event
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: hook_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Hook deleted successfully.
+        '404':
+          description: Hook not found.
+  /webhooks/v1/hooks:
+    get:
+      operationId: getAllHooks
+      summary: List All Hooks
+      description: >-
+        Returns all webhook subscriptions for the calling application across
+        all systems and events.
+      tags:
+        - Hooks
+      parameters:
+        - name: pageState
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - active
+              - inactive
+      responses:
+        '200':
+          description: Successfully retrieved all hooks.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HooksResponse'
+  /webhooks/v1/tokens/@me:
+    put:
+      operationId: createToken
+      summary: Create/Update Webhook Secret Token
+      description: >-
+        Creates or updates a secret token used to sign webhook payloads.
+        The token is included in the x-adsk-signature header of callback
+        requests for payload verification.
+      tags:
+        - Tokens
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - token
+              properties:
+                token:
+                  type: string
+                  description: The secret token for signing payloads.
+      responses:
+        '200':
+          description: Token created/updated.
+    delete:
+      operationId: deleteToken
+      summary: Delete Webhook Secret Token
+      description: Deletes the webhook secret token.
+      tags:
+        - Tokens
+      responses:
+        '204':
+          description: Token deleted.
+components:
+  securitySchemes:
+    OAuth2TwoLegged:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            data:read: Read access to data
+            data:write: Write access to data
+    OAuth2ThreeLegged:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: >-
+            https://developer.api.autodesk.com/authentication/v2/authorize
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            data:read: Read access to data
+            data:write: Write access to data
+  schemas:
+    SystemsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              system:
+                type: string
+                description: >-
+                  System identifier (data, derivative, adsk.c4r, adsk.docs).
+    EventsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              event:
+                type: string
+                description: Event type identifier.
+    HooksResponse:
+      type: object
+      properties:
+        links:
+          type: object
+          properties:
+            next:
+              type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hook'
+    Hook:
+      type: object
+      properties:
+        hookId:
+          type: string
+          description: Unique hook identifier.
+        tenant:
+          type: string
+          description: The tenant (application client ID).
+        callbackUrl:
+          type: string
+          format: uri
+          description: URL that receives webhook callbacks.
+        createdBy:
+          type: string
+        event:
+          type: string
+          description: The event type.
+        createdDate:
+          type: string
+          format: date-time
+        lastUpdatedDate:
+          type: string
+          format: date-time
+        system:
+          type: string
+          description: The event system.
+        creatorType:
+          type: string
+          description: Creator type (Application or User).
+          enum:
+            - Application
+            - O2User
+        status:
+          type: string
+          enum:
+            - active
+            - inactive
+        autoReactivateHook:
+          type: boolean
+          description: Whether to auto-reactivate after failures.
+        scope:
+          type: object
+          description: >-
+            Scope of the webhook (e.g., which folder or project to watch).
+          properties:
+            folder:
+              type: string
+            workflow:
+              type: string
+        urn:
+          type: string
+        filter:
+          type: string
+          description: >-
+            JSON-encoded filter criteria for narrowing events.
+    CreateHookPayload:
+      type: object
+      required:
+        - callbackUrl
+      properties:
+        callbackUrl:
+          type: string
+          format: uri
+          description: The URL that will receive webhook POST callbacks.
+        scope:
+          type: object
+          description: >-
+            Scope criteria to filter which resources trigger the webhook.
+          properties:
+            folder:
+              type: string
+              description: Folder URN to scope events to.
+            workflow:
+              type: string
+        hookAttribute:
+          type: object
+          description: Custom metadata to include in callbacks.
+          additionalProperties: true
+        filter:
+          type: string
+          description: >-
+            JSON filter expression to narrow events
+            (e.g., by file extension).
+        hookExpiry:
+          type: string
+          format: date-time
+          description: Expiration date for the webhook.
+        autoReactivateHook:
+          type: boolean
+          description: Auto-reactivate after consecutive failures.
+    UpdateHookPayload:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+            - active
+            - inactive
+        filter:
+          type: string
+        hookAttribute:
+          type: object
+          additionalProperties: true
+        hookExpiry:
+          type: string
+          format: date-time
+        autoReactivateHook:
+          type: boolean

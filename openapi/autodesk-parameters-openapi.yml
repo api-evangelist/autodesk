@@ -1,0 +1,697 @@
+openapi: 3.1.0
+info:
+  title: Autodesk Parameters API
+  description: >-
+    The Parameters API manages parameter definitions and related metadata in the
+    Autodesk platform cloud. It enables creating, reading, updating, and
+    deleting parameters, groups, collections, labels, and classifications,
+    keeping parameter collections synchronized and up-to-date across Autodesk
+    products with support for disciplines, specs, units, and Revit categories.
+  version: 1.0.0
+  termsOfService: >-
+    https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  contact:
+    name: Autodesk Platform Services
+    url: https://aps.autodesk.com
+    email: aps.help@autodesk.com
+  license:
+    name: Autodesk API Terms of Service
+    url: >-
+      https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+servers:
+  - url: https://developer.api.autodesk.com
+    description: Production
+security:
+  - OAuth2ThreeLegged:
+      - data:read
+paths:
+  /parameters/v1/accounts/{accountId}/collections:
+    get:
+      operationId: getCollections
+      summary: List Collections
+      description: >-
+        Returns a list of parameter collections for the specified account.
+        Collections group related parameters for organizational purposes.
+      tags:
+        - Collections
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          description: The Autodesk account ID (hub ID without the b. prefix).
+          schema:
+            type: string
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully retrieved collections.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionsResponse'
+        '401':
+          description: Unauthorized.
+    post:
+      operationId: createCollection
+      summary: Create Collection
+      description: Creates a new parameter collection.
+      tags:
+        - Collections
+      security:
+        - OAuth2ThreeLegged:
+            - data:write
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCollectionRequest'
+      responses:
+        '201':
+          description: Collection created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Collection'
+        '400':
+          description: Bad request.
+  /parameters/v1/accounts/{accountId}/collections/{collectionId}:
+    get:
+      operationId: getCollection
+      summary: Get Collection
+      description: Returns details of a specific parameter collection.
+      tags:
+        - Collections
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: collectionId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved collection.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Collection'
+        '404':
+          description: Collection not found.
+    patch:
+      operationId: updateCollection
+      summary: Update Collection
+      description: Updates a parameter collection.
+      tags:
+        - Collections
+      security:
+        - OAuth2ThreeLegged:
+            - data:write
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: collectionId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCollectionRequest'
+      responses:
+        '200':
+          description: Collection updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Collection'
+    delete:
+      operationId: deleteCollection
+      summary: Delete Collection
+      description: Deletes a parameter collection.
+      tags:
+        - Collections
+      security:
+        - OAuth2ThreeLegged:
+            - data:write
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: collectionId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Collection deleted.
+  /parameters/v1/accounts/{accountId}/collections/{collectionId}/parameters:
+    get:
+      operationId: getParameters
+      summary: List Parameters
+      description: Returns parameters within a collection.
+      tags:
+        - Parameters
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: collectionId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: filter[groupId]
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParametersResponse'
+    post:
+      operationId: createParameter
+      summary: Create Parameter
+      description: Creates a new parameter within a collection.
+      tags:
+        - Parameters
+      security:
+        - OAuth2ThreeLegged:
+            - data:write
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: collectionId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateParameterRequest'
+      responses:
+        '201':
+          description: Parameter created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParameterDefinition'
+  /parameters/v1/accounts/{accountId}/collections/{collectionId}/parameters/{parameterId}:
+    get:
+      operationId: getParameter
+      summary: Get Parameter
+      description: Returns a specific parameter definition.
+      tags:
+        - Parameters
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: collectionId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: parameterId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved parameter.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParameterDefinition'
+    patch:
+      operationId: updateParameter
+      summary: Update Parameter
+      description: Updates a parameter definition.
+      tags:
+        - Parameters
+      security:
+        - OAuth2ThreeLegged:
+            - data:write
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: collectionId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: parameterId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateParameterRequest'
+      responses:
+        '200':
+          description: Parameter updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParameterDefinition'
+    delete:
+      operationId: deleteParameter
+      summary: Delete Parameter
+      description: Deletes a parameter from a collection.
+      tags:
+        - Parameters
+      security:
+        - OAuth2ThreeLegged:
+            - data:write
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: collectionId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: parameterId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Parameter deleted.
+  /parameters/v1/accounts/{accountId}/collections/{collectionId}/groups:
+    get:
+      operationId: getGroups
+      summary: List Groups
+      description: Returns groups within a collection.
+      tags:
+        - Groups
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: collectionId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved groups.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupsResponse'
+    post:
+      operationId: createGroup
+      summary: Create Group
+      description: Creates a new parameter group within a collection.
+      tags:
+        - Groups
+      security:
+        - OAuth2ThreeLegged:
+            - data:write
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: collectionId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateGroupRequest'
+      responses:
+        '201':
+          description: Group created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+  /parameters/v1/metadata/specs:
+    get:
+      operationId: getSpecs
+      summary: List Specs
+      description: >-
+        Returns available spec types (data types) for parameter definitions
+        (e.g., text, number, integer, length, area, volume, angle).
+      tags:
+        - Metadata
+      responses:
+        '200':
+          description: Successfully retrieved specs.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpecsResponse'
+  /parameters/v1/metadata/categories:
+    get:
+      operationId: getCategories
+      summary: List Categories
+      description: >-
+        Returns available Revit categories for parameter binding.
+      tags:
+        - Metadata
+      responses:
+        '200':
+          description: Successfully retrieved categories.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoriesResponse'
+  /parameters/v1/metadata/disciplines:
+    get:
+      operationId: getDisciplines
+      summary: List Disciplines
+      description: Returns available disciplines for parameter classification.
+      tags:
+        - Metadata
+      responses:
+        '200':
+          description: Successfully retrieved disciplines.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DisciplinesResponse'
+  /parameters/v1/metadata/units:
+    get:
+      operationId: getUnits
+      summary: List Units
+      description: Returns available unit types for parameter definitions.
+      tags:
+        - Metadata
+      parameters:
+        - name: filter[specId]
+          in: query
+          required: false
+          description: Filter units by spec ID.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved units.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnitsResponse'
+components:
+  securitySchemes:
+    OAuth2ThreeLegged:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: >-
+            https://developer.api.autodesk.com/authentication/v2/authorize
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            data:read: Read access to data
+            data:write: Write access to data
+  schemas:
+    CollectionsResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Collection'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Collection:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        createdBy:
+          type: string
+        updatedBy:
+          type: string
+    CreateCollectionRequest:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+    UpdateCollectionRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+    ParametersResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ParameterDefinition'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    ParameterDefinition:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        specId:
+          type: string
+          description: The spec type (data type) of the parameter.
+        groupId:
+          type: string
+        isReadOnly:
+          type: boolean
+        isShared:
+          type: boolean
+        isInstance:
+          type: boolean
+          description: Whether the parameter is instance-level or type-level.
+        categories:
+          type: array
+          items:
+            type: string
+        disciplines:
+          type: array
+          items:
+            type: string
+        guid:
+          type: string
+          description: Globally unique parameter identifier.
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    CreateParameterRequest:
+      type: object
+      required:
+        - name
+        - specId
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        specId:
+          type: string
+        groupId:
+          type: string
+        isInstance:
+          type: boolean
+        categories:
+          type: array
+          items:
+            type: string
+        disciplines:
+          type: array
+          items:
+            type: string
+    UpdateParameterRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        groupId:
+          type: string
+        categories:
+          type: array
+          items:
+            type: string
+    GroupsResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Group'
+    Group:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+    CreateGroupRequest:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+    SpecsResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              isBuiltIn:
+                type: boolean
+    CategoriesResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+    DisciplinesResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+    UnitsResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              specId:
+                type: string
+              symbol:
+                type: string
+    Pagination:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalResults:
+          type: integer

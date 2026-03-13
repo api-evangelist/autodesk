@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-search/autodesk/refs/heads/main/json-schema/autodesk-version.json",
+  "title": "Autodesk Version",
+  "description": "A version represents a specific revision of an item in the Autodesk Data Management system. Each time a file is uploaded or modified, a new version is created, enabling version history tracking and rollback capabilities.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "versions",
+      "description": "The JSON:API resource type."
+    },
+    "id": {
+      "type": "string",
+      "description": "The unique version identifier (URN).",
+      "examples": ["urn:adsk.wipprod:fs.file:vf.abcdefgh-1234?version=1"]
+    },
+    "attributes": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The version name/filename."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The display name."
+        },
+        "versionNumber": {
+          "type": "integer",
+          "description": "The version number (1-based).",
+          "minimum": 1
+        },
+        "mimeType": {
+          "type": "string",
+          "description": "The MIME type of the file."
+        },
+        "fileType": {
+          "type": "string",
+          "description": "The file extension."
+        },
+        "storageSize": {
+          "type": "integer",
+          "description": "The file size in bytes."
+        },
+        "createTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "createUserId": {
+          "type": "string"
+        },
+        "createUserName": {
+          "type": "string"
+        },
+        "lastModifiedTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lastModifiedUserId": {
+          "type": "string"
+        },
+        "lastModifiedUserName": {
+          "type": "string"
+        },
+        "extension": {
+          "$ref": "#/$defs/Extension"
+        }
+      }
+    },
+    "relationships": {
+      "type": "object",
+      "properties": {
+        "item": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "const": "items"
+                },
+                "id": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "storage": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "const": "objects"
+                },
+                "id": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "derivatives": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": ["type", "id"],
+  "$defs": {
+    "Extension": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "examples": [
+            "versions:autodesk.bim360:File",
+            "versions:autodesk.core:File",
+            "versions:autodesk.bim360:C4RModel"
+          ]
+        },
+        "version": {
+          "type": "string"
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    }
+  }
+}

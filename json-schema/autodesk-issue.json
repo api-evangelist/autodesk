@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-search/autodesk/refs/heads/main/json-schema/autodesk-issue.json",
+  "title": "Autodesk Construction Issue",
+  "description": "Represents a quality issue in BIM 360 or Autodesk Construction Cloud, used for tracking and managing field issues, RFIs, safety observations, and other project-related items.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique issue identifier."
+    },
+    "type": {
+      "type": "string",
+      "const": "quality_issues",
+      "description": "The resource type."
+    },
+    "attributes": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Issue title or summary."
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed issue description."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["open", "pending", "in_review", "closed", "void"],
+          "description": "Current issue status."
+        },
+        "assigned_to": {
+          "type": "string",
+          "description": "User ID of the assignee."
+        },
+        "assigned_to_type": {
+          "type": "string",
+          "enum": ["user", "company", "role"],
+          "description": "Type of entity the issue is assigned to."
+        },
+        "due_date": {
+          "type": "string",
+          "format": "date",
+          "description": "Due date for resolution."
+        },
+        "priority": {
+          "type": "string",
+          "description": "Issue priority level."
+        },
+        "location_description": {
+          "type": "string",
+          "description": "Text description of the issue location."
+        },
+        "issue_type_id": {
+          "type": "string",
+          "description": "The issue type category."
+        },
+        "issue_sub_type_id": {
+          "type": "string",
+          "description": "The issue sub-type category."
+        },
+        "root_cause_id": {
+          "type": "string",
+          "description": "The root cause category."
+        },
+        "target_urn": {
+          "type": "string",
+          "description": "URN of the document associated with the issue."
+        },
+        "target_urn_page": {
+          "type": "string",
+          "description": "Specific page within the target document."
+        },
+        "starting_version": {
+          "type": "integer",
+          "description": "Version number where the issue was first identified."
+        },
+        "pushpin_attributes": {
+          "type": "object",
+          "description": "Pushpin location data for visual issue placement.",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "location": {
+              "type": "object",
+              "properties": {
+                "x": { "type": "number" },
+                "y": { "type": "number" },
+                "z": { "type": "number" }
+              }
+            },
+            "viewer_state": {
+              "type": "object",
+              "additionalProperties": true
+            }
+          }
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "closed_at": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        },
+        "closed_by": {
+          "type": ["string", "null"]
+        },
+        "answer": {
+          "type": ["string", "null"],
+          "description": "The resolution answer."
+        },
+        "comment_count": {
+          "type": "integer"
+        },
+        "attachment_count": {
+          "type": "integer"
+        }
+      },
+      "required": ["title", "status"]
+    }
+  },
+  "required": ["id", "type"]
+}

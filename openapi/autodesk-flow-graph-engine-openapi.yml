@@ -1,0 +1,385 @@
+openapi: 3.1.0
+info:
+  title: Autodesk Flow Graph Engine API
+  description: >-
+    The Flow Graph Engine API enables evaluation of Bifrost graphs in the cloud
+    for media and entertainment workflows. It allows developers to offload
+    heavy processing tasks like creating complex effects, simulations, and
+    procedural content to concurrent cloud operations using Bifrost graph
+    evaluation engine.
+  version: 1.0.0
+  termsOfService: >-
+    https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  contact:
+    name: Autodesk Platform Services
+    url: https://aps.autodesk.com
+    email: aps.help@autodesk.com
+  license:
+    name: Autodesk API Terms of Service
+    url: >-
+      https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+servers:
+  - url: https://developer.api.autodesk.com
+    description: Production
+security:
+  - OAuth2TwoLegged:
+      - code:all
+paths:
+  /fge/v1/graphs:
+    get:
+      operationId: getGraphs
+      summary: List Graphs
+      description: >-
+        Returns a list of uploaded Bifrost graphs available for evaluation.
+      tags:
+        - Graphs
+      parameters:
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully retrieved graphs.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GraphsResponse'
+    post:
+      operationId: uploadGraph
+      summary: Upload Graph
+      description: >-
+        Uploads a Bifrost graph file (.bif) for cloud evaluation.
+      tags:
+        - Graphs
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - file
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: The Bifrost graph file (.bif).
+                name:
+                  type: string
+                  description: Display name for the graph.
+                description:
+                  type: string
+      responses:
+        '201':
+          description: Graph uploaded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Graph'
+        '400':
+          description: Bad request - invalid graph file.
+  /fge/v1/graphs/{graphId}:
+    get:
+      operationId: getGraph
+      summary: Get Graph
+      description: Returns details of a specific graph.
+      tags:
+        - Graphs
+      parameters:
+        - name: graphId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved graph.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Graph'
+        '404':
+          description: Graph not found.
+    delete:
+      operationId: deleteGraph
+      summary: Delete Graph
+      description: Deletes an uploaded graph.
+      tags:
+        - Graphs
+      parameters:
+        - name: graphId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Graph deleted.
+  /fge/v1/jobs:
+    get:
+      operationId: getJobs
+      summary: List Jobs
+      description: Returns a list of graph evaluation jobs.
+      tags:
+        - Jobs
+      parameters:
+        - name: filter[status]
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - queued
+              - running
+              - succeeded
+              - failed
+              - cancelled
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully retrieved jobs.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobsResponse'
+    post:
+      operationId: createJob
+      summary: Create Job
+      description: >-
+        Creates and queues a new graph evaluation job. Specify the graph
+        to evaluate and input parameters.
+      tags:
+        - Jobs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateJobRequest'
+      responses:
+        '201':
+          description: Job created and queued.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+        '400':
+          description: Bad request.
+  /fge/v1/jobs/{jobId}:
+    get:
+      operationId: getJob
+      summary: Get Job
+      description: Returns the status and details of a specific job.
+      tags:
+        - Jobs
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved job.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+        '404':
+          description: Job not found.
+    delete:
+      operationId: cancelJob
+      summary: Cancel Job
+      description: Cancels a queued or running job.
+      tags:
+        - Jobs
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Job cancelled.
+  /fge/v1/jobs/{jobId}/result:
+    get:
+      operationId: getJobResult
+      summary: Get Job Result
+      description: >-
+        Returns the output/result of a completed graph evaluation job.
+      tags:
+        - Jobs
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobResult'
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Result not found or job not complete.
+components:
+  securitySchemes:
+    OAuth2TwoLegged:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            code:all: Execute graph evaluations
+  schemas:
+    GraphsResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Graph'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Graph:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        fileSize:
+          type: integer
+        inputs:
+          type: array
+          description: Input ports defined in the graph.
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              type:
+                type: string
+              defaultValue: {}
+        outputs:
+          type: array
+          description: Output ports defined in the graph.
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              type:
+                type: string
+    JobsResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Job'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Job:
+      type: object
+      properties:
+        id:
+          type: string
+        graphId:
+          type: string
+        status:
+          type: string
+          enum:
+            - queued
+            - running
+            - succeeded
+            - failed
+            - cancelled
+        progress:
+          type: number
+          description: Progress percentage (0-100).
+        createdAt:
+          type: string
+          format: date-time
+        startedAt:
+          type: string
+          format: date-time
+        completedAt:
+          type: string
+          format: date-time
+        error:
+          type: string
+          description: Error message if job failed.
+        inputs:
+          type: object
+          additionalProperties: true
+          description: Input parameter values.
+    CreateJobRequest:
+      type: object
+      required:
+        - graphId
+      properties:
+        graphId:
+          type: string
+        inputs:
+          type: object
+          additionalProperties: true
+          description: >-
+            Input parameter values matching the graph's input port names.
+        callbackUrl:
+          type: string
+          format: uri
+          description: Optional URL to receive completion notification.
+    JobResult:
+      type: object
+      properties:
+        jobId:
+          type: string
+        outputs:
+          type: object
+          additionalProperties: true
+          description: Output values from the graph evaluation.
+        downloadUrl:
+          type: string
+          format: uri
+          description: URL to download binary output if applicable.
+    Pagination:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalResults:
+          type: integer

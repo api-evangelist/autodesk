@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-search/autodesk/refs/heads/main/json-schema/autodesk-hub.json",
+  "title": "Autodesk Hub",
+  "description": "A hub represents an Autodesk account (such as BIM 360, ACC, or Fusion Team) that serves as the top-level container for projects and data. Hubs provide organizational context for all data management operations.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "hubs",
+      "description": "The JSON:API resource type."
+    },
+    "id": {
+      "type": "string",
+      "description": "The unique hub identifier, prefixed with 'b.' for BIM 360/ACC or 'a.' for Autodesk accounts.",
+      "examples": ["b.12345678-abcd-efgh-ijkl-123456789012"]
+    },
+    "attributes": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The display name of the hub."
+        },
+        "region": {
+          "type": "string",
+          "enum": ["US", "EMEA"],
+          "description": "The geographic region where the hub data is stored."
+        },
+        "extension": {
+          "$ref": "#/$defs/Extension"
+        }
+      },
+      "required": ["name"]
+    },
+    "relationships": {
+      "type": "object",
+      "properties": {
+        "projects": {
+          "type": "object",
+          "properties": {
+            "links": {
+              "type": "object",
+              "properties": {
+                "related": {
+                  "type": "object",
+                  "properties": {
+                    "href": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "links": {
+      "type": "object",
+      "properties": {
+        "self": {
+          "type": "object",
+          "properties": {
+            "href": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": ["type", "id"],
+  "$defs": {
+    "Extension": {
+      "type": "object",
+      "description": "Extension object providing additional type-specific metadata.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The extension type identifier.",
+          "examples": ["hubs:autodesk.bim360:Account", "hubs:autodesk.core:Hub"]
+        },
+        "version": {
+          "type": "string",
+          "description": "Extension schema version."
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    }
+  }
+}

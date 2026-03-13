@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-search/autodesk/refs/heads/main/json-schema/autodesk-webhook-event.json",
+  "title": "Autodesk Webhook Event",
+  "description": "Represents a webhook event payload delivered by the Autodesk Webhooks API to registered callback URLs when events occur in Data Management, Model Derivative, or other Autodesk systems.",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "The webhook payload schema version."
+    },
+    "resourceUrn": {
+      "type": "string",
+      "description": "The URN of the affected resource."
+    },
+    "hook": {
+      "type": "object",
+      "description": "Information about the webhook subscription that triggered this event.",
+      "properties": {
+        "hookId": {
+          "type": "string",
+          "description": "Unique hook identifier."
+        },
+        "tenant": {
+          "type": "string",
+          "description": "The application client ID."
+        },
+        "callbackUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL the event was delivered to."
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "event": {
+          "type": "string",
+          "description": "The event type that triggered the callback.",
+          "examples": [
+            "dm.version.added",
+            "dm.version.deleted",
+            "dm.version.modified",
+            "dm.folder.added",
+            "dm.folder.deleted",
+            "extraction.finished",
+            "extraction.updated",
+            "model.sync.publish"
+          ]
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "system": {
+          "type": "string",
+          "description": "The event system.",
+          "examples": ["data", "derivative", "adsk.c4r", "adsk.docs"]
+        },
+        "creatorType": {
+          "type": "string",
+          "enum": ["Application", "O2User"]
+        },
+        "status": {
+          "type": "string",
+          "enum": ["active", "inactive"]
+        },
+        "scope": {
+          "type": "object",
+          "properties": {
+            "folder": {
+              "type": "string"
+            },
+            "workflow": {
+              "type": "string"
+            }
+          }
+        },
+        "hookAttribute": {
+          "type": "object",
+          "additionalProperties": true,
+          "description": "Custom metadata attached to the subscription."
+        }
+      },
+      "required": ["hookId", "event", "system"]
+    },
+    "payload": {
+      "type": "object",
+      "description": "The event-specific payload data.",
+      "additionalProperties": true,
+      "properties": {
+        "project": {
+          "type": "string",
+          "description": "Project ID."
+        },
+        "creator": {
+          "type": "string",
+          "description": "User ID who triggered the event."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the affected resource."
+        },
+        "lineageUrn": {
+          "type": "string",
+          "description": "The lineage URN of the item."
+        },
+        "version": {
+          "type": "integer",
+          "description": "Version number."
+        },
+        "status": {
+          "type": "string",
+          "description": "Processing status (for derivative events)."
+        },
+        "createdTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "modifiedTime": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  },
+  "required": ["version", "resourceUrn", "hook", "payload"]
+}

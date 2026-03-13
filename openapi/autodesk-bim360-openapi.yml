@@ -1,0 +1,757 @@
+openapi: 3.1.0
+info:
+  title: Autodesk BIM 360 API
+  description: >-
+    The BIM 360 API enables integration with the BIM 360 cloud-based
+    construction management platform, providing access to project data,
+    documents, issues, checklists, and administrative functions. It supports
+    project administration, user management, and issue tracking workflows.
+  version: 1.0.0
+  termsOfService: >-
+    https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  contact:
+    name: Autodesk Platform Services
+    url: https://aps.autodesk.com
+    email: aps.help@autodesk.com
+  license:
+    name: Autodesk API Terms of Service
+    url: >-
+      https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+servers:
+  - url: https://developer.api.autodesk.com
+    description: Production
+security:
+  - OAuth2ThreeLegged:
+      - account:read
+paths:
+  /bim360/admin/v1/projects/{projectId}/users:
+    get:
+      operationId: getBim360ProjectUsers
+      summary: List Project Users
+      description: Returns a list of users assigned to a BIM 360 project.
+      tags:
+        - Admin
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully retrieved project users.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bim360UsersResponse'
+    post:
+      operationId: addBim360ProjectUser
+      summary: Add Project User
+      description: Adds a user to a BIM 360 project.
+      tags:
+        - Admin
+      security:
+        - OAuth2ThreeLegged:
+            - account:write
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddBim360UserRequest'
+      responses:
+        '201':
+          description: User added.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bim360User'
+  /bim360/admin/v1/projects/{projectId}/users/import:
+    post:
+      operationId: importBim360ProjectUsers
+      summary: Import Project Users
+      description: Bulk imports users to a BIM 360 project.
+      tags:
+        - Admin
+      security:
+        - OAuth2ThreeLegged:
+            - account:write
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AddBim360UserRequest'
+      responses:
+        '200':
+          description: Users imported.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: integer
+                  failure:
+                    type: integer
+                  success_items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Bim360User'
+  /issues/v1/containers/{containerId}/quality-issues:
+    get:
+      operationId: getIssues
+      summary: List Issues
+      description: >-
+        Returns a list of issues within a BIM 360 project container.
+      tags:
+        - Issues
+      parameters:
+        - name: containerId
+          in: path
+          required: true
+          description: The issues container ID for the project.
+          schema:
+            type: string
+        - name: filter[status]
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - open
+              - pending
+              - in_review
+              - closed
+              - void
+        - name: filter[assigned_to]
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: filter[due_date]
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date
+        - name: filter[created_at]
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: filter[target_urn]
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: page[limit]
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: page[offset]
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully retrieved issues.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/IssuesResponse'
+    post:
+      operationId: createIssue
+      summary: Create Issue
+      description: Creates a new issue in the project.
+      tags:
+        - Issues
+      security:
+        - OAuth2ThreeLegged:
+            - data:write
+      parameters:
+        - name: containerId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/CreateIssueRequest'
+      responses:
+        '201':
+          description: Issue created.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/IssueResponse'
+  /issues/v1/containers/{containerId}/quality-issues/{issueId}:
+    get:
+      operationId: getIssue
+      summary: Get Issue
+      description: Returns a specific issue.
+      tags:
+        - Issues
+      parameters:
+        - name: containerId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: issueId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved issue.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/IssueResponse'
+    patch:
+      operationId: updateIssue
+      summary: Update Issue
+      description: Updates an existing issue.
+      tags:
+        - Issues
+      security:
+        - OAuth2ThreeLegged:
+            - data:write
+      parameters:
+        - name: containerId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: issueId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/UpdateIssueRequest'
+      responses:
+        '200':
+          description: Issue updated.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/IssueResponse'
+  /issues/v1/containers/{containerId}/issue-types:
+    get:
+      operationId: getIssueTypes
+      summary: List Issue Types
+      description: Returns available issue types and subtypes for the container.
+      tags:
+        - Issues
+      parameters:
+        - name: containerId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved issue types.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/IssueTypesResponse'
+  /issues/v1/containers/{containerId}/quality-issues/{issueId}/comments:
+    get:
+      operationId: getIssueComments
+      summary: List Issue Comments
+      description: Returns comments on a specific issue.
+      tags:
+        - Issues
+      parameters:
+        - name: containerId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: issueId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved comments.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/CommentsResponse'
+    post:
+      operationId: createIssueComment
+      summary: Create Issue Comment
+      description: Adds a comment to an issue.
+      tags:
+        - Issues
+      security:
+        - OAuth2ThreeLegged:
+            - data:write
+      parameters:
+        - name: containerId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: issueId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/CreateCommentRequest'
+      responses:
+        '201':
+          description: Comment created.
+  /bim360/rfis/v2/containers/{containerId}/rfis:
+    get:
+      operationId: getRfis
+      summary: List RFIs
+      description: Returns a list of RFIs in the container.
+      tags:
+        - RFIs
+      parameters:
+        - name: containerId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: filter[status]
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: page[limit]
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: page[offset]
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully retrieved RFIs.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RfisResponse'
+components:
+  securitySchemes:
+    OAuth2ThreeLegged:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: >-
+            https://developer.api.autodesk.com/authentication/v2/authorize
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            account:read: Read account data
+            account:write: Write account data
+            data:read: Read data
+            data:write: Write data
+  schemas:
+    Bim360UsersResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bim360User'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Bim360User:
+      type: object
+      properties:
+        id:
+          type: string
+        account_id:
+          type: string
+        email:
+          type: string
+        name:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        uid:
+          type: string
+        image_url:
+          type: string
+          format: uri
+        status:
+          type: string
+          enum:
+            - active
+            - inactive
+            - pending
+        company_id:
+          type: string
+        company_name:
+          type: string
+        role:
+          type: string
+        industry_roles:
+          type: array
+          items:
+            type: string
+    AddBim360UserRequest:
+      type: object
+      required:
+        - email
+      properties:
+        email:
+          type: string
+        services:
+          type: object
+          properties:
+            document_management:
+              type: object
+              properties:
+                access_level:
+                  type: string
+                  enum:
+                    - admin
+                    - user
+            project_administration:
+              type: object
+              properties:
+                access_level:
+                  type: string
+                  enum:
+                    - admin
+                    - user
+        company_id:
+          type: string
+        industry_roles:
+          type: array
+          items:
+            type: string
+    IssuesResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+        meta:
+          type: object
+          properties:
+            record_count:
+              type: integer
+            page:
+              type: object
+              properties:
+                limit:
+                  type: integer
+                offset:
+                  type: integer
+    IssueResponse:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Issue'
+    Issue:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          example: quality_issues
+        attributes:
+          type: object
+          properties:
+            title:
+              type: string
+            description:
+              type: string
+            status:
+              type: string
+              enum:
+                - open
+                - pending
+                - in_review
+                - closed
+                - void
+            assigned_to:
+              type: string
+            assigned_to_type:
+              type: string
+              enum:
+                - user
+                - company
+                - role
+            due_date:
+              type: string
+              format: date
+            priority:
+              type: string
+            location_description:
+              type: string
+            issue_type_id:
+              type: string
+            issue_sub_type_id:
+              type: string
+            root_cause_id:
+              type: string
+            target_urn:
+              type: string
+            target_urn_page:
+              type: string
+            starting_version:
+              type: integer
+            sheet_metadata:
+              type: object
+            pushpin_attributes:
+              type: object
+              properties:
+                type:
+                  type: string
+                location:
+                  type: object
+                  properties:
+                    x:
+                      type: number
+                    'y':
+                      type: number
+                    z:
+                      type: number
+                viewer_state:
+                  type: object
+            created_at:
+              type: string
+              format: date-time
+            updated_at:
+              type: string
+              format: date-time
+            created_by:
+              type: string
+            closed_at:
+              type: string
+              format: date-time
+            closed_by:
+              type: string
+            answer:
+              type: string
+            answered_at:
+              type: string
+              format: date-time
+            answered_by:
+              type: string
+            comment_count:
+              type: integer
+            attachment_count:
+              type: integer
+    CreateIssueRequest:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+              example: quality_issues
+            attributes:
+              type: object
+              required:
+                - title
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                status:
+                  type: string
+                assigned_to:
+                  type: string
+                assigned_to_type:
+                  type: string
+                due_date:
+                  type: string
+                  format: date
+                priority:
+                  type: string
+                issue_type_id:
+                  type: string
+                issue_sub_type_id:
+                  type: string
+                location_description:
+                  type: string
+                target_urn:
+                  type: string
+    UpdateIssueRequest:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+              example: quality_issues
+            id:
+              type: string
+            attributes:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                status:
+                  type: string
+                assigned_to:
+                  type: string
+                due_date:
+                  type: string
+                  format: date
+                priority:
+                  type: string
+                answer:
+                  type: string
+    IssueTypesResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              type:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  title:
+                    type: string
+                  subtypes:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        title:
+                          type: string
+    CommentsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              type:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  body:
+                    type: string
+                  created_at:
+                    type: string
+                    format: date-time
+                  created_by:
+                    type: string
+    CreateCommentRequest:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+              example: comments
+            attributes:
+              type: object
+              required:
+                - body
+              properties:
+                body:
+                  type: string
+    RfisResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              title:
+                type: string
+              status:
+                type: string
+              assignedTo:
+                type: string
+              dueDate:
+                type: string
+                format: date
+              createdAt:
+                type: string
+                format: date-time
+              updatedAt:
+                type: string
+                format: date-time
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Pagination:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalResults:
+          type: integer

@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-search/autodesk/refs/heads/main/json-schema/autodesk-item.json",
+  "title": "Autodesk Item",
+  "description": "An item represents a file or document stored within a project folder in the Autodesk Data Management system. Items track version history and provide access to the underlying file data through version references.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "items",
+      "description": "The JSON:API resource type."
+    },
+    "id": {
+      "type": "string",
+      "description": "The unique item identifier (URN).",
+      "examples": ["urn:adsk.wipprod:dm.lineage:abcdefgh-1234"]
+    },
+    "attributes": {
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "description": "The display name of the item (typically the filename)."
+        },
+        "createTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the item was created."
+        },
+        "createUserId": {
+          "type": "string",
+          "description": "The user ID who created the item."
+        },
+        "createUserName": {
+          "type": "string",
+          "description": "The username who created the item."
+        },
+        "lastModifiedTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the item was last modified."
+        },
+        "lastModifiedUserId": {
+          "type": "string"
+        },
+        "lastModifiedUserName": {
+          "type": "string"
+        },
+        "hidden": {
+          "type": "boolean",
+          "description": "Whether the item is hidden."
+        },
+        "reserved": {
+          "type": "boolean",
+          "description": "Whether the item is reserved (checked out)."
+        },
+        "extension": {
+          "$ref": "#/$defs/Extension"
+        }
+      },
+      "required": ["displayName"]
+    },
+    "relationships": {
+      "type": "object",
+      "properties": {
+        "tip": {
+          "type": "object",
+          "description": "The latest version of this item.",
+          "properties": {
+            "data": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "const": "versions"
+                },
+                "id": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "versions": {
+          "type": "object",
+          "properties": {
+            "links": {
+              "type": "object",
+              "properties": {
+                "related": {
+                  "type": "object",
+                  "properties": {
+                    "href": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parent": {
+          "type": "object",
+          "description": "The parent folder.",
+          "properties": {
+            "data": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "const": "folders"
+                },
+                "id": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": ["type", "id"],
+  "$defs": {
+    "Extension": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "examples": ["items:autodesk.bim360:File", "items:autodesk.core:File"]
+        },
+        "version": {
+          "type": "string"
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,583 @@
+openapi: 3.1.0
+info:
+  title: Autodesk Tandem Data API
+  description: >-
+    The Tandem Data API enables reading BIM model data and reading/writing
+    custom schema properties for digital twin facility management. It
+    facilitates integration with external systems like asset management
+    platforms, work-order systems, and IoT sensors for creating and managing
+    digital twins of physical facilities.
+  version: 1.0.0
+  termsOfService: >-
+    https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  contact:
+    name: Autodesk Platform Services
+    url: https://aps.autodesk.com
+    email: aps.help@autodesk.com
+  license:
+    name: Autodesk API Terms of Service
+    url: >-
+      https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+servers:
+  - url: https://developer.api.autodesk.com
+    description: Production
+security:
+  - OAuth2ThreeLegged:
+      - data:read
+paths:
+  /tandem/v1/groups:
+    get:
+      operationId: getGroups
+      summary: List Groups
+      description: >-
+        Returns a list of facility groups (teams) that the authenticated
+        user has access to.
+      tags:
+        - Groups
+      responses:
+        '200':
+          description: Successfully retrieved groups.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupsResponse'
+  /tandem/v1/groups/{groupId}:
+    get:
+      operationId: getGroup
+      summary: Get Group
+      description: Returns details of a specific group.
+      tags:
+        - Groups
+      parameters:
+        - name: groupId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved group.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+  /tandem/v1/twins:
+    get:
+      operationId: getTwins
+      summary: List Twins
+      description: >-
+        Returns a list of digital twin facilities that the authenticated
+        user has access to.
+      tags:
+        - Twins
+      responses:
+        '200':
+          description: Successfully retrieved twins.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TwinsResponse'
+  /tandem/v1/twins/{twinId}:
+    get:
+      operationId: getTwin
+      summary: Get Twin
+      description: Returns details of a specific digital twin facility.
+      tags:
+        - Twins
+      parameters:
+        - name: twinId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved twin.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Twin'
+        '404':
+          description: Twin not found.
+  /tandem/v1/twins/{twinId}/models:
+    get:
+      operationId: getModels
+      summary: List Models
+      description: >-
+        Returns a list of BIM models associated with a digital twin facility.
+      tags:
+        - Models
+      parameters:
+        - name: twinId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved models.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelsResponse'
+  /tandem/v1/modeldata/{modelId}/scan:
+    post:
+      operationId: scanElements
+      summary: Scan Elements
+      description: >-
+        Scans and returns elements from a model, optionally filtered by
+        category, family, or property values. Returns element keys and
+        properties.
+      tags:
+        - Elements
+      parameters:
+        - name: modelId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScanRequest'
+      responses:
+        '200':
+          description: Successfully scanned elements.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScanResponse'
+  /tandem/v1/modeldata/{modelId}/props:
+    post:
+      operationId: getElementProperties
+      summary: Get Element Properties
+      description: >-
+        Returns properties for specific elements identified by their keys.
+      tags:
+        - Elements
+      parameters:
+        - name: modelId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PropsRequest'
+      responses:
+        '200':
+          description: Successfully retrieved properties.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropsResponse'
+  /tandem/v1/modeldata/{modelId}/mutate:
+    post:
+      operationId: mutateElements
+      summary: Mutate Element Properties
+      description: >-
+        Creates, updates, or deletes custom property values on elements.
+        Only properties defined in user-created schemas can be mutated.
+      tags:
+        - Elements
+      security:
+        - OAuth2ThreeLegged:
+            - data:write
+      parameters:
+        - name: modelId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MutateRequest'
+      responses:
+        '200':
+          description: Properties mutated successfully.
+        '400':
+          description: Bad request.
+  /tandem/v1/twins/{twinId}/schema:
+    get:
+      operationId: getSchema
+      summary: Get Twin Schema
+      description: >-
+        Returns the schema definition for a digital twin, including
+        built-in and custom property definitions.
+      tags:
+        - Schema
+      parameters:
+        - name: twinId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved schema.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SchemaResponse'
+  /tandem/v1/twins/{twinId}/streams:
+    get:
+      operationId: getStreams
+      summary: List Streams
+      description: >-
+        Returns IoT data streams associated with a digital twin for
+        time-series sensor data integration.
+      tags:
+        - Streams
+      parameters:
+        - name: twinId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved streams.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StreamsResponse'
+  /tandem/v1/timeseries/{streamId}:
+    get:
+      operationId: getTimeseriesData
+      summary: Get Timeseries Data
+      description: Returns time-series data for a specific IoT stream.
+      tags:
+        - Streams
+      parameters:
+        - name: streamId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: from
+          in: query
+          required: false
+          description: Start time (ISO 8601 or Unix timestamp).
+          schema:
+            type: string
+        - name: to
+          in: query
+          required: false
+          description: End time (ISO 8601 or Unix timestamp).
+          schema:
+            type: string
+        - name: resolution
+          in: query
+          required: false
+          description: Data resolution.
+          schema:
+            type: string
+            enum:
+              - raw
+              - minute
+              - hour
+              - day
+      responses:
+        '200':
+          description: Successfully retrieved timeseries data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimeseriesResponse'
+    post:
+      operationId: pushTimeseriesData
+      summary: Push Timeseries Data
+      description: Pushes new time-series data points to a stream.
+      tags:
+        - Streams
+      security:
+        - OAuth2ThreeLegged:
+            - data:write
+      parameters:
+        - name: streamId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PushTimeseriesRequest'
+      responses:
+        '200':
+          description: Data pushed successfully.
+        '400':
+          description: Bad request.
+components:
+  securitySchemes:
+    OAuth2ThreeLegged:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: >-
+            https://developer.api.autodesk.com/authentication/v2/authorize
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            data:read: Read access to data
+            data:write: Write access to data
+  schemas:
+    GroupsResponse:
+      type: object
+      properties:
+        groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/Group'
+    Group:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        twins:
+          type: array
+          items:
+            type: string
+            description: Twin IDs in this group.
+    TwinsResponse:
+      type: object
+      properties:
+        twins:
+          type: array
+          items:
+            $ref: '#/components/schemas/Twin'
+    Twin:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        settings:
+          type: object
+          properties:
+            dateCreated:
+              type: string
+              format: date-time
+            dateModified:
+              type: string
+              format: date-time
+            props:
+              type: object
+              additionalProperties: true
+        docs:
+          type: array
+          description: Associated document/model references.
+          items:
+            type: object
+            properties:
+              modelId:
+                type: string
+              urn:
+                type: string
+              label:
+                type: string
+    ModelsResponse:
+      type: object
+      properties:
+        models:
+          type: array
+          items:
+            type: object
+            properties:
+              modelId:
+                type: string
+              label:
+                type: string
+              urn:
+                type: string
+              status:
+                type: string
+              lastSyncTime:
+                type: string
+                format: date-time
+    ScanRequest:
+      type: object
+      properties:
+        families:
+          type: array
+          description: Filter by Revit family names.
+          items:
+            type: string
+        categoryId:
+          type: integer
+          description: Filter by category ID.
+        includeHistory:
+          type: boolean
+        columns:
+          type: array
+          description: Property columns to return.
+          items:
+            type: object
+            properties:
+              fam:
+                type: string
+              col:
+                type: string
+    ScanResponse:
+      type: object
+      properties:
+        rows:
+          type: array
+          items:
+            type: array
+            description: Each row is an array of property values.
+            items: {}
+        qualifiedColumns:
+          type: array
+          items:
+            type: object
+            properties:
+              fam:
+                type: string
+              col:
+                type: string
+              category:
+                type: string
+    PropsRequest:
+      type: object
+      required:
+        - keys
+      properties:
+        keys:
+          type: array
+          description: Element keys to retrieve properties for.
+          items:
+            type: string
+        columns:
+          type: array
+          items:
+            type: object
+            properties:
+              fam:
+                type: string
+              col:
+                type: string
+    PropsResponse:
+      type: object
+      properties:
+        rows:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+    MutateRequest:
+      type: object
+      required:
+        - mutations
+      properties:
+        mutations:
+          type: array
+          items:
+            type: object
+            required:
+              - key
+              - properties
+            properties:
+              key:
+                type: string
+                description: Element key to mutate.
+              properties:
+                type: object
+                additionalProperties: true
+                description: >-
+                  Property family:column pairs and their new values.
+    SchemaResponse:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              version:
+                type: integer
+              attrs:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    category:
+                      type: string
+                    dataType:
+                      type: integer
+                    flags:
+                      type: integer
+                    forgeUnit:
+                      type: string
+                    forgeSpec:
+                      type: string
+    StreamsResponse:
+      type: object
+      properties:
+        streams:
+          type: array
+          items:
+            type: object
+            properties:
+              streamId:
+                type: string
+              name:
+                type: string
+              elementKey:
+                type: string
+              propertyId:
+                type: string
+              lastValue: {}
+              lastTimestamp:
+                type: string
+                format: date-time
+    TimeseriesResponse:
+      type: object
+      properties:
+        timestamps:
+          type: array
+          items:
+            type: string
+            format: date-time
+        values:
+          type: array
+          items: {}
+        count:
+          type: integer
+    PushTimeseriesRequest:
+      type: object
+      required:
+        - datapoints
+      properties:
+        datapoints:
+          type: array
+          items:
+            type: object
+            required:
+              - timestamp
+              - value
+            properties:
+              timestamp:
+                type: string
+                format: date-time
+              value: {}

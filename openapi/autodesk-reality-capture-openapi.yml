@@ -1,0 +1,394 @@
+openapi: 3.1.0
+info:
+  title: Autodesk Reality Capture API
+  description: >-
+    The Reality Capture API uses photogrammetry to generate high-resolution
+    3D meshes, point clouds, and orthophotos from photographs. It leverages
+    cloud computing for structure-from-motion and multi-view-geometry algorithms,
+    producing output compatible with ReCap, Civil 3D, InfraWorks, and other
+    Autodesk products.
+  version: 1.0.0
+  termsOfService: >-
+    https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  contact:
+    name: Autodesk Platform Services
+    url: https://aps.autodesk.com
+    email: aps.help@autodesk.com
+  license:
+    name: Autodesk API Terms of Service
+    url: >-
+      https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+servers:
+  - url: https://developer.api.autodesk.com
+    description: Production
+security:
+  - OAuth2TwoLegged:
+      - data:read
+      - data:write
+      - data:create
+paths:
+  /photo-to-3d/v1/photoscene:
+    post:
+      operationId: createPhotoscene
+      summary: Create Photoscene
+      description: >-
+        Creates a new photoscene, which is a container for a photogrammetry
+        processing job. Specify the output format, processing type, and GPS
+        settings.
+      tags:
+        - Photoscenes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePhotosceneRequest'
+      responses:
+        '200':
+          description: Photoscene created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PhotosceneResponse'
+        '400':
+          description: Bad request.
+        '401':
+          description: Unauthorized.
+  /photo-to-3d/v1/photoscene/{photosceneid}:
+    get:
+      operationId: getPhotoscene
+      summary: Get Photoscene Properties
+      description: Returns properties and status of a specific photoscene.
+      tags:
+        - Photoscenes
+      parameters:
+        - name: photosceneid
+          in: path
+          required: true
+          description: The unique photoscene identifier.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved photoscene.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PhotoscenePropertiesResponse'
+        '404':
+          description: Photoscene not found.
+    delete:
+      operationId: deletePhotoscene
+      summary: Delete Photoscene
+      description: >-
+        Deletes a photoscene and all associated data including uploaded
+        images and generated outputs.
+      tags:
+        - Photoscenes
+      parameters:
+        - name: photosceneid
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Photoscene deleted successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  msg:
+                    type: string
+        '404':
+          description: Photoscene not found.
+  /photo-to-3d/v1/file:
+    post:
+      operationId: uploadFiles
+      summary: Upload Files to Photoscene
+      description: >-
+        Uploads one or more photos to a photoscene. Photos can be uploaded
+        as file data or as URLs. Supports JPEG and PNG formats.
+      tags:
+        - Files
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - photosceneid
+                - type
+              properties:
+                photosceneid:
+                  type: string
+                  description: The photoscene to upload files to.
+                type:
+                  type: string
+                  description: Upload type.
+                  enum:
+                    - image
+                file[0]:
+                  type: string
+                  format: binary
+                  description: First image file.
+                file[1]:
+                  type: string
+                  format: binary
+                  description: Additional image file.
+      responses:
+        '200':
+          description: Files uploaded successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileUploadResponse'
+        '400':
+          description: Bad request.
+  /photo-to-3d/v1/photoscene/{photosceneid}/progress:
+    get:
+      operationId: getPhotosceneProgress
+      summary: Get Processing Progress
+      description: >-
+        Returns the processing progress of a photoscene. Poll this
+        endpoint to track the status of a processing job.
+      tags:
+        - Photoscenes
+      parameters:
+        - name: photosceneid
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved progress.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProgressResponse'
+  /photo-to-3d/v1/photoscene/{photosceneid}:
+    post:
+      operationId: processPhotoscene
+      summary: Process Photoscene
+      description: >-
+        Starts the photogrammetry processing for a photoscene. Must have
+        uploaded at least 3 photos before processing.
+      tags:
+        - Processing
+      parameters:
+        - name: photosceneid
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Processing started.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  msg:
+                    type: string
+                  Photoscene:
+                    type: object
+                    properties:
+                      photosceneid:
+                        type: string
+        '400':
+          description: Bad request - insufficient photos.
+  /photo-to-3d/v1/photoscene/{photosceneid}?format={format}:
+    get:
+      operationId: getPhotosceneResult
+      summary: Get Photoscene Result
+      description: >-
+        Returns a download link for the processed result in the specified
+        format. The result must be ready (processing complete) before
+        downloading.
+      tags:
+        - Results
+      parameters:
+        - name: photosceneid
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: format
+          in: query
+          required: true
+          description: Output format for the result.
+          schema:
+            type: string
+            enum:
+              - rcm
+              - rcs
+              - obj
+              - ortho
+              - report
+      responses:
+        '200':
+          description: Download link returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultResponse'
+        '404':
+          description: Result not found or not ready.
+components:
+  securitySchemes:
+    OAuth2TwoLegged:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            data:read: Read access to data
+            data:write: Write access to data
+            data:create: Create new data
+  schemas:
+    CreatePhotosceneRequest:
+      type: object
+      required:
+        - scenename
+        - scenetype
+        - format
+      properties:
+        scenename:
+          type: string
+          description: Name for the photoscene.
+        scenetype:
+          type: string
+          description: Processing type.
+          enum:
+            - aerial
+            - object
+        format:
+          type: string
+          description: Output format.
+          enum:
+            - rcm
+            - rcs
+            - obj
+            - ortho
+        gpstype:
+          type: string
+          description: GPS data type.
+          enum:
+            - none
+            - wgs84
+            - nadcon
+        callback:
+          type: string
+          format: uri
+          description: >-
+            Optional callback URL to receive notification when processing
+            completes.
+    PhotosceneResponse:
+      type: object
+      properties:
+        Photoscene:
+          type: object
+          properties:
+            photosceneid:
+              type: string
+    PhotoscenePropertiesResponse:
+      type: object
+      properties:
+        Photoscene:
+          type: object
+          properties:
+            photosceneid:
+              type: string
+            name:
+              type: string
+            status:
+              type: string
+              enum:
+                - Created
+                - Processing
+                - Done
+                - Error
+            progressmsg:
+              type: string
+            scenelink:
+              type: string
+              format: uri
+            filesize:
+              type: integer
+            convertformat:
+              type: string
+            convertStatus:
+              type: string
+            nb3dpoints:
+              type: integer
+            nbfaces:
+              type: integer
+            nbshots:
+              type: integer
+            nbstitchedshots:
+              type: integer
+            files:
+              type: array
+              items:
+                type: object
+                properties:
+                  fileid:
+                    type: string
+                  filename:
+                    type: string
+                  filesize:
+                    type: integer
+    FileUploadResponse:
+      type: object
+      properties:
+        photosceneid:
+          type: string
+        Files:
+          type: object
+          properties:
+            file:
+              type: array
+              items:
+                type: object
+                properties:
+                  filename:
+                    type: string
+                  fileid:
+                    type: string
+                  filesize:
+                    type: integer
+                  msg:
+                    type: string
+    ProgressResponse:
+      type: object
+      properties:
+        Photoscene:
+          type: object
+          properties:
+            photosceneid:
+              type: string
+            progressmsg:
+              type: string
+              description: >-
+                Current processing stage description.
+            progress:
+              type: string
+              description: Processing progress percentage.
+    ResultResponse:
+      type: object
+      properties:
+        Photoscene:
+          type: object
+          properties:
+            photosceneid:
+              type: string
+            scenelink:
+              type: string
+              format: uri
+              description: Temporary download URL for the result.
+            filesize:
+              type: integer

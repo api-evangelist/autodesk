@@ -1,0 +1,710 @@
+openapi: 3.1.0
+info:
+  title: Autodesk Model Derivative API
+  description: >-
+    The Model Derivative API translates design files into formats suitable for
+    rendering in the Autodesk Viewer (SVF, SVF2), converts to standard outputs
+    (OBJ, STL, STEP, IGES), and extracts metadata including object hierarchy
+    trees, properties, and geometries from over 60 input file formats.
+  version: 2.0.0
+  termsOfService: >-
+    https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  contact:
+    name: Autodesk Platform Services
+    url: https://aps.autodesk.com
+    email: aps.help@autodesk.com
+  license:
+    name: Autodesk API Terms of Service
+    url: >-
+      https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+servers:
+  - url: https://developer.api.autodesk.com
+    description: Production (US)
+  - url: https://developer.api.autodesk.com/regions/eu
+    description: Production (EMEA)
+security:
+  - OAuth2TwoLegged:
+      - data:read
+      - data:write
+      - data:create
+paths:
+  /modelderivative/v2/designdata/job:
+    post:
+      operationId: startJob
+      summary: Start Translation Job
+      description: >-
+        Starts a translation job to convert a source design file into one or
+        more derivative formats. The source file is identified by its URN
+        (Base64-encoded object ID from the Data Management or OSS API).
+      tags:
+        - Jobs
+      parameters:
+        - name: x-ads-force
+          in: header
+          required: false
+          description: >-
+            Set to true to force re-translation even if the output already
+            exists.
+          schema:
+            type: boolean
+        - name: x-ads-derivative-format
+          in: header
+          required: false
+          description: The derivative format version (v2 for SVF2).
+          schema:
+            type: string
+            enum:
+              - latest
+              - v2
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobPayload'
+      responses:
+        '200':
+          description: Translation job started or already complete.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobResponse'
+        '201':
+          description: Translation job accepted and started.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobResponse'
+        '400':
+          description: Bad request.
+        '401':
+          description: Unauthorized.
+  /modelderivative/v2/designdata/{urn}/manifest:
+    get:
+      operationId: getManifest
+      summary: Get Manifest
+      description: >-
+        Returns information about derivatives that correspond to a specific
+        source design, including derivative URNs, translation status, and
+        available outputs.
+      tags:
+        - Manifest
+      parameters:
+        - name: urn
+          in: path
+          required: true
+          description: >-
+            The Base64 (URL-safe) encoded URN of the source design.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved manifest.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Manifest'
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Manifest not found.
+    delete:
+      operationId: deleteManifest
+      summary: Delete Manifest
+      description: >-
+        Deletes the manifest and all derivatives of a source design. Does not
+        delete the source design itself.
+      tags:
+        - Manifest
+      parameters:
+        - name: urn
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Manifest and derivatives deleted.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Manifest not found.
+  /modelderivative/v2/designdata/{urn}/metadata:
+    get:
+      operationId: getMetadata
+      summary: Get Metadata
+      description: >-
+        Returns a list of model views (viewables) available for the source
+        design. Each viewable has a GUID that can be used to query its object
+        tree and properties.
+      tags:
+        - Metadata
+      parameters:
+        - name: urn
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved metadata.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetadataResponse'
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Metadata not found.
+  /modelderivative/v2/designdata/{urn}/metadata/{guid}:
+    get:
+      operationId: getObjectTree
+      summary: Get Object Tree
+      description: >-
+        Returns the object hierarchy tree for a specific viewable within the
+        source design.
+      tags:
+        - Metadata
+      parameters:
+        - name: urn
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: guid
+          in: path
+          required: true
+          description: The GUID of the viewable.
+          schema:
+            type: string
+        - name: forceget
+          in: query
+          required: false
+          description: >-
+            Set to true to force fetching the full tree instead of using
+            pagination.
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Successfully retrieved object tree.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectTreeResponse'
+        '202':
+          description: Object tree is being generated. Retry later.
+  /modelderivative/v2/designdata/{urn}/metadata/{guid}/properties:
+    get:
+      operationId: getProperties
+      summary: Get All Properties
+      description: >-
+        Returns the properties of all objects in a specific viewable. For large
+        models, use the forceget parameter to ensure all data is returned.
+      tags:
+        - Metadata
+      parameters:
+        - name: urn
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: guid
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: forceget
+          in: query
+          required: false
+          schema:
+            type: boolean
+        - name: objectid
+          in: query
+          required: false
+          description: Filter properties by a specific object ID.
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully retrieved properties.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertiesResponse'
+        '202':
+          description: Properties are being generated. Retry later.
+  /modelderivative/v2/designdata/{urn}/metadata/{guid}/properties:query:
+    post:
+      operationId: queryProperties
+      summary: Query Properties
+      description: >-
+        Returns a filtered set of properties for a viewable based on specified
+        criteria. Supports pagination for large result sets.
+      tags:
+        - Metadata
+      parameters:
+        - name: urn
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: guid
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PropertiesQuery'
+      responses:
+        '200':
+          description: Successfully queried properties.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertiesResponse'
+  /modelderivative/v2/designdata/{urn}/thumbnail:
+    get:
+      operationId: getThumbnail
+      summary: Get Thumbnail
+      description: Returns a thumbnail image of the source design.
+      tags:
+        - Thumbnails
+      parameters:
+        - name: urn
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: width
+          in: query
+          required: false
+          description: Width of the thumbnail in pixels (100, 200, or 400).
+          schema:
+            type: integer
+            enum:
+              - 100
+              - 200
+              - 400
+        - name: height
+          in: query
+          required: false
+          description: Height of the thumbnail in pixels (100, 200, or 400).
+          schema:
+            type: integer
+            enum:
+              - 100
+              - 200
+              - 400
+      responses:
+        '200':
+          description: Successfully retrieved thumbnail.
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Thumbnail not found.
+  /modelderivative/v2/designdata/{urn}/manifest/{derivativeUrn}:
+    get:
+      operationId: getDerivativeDownload
+      summary: Download Derivative
+      description: Downloads a specific derivative file.
+      tags:
+        - Derivatives
+      parameters:
+        - name: urn
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: derivativeUrn
+          in: path
+          required: true
+          description: URL-encoded URN of the derivative.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully downloaded derivative.
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Derivative not found.
+  /modelderivative/v2/designdata/formats:
+    get:
+      operationId: getFormats
+      summary: List Supported Formats
+      description: >-
+        Returns a list of supported input and output formats for translation.
+      tags:
+        - Informational
+      responses:
+        '200':
+          description: Successfully retrieved supported formats.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormatsResponse'
+components:
+  securitySchemes:
+    OAuth2TwoLegged:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            data:read: Read access to data
+            data:write: Write access to data
+            data:create: Create new data
+    OAuth2ThreeLegged:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: >-
+            https://developer.api.autodesk.com/authentication/v2/authorize
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            data:read: Read access to data
+            data:write: Write access to data
+            data:create: Create new data
+  schemas:
+    JobPayload:
+      type: object
+      required:
+        - input
+        - output
+      properties:
+        input:
+          type: object
+          required:
+            - urn
+          properties:
+            urn:
+              type: string
+              description: >-
+                The URL-safe Base64-encoded URN of the source design file.
+            compressedUrn:
+              type: boolean
+              description: Set to true if the URN is a zipped file.
+            rootFilename:
+              type: string
+              description: The root filename within a zipped file.
+        output:
+          type: object
+          required:
+            - formats
+          properties:
+            destination:
+              type: object
+              properties:
+                region:
+                  type: string
+                  description: Region for storing derivatives.
+                  enum:
+                    - us
+                    - emea
+            formats:
+              type: array
+              items:
+                type: object
+                required:
+                  - type
+                properties:
+                  type:
+                    type: string
+                    description: Output format type.
+                    enum:
+                      - svf
+                      - svf2
+                      - thumbnail
+                      - stl
+                      - step
+                      - iges
+                      - obj
+                      - ifc
+                      - dwg
+                  views:
+                    type: array
+                    description: >-
+                      Viewable types for SVF/SVF2 output.
+                    items:
+                      type: string
+                      enum:
+                        - 2d
+                        - 3d
+                  advanced:
+                    type: object
+                    description: Advanced output options.
+                    properties:
+                      exportFileStructure:
+                        type: string
+                        enum:
+                          - single
+                          - multiple
+                      modelGuid:
+                        type: string
+                      objectIds:
+                        type: array
+                        items:
+                          type: integer
+    JobResponse:
+      type: object
+      properties:
+        result:
+          type: string
+          description: Result status of the job submission.
+        urn:
+          type: string
+          description: The URN of the source design.
+        acceptedJobs:
+          type: object
+          properties:
+            output:
+              type: object
+              properties:
+                formats:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+    Manifest:
+      type: object
+      properties:
+        type:
+          type: string
+          example: manifest
+        hasThumbnail:
+          type: string
+          enum:
+            - 'true'
+            - 'false'
+        status:
+          type: string
+          description: Overall translation status.
+          enum:
+            - pending
+            - inprogress
+            - success
+            - failed
+            - timeout
+        progress:
+          type: string
+          description: Translation progress percentage.
+        region:
+          type: string
+        urn:
+          type: string
+        version:
+          type: string
+        derivatives:
+          type: array
+          items:
+            $ref: '#/components/schemas/Derivative'
+    Derivative:
+      type: object
+      properties:
+        name:
+          type: string
+        hasThumbnail:
+          type: string
+        status:
+          type: string
+          enum:
+            - pending
+            - inprogress
+            - success
+            - failed
+            - timeout
+        progress:
+          type: string
+        outputType:
+          type: string
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/DerivativeChild'
+    DerivativeChild:
+      type: object
+      properties:
+        guid:
+          type: string
+        type:
+          type: string
+          enum:
+            - resource
+            - geometry
+            - view
+        role:
+          type: string
+          enum:
+            - 3d
+            - 2d
+            - graphics
+            - thumbnail
+            - Autodesk.CloudPlatform.PropertyDatabase
+        name:
+          type: string
+        status:
+          type: string
+        progress:
+          type: string
+        mime:
+          type: string
+        urn:
+          type: string
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/DerivativeChild'
+    MetadataResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+              example: metadata
+            metadata:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  guid:
+                    type: string
+                  role:
+                    type: string
+                    enum:
+                      - 3d
+                      - 2d
+                  isMasterView:
+                    type: boolean
+    ObjectTreeResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+              example: objects
+            objects:
+              type: array
+              items:
+                $ref: '#/components/schemas/ObjectNode'
+    ObjectNode:
+      type: object
+      properties:
+        objectid:
+          type: integer
+        name:
+          type: string
+        objects:
+          type: array
+          items:
+            $ref: '#/components/schemas/ObjectNode'
+    PropertiesResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+              example: properties
+            collection:
+              type: array
+              items:
+                type: object
+                properties:
+                  objectid:
+                    type: integer
+                  name:
+                    type: string
+                  externalId:
+                    type: string
+                  properties:
+                    type: object
+                    additionalProperties: true
+    PropertiesQuery:
+      type: object
+      properties:
+        query:
+          type: object
+          properties:
+            $prefix:
+              type: array
+              items:
+                type: string
+            $contains:
+              type: array
+              items:
+                type: string
+            $between:
+              type: array
+              items: {}
+            $eq:
+              type: array
+              items: {}
+            $le:
+              type: array
+              items: {}
+            $ge:
+              type: array
+              items: {}
+            $gt:
+              type: array
+              items: {}
+            $lt:
+              type: array
+              items: {}
+            $ne:
+              type: array
+              items: {}
+            $in:
+              type: array
+              items: {}
+            $nin:
+              type: array
+              items: {}
+        fields:
+          type: array
+          description: List of property names to return.
+          items:
+            type: string
+        pagination:
+          type: object
+          properties:
+            offset:
+              type: integer
+            limit:
+              type: integer
+    FormatsResponse:
+      type: object
+      properties:
+        formats:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string

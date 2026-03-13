@@ -1,0 +1,318 @@
+openapi: 3.1.0
+info:
+  title: Autodesk Sustainability Data API
+  description: >-
+    The Sustainability Data API provides access to regional environmental
+    data through a standardized interface, enabling accurate carbon
+    calculations and integration of trusted third-party sustainability
+    datasets into applications at all design stages. It includes data on
+    electricity grids, materials, transportation, and construction activities.
+  version: 3.0.0
+  termsOfService: >-
+    https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  contact:
+    name: Autodesk Platform Services
+    url: https://aps.autodesk.com
+    email: aps.help@autodesk.com
+  license:
+    name: Autodesk API Terms of Service
+    url: >-
+      https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+servers:
+  - url: https://developer.api.autodesk.com
+    description: Production
+security:
+  - OAuth2TwoLegged:
+      - data:read
+paths:
+  /sustainability/v3/datasets:
+    get:
+      operationId: getDatasets
+      summary: List Datasets
+      description: >-
+        Returns a list of available sustainability datasets. Each dataset
+        contains environmental impact data from specific data providers.
+      tags:
+        - Datasets
+      parameters:
+        - name: page[offset]
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: page[limit]
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: filter[type]
+          in: query
+          required: false
+          description: Filter by dataset type.
+          schema:
+            type: string
+            enum:
+              - electricity
+              - material
+              - transportation
+              - construction
+      responses:
+        '200':
+          description: Successfully retrieved datasets.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatasetsResponse'
+        '401':
+          description: Unauthorized.
+  /sustainability/v3/datasets/{datasetId}:
+    get:
+      operationId: getDataset
+      summary: Get Dataset
+      description: Returns details of a specific dataset.
+      tags:
+        - Datasets
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved dataset.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dataset'
+        '404':
+          description: Dataset not found.
+  /sustainability/v3/datasets/{datasetId}/records:
+    get:
+      operationId: getRecords
+      summary: List Records
+      description: >-
+        Returns environmental impact records from a specific dataset.
+        Records contain emission factors, carbon intensities, and other
+        environmental metrics.
+      tags:
+        - Records
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: filter[region]
+          in: query
+          required: false
+          description: Filter by region or country code.
+          schema:
+            type: string
+        - name: filter[category]
+          in: query
+          required: false
+          description: Filter by category.
+          schema:
+            type: string
+        - name: filter[year]
+          in: query
+          required: false
+          description: Filter by year.
+          schema:
+            type: integer
+        - name: page[offset]
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: page[limit]
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully retrieved records.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecordsResponse'
+  /sustainability/v3/datasets/{datasetId}/records/{recordId}:
+    get:
+      operationId: getRecord
+      summary: Get Record
+      description: Returns a specific environmental impact record.
+      tags:
+        - Records
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: recordId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Record'
+        '404':
+          description: Record not found.
+  /sustainability/v3/calculation:
+    post:
+      operationId: calculateEmissions
+      summary: Calculate Emissions
+      description: >-
+        Calculates carbon emissions based on provided parameters such as
+        energy consumption, material quantities, or transportation distances.
+      tags:
+        - Calculations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CalculationRequest'
+      responses:
+        '200':
+          description: Calculation completed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CalculationResponse'
+        '400':
+          description: Bad request.
+components:
+  securitySchemes:
+    OAuth2TwoLegged:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            data:read: Read access to data
+  schemas:
+    DatasetsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Dataset'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Dataset:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        type:
+          type: string
+          enum:
+            - electricity
+            - material
+            - transportation
+            - construction
+        provider:
+          type: string
+          description: Data provider name.
+        version:
+          type: string
+        regions:
+          type: array
+          items:
+            type: string
+        lastUpdated:
+          type: string
+          format: date-time
+    RecordsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Record'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Record:
+      type: object
+      properties:
+        id:
+          type: string
+        datasetId:
+          type: string
+        name:
+          type: string
+        category:
+          type: string
+        region:
+          type: string
+        year:
+          type: integer
+        unit:
+          type: string
+          description: Unit of measurement.
+        emissionFactor:
+          type: number
+          description: Carbon emission factor value.
+        emissionFactorUnit:
+          type: string
+          description: Unit for the emission factor (e.g., kgCO2e/kWh).
+        gwp:
+          type: number
+          description: Global Warming Potential value.
+        metadata:
+          type: object
+          additionalProperties: true
+    CalculationRequest:
+      type: object
+      required:
+        - datasetId
+        - recordId
+        - quantity
+      properties:
+        datasetId:
+          type: string
+        recordId:
+          type: string
+        quantity:
+          type: number
+          description: Quantity in the unit specified by the record.
+        unit:
+          type: string
+          description: Unit of the quantity.
+    CalculationResponse:
+      type: object
+      properties:
+        totalEmissions:
+          type: number
+          description: Total calculated emissions in kgCO2e.
+        unit:
+          type: string
+          example: kgCO2e
+        emissionFactor:
+          type: number
+        quantity:
+          type: number
+        record:
+          $ref: '#/components/schemas/Record'
+    Pagination:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalResults:
+          type: integer

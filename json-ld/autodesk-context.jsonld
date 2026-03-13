@@ -1,0 +1,185 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "adsk": "https://developer.api.autodesk.com/schema/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+
+    "Hub": "adsk:Hub",
+    "Project": "adsk:Project",
+    "Folder": "adsk:Folder",
+    "Item": "adsk:Item",
+    "Version": "adsk:Version",
+    "Bucket": "adsk:Bucket",
+    "ObjectDetail": "adsk:ObjectDetail",
+    "Issue": "adsk:Issue",
+    "Webhook": "adsk:Webhook",
+    "WebhookEvent": "adsk:WebhookEvent",
+    "Photoscene": "adsk:Photoscene",
+    "DigitalTwin": "adsk:DigitalTwin",
+    "Activity": "adsk:Activity",
+    "AppBundle": "adsk:AppBundle",
+    "WorkItem": "adsk:WorkItem",
+    "ParameterDefinition": "adsk:ParameterDefinition",
+    "ParameterCollection": "adsk:ParameterCollection",
+
+    "id": "@id",
+    "type": "@type",
+    "name": "schema:name",
+    "description": "schema:description",
+    "displayName": "schema:name",
+    "created": "dcterms:created",
+    "modified": "dcterms:modified",
+    "creator": "dcterms:creator",
+
+    "hubId": {
+      "@id": "adsk:hubId",
+      "@type": "xsd:string"
+    },
+    "projectId": {
+      "@id": "adsk:projectId",
+      "@type": "xsd:string"
+    },
+    "folderId": {
+      "@id": "adsk:folderId",
+      "@type": "xsd:string"
+    },
+    "itemId": {
+      "@id": "adsk:itemId",
+      "@type": "xsd:string"
+    },
+    "versionNumber": {
+      "@id": "adsk:versionNumber",
+      "@type": "xsd:integer"
+    },
+    "urn": {
+      "@id": "adsk:urn",
+      "@type": "xsd:string"
+    },
+    "region": {
+      "@id": "adsk:region",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "adsk:status",
+      "@type": "xsd:string"
+    },
+    "mimeType": {
+      "@id": "schema:encodingFormat",
+      "@type": "xsd:string"
+    },
+    "fileType": {
+      "@id": "adsk:fileType",
+      "@type": "xsd:string"
+    },
+    "storageSize": {
+      "@id": "schema:contentSize",
+      "@type": "xsd:integer"
+    },
+    "bucketKey": {
+      "@id": "adsk:bucketKey",
+      "@type": "xsd:string"
+    },
+    "objectKey": {
+      "@id": "adsk:objectKey",
+      "@type": "xsd:string"
+    },
+    "policyKey": {
+      "@id": "adsk:policyKey",
+      "@type": "xsd:string"
+    },
+
+    "callbackUrl": {
+      "@id": "adsk:callbackUrl",
+      "@type": "xsd:anyURI"
+    },
+    "event": {
+      "@id": "adsk:event",
+      "@type": "xsd:string"
+    },
+    "system": {
+      "@id": "adsk:system",
+      "@type": "xsd:string"
+    },
+    "hookId": {
+      "@id": "adsk:hookId",
+      "@type": "xsd:string"
+    },
+
+    "title": "schema:name",
+    "priority": {
+      "@id": "adsk:priority",
+      "@type": "xsd:string"
+    },
+    "assignedTo": {
+      "@id": "adsk:assignedTo",
+      "@type": "xsd:string"
+    },
+    "dueDate": {
+      "@id": "adsk:dueDate",
+      "@type": "xsd:date"
+    },
+
+    "engine": {
+      "@id": "adsk:engine",
+      "@type": "xsd:string"
+    },
+    "activityId": {
+      "@id": "adsk:activityId",
+      "@type": "xsd:string"
+    },
+
+    "emissionFactor": {
+      "@id": "adsk:emissionFactor",
+      "@type": "xsd:decimal"
+    },
+    "gwp": {
+      "@id": "adsk:globalWarmingPotential",
+      "@type": "xsd:decimal"
+    },
+
+    "twin": {
+      "@id": "adsk:twin",
+      "@type": "@id"
+    },
+    "model": {
+      "@id": "adsk:model",
+      "@type": "@id"
+    },
+    "element": {
+      "@id": "adsk:element",
+      "@type": "@id"
+    },
+
+    "hasProject": {
+      "@id": "adsk:hasProject",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "hasFolder": {
+      "@id": "adsk:hasFolder",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "hasItem": {
+      "@id": "adsk:hasItem",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "hasVersion": {
+      "@id": "adsk:hasVersion",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "parentFolder": {
+      "@id": "adsk:parentFolder",
+      "@type": "@id"
+    },
+    "parentHub": {
+      "@id": "adsk:parentHub",
+      "@type": "@id"
+    }
+  }
+}

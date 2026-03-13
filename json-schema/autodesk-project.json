@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-search/autodesk/refs/heads/main/json-schema/autodesk-project.json",
+  "title": "Autodesk Project",
+  "description": "A project represents a design or construction project within a hub. Projects contain folders, items, and versions that organize the project's design data and documents.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "projects",
+      "description": "The JSON:API resource type."
+    },
+    "id": {
+      "type": "string",
+      "description": "The unique project identifier, prefixed with 'b.' for BIM 360/ACC projects.",
+      "examples": ["b.12345678-abcd-efgh-ijkl-123456789012"]
+    },
+    "attributes": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The display name of the project."
+        },
+        "scopes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Access scopes the user has on this project."
+        },
+        "extension": {
+          "$ref": "#/$defs/Extension"
+        }
+      },
+      "required": ["name"]
+    },
+    "relationships": {
+      "type": "object",
+      "properties": {
+        "hub": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "const": "hubs"
+                },
+                "id": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "rootFolder": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "const": "folders"
+                },
+                "id": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "topFolders": {
+          "type": "object",
+          "properties": {
+            "links": {
+              "type": "object",
+              "properties": {
+                "related": {
+                  "type": "object",
+                  "properties": {
+                    "href": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "issues": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": ["type", "id"],
+  "$defs": {
+    "Extension": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "examples": ["projects:autodesk.bim360:Project", "projects:autodesk.core:Project"]
+        },
+        "version": {
+          "type": "string"
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    }
+  }
+}

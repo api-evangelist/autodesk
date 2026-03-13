@@ -1,0 +1,477 @@
+openapi: 3.1.0
+info:
+  title: Autodesk Authentication API
+  description: >-
+    The Autodesk Authentication API provides OAuth 2.0 based authentication and
+    authorization for Autodesk Platform Services (APS). It supports two-legged
+    (client credentials) and three-legged (authorization code) OAuth flows,
+    enabling applications to securely access user data across Autodesk cloud
+    services without directly handling user passwords.
+  version: 2.0.0
+  termsOfService: >-
+    https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  contact:
+    name: Autodesk Platform Services
+    url: https://aps.autodesk.com
+    email: aps.help@autodesk.com
+  license:
+    name: Autodesk API Terms of Service
+    url: >-
+      https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+servers:
+  - url: https://developer.api.autodesk.com
+    description: Production
+paths:
+  /authentication/v2/authorize:
+    get:
+      operationId: authorize
+      summary: Authorize User
+      description: >-
+        Redirects the user to the Autodesk login page where they grant your
+        application access to their data. This is the first step of the
+        three-legged OAuth flow. After the user grants consent, Autodesk
+        redirects them back to the redirect URI with an authorization code.
+      tags:
+        - Authorization
+      parameters:
+        - name: response_type
+          in: query
+          required: true
+          description: Must be set to `code` for authorization code flow.
+          schema:
+            type: string
+            enum:
+              - code
+        - name: client_id
+          in: query
+          required: true
+          description: The Client ID of your APS application.
+          schema:
+            type: string
+        - name: redirect_uri
+          in: query
+          required: true
+          description: >-
+            The URI that Autodesk redirects the user to after granting consent.
+            Must match a redirect URI registered with the application.
+          schema:
+            type: string
+            format: uri
+        - name: scope
+          in: query
+          required: true
+          description: >-
+            Space-separated list of scopes requested. Common scopes include
+            data:read, data:write, data:create, account:read, account:write.
+          schema:
+            type: string
+        - name: state
+          in: query
+          required: false
+          description: >-
+            An opaque value that the application uses to maintain state between
+            the request and callback. Used to prevent CSRF attacks.
+          schema:
+            type: string
+        - name: nonce
+          in: query
+          required: false
+          description: A random string used to associate a client session with an ID token.
+          schema:
+            type: string
+        - name: prompt
+          in: query
+          required: false
+          description: Controls the authentication experience presented to the user.
+          schema:
+            type: string
+            enum:
+              - login
+      responses:
+        '302':
+          description: Redirects the user to the Autodesk login page.
+  /authentication/v2/token:
+    post:
+      operationId: getToken
+      summary: Get Token
+      description: >-
+        Returns an access token or refresh an existing token. Supports
+        client_credentials (two-legged), authorization_code (three-legged),
+        and refresh_token grant types.
+      tags:
+        - Token
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+                - grant_type
+              properties:
+                grant_type:
+                  type: string
+                  description: The grant type for the token request.
+                  enum:
+                    - client_credentials
+                    - authorization_code
+                    - refresh_token
+                client_id:
+                  type: string
+                  description: >-
+                    The Client ID of your application. Required if not using
+                    HTTP Basic authentication.
+                client_secret:
+                  type: string
+                  description: >-
+                    The Client Secret of your application. Required for
+                    confidential clients if not using HTTP Basic authentication.
+                code:
+                  type: string
+                  description: >-
+                    The authorization code received from the authorize endpoint.
+                    Required when grant_type is authorization_code.
+                redirect_uri:
+                  type: string
+                  format: uri
+                  description: >-
+                    The redirect URI used in the authorization request. Required
+                    when grant_type is authorization_code.
+                scope:
+                  type: string
+                  description: >-
+                    Space-separated list of scopes. Required for
+                    client_credentials grant type.
+                refresh_token:
+                  type: string
+                  description: >-
+                    The refresh token. Required when grant_type is
+                    refresh_token.
+                code_verifier:
+                  type: string
+                  description: >-
+                    The PKCE code verifier. Required if a code_challenge was
+                    used in the authorize request.
+      responses:
+        '200':
+          description: Successfully obtained access token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+        '400':
+          description: Bad request - invalid grant type or missing parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - invalid client credentials.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /authentication/v2/revoke:
+    post:
+      operationId: revokeToken
+      summary: Revoke Token
+      description: >-
+        Revokes an active access token or refresh token, rendering it invalid
+        for further use.
+      tags:
+        - Token
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+                - token
+                - token_type_hint
+                - client_id
+              properties:
+                token:
+                  type: string
+                  description: The token to revoke.
+                token_type_hint:
+                  type: string
+                  description: The type of the token being revoked.
+                  enum:
+                    - access_token
+                    - refresh_token
+                client_id:
+                  type: string
+                  description: The Client ID of your application.
+                client_secret:
+                  type: string
+                  description: >-
+                    The Client Secret of your application. Required for
+                    confidential clients.
+      responses:
+        '200':
+          description: Token successfully revoked.
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /authentication/v2/keys:
+    get:
+      operationId: getKeys
+      summary: Get JWKS
+      description: >-
+        Returns the JSON Web Key Set (JWKS) containing the public keys used
+        to verify JSON Web Tokens (JWTs) issued by the Autodesk authentication
+        service.
+      tags:
+        - Keys
+      responses:
+        '200':
+          description: Successfully retrieved JWKS.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JWKSResponse'
+  /userprofile/v1/users/@me:
+    get:
+      operationId: getUserProfile
+      summary: Get User Profile
+      description: Returns the profile information of the authenticated user.
+      tags:
+        - Users
+      security:
+        - OAuth2ThreeLegged:
+            - user-profile:read
+      responses:
+        '200':
+          description: Successfully retrieved user profile.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+        '401':
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /authentication/v2/introspect:
+    post:
+      operationId: introspectToken
+      summary: Introspect Token
+      description: >-
+        Returns metadata about a token, including whether it is active, the
+        scopes it was granted, and its expiration time.
+      tags:
+        - Token
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+                - token
+              properties:
+                token:
+                  type: string
+                  description: The token to introspect.
+                client_id:
+                  type: string
+                  description: The Client ID of your application.
+                client_secret:
+                  type: string
+                  description: >-
+                    The Client Secret of your application.
+      responses:
+        '200':
+          description: Token introspection result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntrospectionResponse'
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /authentication/v2/logout:
+    get:
+      operationId: logout
+      summary: Logout
+      description: >-
+        Ends the user's Autodesk session and optionally redirects the user
+        to a specified URI.
+      tags:
+        - Authorization
+      parameters:
+        - name: post_logout_redirect_uri
+          in: query
+          required: false
+          description: URI to redirect the user to after logout.
+          schema:
+            type: string
+            format: uri
+      responses:
+        '302':
+          description: Redirects the user after logout.
+components:
+  securitySchemes:
+    OAuth2TwoLegged:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            data:read: Read access to data
+            data:write: Write access to data
+            data:create: Create new data
+            data:search: Search data
+            bucket:create: Create OSS buckets
+            bucket:read: Read OSS buckets
+            bucket:update: Update OSS buckets
+            bucket:delete: Delete OSS buckets
+            code:all: Execute Design Automation activities
+            account:read: Read account data
+            account:write: Write account data
+    OAuth2ThreeLegged:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: >-
+            https://developer.api.autodesk.com/authentication/v2/authorize
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            data:read: Read access to data
+            data:write: Write access to data
+            data:create: Create new data
+            data:search: Search data
+            user-profile:read: Read user profile
+            account:read: Read account data
+            account:write: Write account data
+  schemas:
+    TokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+          description: The access token string.
+        token_type:
+          type: string
+          description: The type of token, typically Bearer.
+          example: Bearer
+        expires_in:
+          type: integer
+          description: The token lifetime in seconds.
+          example: 3600
+        refresh_token:
+          type: string
+          description: >-
+            The refresh token (only returned for three-legged authentication).
+        scope:
+          type: string
+          description: Space-separated list of scopes granted.
+    IntrospectionResponse:
+      type: object
+      properties:
+        active:
+          type: boolean
+          description: Whether the token is active.
+        scope:
+          type: string
+          description: Space-separated list of scopes.
+        client_id:
+          type: string
+          description: The client ID the token was issued to.
+        exp:
+          type: integer
+          description: Token expiration time as a Unix timestamp.
+        userid:
+          type: string
+          description: The user ID (for three-legged tokens).
+    JWKSResponse:
+      type: object
+      properties:
+        keys:
+          type: array
+          items:
+            type: object
+            properties:
+              kty:
+                type: string
+              kid:
+                type: string
+              use:
+                type: string
+              n:
+                type: string
+              e:
+                type: string
+              alg:
+                type: string
+    UserProfile:
+      type: object
+      properties:
+        userId:
+          type: string
+          description: The unique identifier of the user.
+        userName:
+          type: string
+          description: The username.
+        emailId:
+          type: string
+          description: The user's email address.
+        firstName:
+          type: string
+          description: The user's first name.
+        lastName:
+          type: string
+          description: The user's last name.
+        emailVerified:
+          type: boolean
+          description: Whether the email has been verified.
+        '2FaEnabled':
+          type: boolean
+          description: Whether two-factor authentication is enabled.
+        profileImages:
+          type: object
+          description: URLs of the user's profile images.
+          properties:
+            sizeX20:
+              type: string
+            sizeX40:
+              type: string
+            sizeX50:
+              type: string
+            sizeX58:
+              type: string
+            sizeX80:
+              type: string
+            sizeX120:
+              type: string
+            sizeX160:
+              type: string
+            sizeX176:
+              type: string
+            sizeX240:
+              type: string
+            sizeX360:
+              type: string
+    ErrorResponse:
+      type: object
+      properties:
+        developerMessage:
+          type: string
+          description: A developer-facing error message.
+        userMessage:
+          type: string
+          description: A user-facing error message.
+        errorCode:
+          type: string
+          description: An error code.
+        more info:
+          type: string
+          description: A link to more information about the error.

@@ -1,0 +1,485 @@
+asyncapi: 2.6.0
+info:
+  title: Autodesk Webhooks Events
+  version: 1.0.0
+  description: >-
+    Event-driven API for receiving real-time notifications from Autodesk
+    Platform Services. When subscribed via the Webhooks REST API, Autodesk
+    sends HTTP POST callbacks to your registered URL when events occur across
+    Data Management, Model Derivative, BIM 360, ACC, and Fusion Lifecycle
+    systems.
+  termsOfService: >-
+    https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  contact:
+    name: Autodesk Platform Services
+    url: https://aps.autodesk.com
+    email: aps.help@autodesk.com
+  license:
+    name: Autodesk API Terms of Service
+    url: >-
+      https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+servers:
+  production:
+    url: '{callbackUrl}'
+    protocol: https
+    description: >-
+      Your application's callback URL that receives webhook POST events
+      from Autodesk services.
+    variables:
+      callbackUrl:
+        description: The callback URL registered in your webhook subscription.
+channels:
+  /data-management/version-added:
+    description: >-
+      Triggered when a new version of an item is added in Data Management
+      (Autodesk Docs, BIM 360 Docs, Fusion Team).
+    subscribe:
+      operationId: onVersionAdded
+      summary: Version Added
+      message:
+        $ref: '#/components/messages/DataManagementVersionEvent'
+  /data-management/version-deleted:
+    description: Triggered when a version of an item is deleted.
+    subscribe:
+      operationId: onVersionDeleted
+      summary: Version Deleted
+      message:
+        $ref: '#/components/messages/DataManagementVersionEvent'
+  /data-management/version-modified:
+    description: Triggered when a version is modified (renamed, moved).
+    subscribe:
+      operationId: onVersionModified
+      summary: Version Modified
+      message:
+        $ref: '#/components/messages/DataManagementVersionEvent'
+  /data-management/version-copied:
+    description: Triggered when a version is copied.
+    subscribe:
+      operationId: onVersionCopied
+      summary: Version Copied
+      message:
+        $ref: '#/components/messages/DataManagementVersionEvent'
+  /data-management/version-moved:
+    description: Triggered when a version is moved.
+    subscribe:
+      operationId: onVersionMoved
+      summary: Version Moved
+      message:
+        $ref: '#/components/messages/DataManagementVersionEvent'
+  /data-management/folder-added:
+    description: Triggered when a new folder is created.
+    subscribe:
+      operationId: onFolderAdded
+      summary: Folder Added
+      message:
+        $ref: '#/components/messages/DataManagementFolderEvent'
+  /data-management/folder-modified:
+    description: Triggered when a folder is modified (renamed).
+    subscribe:
+      operationId: onFolderModified
+      summary: Folder Modified
+      message:
+        $ref: '#/components/messages/DataManagementFolderEvent'
+  /data-management/folder-deleted:
+    description: Triggered when a folder is deleted.
+    subscribe:
+      operationId: onFolderDeleted
+      summary: Folder Deleted
+      message:
+        $ref: '#/components/messages/DataManagementFolderEvent'
+  /data-management/folder-moved:
+    description: Triggered when a folder is moved.
+    subscribe:
+      operationId: onFolderMoved
+      summary: Folder Moved
+      message:
+        $ref: '#/components/messages/DataManagementFolderEvent'
+  /data-management/folder-copied:
+    description: Triggered when a folder is copied.
+    subscribe:
+      operationId: onFolderCopied
+      summary: Folder Copied
+      message:
+        $ref: '#/components/messages/DataManagementFolderEvent'
+  /model-derivative/extraction-finished:
+    description: >-
+      Triggered when a Model Derivative translation job completes
+      (either successfully or with failure).
+    subscribe:
+      operationId: onExtractionFinished
+      summary: Extraction Finished
+      message:
+        $ref: '#/components/messages/ModelDerivativeExtractionEvent'
+  /model-derivative/extraction-updated:
+    description: >-
+      Triggered when a Model Derivative translation job has a status update.
+    subscribe:
+      operationId: onExtractionUpdated
+      summary: Extraction Updated
+      message:
+        $ref: '#/components/messages/ModelDerivativeExtractionEvent'
+  /c4r/model-sync-publish:
+    description: >-
+      Triggered when a Collaboration for Revit model is published
+      (synced to the cloud).
+    subscribe:
+      operationId: onC4rModelPublish
+      summary: C4R Model Published
+      message:
+        $ref: '#/components/messages/C4RModelEvent'
+  /adsk-docs/item-locked:
+    description: Triggered when a document is locked in Autodesk Docs.
+    subscribe:
+      operationId: onItemLocked
+      summary: Item Locked
+      message:
+        $ref: '#/components/messages/DocsItemEvent'
+  /adsk-docs/item-unlocked:
+    description: Triggered when a document is unlocked in Autodesk Docs.
+    subscribe:
+      operationId: onItemUnlocked
+      summary: Item Unlocked
+      message:
+        $ref: '#/components/messages/DocsItemEvent'
+components:
+  messages:
+    DataManagementVersionEvent:
+      name: DataManagementVersionEvent
+      title: Data Management Version Event
+      summary: >-
+        Event payload sent when a version change occurs in Data Management.
+      headers:
+        type: object
+        properties:
+          x-adsk-signature:
+            type: string
+            description: >-
+              HMAC-SHA256 signature of the payload using your secret token
+              for verification.
+          Content-Type:
+            type: string
+            enum:
+              - application/json
+      payload:
+        $ref: '#/components/schemas/DataManagementVersionPayload'
+    DataManagementFolderEvent:
+      name: DataManagementFolderEvent
+      title: Data Management Folder Event
+      summary: >-
+        Event payload sent when a folder change occurs in Data Management.
+      headers:
+        type: object
+        properties:
+          x-adsk-signature:
+            type: string
+            description: >-
+              HMAC-SHA256 signature of the payload.
+          Content-Type:
+            type: string
+            enum:
+              - application/json
+      payload:
+        $ref: '#/components/schemas/DataManagementFolderPayload'
+    ModelDerivativeExtractionEvent:
+      name: ModelDerivativeExtractionEvent
+      title: Model Derivative Extraction Event
+      summary: >-
+        Event payload sent when a translation job status changes.
+      headers:
+        type: object
+        properties:
+          x-adsk-signature:
+            type: string
+          Content-Type:
+            type: string
+            enum:
+              - application/json
+      payload:
+        $ref: '#/components/schemas/ModelDerivativePayload'
+    C4RModelEvent:
+      name: C4RModelEvent
+      title: Collaboration for Revit Model Event
+      summary: >-
+        Event payload sent when a C4R model is published.
+      headers:
+        type: object
+        properties:
+          x-adsk-signature:
+            type: string
+          Content-Type:
+            type: string
+            enum:
+              - application/json
+      payload:
+        $ref: '#/components/schemas/C4RPayload'
+    DocsItemEvent:
+      name: DocsItemEvent
+      title: Autodesk Docs Item Event
+      summary: >-
+        Event payload sent when an item is locked or unlocked in Autodesk Docs.
+      headers:
+        type: object
+        properties:
+          x-adsk-signature:
+            type: string
+          Content-Type:
+            type: string
+            enum:
+              - application/json
+      payload:
+        $ref: '#/components/schemas/DocsItemPayload'
+  schemas:
+    DataManagementVersionPayload:
+      type: object
+      properties:
+        version:
+          type: string
+          description: Webhook payload version.
+        resourceUrn:
+          type: string
+          description: The URN of the affected resource.
+        hook:
+          type: object
+          properties:
+            hookId:
+              type: string
+            tenant:
+              type: string
+            callbackUrl:
+              type: string
+              format: uri
+            createdBy:
+              type: string
+            event:
+              type: string
+              description: >-
+                Event type (dm.version.added, dm.version.deleted,
+                dm.version.modified, dm.version.copied, dm.version.moved).
+            createdDate:
+              type: string
+              format: date-time
+            system:
+              type: string
+              example: data
+            creatorType:
+              type: string
+            status:
+              type: string
+            scope:
+              type: object
+              properties:
+                folder:
+                  type: string
+            hookAttribute:
+              type: object
+              additionalProperties: true
+        payload:
+          type: object
+          properties:
+            ext:
+              type: object
+              properties:
+                type:
+                  type: string
+                version:
+                  type: string
+            project:
+              type: string
+              description: Project ID.
+            creator:
+              type: string
+              description: Creator user ID.
+            name:
+              type: string
+              description: File display name.
+            version:
+              type: integer
+              description: Version number.
+            lineageUrn:
+              type: string
+              description: The lineage URN of the item.
+            sizeInBytes:
+              type: integer
+            ancestorUrn:
+              type: string
+            source:
+              type: string
+            createdTime:
+              type: string
+              format: date-time
+            modifiedTime:
+              type: string
+              format: date-time
+            hidden:
+              type: boolean
+            customMetadata:
+              type: object
+              additionalProperties: true
+    DataManagementFolderPayload:
+      type: object
+      properties:
+        version:
+          type: string
+        resourceUrn:
+          type: string
+        hook:
+          type: object
+          properties:
+            hookId:
+              type: string
+            tenant:
+              type: string
+            callbackUrl:
+              type: string
+              format: uri
+            event:
+              type: string
+              description: >-
+                Event type (dm.folder.added, dm.folder.modified,
+                dm.folder.deleted, dm.folder.moved, dm.folder.copied).
+            system:
+              type: string
+        payload:
+          type: object
+          properties:
+            project:
+              type: string
+            creator:
+              type: string
+            name:
+              type: string
+              description: Folder display name.
+            parentFolderUrn:
+              type: string
+            ancestorUrn:
+              type: string
+            source:
+              type: string
+            createdTime:
+              type: string
+              format: date-time
+            modifiedTime:
+              type: string
+              format: date-time
+            hidden:
+              type: boolean
+    ModelDerivativePayload:
+      type: object
+      properties:
+        version:
+          type: string
+        resourceUrn:
+          type: string
+          description: The URN of the source design.
+        hook:
+          type: object
+          properties:
+            hookId:
+              type: string
+            tenant:
+              type: string
+            callbackUrl:
+              type: string
+              format: uri
+            event:
+              type: string
+              description: >-
+                Event type (extraction.finished, extraction.updated).
+            system:
+              type: string
+              example: derivative
+        payload:
+          type: object
+          properties:
+            status:
+              type: string
+              enum:
+                - success
+                - failed
+                - timeout
+                - inprogress
+            bubble:
+              type: object
+              description: >-
+                The manifest bubble containing derivative information.
+              properties:
+                status:
+                  type: string
+                progress:
+                  type: string
+                success:
+                  type: string
+                hasThumbnail:
+                  type: string
+    C4RPayload:
+      type: object
+      properties:
+        version:
+          type: string
+        resourceUrn:
+          type: string
+        hook:
+          type: object
+          properties:
+            hookId:
+              type: string
+            tenant:
+              type: string
+            callbackUrl:
+              type: string
+              format: uri
+            event:
+              type: string
+              example: model.sync.publish
+            system:
+              type: string
+              example: adsk.c4r
+        payload:
+          type: object
+          properties:
+            project:
+              type: string
+            creator:
+              type: string
+            name:
+              type: string
+            ancestorUrn:
+              type: string
+    DocsItemPayload:
+      type: object
+      properties:
+        version:
+          type: string
+        resourceUrn:
+          type: string
+        hook:
+          type: object
+          properties:
+            hookId:
+              type: string
+            tenant:
+              type: string
+            callbackUrl:
+              type: string
+              format: uri
+            event:
+              type: string
+            system:
+              type: string
+              example: adsk.docs
+        payload:
+          type: object
+          properties:
+            project:
+              type: string
+            creator:
+              type: string
+            name:
+              type: string
+            lineageUrn:
+              type: string
+            lockedByUserId:
+              type: string
+            lockedTime:
+              type: string
+              format: date-time
