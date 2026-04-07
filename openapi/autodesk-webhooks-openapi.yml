@@ -29,7 +29,7 @@ paths:
   /webhooks/v1/systems:
     get:
       operationId: getSystems
-      summary: List Event Systems
+      summary: Autodesk List Event Systems
       description: >-
         Returns a list of available event systems that support webhook
         subscriptions (e.g., data, derivative, adsk.c4r, adsk.docs).
@@ -45,7 +45,7 @@ paths:
   /webhooks/v1/systems/{system}/events:
     get:
       operationId: getSystemEvents
-      summary: List System Events
+      summary: Autodesk List System Events
       description: Returns a list of events available for a specific system.
       tags:
         - Systems
@@ -67,7 +67,7 @@ paths:
   /webhooks/v1/systems/{system}/events/{event}/hooks:
     get:
       operationId: getHooks
-      summary: List Hooks for Event
+      summary: Autodesk List Hooks for Event
       description: >-
         Returns a paginated list of webhook subscriptions for a specific
         system and event.
@@ -111,7 +111,7 @@ paths:
                 $ref: '#/components/schemas/HooksResponse'
     post:
       operationId: createHook
-      summary: Create Hook
+      summary: Autodesk Create Hook
       description: >-
         Creates a new webhook subscription for a specific event in a system.
       tags:
@@ -147,7 +147,7 @@ paths:
   /webhooks/v1/systems/{system}/events/{event}/hooks/{hook_id}:
     get:
       operationId: getHook
-      summary: Get Hook
+      summary: Autodesk Get Hook
       description: Returns details of a specific webhook subscription.
       tags:
         - Hooks
@@ -179,7 +179,7 @@ paths:
           description: Hook not found.
     patch:
       operationId: updateHook
-      summary: Update Hook
+      summary: Autodesk Update Hook
       description: Updates properties of an existing webhook subscription.
       tags:
         - Hooks
@@ -212,7 +212,7 @@ paths:
           description: Hook not found.
     delete:
       operationId: deleteHook
-      summary: Delete Hook
+      summary: Autodesk Delete Hook
       description: Deletes a webhook subscription.
       tags:
         - Hooks
@@ -240,7 +240,7 @@ paths:
   /webhooks/v1/hooks:
     get:
       operationId: getAllHooks
-      summary: List All Hooks
+      summary: Autodesk List All Hooks
       description: >-
         Returns all webhook subscriptions for the calling application across
         all systems and events.
@@ -270,7 +270,7 @@ paths:
   /webhooks/v1/tokens/@me:
     put:
       operationId: createToken
-      summary: Create/Update Webhook Secret Token
+      summary: Autodesk Create/Update Webhook Secret Token
       description: >-
         Creates or updates a secret token used to sign webhook payloads.
         The token is included in the x-adsk-signature header of callback
@@ -294,7 +294,7 @@ paths:
           description: Token created/updated.
     delete:
       operationId: deleteToken
-      summary: Delete Webhook Secret Token
+      summary: Autodesk Delete Webhook Secret Token
       description: Deletes the webhook secret token.
       tags:
         - Tokens

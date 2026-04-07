@@ -28,7 +28,7 @@ paths:
   /sustainability/v3/datasets:
     get:
       operationId: getDatasets
-      summary: List Datasets
+      summary: Autodesk List Datasets
       description: >-
         Returns a list of available sustainability datasets. Each dataset
         contains environmental impact data from specific data providers.
@@ -68,7 +68,7 @@ paths:
   /sustainability/v3/datasets/{datasetId}:
     get:
       operationId: getDataset
-      summary: Get Dataset
+      summary: Autodesk Get Dataset
       description: Returns details of a specific dataset.
       tags:
         - Datasets
@@ -90,7 +90,7 @@ paths:
   /sustainability/v3/datasets/{datasetId}/records:
     get:
       operationId: getRecords
-      summary: List Records
+      summary: Autodesk List Records
       description: >-
         Returns environmental impact records from a specific dataset.
         Records contain emission factors, carbon intensities, and other
@@ -141,7 +141,7 @@ paths:
   /sustainability/v3/datasets/{datasetId}/records/{recordId}:
     get:
       operationId: getRecord
-      summary: Get Record
+      summary: Autodesk Get Record
       description: Returns a specific environmental impact record.
       tags:
         - Records
@@ -168,7 +168,7 @@ paths:
   /sustainability/v3/calculation:
     post:
       operationId: calculateEmissions
-      summary: Calculate Emissions
+      summary: Autodesk Calculate Emissions
       description: >-
         Calculates carbon emissions based on provided parameters such as
         energy consumption, material quantities, or transportation distances.

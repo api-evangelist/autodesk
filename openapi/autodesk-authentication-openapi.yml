@@ -25,7 +25,7 @@ paths:
   /authentication/v2/authorize:
     get:
       operationId: authorize
-      summary: Authorize User
+      summary: Autodesk Authorize User
       description: >-
         Redirects the user to the Autodesk login page where they grant your
         application access to their data. This is the first step of the
@@ -93,7 +93,7 @@ paths:
   /authentication/v2/token:
     post:
       operationId: getToken
-      summary: Get Token
+      summary: Autodesk Get Token
       description: >-
         Returns an access token or refresh an existing token. Supports
         client_credentials (two-legged), authorization_code (three-legged),
@@ -174,7 +174,7 @@ paths:
   /authentication/v2/revoke:
     post:
       operationId: revokeToken
-      summary: Revoke Token
+      summary: Autodesk Revoke Token
       description: >-
         Revokes an active access token or refresh token, rendering it invalid
         for further use.
@@ -220,7 +220,7 @@ paths:
   /authentication/v2/keys:
     get:
       operationId: getKeys
-      summary: Get JWKS
+      summary: Autodesk Get JWKS
       description: >-
         Returns the JSON Web Key Set (JWKS) containing the public keys used
         to verify JSON Web Tokens (JWTs) issued by the Autodesk authentication
@@ -237,7 +237,7 @@ paths:
   /userprofile/v1/users/@me:
     get:
       operationId: getUserProfile
-      summary: Get User Profile
+      summary: Autodesk Get User Profile
       description: Returns the profile information of the authenticated user.
       tags:
         - Users
@@ -260,7 +260,7 @@ paths:
   /authentication/v2/introspect:
     post:
       operationId: introspectToken
-      summary: Introspect Token
+      summary: Autodesk Introspect Token
       description: >-
         Returns metadata about a token, including whether it is active, the
         scopes it was granted, and its expiration time.
@@ -301,7 +301,7 @@ paths:
   /authentication/v2/logout:
     get:
       operationId: logout
-      summary: Logout
+      summary: Autodesk Logout
       description: >-
         Ends the user's Autodesk session and optionally redirects the user
         to a specified URI.

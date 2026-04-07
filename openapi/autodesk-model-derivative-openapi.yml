@@ -31,7 +31,7 @@ paths:
   /modelderivative/v2/designdata/job:
     post:
       operationId: startJob
-      summary: Start Translation Job
+      summary: Autodesk Start Translation Job
       description: >-
         Starts a translation job to convert a source design file into one or
         more derivative formats. The source file is identified by its URN
@@ -82,7 +82,7 @@ paths:
   /modelderivative/v2/designdata/{urn}/manifest:
     get:
       operationId: getManifest
-      summary: Get Manifest
+      summary: Autodesk Get Manifest
       description: >-
         Returns information about derivatives that correspond to a specific
         source design, including derivative URNs, translation status, and
@@ -110,7 +110,7 @@ paths:
           description: Manifest not found.
     delete:
       operationId: deleteManifest
-      summary: Delete Manifest
+      summary: Autodesk Delete Manifest
       description: >-
         Deletes the manifest and all derivatives of a source design. Does not
         delete the source design itself.
@@ -139,7 +139,7 @@ paths:
   /modelderivative/v2/designdata/{urn}/metadata:
     get:
       operationId: getMetadata
-      summary: Get Metadata
+      summary: Autodesk Get Metadata
       description: >-
         Returns a list of model views (viewables) available for the source
         design. Each viewable has a GUID that can be used to query its object
@@ -166,7 +166,7 @@ paths:
   /modelderivative/v2/designdata/{urn}/metadata/{guid}:
     get:
       operationId: getObjectTree
-      summary: Get Object Tree
+      summary: Autodesk Get Object Tree
       description: >-
         Returns the object hierarchy tree for a specific viewable within the
         source design.
@@ -204,7 +204,7 @@ paths:
   /modelderivative/v2/designdata/{urn}/metadata/{guid}/properties:
     get:
       operationId: getProperties
-      summary: Get All Properties
+      summary: Autodesk Get All Properties
       description: >-
         Returns the properties of all objects in a specific viewable. For large
         models, use the forceget parameter to ensure all data is returned.
@@ -244,7 +244,7 @@ paths:
   /modelderivative/v2/designdata/{urn}/metadata/{guid}/properties:query:
     post:
       operationId: queryProperties
-      summary: Query Properties
+      summary: Autodesk Query Properties
       description: >-
         Returns a filtered set of properties for a viewable based on specified
         criteria. Supports pagination for large result sets.
@@ -277,7 +277,7 @@ paths:
   /modelderivative/v2/designdata/{urn}/thumbnail:
     get:
       operationId: getThumbnail
-      summary: Get Thumbnail
+      summary: Autodesk Get Thumbnail
       description: Returns a thumbnail image of the source design.
       tags:
         - Thumbnails
@@ -320,7 +320,7 @@ paths:
   /modelderivative/v2/designdata/{urn}/manifest/{derivativeUrn}:
     get:
       operationId: getDerivativeDownload
-      summary: Download Derivative
+      summary: Autodesk Download Derivative
       description: Downloads a specific derivative file.
       tags:
         - Derivatives
@@ -349,7 +349,7 @@ paths:
   /modelderivative/v2/designdata/formats:
     get:
       operationId: getFormats
-      summary: List Supported Formats
+      summary: Autodesk List Supported Formats
       description: >-
         Returns a list of supported input and output formats for translation.
       tags:

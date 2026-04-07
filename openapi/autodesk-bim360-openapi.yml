@@ -27,7 +27,7 @@ paths:
   /bim360/admin/v1/projects/{projectId}/users:
     get:
       operationId: getBim360ProjectUsers
-      summary: List Project Users
+      summary: Autodesk List Project Users
       description: Returns a list of users assigned to a BIM 360 project.
       tags:
         - Admin
@@ -56,7 +56,7 @@ paths:
                 $ref: '#/components/schemas/Bim360UsersResponse'
     post:
       operationId: addBim360ProjectUser
-      summary: Add Project User
+      summary: Autodesk Add Project User
       description: Adds a user to a BIM 360 project.
       tags:
         - Admin
@@ -85,7 +85,7 @@ paths:
   /bim360/admin/v1/projects/{projectId}/users/import:
     post:
       operationId: importBim360ProjectUsers
-      summary: Import Project Users
+      summary: Autodesk Import Project Users
       description: Bulk imports users to a BIM 360 project.
       tags:
         - Admin
@@ -125,7 +125,7 @@ paths:
   /issues/v1/containers/{containerId}/quality-issues:
     get:
       operationId: getIssues
-      summary: List Issues
+      summary: Autodesk List Issues
       description: >-
         Returns a list of issues within a BIM 360 project container.
       tags:
@@ -188,7 +188,7 @@ paths:
                 $ref: '#/components/schemas/IssuesResponse'
     post:
       operationId: createIssue
-      summary: Create Issue
+      summary: Autodesk Create Issue
       description: Creates a new issue in the project.
       tags:
         - Issues
@@ -217,7 +217,7 @@ paths:
   /issues/v1/containers/{containerId}/quality-issues/{issueId}:
     get:
       operationId: getIssue
-      summary: Get Issue
+      summary: Autodesk Get Issue
       description: Returns a specific issue.
       tags:
         - Issues
@@ -241,7 +241,7 @@ paths:
                 $ref: '#/components/schemas/IssueResponse'
     patch:
       operationId: updateIssue
-      summary: Update Issue
+      summary: Autodesk Update Issue
       description: Updates an existing issue.
       tags:
         - Issues
@@ -275,7 +275,7 @@ paths:
   /issues/v1/containers/{containerId}/issue-types:
     get:
       operationId: getIssueTypes
-      summary: List Issue Types
+      summary: Autodesk List Issue Types
       description: Returns available issue types and subtypes for the container.
       tags:
         - Issues
@@ -295,7 +295,7 @@ paths:
   /issues/v1/containers/{containerId}/quality-issues/{issueId}/comments:
     get:
       operationId: getIssueComments
-      summary: List Issue Comments
+      summary: Autodesk List Issue Comments
       description: Returns comments on a specific issue.
       tags:
         - Issues
@@ -319,7 +319,7 @@ paths:
                 $ref: '#/components/schemas/CommentsResponse'
     post:
       operationId: createIssueComment
-      summary: Create Issue Comment
+      summary: Autodesk Create Issue Comment
       description: Adds a comment to an issue.
       tags:
         - Issues
@@ -349,7 +349,7 @@ paths:
   /bim360/rfis/v2/containers/{containerId}/rfis:
     get:
       operationId: getRfis
-      summary: List RFIs
+      summary: Autodesk List RFIs
       description: Returns a list of RFIs in the container.
       tags:
         - RFIs

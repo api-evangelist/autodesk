@@ -28,7 +28,7 @@ paths:
   /fge/v1/graphs:
     get:
       operationId: getGraphs
-      summary: List Graphs
+      summary: Autodesk List Graphs
       description: >-
         Returns a list of uploaded Bifrost graphs available for evaluation.
       tags:
@@ -53,7 +53,7 @@ paths:
                 $ref: '#/components/schemas/GraphsResponse'
     post:
       operationId: uploadGraph
-      summary: Upload Graph
+      summary: Autodesk Upload Graph
       description: >-
         Uploads a Bifrost graph file (.bif) for cloud evaluation.
       tags:
@@ -88,7 +88,7 @@ paths:
   /fge/v1/graphs/{graphId}:
     get:
       operationId: getGraph
-      summary: Get Graph
+      summary: Autodesk Get Graph
       description: Returns details of a specific graph.
       tags:
         - Graphs
@@ -109,7 +109,7 @@ paths:
           description: Graph not found.
     delete:
       operationId: deleteGraph
-      summary: Delete Graph
+      summary: Autodesk Delete Graph
       description: Deletes an uploaded graph.
       tags:
         - Graphs
@@ -125,7 +125,7 @@ paths:
   /fge/v1/jobs:
     get:
       operationId: getJobs
-      summary: List Jobs
+      summary: Autodesk List Jobs
       description: Returns a list of graph evaluation jobs.
       tags:
         - Jobs
@@ -160,7 +160,7 @@ paths:
                 $ref: '#/components/schemas/JobsResponse'
     post:
       operationId: createJob
-      summary: Create Job
+      summary: Autodesk Create Job
       description: >-
         Creates and queues a new graph evaluation job. Specify the graph
         to evaluate and input parameters.
@@ -184,7 +184,7 @@ paths:
   /fge/v1/jobs/{jobId}:
     get:
       operationId: getJob
-      summary: Get Job
+      summary: Autodesk Get Job
       description: Returns the status and details of a specific job.
       tags:
         - Jobs
@@ -205,7 +205,7 @@ paths:
           description: Job not found.
     delete:
       operationId: cancelJob
-      summary: Cancel Job
+      summary: Autodesk Cancel Job
       description: Cancels a queued or running job.
       tags:
         - Jobs
@@ -221,7 +221,7 @@ paths:
   /fge/v1/jobs/{jobId}/result:
     get:
       operationId: getJobResult
-      summary: Get Job Result
+      summary: Autodesk Get Job Result
       description: >-
         Returns the output/result of a completed graph evaluation job.
       tags:

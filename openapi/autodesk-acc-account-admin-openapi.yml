@@ -27,7 +27,7 @@ paths:
   /construction/admin/v1/accounts/{accountId}/projects:
     get:
       operationId: getProjects
-      summary: List Projects
+      summary: Autodesk List Projects
       description: Returns a paginated list of projects in the specified account.
       tags:
         - Projects
@@ -89,7 +89,7 @@ paths:
           description: Unauthorized.
     post:
       operationId: createProject
-      summary: Create Project
+      summary: Autodesk Create Project
       description: Creates a new project in the account.
       tags:
         - Projects
@@ -120,7 +120,7 @@ paths:
   /construction/admin/v1/accounts/{accountId}/projects/{projectId}:
     get:
       operationId: getProject
-      summary: Get Project
+      summary: Autodesk Get Project
       description: Returns details of a specific project.
       tags:
         - Projects
@@ -144,7 +144,7 @@ paths:
                 $ref: '#/components/schemas/Project'
     patch:
       operationId: updateProject
-      summary: Update Project
+      summary: Autodesk Update Project
       description: Updates project details.
       tags:
         - Projects
@@ -178,7 +178,7 @@ paths:
   /construction/admin/v1/accounts/{accountId}/projects/{projectId}/users:
     get:
       operationId: getProjectUsers
-      summary: List Project Users
+      summary: Autodesk List Project Users
       description: Returns users assigned to a project.
       tags:
         - Project Users
@@ -222,7 +222,7 @@ paths:
                 $ref: '#/components/schemas/ProjectUsersResponse'
     post:
       operationId: addProjectUser
-      summary: Add Project User
+      summary: Autodesk Add Project User
       description: Adds a user to a project with specified roles and products.
       tags:
         - Project Users
@@ -256,7 +256,7 @@ paths:
   /construction/admin/v1/accounts/{accountId}/projects/{projectId}/users/{userId}:
     patch:
       operationId: updateProjectUser
-      summary: Update Project User
+      summary: Autodesk Update Project User
       description: Updates a user's role or product access in a project.
       tags:
         - Project Users
@@ -294,7 +294,7 @@ paths:
                 $ref: '#/components/schemas/ProjectUser'
     delete:
       operationId: removeProjectUser
-      summary: Remove Project User
+      summary: Autodesk Remove Project User
       description: Removes a user from a project.
       tags:
         - Project Users
@@ -323,7 +323,7 @@ paths:
   /construction/admin/v1/accounts/{accountId}/users:
     get:
       operationId: getAccountUsers
-      summary: List Account Users
+      summary: Autodesk List Account Users
       description: Returns users in the account directory.
       tags:
         - Account Users
@@ -371,7 +371,7 @@ paths:
   /construction/admin/v1/accounts/{accountId}/companies:
     get:
       operationId: getCompanies
-      summary: List Companies
+      summary: Autodesk List Companies
       description: Returns partner companies in the account directory.
       tags:
         - Companies
@@ -410,7 +410,7 @@ paths:
                 $ref: '#/components/schemas/CompaniesResponse'
     post:
       operationId: createCompany
-      summary: Create Company
+      summary: Autodesk Create Company
       description: Creates a new partner company in the account directory.
       tags:
         - Companies
@@ -439,7 +439,7 @@ paths:
   /construction/admin/v1/projects/{projectId}/industryRoles:
     get:
       operationId: getIndustryRoles
-      summary: List Industry Roles
+      summary: Autodesk List Industry Roles
       description: Returns the industry roles available for a project.
       tags:
         - Industry Roles

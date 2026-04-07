@@ -28,7 +28,7 @@ paths:
   /tandem/v1/groups:
     get:
       operationId: getGroups
-      summary: List Groups
+      summary: Autodesk List Groups
       description: >-
         Returns a list of facility groups (teams) that the authenticated
         user has access to.
@@ -44,7 +44,7 @@ paths:
   /tandem/v1/groups/{groupId}:
     get:
       operationId: getGroup
-      summary: Get Group
+      summary: Autodesk Get Group
       description: Returns details of a specific group.
       tags:
         - Groups
@@ -64,7 +64,7 @@ paths:
   /tandem/v1/twins:
     get:
       operationId: getTwins
-      summary: List Twins
+      summary: Autodesk List Twins
       description: >-
         Returns a list of digital twin facilities that the authenticated
         user has access to.
@@ -80,7 +80,7 @@ paths:
   /tandem/v1/twins/{twinId}:
     get:
       operationId: getTwin
-      summary: Get Twin
+      summary: Autodesk Get Twin
       description: Returns details of a specific digital twin facility.
       tags:
         - Twins
@@ -102,7 +102,7 @@ paths:
   /tandem/v1/twins/{twinId}/models:
     get:
       operationId: getModels
-      summary: List Models
+      summary: Autodesk List Models
       description: >-
         Returns a list of BIM models associated with a digital twin facility.
       tags:
@@ -123,7 +123,7 @@ paths:
   /tandem/v1/modeldata/{modelId}/scan:
     post:
       operationId: scanElements
-      summary: Scan Elements
+      summary: Autodesk Scan Elements
       description: >-
         Scans and returns elements from a model, optionally filtered by
         category, family, or property values. Returns element keys and
@@ -152,7 +152,7 @@ paths:
   /tandem/v1/modeldata/{modelId}/props:
     post:
       operationId: getElementProperties
-      summary: Get Element Properties
+      summary: Autodesk Get Element Properties
       description: >-
         Returns properties for specific elements identified by their keys.
       tags:
@@ -179,7 +179,7 @@ paths:
   /tandem/v1/modeldata/{modelId}/mutate:
     post:
       operationId: mutateElements
-      summary: Mutate Element Properties
+      summary: Autodesk Mutate Element Properties
       description: >-
         Creates, updates, or deletes custom property values on elements.
         Only properties defined in user-created schemas can be mutated.
@@ -208,7 +208,7 @@ paths:
   /tandem/v1/twins/{twinId}/schema:
     get:
       operationId: getSchema
-      summary: Get Twin Schema
+      summary: Autodesk Get Twin Schema
       description: >-
         Returns the schema definition for a digital twin, including
         built-in and custom property definitions.
@@ -230,7 +230,7 @@ paths:
   /tandem/v1/twins/{twinId}/streams:
     get:
       operationId: getStreams
-      summary: List Streams
+      summary: Autodesk List Streams
       description: >-
         Returns IoT data streams associated with a digital twin for
         time-series sensor data integration.
@@ -252,7 +252,7 @@ paths:
   /tandem/v1/timeseries/{streamId}:
     get:
       operationId: getTimeseriesData
-      summary: Get Timeseries Data
+      summary: Autodesk Get Timeseries Data
       description: Returns time-series data for a specific IoT stream.
       tags:
         - Streams
@@ -294,7 +294,7 @@ paths:
                 $ref: '#/components/schemas/TimeseriesResponse'
     post:
       operationId: pushTimeseriesData
-      summary: Push Timeseries Data
+      summary: Autodesk Push Timeseries Data
       description: Pushes new time-series data points to a stream.
       tags:
         - Streams

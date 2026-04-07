@@ -28,7 +28,7 @@ paths:
   /project/v1/hubs:
     get:
       operationId: getHubs
-      summary: List Hubs
+      summary: Autodesk List Hubs
       description: >-
         Returns a collection of accessible hubs for the authenticated user.
         A hub represents an Autodesk account or BIM 360 account.
@@ -67,7 +67,7 @@ paths:
   /project/v1/hubs/{hub_id}:
     get:
       operationId: getHub
-      summary: Get Hub
+      summary: Autodesk Get Hub
       description: Returns data for a specific hub.
       tags:
         - Hubs
@@ -94,7 +94,7 @@ paths:
   /project/v1/hubs/{hub_id}/projects:
     get:
       operationId: getHubProjects
-      summary: List Projects
+      summary: Autodesk List Projects
       description: Returns a collection of projects for a given hub.
       tags:
         - Projects
@@ -138,7 +138,7 @@ paths:
   /project/v1/hubs/{hub_id}/projects/{project_id}:
     get:
       operationId: getProject
-      summary: Get Project
+      summary: Autodesk Get Project
       description: Returns a specific project within a hub.
       tags:
         - Projects
@@ -167,7 +167,7 @@ paths:
   /project/v1/hubs/{hub_id}/projects/{project_id}/topFolders:
     get:
       operationId: getProjectTopFolders
-      summary: List Top Folders
+      summary: Autodesk List Top Folders
       description: Returns the top-level folders for a project.
       tags:
         - Projects
@@ -196,7 +196,7 @@ paths:
   /data/v1/projects/{project_id}/folders/{folder_id}:
     get:
       operationId: getFolder
-      summary: Get Folder
+      summary: Autodesk Get Folder
       description: Returns a specific folder.
       tags:
         - Folders
@@ -225,7 +225,7 @@ paths:
   /data/v1/projects/{project_id}/folders/{folder_id}/contents:
     get:
       operationId: getFolderContents
-      summary: List Folder Contents
+      summary: Autodesk List Folder Contents
       description: Returns a collection of items and folders within a folder.
       tags:
         - Folders
@@ -283,7 +283,7 @@ paths:
   /data/v1/projects/{project_id}/folders/{folder_id}/search:
     get:
       operationId: searchFolder
-      summary: Search Folder
+      summary: Autodesk Search Folder
       description: Searches for items within a folder hierarchy.
       tags:
         - Folders
@@ -323,7 +323,7 @@ paths:
   /data/v1/projects/{project_id}/folders:
     post:
       operationId: createFolder
-      summary: Create Folder
+      summary: Autodesk Create Folder
       description: Creates a new folder in the specified project.
       tags:
         - Folders
@@ -356,7 +356,7 @@ paths:
   /data/v1/projects/{project_id}/items:
     post:
       operationId: createItem
-      summary: Create Item
+      summary: Autodesk Create Item
       description: >-
         Creates a new item in the specified project. The item references a
         storage location containing the uploaded file.
@@ -391,7 +391,7 @@ paths:
   /data/v1/projects/{project_id}/items/{item_id}:
     get:
       operationId: getItem
-      summary: Get Item
+      summary: Autodesk Get Item
       description: Returns a specific item within a project.
       tags:
         - Items
@@ -419,7 +419,7 @@ paths:
           description: Item not found.
     patch:
       operationId: patchItem
-      summary: Update Item
+      summary: Autodesk Update Item
       description: Updates the display name or other properties of an item.
       tags:
         - Items
@@ -453,7 +453,7 @@ paths:
   /data/v1/projects/{project_id}/items/{item_id}/versions:
     get:
       operationId: getItemVersions
-      summary: List Item Versions
+      summary: Autodesk List Item Versions
       description: Returns all versions of a given item.
       tags:
         - Versions
@@ -488,7 +488,7 @@ paths:
   /data/v1/projects/{project_id}/versions:
     post:
       operationId: createVersion
-      summary: Create Version
+      summary: Autodesk Create Version
       description: >-
         Creates a new version of an existing item. The version references
         a storage location containing the uploaded file.
@@ -519,7 +519,7 @@ paths:
   /data/v1/projects/{project_id}/versions/{version_id}:
     get:
       operationId: getVersion
-      summary: Get Version
+      summary: Autodesk Get Version
       description: Returns a specific version of an item.
       tags:
         - Versions
@@ -544,7 +544,7 @@ paths:
   /oss/v2/buckets:
     get:
       operationId: getBuckets
-      summary: List Buckets
+      summary: Autodesk List Buckets
       description: Returns a list of buckets owned by the application.
       tags:
         - Object Storage Service
@@ -580,7 +580,7 @@ paths:
                 $ref: '#/components/schemas/BucketsResponse'
     post:
       operationId: createBucket
-      summary: Create Bucket
+      summary: Autodesk Create Bucket
       description: Creates a new OSS bucket.
       tags:
         - Object Storage Service
@@ -605,7 +605,7 @@ paths:
   /oss/v2/buckets/{bucketKey}:
     get:
       operationId: getBucketDetails
-      summary: Get Bucket Details
+      summary: Autodesk Get Bucket Details
       description: Returns details of a specific bucket.
       tags:
         - Object Storage Service
@@ -627,7 +627,7 @@ paths:
                 $ref: '#/components/schemas/Bucket'
     delete:
       operationId: deleteBucket
-      summary: Delete Bucket
+      summary: Autodesk Delete Bucket
       description: Deletes a bucket. The bucket must be empty.
       tags:
         - Object Storage Service
@@ -650,7 +650,7 @@ paths:
   /oss/v2/buckets/{bucketKey}/objects:
     get:
       operationId: getObjects
-      summary: List Objects
+      summary: Autodesk List Objects
       description: Returns a list of objects in a bucket.
       tags:
         - Object Storage Service
@@ -688,7 +688,7 @@ paths:
   /oss/v2/buckets/{bucketKey}/objects/{objectKey}:
     get:
       operationId: getObject
-      summary: Download Object
+      summary: Autodesk Download Object
       description: Downloads an object from a bucket.
       tags:
         - Object Storage Service
@@ -722,7 +722,7 @@ paths:
                 format: binary
     put:
       operationId: uploadObject
-      summary: Upload Object
+      summary: Autodesk Upload Object
       description: Uploads an object to a bucket.
       tags:
         - Object Storage Service
@@ -766,7 +766,7 @@ paths:
                 $ref: '#/components/schemas/ObjectDetail'
     delete:
       operationId: deleteObject
-      summary: Delete Object
+      summary: Autodesk Delete Object
       description: Deletes an object from a bucket.
       tags:
         - Object Storage Service
@@ -792,7 +792,7 @@ paths:
   /oss/v2/buckets/{bucketKey}/objects/{objectKey}/details:
     get:
       operationId: getObjectDetails
-      summary: Get Object Details
+      summary: Autodesk Get Object Details
       description: Returns metadata about a specific object.
       tags:
         - Object Storage Service
@@ -820,7 +820,7 @@ paths:
   /oss/v2/buckets/{bucketKey}/objects/{objectKey}/signed:
     post:
       operationId: createSignedUrl
-      summary: Create Signed URL
+      summary: Autodesk Create Signed URL
       description: >-
         Creates a signed URL for downloading or uploading an object without
         requiring an access token.
