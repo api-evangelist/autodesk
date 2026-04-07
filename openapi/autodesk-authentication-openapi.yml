@@ -475,3 +475,8 @@ components:
         more info:
           type: string
           description: A link to more information about the error.
+tags:
+  - name: Authorization
+  - name: Keys
+  - name: Token
+  - name: Users

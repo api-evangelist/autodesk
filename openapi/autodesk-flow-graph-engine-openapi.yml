@@ -383,3 +383,6 @@ components:
           type: integer
         totalResults:
           type: integer
+tags:
+  - name: Graphs
+  - name: Jobs

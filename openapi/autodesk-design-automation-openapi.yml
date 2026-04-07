@@ -1014,3 +1014,10 @@ components:
               type: number
         backendLimits:
           type: object
+tags:
+  - name: Activities
+  - name: AppBundles
+  - name: Engines
+  - name: Forge Apps
+  - name: Service Limits
+  - name: WorkItems

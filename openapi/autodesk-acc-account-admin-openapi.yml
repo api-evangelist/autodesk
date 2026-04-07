@@ -843,3 +843,9 @@ components:
           type: integer
         totalResults:
           type: integer
+tags:
+  - name: Account Users
+  - name: Companies
+  - name: Industry Roles
+  - name: Project Users
+  - name: Projects

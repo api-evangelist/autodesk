@@ -695,3 +695,8 @@ components:
           type: integer
         totalResults:
           type: integer
+tags:
+  - name: Collections
+  - name: Groups
+  - name: Metadata
+  - name: Parameters

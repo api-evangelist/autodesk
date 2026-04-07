@@ -1501,3 +1501,10 @@ components:
             href:
               type: string
               format: uri
+tags:
+  - name: Folders
+  - name: Hubs
+  - name: Items
+  - name: Object Storage Service
+  - name: Projects
+  - name: Versions

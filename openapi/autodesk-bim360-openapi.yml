@@ -755,3 +755,7 @@ components:
           type: integer
         totalResults:
           type: integer
+tags:
+  - name: Admin
+  - name: Issues
+  - name: RFIs

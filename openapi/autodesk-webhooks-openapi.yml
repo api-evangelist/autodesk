@@ -466,3 +466,7 @@ components:
           format: date-time
         autoReactivateHook:
           type: boolean
+tags:
+  - name: Hooks
+  - name: Systems
+  - name: Tokens

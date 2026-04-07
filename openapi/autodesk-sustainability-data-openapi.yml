@@ -316,3 +316,7 @@ components:
           type: integer
         totalResults:
           type: integer
+tags:
+  - name: Calculations
+  - name: Datasets
+  - name: Records

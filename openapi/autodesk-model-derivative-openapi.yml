@@ -708,3 +708,10 @@ components:
             type: array
             items:
               type: string
+tags:
+  - name: Derivatives
+  - name: Informational
+  - name: Jobs
+  - name: Manifest
+  - name: Metadata
+  - name: Thumbnails

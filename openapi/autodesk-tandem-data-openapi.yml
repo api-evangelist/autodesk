@@ -581,3 +581,10 @@ components:
                 type: string
                 format: date-time
               value: {}
+tags:
+  - name: Elements
+  - name: Groups
+  - name: Models
+  - name: Schema
+  - name: Streams
+  - name: Twins
