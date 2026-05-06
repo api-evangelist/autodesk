@@ -4,252 +4,56 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Autodesk
 providerId: autodesk
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
   - 3D Modeling
-  - Architecture
   - BIM
   - CAD
   - Construction
-  - Design
-  - Digital Twins
   - Engineering
-  - Manufacturing
-  - Media and Entertainment
-  - Sustainability
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Autodesk API surface. Captures per-tier quotas,
-  burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to be replaced
-  with published provider limits.
+description: Autodesk Platform Services (APS) APIs are rate-limited per-application and per-token. Per-API
+  rate-limit numbers are documented in each API's reference page (e.g. Model Derivative, Data Management)
+  rather than at a single canonical URL. Throttled responses use HTTP 429 with Retry-After. The public
+  rate-limit overview pages were not directly fetchable for this revision.
+sources:
+  - https://aps.autodesk.com/developer/overview
+  - https://aps.autodesk.com/en/docs
+notes: APS does not publish a single canonical rate-limit table; values vary per API and per app. Verify
+  per-API limits against the specific API's reference docs (e.g. Model Derivative API reference).
 headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
   retryAfter: Retry-After
-  policy: RateLimit-Policy
+  requestId: x-ads-trace-id
 responseCodes:
   throttled: 429
   quotaExceeded: 429
   serviceUnavailable: 503
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - Autodesk Build Photos API
-      - Autodesk Authentication API
-      - Autodesk Data Management API
-      - Autodesk Model Derivative API
-      - Autodesk Design Automation API
-      - Autodesk Viewer SDK
-      - Autodesk Webhooks API
-      - Autodesk Reality Capture API
-      - Autodesk AEC Data Model API
-      - Autodesk Data Exchange API
-      - Autodesk Sustainability Data API
-      - Autodesk Parameters API
-      - Autodesk Tandem Data API
-      - Autodesk Flow Graph Engine API
-      - Autodesk ACC Account Admin API
-      - Autodesk ACC Issues API
-      - Autodesk ACC RFIs API
-      - Autodesk ACC Cost Management API
-      - Autodesk ACC Data Connector API
-      - Autodesk ACC Model Coordination API
-      - Autodesk ACC Assets API
-      - Autodesk ACC Locations API
-      - Autodesk ACC Forms API
-      - Autodesk ACC Photos API
-      - Autodesk ACC Submittals API
-      - Autodesk ACC Sheets API
-      - Autodesk ACC Reviews API
-      - Autodesk ACC Relationships API
-      - Autodesk ACC Model Properties API
-      - Autodesk ACC Transmittals API
-      - Autodesk ACC AutoSpecs API
-      - Autodesk ACC Takeoff API
-      - Autodesk BIM 360 API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - Autodesk Build Photos API
-      - Autodesk Authentication API
-      - Autodesk Data Management API
-      - Autodesk Model Derivative API
-      - Autodesk Design Automation API
-      - Autodesk Viewer SDK
-      - Autodesk Webhooks API
-      - Autodesk Reality Capture API
-      - Autodesk AEC Data Model API
-      - Autodesk Data Exchange API
-      - Autodesk Sustainability Data API
-      - Autodesk Parameters API
-      - Autodesk Tandem Data API
-      - Autodesk Flow Graph Engine API
-      - Autodesk ACC Account Admin API
-      - Autodesk ACC Issues API
-      - Autodesk ACC RFIs API
-      - Autodesk ACC Cost Management API
-      - Autodesk ACC Data Connector API
-      - Autodesk ACC Model Coordination API
-      - Autodesk ACC Assets API
-      - Autodesk ACC Locations API
-      - Autodesk ACC Forms API
-      - Autodesk ACC Photos API
-      - Autodesk ACC Submittals API
-      - Autodesk ACC Sheets API
-      - Autodesk ACC Reviews API
-      - Autodesk ACC Relationships API
-      - Autodesk ACC Model Properties API
-      - Autodesk ACC Transmittals API
-      - Autodesk ACC AutoSpecs API
-      - Autodesk ACC Takeoff API
-      - Autodesk BIM 360 API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - Autodesk Build Photos API
-      - Autodesk Authentication API
-      - Autodesk Data Management API
-      - Autodesk Model Derivative API
-      - Autodesk Design Automation API
-      - Autodesk Viewer SDK
-      - Autodesk Webhooks API
-      - Autodesk Reality Capture API
-      - Autodesk AEC Data Model API
-      - Autodesk Data Exchange API
-      - Autodesk Sustainability Data API
-      - Autodesk Parameters API
-      - Autodesk Tandem Data API
-      - Autodesk Flow Graph Engine API
-      - Autodesk ACC Account Admin API
-      - Autodesk ACC Issues API
-      - Autodesk ACC RFIs API
-      - Autodesk ACC Cost Management API
-      - Autodesk ACC Data Connector API
-      - Autodesk ACC Model Coordination API
-      - Autodesk ACC Assets API
-      - Autodesk ACC Locations API
-      - Autodesk ACC Forms API
-      - Autodesk ACC Photos API
-      - Autodesk ACC Submittals API
-      - Autodesk ACC Sheets API
-      - Autodesk ACC Reviews API
-      - Autodesk ACC Relationships API
-      - Autodesk ACC Model Properties API
-      - Autodesk ACC Transmittals API
-      - Autodesk ACC AutoSpecs API
-      - Autodesk ACC Takeoff API
-      - Autodesk BIM 360 API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Autodesk Build Photos API
-      - Autodesk Authentication API
-      - Autodesk Data Management API
-      - Autodesk Model Derivative API
-      - Autodesk Design Automation API
-      - Autodesk Viewer SDK
-      - Autodesk Webhooks API
-      - Autodesk Reality Capture API
-      - Autodesk AEC Data Model API
-      - Autodesk Data Exchange API
-      - Autodesk Sustainability Data API
-      - Autodesk Parameters API
-      - Autodesk Tandem Data API
-      - Autodesk Flow Graph Engine API
-      - Autodesk ACC Account Admin API
-      - Autodesk ACC Issues API
-      - Autodesk ACC RFIs API
-      - Autodesk ACC Cost Management API
-      - Autodesk ACC Data Connector API
-      - Autodesk ACC Model Coordination API
-      - Autodesk ACC Assets API
-      - Autodesk ACC Locations API
-      - Autodesk ACC Forms API
-      - Autodesk ACC Photos API
-      - Autodesk ACC Submittals API
-      - Autodesk ACC Sheets API
-      - Autodesk ACC Reviews API
-      - Autodesk ACC Relationships API
-      - Autodesk ACC Model Properties API
-      - Autodesk ACC Transmittals API
-      - Autodesk ACC AutoSpecs API
-      - Autodesk ACC Takeoff API
-      - Autodesk BIM 360 API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Autodesk Build Photos API
-      - Autodesk Authentication API
-      - Autodesk Data Management API
-      - Autodesk Model Derivative API
-      - Autodesk Design Automation API
-      - Autodesk Viewer SDK
-      - Autodesk Webhooks API
-      - Autodesk Reality Capture API
-      - Autodesk AEC Data Model API
-      - Autodesk Data Exchange API
-      - Autodesk Sustainability Data API
-      - Autodesk Parameters API
-      - Autodesk Tandem Data API
-      - Autodesk Flow Graph Engine API
-      - Autodesk ACC Account Admin API
-      - Autodesk ACC Issues API
-      - Autodesk ACC RFIs API
-      - Autodesk ACC Cost Management API
-      - Autodesk ACC Data Connector API
-      - Autodesk ACC Model Coordination API
-      - Autodesk ACC Assets API
-      - Autodesk ACC Locations API
-      - Autodesk ACC Forms API
-      - Autodesk ACC Photos API
-      - Autodesk ACC Submittals API
-      - Autodesk ACC Sheets API
-      - Autodesk ACC Reviews API
-      - Autodesk ACC Relationships API
-      - Autodesk ACC Model Properties API
-      - Autodesk ACC Transmittals API
-      - Autodesk ACC AutoSpecs API
-      - Autodesk ACC Takeoff API
-      - Autodesk BIM 360 API
+  - name: APS API Throttling (per-app, per-token)
+    scope: account/app
+    metric: varies
+    limit: per-API limits documented in each API's reference page
+    notes: Treat as variable per API; instrument 429 handling at the app level.
+  - name: Model Derivative job concurrency
+    scope: account/app
+    metric: concurrent_requests
+    limit: see Model Derivative API reference
+    notes: Translation jobs are queued; concurrent translation count varies by app entitlement.
+  - name: Design Automation cloud-engine concurrency
+    scope: account/app
+    metric: concurrent_requests
+    limit: see Design Automation API reference
+    notes: Cloud-engine slots throttle parallel work-item execution.
 policies:
   - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+    description: Honor Retry-After when present; use exponential backoff with jitter on 429 / 503.
+  - name: Per-App Token Scoping
+    description: APS rate limits are scoped to the calling app's client_id and to the access token; multi-app
+      callers should split credentials.
+  - name: Cloud Credits as Soft Cap
+    description: For chargeable APIs (Model Derivative, Design Automation, Reality Capture, Data Exchange),
+      the Cloud Credit balance acts as an additional consumption cap independent of per-second rate limits.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

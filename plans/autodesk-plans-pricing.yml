@@ -4,222 +4,158 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Autodesk
 providerId: autodesk
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
   - 3D Modeling
-  - Architecture
   - BIM
   - CAD
   - Construction
   - Design
-  - Digital Twins
   - Engineering
   - Manufacturing
-  - Media and Entertainment
-  - Sustainability
-description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
-  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
+description: Autodesk Platform Services (APS, formerly Forge) APIs are priced via Cloud Credits, where
+  certain operations (notably Model Derivative translation jobs, Design Automation cloud-engine minutes,
+  Reality Capture photo processing) consume credits drawn from a pre-purchased balance. Other APIs
+  (Authentication, Data Management, Webhooks, Viewer SDK) are free to call. Bundle pricing requires sign-in
+  to the APS console; the public pricing page is gated for unauthenticated users. Underlying Autodesk
+  product subscriptions (AutoCAD, Revit, Inventor, Maya, etc.) are sold per-seat per-month/year.
+sources:
+  - https://aps.autodesk.com/pricing
+  - https://www.autodesk.com/pricing
+  - https://aps.autodesk.com/developer/overview
+notes: APS pricing page is gated and was not directly fetchable; specific Cloud Credit rates and free
+  monthly allowance values should be verified against the live console. Per-API rates for Model Derivative
+  / Design Automation / Reality Capture / Data Exchange exist but are not reproduced here without source
+  verification.
 plans:
-  - id: autodesk-free
-    name: Free
+  - id: autodesk-aps-free-apis
+    name: APS Free APIs
     type: freemium
-    description: Free entry tier for the Autodesk API surface. Intended for evaluation, prototyping, and
-      low-volume integrations. Real limits and pricing must be reconciled with the provider's published
-      plan documentation.
+    description: APS APIs that are free to call without consuming Cloud Credits.
     entries:
-      - label: API Requests
-        description: Monthly API request quota across all included endpoints
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 1000
-        timeFrame: month
-        geo: global
-        domains:
-          - https://developer.api.autodesk.com
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the free tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 10
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://developer.api.autodesk.com
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: Public Documentation
-      - name: Community Support
-      - name: Sandbox Access
-      - name: Autodesk Build Photos API
-      - name: Autodesk Authentication API
-      - name: Autodesk Data Management API
-      - name: Autodesk Model Derivative API
-      - name: Autodesk Design Automation API
-      - name: Autodesk Viewer SDK
-      - name: Autodesk Webhooks API
-      - name: Autodesk Reality Capture API
-  - id: autodesk-pro
-    name: Professional
-    type: paid
-    description: Production tier for Autodesk. Provides higher quotas, priority support, and access to
-      the broader API portfolio. Pricing placeholder; align with the provider's pricing page.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 100000
-        timeFrame: month
-        geo: global
-        domains:
-          - https://developer.api.autodesk.com
-        unit: 1
-        price: TBD
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the professional tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 100
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://developer.api.autodesk.com
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Overage
-        description: Per-request price after monthly quota is exceeded
-        name: overage
+      - label: Authentication API calls
+        name: auth_calls
         type: metered
-        metric: requests
+        metric: request
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: included
+        userMultiplied: false
+      - label: Data Management API calls
+        name: data_mgmt_calls
+        type: metered
+        metric: request
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: included
+        userMultiplied: false
+      - label: Webhooks API calls
+        name: webhooks_calls
+        type: metered
+        metric: request
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: included
+        userMultiplied: false
+      - label: Viewer SDK
+        name: viewer_sdk
+        type: subscription
+        metric: month
         limit: -1
         timeFrame: month
         geo: global
-        domains:
-          - https://developer.api.autodesk.com
-        unit: 1000
-        price: TBD
+        unit: 1
+        price: included
         userMultiplied: false
     elements:
-      - name: All Production Endpoints
-      - name: Email Support
-      - name: SLA Targets
-      - name: Webhook Subscriptions
-      - name: Autodesk Build Photos API
-      - name: Autodesk Authentication API
-      - name: Autodesk Data Management API
-      - name: Autodesk Model Derivative API
-      - name: Autodesk Design Automation API
-      - name: Autodesk Viewer SDK
-      - name: Autodesk Webhooks API
-      - name: Autodesk Reality Capture API
-      - name: Autodesk AEC Data Model API
-      - name: Autodesk Data Exchange API
-      - name: Autodesk Sustainability Data API
-      - name: Autodesk Parameters API
-      - name: Autodesk Tandem Data API
-      - name: Autodesk Flow Graph Engine API
-      - name: Autodesk ACC Account Admin API
-      - name: Autodesk ACC Issues API
-      - name: Autodesk ACC RFIs API
-      - name: Autodesk ACC Cost Management API
-      - name: Autodesk ACC Data Connector API
-      - name: Autodesk ACC Model Coordination API
-      - name: Autodesk ACC Assets API
-      - name: Autodesk ACC Locations API
-      - name: Autodesk ACC Forms API
-      - name: Autodesk ACC Photos API
-      - name: Autodesk ACC Submittals API
-      - name: Autodesk ACC Sheets API
-      - name: Autodesk ACC Reviews API
-      - name: Autodesk ACC Relationships API
-      - name: Autodesk ACC Model Properties API
-      - name: Autodesk ACC Transmittals API
-      - name: Autodesk ACC AutoSpecs API
-      - name: Autodesk ACC Takeoff API
-      - name: Autodesk BIM 360 API
-  - id: autodesk-enterprise
-    name: Enterprise
-    type: enterprise
-    description: Custom-negotiated tier for Autodesk. Includes dedicated capacity, contractual SLAs, security
-      review, data residency options, and named technical account management.
+      - name: Authentication API
+      - name: Data Management API
+      - name: Webhooks API
+      - name: Viewer SDK
+  - id: autodesk-aps-cloud-credits
+    name: APS Cloud Credits
+    type: usage-based
+    description: Pre-purchased Cloud Credit balance consumed by chargeable APS APIs (Model Derivative,
+      Design Automation, Reality Capture, Data Exchange). Per-operation credit cost is documented in the
+      APS console.
     entries:
-      - label: API Requests
-        description: Negotiated request volume; -1 indicates uncapped subject to fair use
-        name: api_requests
-        type: quota
-        metric: requests
+      - label: Model Derivative translation
+        name: model_derivative
+        type: metered
+        metric: request
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: see APS Cloud Credits pricing in console
+        userMultiplied: false
+      - label: Design Automation cloud-engine minutes
+        name: design_automation
+        type: metered
+        metric: minute
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: see APS Cloud Credits pricing in console
+        userMultiplied: false
+      - label: Reality Capture processing
+        name: reality_capture
+        type: metered
+        metric: request
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: see APS Cloud Credits pricing in console
+        userMultiplied: false
+      - label: Data Exchange operations
+        name: data_exchange
+        type: metered
+        metric: request
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: see APS Cloud Credits pricing in console
+        userMultiplied: false
+    elements:
+      - name: Model Derivative API
+      - name: Design Automation API
+      - name: Reality Capture API
+      - name: Data Exchange API
+      - name: AEC Data Model API
+      - name: Sustainability Data API
+  - id: autodesk-product-subscriptions
+    name: Autodesk Product Subscriptions
+    type: subscription
+    description: Underlying Autodesk product subscriptions (AutoCAD, Revit, Inventor, Maya, 3ds Max, Fusion)
+      sold per-seat. APS API access can be tied to a product entitlement for end-user-bound operations.
+    entries:
+      - label: Per-seat product subscription
+        name: product_seat
+        type: subscription
+        metric: seat
         limit: -1
         timeFrame: month
-        geo: configurable
-        domains:
-          - https://developer.api.autodesk.com
+        geo: global
         unit: 1
-        price: custom
-        userMultiplied: false
-      - label: Rate Limit
-        description: Negotiated burst and steady-state rate
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 1000
-        timeFrame: minute
-        geo: configurable
-        domains:
-          - https://developer.api.autodesk.com
-        unit: 1
-        price: custom
-        userMultiplied: false
+        price: varies by product (see autodesk.com/pricing)
+        userMultiplied: true
     elements:
-      - name: Unlimited / Negotiated Volume
-      - name: 24/7 Dedicated Support
-      - name: Contractual SLA
-      - name: Security & Compliance Review
-      - name: Dedicated Account Manager
-      - name: Custom Data Residency
-      - name: Autodesk Build Photos API
-      - name: Autodesk Authentication API
-      - name: Autodesk Data Management API
-      - name: Autodesk Model Derivative API
-      - name: Autodesk Design Automation API
-      - name: Autodesk Viewer SDK
-      - name: Autodesk Webhooks API
-      - name: Autodesk Reality Capture API
-      - name: Autodesk AEC Data Model API
-      - name: Autodesk Data Exchange API
-      - name: Autodesk Sustainability Data API
-      - name: Autodesk Parameters API
-      - name: Autodesk Tandem Data API
-      - name: Autodesk Flow Graph Engine API
-      - name: Autodesk ACC Account Admin API
-      - name: Autodesk ACC Issues API
-      - name: Autodesk ACC RFIs API
-      - name: Autodesk ACC Cost Management API
-      - name: Autodesk ACC Data Connector API
-      - name: Autodesk ACC Model Coordination API
-      - name: Autodesk ACC Assets API
-      - name: Autodesk ACC Locations API
-      - name: Autodesk ACC Forms API
-      - name: Autodesk ACC Photos API
-      - name: Autodesk ACC Submittals API
-      - name: Autodesk ACC Sheets API
-      - name: Autodesk ACC Reviews API
-      - name: Autodesk ACC Relationships API
-      - name: Autodesk ACC Model Properties API
-      - name: Autodesk ACC Transmittals API
-      - name: Autodesk ACC AutoSpecs API
-      - name: Autodesk ACC Takeoff API
-      - name: Autodesk BIM 360 API
+      - name: AutoCAD
+      - name: Revit
+      - name: Inventor
+      - name: Maya
+      - name: 3ds Max
+      - name: Fusion
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
