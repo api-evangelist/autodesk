@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Autodesk Sustainability Data API — Calculations
+  description: 'Autodesk Sustainability Data API — Calculations. 1 operations. Lead operation: Autodesk Calculate Emissions.
+    Self-contained Naftiko capability covering one Autodesk business surface.'
+  tags:
+  - Autodesk
+  - Calculations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AUTODESK_API_KEY: AUTODESK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: sustainability-data-calculations
+    baseUri: https://developer.api.autodesk.com
+    description: Autodesk Sustainability Data API — Calculations business capability. Self-contained, no shared references.
+    resources:
+    - name: sustainability-v3-calculation
+      path: /sustainability/v3/calculation
+      operations:
+      - name: calculateemissions
+        method: POST
+        description: Autodesk Calculate Emissions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.AUTODESK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: sustainability-data-calculations-rest
+    port: 8080
+    description: REST adapter for Autodesk Sustainability Data API — Calculations. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/sustainability/v3/calculation
+      name: sustainability-v3-calculation
+      description: REST surface for sustainability-v3-calculation.
+      operations:
+      - method: POST
+        name: calculateemissions
+        description: Autodesk Calculate Emissions
+        call: sustainability-data-calculations.calculateemissions
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: sustainability-data-calculations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Autodesk Sustainability Data API — Calculations. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: autodesk-calculate-emissions
+      description: Autodesk Calculate Emissions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: sustainability-data-calculations.calculateemissions
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

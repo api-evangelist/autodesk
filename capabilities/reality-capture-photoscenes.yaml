@@ -1,0 +1,121 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Autodesk Reality Capture API — Photoscenes
+  description: 'Autodesk Reality Capture API — Photoscenes. 2 operations. Lead operation: Create Photoscene. Self-contained
+    Naftiko capability covering one Autodesk business surface.'
+  tags:
+  - Autodesk
+  - Photoscenes
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AUTODESK_API_KEY: AUTODESK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: reality-capture-photoscenes
+    baseUri: https://developer.api.autodesk.com
+    description: Autodesk Reality Capture API — Photoscenes business capability. Self-contained, no shared references.
+    resources:
+    - name: photo-to-3d-v1-photoscene
+      path: /photo-to-3d/v1/photoscene
+      operations:
+      - name: createphotoscene
+        method: POST
+        description: Create Photoscene
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: photo-to-3d-v1-photoscene-photosceneid-progress
+      path: /photo-to-3d/v1/photoscene/{photosceneid}/progress
+      operations:
+      - name: getphotosceneprogress
+        method: GET
+        description: Get Processing Progress
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: photosceneid
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.AUTODESK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: reality-capture-photoscenes-rest
+    port: 8080
+    description: REST adapter for Autodesk Reality Capture API — Photoscenes. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/photo-to-3d/v1/photoscene
+      name: photo-to-3d-v1-photoscene
+      description: REST surface for photo-to-3d-v1-photoscene.
+      operations:
+      - method: POST
+        name: createphotoscene
+        description: Create Photoscene
+        call: reality-capture-photoscenes.createphotoscene
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/photo-to-3d/v1/photoscene/{photosceneid}/progress
+      name: photo-to-3d-v1-photoscene-photosceneid-progress
+      description: REST surface for photo-to-3d-v1-photoscene-photosceneid-progress.
+      operations:
+      - method: GET
+        name: getphotosceneprogress
+        description: Get Processing Progress
+        call: reality-capture-photoscenes.getphotosceneprogress
+        with:
+          photosceneid: rest.photosceneid
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: reality-capture-photoscenes-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Autodesk Reality Capture API — Photoscenes. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: create-photoscene
+      description: Create Photoscene
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: reality-capture-photoscenes.createphotoscene
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-processing-progress
+      description: Get Processing Progress
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: reality-capture-photoscenes.getphotosceneprogress
+      with:
+        photosceneid: tools.photosceneid
+      outputParameters:
+      - type: object
+        mapping: $.

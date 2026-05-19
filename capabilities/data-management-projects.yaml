@@ -1,0 +1,192 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Autodesk Data Management API — Projects
+  description: 'Autodesk Data Management API — Projects. 3 operations. Lead operation: Autodesk List Projects. Self-contained
+    Naftiko capability covering one Autodesk business surface.'
+  tags:
+  - Autodesk
+  - Projects
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AUTODESK_API_KEY: AUTODESK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: data-management-projects
+    baseUri: https://developer.api.autodesk.com
+    description: Autodesk Data Management API — Projects business capability. Self-contained, no shared references.
+    resources:
+    - name: project-v1-hubs-hub_id-projects
+      path: /project/v1/hubs/{hub_id}/projects
+      operations:
+      - name: gethubprojects
+        method: GET
+        description: Autodesk List Projects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: hub_id
+          in: path
+          type: string
+          description: The unique identifier of the hub.
+          required: true
+        - name: filter[id]
+          in: query
+          type: string
+          description: Filter by project ID.
+        - name: page[number]
+          in: query
+          type: integer
+          description: Page number for pagination.
+        - name: page[limit]
+          in: query
+          type: integer
+          description: Number of results per page (max 200).
+    - name: project-v1-hubs-hub_id-projects-project_id
+      path: /project/v1/hubs/{hub_id}/projects/{project_id}
+      operations:
+      - name: getproject
+        method: GET
+        description: Autodesk Get Project
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: hub_id
+          in: path
+          type: string
+          required: true
+        - name: project_id
+          in: path
+          type: string
+          required: true
+    - name: project-v1-hubs-hub_id-projects-project_id-topFolders
+      path: /project/v1/hubs/{hub_id}/projects/{project_id}/topFolders
+      operations:
+      - name: getprojecttopfolders
+        method: GET
+        description: Autodesk List Top Folders
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: hub_id
+          in: path
+          type: string
+          required: true
+        - name: project_id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.AUTODESK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: data-management-projects-rest
+    port: 8080
+    description: REST adapter for Autodesk Data Management API — Projects. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/project/v1/hubs/{hub-id}/projects
+      name: project-v1-hubs-hub-id-projects
+      description: REST surface for project-v1-hubs-hub_id-projects.
+      operations:
+      - method: GET
+        name: gethubprojects
+        description: Autodesk List Projects
+        call: data-management-projects.gethubprojects
+        with:
+          hub_id: rest.hub_id
+          filter[id]: rest.filter[id]
+          page[number]: rest.page[number]
+          page[limit]: rest.page[limit]
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/project/v1/hubs/{hub-id}/projects/{project-id}
+      name: project-v1-hubs-hub-id-projects-project-id
+      description: REST surface for project-v1-hubs-hub_id-projects-project_id.
+      operations:
+      - method: GET
+        name: getproject
+        description: Autodesk Get Project
+        call: data-management-projects.getproject
+        with:
+          hub_id: rest.hub_id
+          project_id: rest.project_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/project/v1/hubs/{hub-id}/projects/{project-id}/topfolders
+      name: project-v1-hubs-hub-id-projects-project-id-topfolders
+      description: REST surface for project-v1-hubs-hub_id-projects-project_id-topFolders.
+      operations:
+      - method: GET
+        name: getprojecttopfolders
+        description: Autodesk List Top Folders
+        call: data-management-projects.getprojecttopfolders
+        with:
+          hub_id: rest.hub_id
+          project_id: rest.project_id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: data-management-projects-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Autodesk Data Management API — Projects. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: autodesk-list-projects
+      description: Autodesk List Projects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: data-management-projects.gethubprojects
+      with:
+        hub_id: tools.hub_id
+        filter[id]: tools.filter[id]
+        page[number]: tools.page[number]
+        page[limit]: tools.page[limit]
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-get-project
+      description: Autodesk Get Project
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: data-management-projects.getproject
+      with:
+        hub_id: tools.hub_id
+        project_id: tools.project_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-list-top-folders
+      description: Autodesk List Top Folders
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: data-management-projects.getprojecttopfolders
+      with:
+        hub_id: tools.hub_id
+        project_id: tools.project_id
+      outputParameters:
+      - type: object
+        mapping: $.

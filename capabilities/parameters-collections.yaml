@@ -1,0 +1,265 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Autodesk Parameters API — Collections
+  description: 'Autodesk Parameters API — Collections. 5 operations. Lead operation: Autodesk List Collections. Self-contained
+    Naftiko capability covering one Autodesk business surface.'
+  tags:
+  - Autodesk
+  - Collections
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AUTODESK_API_KEY: AUTODESK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: parameters-collections
+    baseUri: https://developer.api.autodesk.com
+    description: Autodesk Parameters API — Collections business capability. Self-contained, no shared references.
+    resources:
+    - name: parameters-v1-accounts-accountId-collections
+      path: /parameters/v1/accounts/{accountId}/collections
+      operations:
+      - name: getcollections
+        method: GET
+        description: Autodesk List Collections
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: accountId
+          in: path
+          type: string
+          description: The Autodesk account ID (hub ID without the b. prefix).
+          required: true
+        - name: offset
+          in: query
+          type: integer
+        - name: limit
+          in: query
+          type: integer
+      - name: createcollection
+        method: POST
+        description: Autodesk Create Collection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: accountId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: parameters-v1-accounts-accountId-collections-collectionId
+      path: /parameters/v1/accounts/{accountId}/collections/{collectionId}
+      operations:
+      - name: getcollection
+        method: GET
+        description: Autodesk Get Collection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: accountId
+          in: path
+          type: string
+          required: true
+        - name: collectionId
+          in: path
+          type: string
+          required: true
+      - name: updatecollection
+        method: PATCH
+        description: Autodesk Update Collection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: accountId
+          in: path
+          type: string
+          required: true
+        - name: collectionId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletecollection
+        method: DELETE
+        description: Autodesk Delete Collection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: accountId
+          in: path
+          type: string
+          required: true
+        - name: collectionId
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.AUTODESK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: parameters-collections-rest
+    port: 8080
+    description: REST adapter for Autodesk Parameters API — Collections. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/parameters/v1/accounts/{accountid}/collections
+      name: parameters-v1-accounts-accountid-collections
+      description: REST surface for parameters-v1-accounts-accountId-collections.
+      operations:
+      - method: GET
+        name: getcollections
+        description: Autodesk List Collections
+        call: parameters-collections.getcollections
+        with:
+          accountId: rest.accountId
+          offset: rest.offset
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createcollection
+        description: Autodesk Create Collection
+        call: parameters-collections.createcollection
+        with:
+          accountId: rest.accountId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/parameters/v1/accounts/{accountid}/collections/{collectionid}
+      name: parameters-v1-accounts-accountid-collections-collectionid
+      description: REST surface for parameters-v1-accounts-accountId-collections-collectionId.
+      operations:
+      - method: GET
+        name: getcollection
+        description: Autodesk Get Collection
+        call: parameters-collections.getcollection
+        with:
+          accountId: rest.accountId
+          collectionId: rest.collectionId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatecollection
+        description: Autodesk Update Collection
+        call: parameters-collections.updatecollection
+        with:
+          accountId: rest.accountId
+          collectionId: rest.collectionId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletecollection
+        description: Autodesk Delete Collection
+        call: parameters-collections.deletecollection
+        with:
+          accountId: rest.accountId
+          collectionId: rest.collectionId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: parameters-collections-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Autodesk Parameters API — Collections. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: autodesk-list-collections
+      description: Autodesk List Collections
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: parameters-collections.getcollections
+      with:
+        accountId: tools.accountId
+        offset: tools.offset
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-create-collection
+      description: Autodesk Create Collection
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: parameters-collections.createcollection
+      with:
+        accountId: tools.accountId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-get-collection
+      description: Autodesk Get Collection
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: parameters-collections.getcollection
+      with:
+        accountId: tools.accountId
+        collectionId: tools.collectionId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-update-collection
+      description: Autodesk Update Collection
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: parameters-collections.updatecollection
+      with:
+        accountId: tools.accountId
+        collectionId: tools.collectionId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-delete-collection
+      description: Autodesk Delete Collection
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: parameters-collections.deletecollection
+      with:
+        accountId: tools.accountId
+        collectionId: tools.collectionId
+      outputParameters:
+      - type: object
+        mapping: $.

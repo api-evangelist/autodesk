@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Autodesk Authentication API — Keys
+  description: 'Autodesk Authentication API — Keys. 1 operations. Lead operation: Autodesk Get JWKS. Self-contained Naftiko
+    capability covering one Autodesk business surface.'
+  tags:
+  - Autodesk
+  - Keys
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AUTODESK_API_KEY: AUTODESK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: authentication-keys
+    baseUri: https://developer.api.autodesk.com
+    description: Autodesk Authentication API — Keys business capability. Self-contained, no shared references.
+    resources:
+    - name: authentication-v2-keys
+      path: /authentication/v2/keys
+      operations:
+      - name: getkeys
+        method: GET
+        description: Autodesk Get JWKS
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.AUTODESK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: authentication-keys-rest
+    port: 8080
+    description: REST adapter for Autodesk Authentication API — Keys. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/authentication/v2/keys
+      name: authentication-v2-keys
+      description: REST surface for authentication-v2-keys.
+      operations:
+      - method: GET
+        name: getkeys
+        description: Autodesk Get JWKS
+        call: authentication-keys.getkeys
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: authentication-keys-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Autodesk Authentication API — Keys. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: autodesk-get-jwks
+      description: Autodesk Get JWKS
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: authentication-keys.getkeys
+      outputParameters:
+      - type: object
+        mapping: $.

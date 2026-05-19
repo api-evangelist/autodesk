@@ -1,0 +1,180 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Autodesk Data Management API — Items
+  description: 'Autodesk Data Management API — Items. 3 operations. Lead operation: Autodesk Create Item. Self-contained Naftiko
+    capability covering one Autodesk business surface.'
+  tags:
+  - Autodesk
+  - Items
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AUTODESK_API_KEY: AUTODESK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: data-management-items
+    baseUri: https://developer.api.autodesk.com
+    description: Autodesk Data Management API — Items business capability. Self-contained, no shared references.
+    resources:
+    - name: data-v1-projects-project_id-items
+      path: /data/v1/projects/{project_id}/items
+      operations:
+      - name: createitem
+        method: POST
+        description: Autodesk Create Item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project_id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: data-v1-projects-project_id-items-item_id
+      path: /data/v1/projects/{project_id}/items/{item_id}
+      operations:
+      - name: getitem
+        method: GET
+        description: Autodesk Get Item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project_id
+          in: path
+          type: string
+          required: true
+        - name: item_id
+          in: path
+          type: string
+          required: true
+      - name: patchitem
+        method: PATCH
+        description: Autodesk Update Item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project_id
+          in: path
+          type: string
+          required: true
+        - name: item_id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.AUTODESK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: data-management-items-rest
+    port: 8080
+    description: REST adapter for Autodesk Data Management API — Items. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/data/v1/projects/{project-id}/items
+      name: data-v1-projects-project-id-items
+      description: REST surface for data-v1-projects-project_id-items.
+      operations:
+      - method: POST
+        name: createitem
+        description: Autodesk Create Item
+        call: data-management-items.createitem
+        with:
+          project_id: rest.project_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/data/v1/projects/{project-id}/items/{item-id}
+      name: data-v1-projects-project-id-items-item-id
+      description: REST surface for data-v1-projects-project_id-items-item_id.
+      operations:
+      - method: GET
+        name: getitem
+        description: Autodesk Get Item
+        call: data-management-items.getitem
+        with:
+          project_id: rest.project_id
+          item_id: rest.item_id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchitem
+        description: Autodesk Update Item
+        call: data-management-items.patchitem
+        with:
+          project_id: rest.project_id
+          item_id: rest.item_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: data-management-items-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Autodesk Data Management API — Items. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: autodesk-create-item
+      description: Autodesk Create Item
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: data-management-items.createitem
+      with:
+        project_id: tools.project_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-get-item
+      description: Autodesk Get Item
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: data-management-items.getitem
+      with:
+        project_id: tools.project_id
+        item_id: tools.item_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-update-item
+      description: Autodesk Update Item
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: data-management-items.patchitem
+      with:
+        project_id: tools.project_id
+        item_id: tools.item_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

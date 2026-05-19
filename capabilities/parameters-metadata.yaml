@@ -1,0 +1,175 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Autodesk Parameters API — Metadata
+  description: 'Autodesk Parameters API — Metadata. 4 operations. Lead operation: Autodesk List Categories. Self-contained
+    Naftiko capability covering one Autodesk business surface.'
+  tags:
+  - Autodesk
+  - Metadata
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AUTODESK_API_KEY: AUTODESK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: parameters-metadata
+    baseUri: https://developer.api.autodesk.com
+    description: Autodesk Parameters API — Metadata business capability. Self-contained, no shared references.
+    resources:
+    - name: parameters-v1-metadata-categories
+      path: /parameters/v1/metadata/categories
+      operations:
+      - name: getcategories
+        method: GET
+        description: Autodesk List Categories
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: parameters-v1-metadata-disciplines
+      path: /parameters/v1/metadata/disciplines
+      operations:
+      - name: getdisciplines
+        method: GET
+        description: Autodesk List Disciplines
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: parameters-v1-metadata-specs
+      path: /parameters/v1/metadata/specs
+      operations:
+      - name: getspecs
+        method: GET
+        description: Autodesk List Specs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: parameters-v1-metadata-units
+      path: /parameters/v1/metadata/units
+      operations:
+      - name: getunits
+        method: GET
+        description: Autodesk List Units
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: filter[specId]
+          in: query
+          type: string
+          description: Filter units by spec ID.
+    authentication:
+      type: bearer
+      token: '{{env.AUTODESK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: parameters-metadata-rest
+    port: 8080
+    description: REST adapter for Autodesk Parameters API — Metadata. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/parameters/v1/metadata/categories
+      name: parameters-v1-metadata-categories
+      description: REST surface for parameters-v1-metadata-categories.
+      operations:
+      - method: GET
+        name: getcategories
+        description: Autodesk List Categories
+        call: parameters-metadata.getcategories
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/parameters/v1/metadata/disciplines
+      name: parameters-v1-metadata-disciplines
+      description: REST surface for parameters-v1-metadata-disciplines.
+      operations:
+      - method: GET
+        name: getdisciplines
+        description: Autodesk List Disciplines
+        call: parameters-metadata.getdisciplines
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/parameters/v1/metadata/specs
+      name: parameters-v1-metadata-specs
+      description: REST surface for parameters-v1-metadata-specs.
+      operations:
+      - method: GET
+        name: getspecs
+        description: Autodesk List Specs
+        call: parameters-metadata.getspecs
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/parameters/v1/metadata/units
+      name: parameters-v1-metadata-units
+      description: REST surface for parameters-v1-metadata-units.
+      operations:
+      - method: GET
+        name: getunits
+        description: Autodesk List Units
+        call: parameters-metadata.getunits
+        with:
+          filter[specId]: rest.filter[specId]
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: parameters-metadata-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Autodesk Parameters API — Metadata. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: autodesk-list-categories
+      description: Autodesk List Categories
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: parameters-metadata.getcategories
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-list-disciplines
+      description: Autodesk List Disciplines
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: parameters-metadata.getdisciplines
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-list-specs
+      description: Autodesk List Specs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: parameters-metadata.getspecs
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-list-units
+      description: Autodesk List Units
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: parameters-metadata.getunits
+      with:
+        filter[specId]: tools.filter[specId]
+      outputParameters:
+      - type: object
+        mapping: $.

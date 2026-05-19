@@ -1,0 +1,496 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Autodesk Design Automation API — AppBundles
+  description: 'Autodesk Design Automation API — AppBundles. 11 operations. Lead operation: Autodesk List AppBundles. Self-contained
+    Naftiko capability covering one Autodesk business surface.'
+  tags:
+  - Autodesk
+  - AppBundles
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AUTODESK_API_KEY: AUTODESK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: design-automation-appbundles
+    baseUri: https://developer.api.autodesk.com
+    description: Autodesk Design Automation API — AppBundles business capability. Self-contained, no shared references.
+    resources:
+    - name: da-us-east-v3-appbundles
+      path: /da/us-east/v3/appbundles
+      operations:
+      - name: getappbundles
+        method: GET
+        description: Autodesk List AppBundles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: page
+          in: query
+          type: string
+      - name: createappbundle
+        method: POST
+        description: Autodesk Create AppBundle
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: da-us-east-v3-appbundles-id
+      path: /da/us-east/v3/appbundles/{id}
+      operations:
+      - name: getappbundle
+        method: GET
+        description: Autodesk Get AppBundle
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: deleteappbundle
+        method: DELETE
+        description: Autodesk Delete AppBundle
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+    - name: da-us-east-v3-appbundles-id-aliases
+      path: /da/us-east/v3/appbundles/{id}/aliases
+      operations:
+      - name: getappbundlealiases
+        method: GET
+        description: Autodesk List AppBundle Aliases
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: page
+          in: query
+          type: string
+      - name: createappbundlealias
+        method: POST
+        description: Autodesk Create AppBundle Alias
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: da-us-east-v3-appbundles-id-aliases-aliasId
+      path: /da/us-east/v3/appbundles/{id}/aliases/{aliasId}
+      operations:
+      - name: getappbundlealias
+        method: GET
+        description: Autodesk Get AppBundle Alias
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: aliasId
+          in: path
+          type: string
+          required: true
+      - name: updateappbundlealias
+        method: PATCH
+        description: Autodesk Update AppBundle Alias
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: aliasId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleteappbundlealias
+        method: DELETE
+        description: Autodesk Delete AppBundle Alias
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: aliasId
+          in: path
+          type: string
+          required: true
+    - name: da-us-east-v3-appbundles-id-versions
+      path: /da/us-east/v3/appbundles/{id}/versions
+      operations:
+      - name: getappbundleversions
+        method: GET
+        description: Autodesk List AppBundle Versions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: page
+          in: query
+          type: string
+      - name: createappbundleversion
+        method: POST
+        description: Autodesk Create AppBundle Version
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.AUTODESK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: design-automation-appbundles-rest
+    port: 8080
+    description: REST adapter for Autodesk Design Automation API — AppBundles. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/da/us-east/v3/appbundles
+      name: da-us-east-v3-appbundles
+      description: REST surface for da-us-east-v3-appbundles.
+      operations:
+      - method: GET
+        name: getappbundles
+        description: Autodesk List AppBundles
+        call: design-automation-appbundles.getappbundles
+        with:
+          page: rest.page
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createappbundle
+        description: Autodesk Create AppBundle
+        call: design-automation-appbundles.createappbundle
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/da/us-east/v3/appbundles/{id}
+      name: da-us-east-v3-appbundles-id
+      description: REST surface for da-us-east-v3-appbundles-id.
+      operations:
+      - method: GET
+        name: getappbundle
+        description: Autodesk Get AppBundle
+        call: design-automation-appbundles.getappbundle
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteappbundle
+        description: Autodesk Delete AppBundle
+        call: design-automation-appbundles.deleteappbundle
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/da/us-east/v3/appbundles/{id}/aliases
+      name: da-us-east-v3-appbundles-id-aliases
+      description: REST surface for da-us-east-v3-appbundles-id-aliases.
+      operations:
+      - method: GET
+        name: getappbundlealiases
+        description: Autodesk List AppBundle Aliases
+        call: design-automation-appbundles.getappbundlealiases
+        with:
+          id: rest.id
+          page: rest.page
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createappbundlealias
+        description: Autodesk Create AppBundle Alias
+        call: design-automation-appbundles.createappbundlealias
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/da/us-east/v3/appbundles/{id}/aliases/{aliasid}
+      name: da-us-east-v3-appbundles-id-aliases-aliasid
+      description: REST surface for da-us-east-v3-appbundles-id-aliases-aliasId.
+      operations:
+      - method: GET
+        name: getappbundlealias
+        description: Autodesk Get AppBundle Alias
+        call: design-automation-appbundles.getappbundlealias
+        with:
+          id: rest.id
+          aliasId: rest.aliasId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updateappbundlealias
+        description: Autodesk Update AppBundle Alias
+        call: design-automation-appbundles.updateappbundlealias
+        with:
+          id: rest.id
+          aliasId: rest.aliasId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteappbundlealias
+        description: Autodesk Delete AppBundle Alias
+        call: design-automation-appbundles.deleteappbundlealias
+        with:
+          id: rest.id
+          aliasId: rest.aliasId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/da/us-east/v3/appbundles/{id}/versions
+      name: da-us-east-v3-appbundles-id-versions
+      description: REST surface for da-us-east-v3-appbundles-id-versions.
+      operations:
+      - method: GET
+        name: getappbundleversions
+        description: Autodesk List AppBundle Versions
+        call: design-automation-appbundles.getappbundleversions
+        with:
+          id: rest.id
+          page: rest.page
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createappbundleversion
+        description: Autodesk Create AppBundle Version
+        call: design-automation-appbundles.createappbundleversion
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: design-automation-appbundles-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Autodesk Design Automation API — AppBundles. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: autodesk-list-appbundles
+      description: Autodesk List AppBundles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: design-automation-appbundles.getappbundles
+      with:
+        page: tools.page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-create-appbundle
+      description: Autodesk Create AppBundle
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: design-automation-appbundles.createappbundle
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-get-appbundle
+      description: Autodesk Get AppBundle
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: design-automation-appbundles.getappbundle
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-delete-appbundle
+      description: Autodesk Delete AppBundle
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: design-automation-appbundles.deleteappbundle
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-list-appbundle-aliases
+      description: Autodesk List AppBundle Aliases
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: design-automation-appbundles.getappbundlealiases
+      with:
+        id: tools.id
+        page: tools.page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-create-appbundle-alias
+      description: Autodesk Create AppBundle Alias
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: design-automation-appbundles.createappbundlealias
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-get-appbundle-alias
+      description: Autodesk Get AppBundle Alias
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: design-automation-appbundles.getappbundlealias
+      with:
+        id: tools.id
+        aliasId: tools.aliasId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-update-appbundle-alias
+      description: Autodesk Update AppBundle Alias
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: design-automation-appbundles.updateappbundlealias
+      with:
+        id: tools.id
+        aliasId: tools.aliasId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-delete-appbundle-alias
+      description: Autodesk Delete AppBundle Alias
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: design-automation-appbundles.deleteappbundlealias
+      with:
+        id: tools.id
+        aliasId: tools.aliasId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-list-appbundle-versions
+      description: Autodesk List AppBundle Versions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: design-automation-appbundles.getappbundleversions
+      with:
+        id: tools.id
+        page: tools.page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-create-appbundle-version
+      description: Autodesk Create AppBundle Version
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: design-automation-appbundles.createappbundleversion
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

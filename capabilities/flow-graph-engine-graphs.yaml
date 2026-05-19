@@ -1,0 +1,193 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Autodesk Flow Graph Engine API — Graphs
+  description: 'Autodesk Flow Graph Engine API — Graphs. 4 operations. Lead operation: Autodesk List Graphs. Self-contained
+    Naftiko capability covering one Autodesk business surface.'
+  tags:
+  - Autodesk
+  - Graphs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AUTODESK_API_KEY: AUTODESK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: flow-graph-engine-graphs
+    baseUri: https://developer.api.autodesk.com
+    description: Autodesk Flow Graph Engine API — Graphs business capability. Self-contained, no shared references.
+    resources:
+    - name: fge-v1-graphs
+      path: /fge/v1/graphs
+      operations:
+      - name: getgraphs
+        method: GET
+        description: Autodesk List Graphs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+        - name: offset
+          in: query
+          type: integer
+      - name: uploadgraph
+        method: POST
+        description: Autodesk Upload Graph
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: fge-v1-graphs-graphId
+      path: /fge/v1/graphs/{graphId}
+      operations:
+      - name: getgraph
+        method: GET
+        description: Autodesk Get Graph
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: graphId
+          in: path
+          type: string
+          required: true
+      - name: deletegraph
+        method: DELETE
+        description: Autodesk Delete Graph
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: graphId
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.AUTODESK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: flow-graph-engine-graphs-rest
+    port: 8080
+    description: REST adapter for Autodesk Flow Graph Engine API — Graphs. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/fge/v1/graphs
+      name: fge-v1-graphs
+      description: REST surface for fge-v1-graphs.
+      operations:
+      - method: GET
+        name: getgraphs
+        description: Autodesk List Graphs
+        call: flow-graph-engine-graphs.getgraphs
+        with:
+          limit: rest.limit
+          offset: rest.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: uploadgraph
+        description: Autodesk Upload Graph
+        call: flow-graph-engine-graphs.uploadgraph
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/fge/v1/graphs/{graphid}
+      name: fge-v1-graphs-graphid
+      description: REST surface for fge-v1-graphs-graphId.
+      operations:
+      - method: GET
+        name: getgraph
+        description: Autodesk Get Graph
+        call: flow-graph-engine-graphs.getgraph
+        with:
+          graphId: rest.graphId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletegraph
+        description: Autodesk Delete Graph
+        call: flow-graph-engine-graphs.deletegraph
+        with:
+          graphId: rest.graphId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: flow-graph-engine-graphs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Autodesk Flow Graph Engine API — Graphs. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: autodesk-list-graphs
+      description: Autodesk List Graphs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: flow-graph-engine-graphs.getgraphs
+      with:
+        limit: tools.limit
+        offset: tools.offset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-upload-graph
+      description: Autodesk Upload Graph
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: flow-graph-engine-graphs.uploadgraph
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-get-graph
+      description: Autodesk Get Graph
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: flow-graph-engine-graphs.getgraph
+      with:
+        graphId: tools.graphId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-delete-graph
+      description: Autodesk Delete Graph
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: flow-graph-engine-graphs.deletegraph
+      with:
+        graphId: tools.graphId
+      outputParameters:
+      - type: object
+        mapping: $.

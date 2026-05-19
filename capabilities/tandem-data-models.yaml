@@ -1,0 +1,79 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Autodesk Tandem Data API — Models
+  description: 'Autodesk Tandem Data API — Models. 1 operations. Lead operation: Autodesk List Models. Self-contained Naftiko
+    capability covering one Autodesk business surface.'
+  tags:
+  - Autodesk
+  - Models
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AUTODESK_API_KEY: AUTODESK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: tandem-data-models
+    baseUri: https://developer.api.autodesk.com
+    description: Autodesk Tandem Data API — Models business capability. Self-contained, no shared references.
+    resources:
+    - name: tandem-v1-twins-twinId-models
+      path: /tandem/v1/twins/{twinId}/models
+      operations:
+      - name: getmodels
+        method: GET
+        description: Autodesk List Models
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: twinId
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.AUTODESK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: tandem-data-models-rest
+    port: 8080
+    description: REST adapter for Autodesk Tandem Data API — Models. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/tandem/v1/twins/{twinid}/models
+      name: tandem-v1-twins-twinid-models
+      description: REST surface for tandem-v1-twins-twinId-models.
+      operations:
+      - method: GET
+        name: getmodels
+        description: Autodesk List Models
+        call: tandem-data-models.getmodels
+        with:
+          twinId: rest.twinId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: tandem-data-models-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Autodesk Tandem Data API — Models. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: autodesk-list-models
+      description: Autodesk List Models
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tandem-data-models.getmodels
+      with:
+        twinId: tools.twinId
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,79 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Autodesk ACC Account Admin API — Industry Roles
+  description: 'Autodesk ACC Account Admin API — Industry Roles. 1 operations. Lead operation: Autodesk List Industry Roles.
+    Self-contained Naftiko capability covering one Autodesk business surface.'
+  tags:
+  - Autodesk
+  - Industry Roles
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AUTODESK_API_KEY: AUTODESK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: acc-account-admin-industry-roles
+    baseUri: https://developer.api.autodesk.com
+    description: Autodesk ACC Account Admin API — Industry Roles business capability. Self-contained, no shared references.
+    resources:
+    - name: construction-admin-v1-projects-projectId-industryRoles
+      path: /construction/admin/v1/projects/{projectId}/industryRoles
+      operations:
+      - name: getindustryroles
+        method: GET
+        description: Autodesk List Industry Roles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.AUTODESK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: acc-account-admin-industry-roles-rest
+    port: 8080
+    description: REST adapter for Autodesk ACC Account Admin API — Industry Roles. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/construction/admin/v1/projects/{projectid}/industryroles
+      name: construction-admin-v1-projects-projectid-industryroles
+      description: REST surface for construction-admin-v1-projects-projectId-industryRoles.
+      operations:
+      - method: GET
+        name: getindustryroles
+        description: Autodesk List Industry Roles
+        call: acc-account-admin-industry-roles.getindustryroles
+        with:
+          projectId: rest.projectId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: acc-account-admin-industry-roles-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Autodesk ACC Account Admin API — Industry Roles. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: autodesk-list-industry-roles
+      description: Autodesk List Industry Roles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: acc-account-admin-industry-roles.getindustryroles
+      with:
+        projectId: tools.projectId
+      outputParameters:
+      - type: object
+        mapping: $.

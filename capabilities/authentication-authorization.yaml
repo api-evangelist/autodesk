@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Autodesk Authentication API — Authorization
+  description: 'Autodesk Authentication API — Authorization. 2 operations. Lead operation: Autodesk Authorize User. Self-contained
+    Naftiko capability covering one Autodesk business surface.'
+  tags:
+  - Autodesk
+  - Authorization
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AUTODESK_API_KEY: AUTODESK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: authentication-authorization
+    baseUri: https://developer.api.autodesk.com
+    description: Autodesk Authentication API — Authorization business capability. Self-contained, no shared references.
+    resources:
+    - name: authentication-v2-authorize
+      path: /authentication/v2/authorize
+      operations:
+      - name: authorize
+        method: GET
+        description: Autodesk Authorize User
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: response_type
+          in: query
+          type: string
+          description: Must be set to `code` for authorization code flow.
+          required: true
+        - name: client_id
+          in: query
+          type: string
+          description: The Client ID of your APS application.
+          required: true
+        - name: redirect_uri
+          in: query
+          type: string
+          description: The URI that Autodesk redirects the user to after granting consent. Must match a redirect URI registered
+            with the application.
+          required: true
+        - name: scope
+          in: query
+          type: string
+          description: Space-separated list of scopes requested. Common scopes include data:read, data:write, data:create,
+            account:read, account:write.
+          required: true
+        - name: state
+          in: query
+          type: string
+          description: An opaque value that the application uses to maintain state between the request and callback. Used
+            to prevent CSRF attacks.
+        - name: nonce
+          in: query
+          type: string
+          description: A random string used to associate a client session with an ID token.
+        - name: prompt
+          in: query
+          type: string
+          description: Controls the authentication experience presented to the user.
+    - name: authentication-v2-logout
+      path: /authentication/v2/logout
+      operations:
+      - name: logout
+        method: GET
+        description: Autodesk Logout
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: post_logout_redirect_uri
+          in: query
+          type: string
+          description: URI to redirect the user to after logout.
+    authentication:
+      type: bearer
+      token: '{{env.AUTODESK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: authentication-authorization-rest
+    port: 8080
+    description: REST adapter for Autodesk Authentication API — Authorization. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/authentication/v2/authorize
+      name: authentication-v2-authorize
+      description: REST surface for authentication-v2-authorize.
+      operations:
+      - method: GET
+        name: authorize
+        description: Autodesk Authorize User
+        call: authentication-authorization.authorize
+        with:
+          response_type: rest.response_type
+          client_id: rest.client_id
+          redirect_uri: rest.redirect_uri
+          scope: rest.scope
+          state: rest.state
+          nonce: rest.nonce
+          prompt: rest.prompt
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/authentication/v2/logout
+      name: authentication-v2-logout
+      description: REST surface for authentication-v2-logout.
+      operations:
+      - method: GET
+        name: logout
+        description: Autodesk Logout
+        call: authentication-authorization.logout
+        with:
+          post_logout_redirect_uri: rest.post_logout_redirect_uri
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: authentication-authorization-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Autodesk Authentication API — Authorization. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: autodesk-authorize-user
+      description: Autodesk Authorize User
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: authentication-authorization.authorize
+      with:
+        response_type: tools.response_type
+        client_id: tools.client_id
+        redirect_uri: tools.redirect_uri
+        scope: tools.scope
+        state: tools.state
+        nonce: tools.nonce
+        prompt: tools.prompt
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-logout
+      description: Autodesk Logout
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: authentication-authorization.logout
+      with:
+        post_logout_redirect_uri: tools.post_logout_redirect_uri
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,265 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Autodesk Data Management API — Folders
+  description: 'Autodesk Data Management API — Folders. 4 operations. Lead operation: Autodesk Create Folder. Self-contained
+    Naftiko capability covering one Autodesk business surface.'
+  tags:
+  - Autodesk
+  - Folders
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AUTODESK_API_KEY: AUTODESK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: data-management-folders
+    baseUri: https://developer.api.autodesk.com
+    description: Autodesk Data Management API — Folders business capability. Self-contained, no shared references.
+    resources:
+    - name: data-v1-projects-project_id-folders
+      path: /data/v1/projects/{project_id}/folders
+      operations:
+      - name: createfolder
+        method: POST
+        description: Autodesk Create Folder
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project_id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: data-v1-projects-project_id-folders-folder_id
+      path: /data/v1/projects/{project_id}/folders/{folder_id}
+      operations:
+      - name: getfolder
+        method: GET
+        description: Autodesk Get Folder
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project_id
+          in: path
+          type: string
+          required: true
+        - name: folder_id
+          in: path
+          type: string
+          required: true
+    - name: data-v1-projects-project_id-folders-folder_id-contents
+      path: /data/v1/projects/{project_id}/folders/{folder_id}/contents
+      operations:
+      - name: getfoldercontents
+        method: GET
+        description: Autodesk List Folder Contents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project_id
+          in: path
+          type: string
+          required: true
+        - name: folder_id
+          in: path
+          type: string
+          required: true
+        - name: filter[type]
+          in: query
+          type: string
+          description: Filter by resource type (items, folders).
+        - name: filter[id]
+          in: query
+          type: string
+        - name: filter[extension.type]
+          in: query
+          type: string
+        - name: page[number]
+          in: query
+          type: integer
+        - name: page[limit]
+          in: query
+          type: integer
+    - name: data-v1-projects-project_id-folders-folder_id-search
+      path: /data/v1/projects/{project_id}/folders/{folder_id}/search
+      operations:
+      - name: searchfolder
+        method: GET
+        description: Autodesk Search Folder
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project_id
+          in: path
+          type: string
+          required: true
+        - name: folder_id
+          in: path
+          type: string
+          required: true
+        - name: filter[displayName]
+          in: query
+          type: string
+          description: Filter by display name.
+        - name: filter[fileType]
+          in: query
+          type: string
+          description: Filter by file type extension.
+    authentication:
+      type: bearer
+      token: '{{env.AUTODESK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: data-management-folders-rest
+    port: 8080
+    description: REST adapter for Autodesk Data Management API — Folders. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/data/v1/projects/{project-id}/folders
+      name: data-v1-projects-project-id-folders
+      description: REST surface for data-v1-projects-project_id-folders.
+      operations:
+      - method: POST
+        name: createfolder
+        description: Autodesk Create Folder
+        call: data-management-folders.createfolder
+        with:
+          project_id: rest.project_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/data/v1/projects/{project-id}/folders/{folder-id}
+      name: data-v1-projects-project-id-folders-folder-id
+      description: REST surface for data-v1-projects-project_id-folders-folder_id.
+      operations:
+      - method: GET
+        name: getfolder
+        description: Autodesk Get Folder
+        call: data-management-folders.getfolder
+        with:
+          project_id: rest.project_id
+          folder_id: rest.folder_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/data/v1/projects/{project-id}/folders/{folder-id}/contents
+      name: data-v1-projects-project-id-folders-folder-id-contents
+      description: REST surface for data-v1-projects-project_id-folders-folder_id-contents.
+      operations:
+      - method: GET
+        name: getfoldercontents
+        description: Autodesk List Folder Contents
+        call: data-management-folders.getfoldercontents
+        with:
+          project_id: rest.project_id
+          folder_id: rest.folder_id
+          filter[type]: rest.filter[type]
+          filter[id]: rest.filter[id]
+          filter[extension.type]: rest.filter[extension.type]
+          page[number]: rest.page[number]
+          page[limit]: rest.page[limit]
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/data/v1/projects/{project-id}/folders/{folder-id}/search
+      name: data-v1-projects-project-id-folders-folder-id-search
+      description: REST surface for data-v1-projects-project_id-folders-folder_id-search.
+      operations:
+      - method: GET
+        name: searchfolder
+        description: Autodesk Search Folder
+        call: data-management-folders.searchfolder
+        with:
+          project_id: rest.project_id
+          folder_id: rest.folder_id
+          filter[displayName]: rest.filter[displayName]
+          filter[fileType]: rest.filter[fileType]
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: data-management-folders-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Autodesk Data Management API — Folders. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: autodesk-create-folder
+      description: Autodesk Create Folder
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: data-management-folders.createfolder
+      with:
+        project_id: tools.project_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-get-folder
+      description: Autodesk Get Folder
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: data-management-folders.getfolder
+      with:
+        project_id: tools.project_id
+        folder_id: tools.folder_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-list-folder-contents
+      description: Autodesk List Folder Contents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: data-management-folders.getfoldercontents
+      with:
+        project_id: tools.project_id
+        folder_id: tools.folder_id
+        filter[type]: tools.filter[type]
+        filter[id]: tools.filter[id]
+        filter[extension.type]: tools.filter[extension.type]
+        page[number]: tools.page[number]
+        page[limit]: tools.page[limit]
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-search-folder
+      description: Autodesk Search Folder
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: data-management-folders.searchfolder
+      with:
+        project_id: tools.project_id
+        folder_id: tools.folder_id
+        filter[displayName]: tools.filter[displayName]
+        filter[fileType]: tools.filter[fileType]
+      outputParameters:
+      - type: object
+        mapping: $.

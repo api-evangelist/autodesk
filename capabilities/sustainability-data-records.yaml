@@ -1,0 +1,154 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Autodesk Sustainability Data API — Records
+  description: 'Autodesk Sustainability Data API — Records. 2 operations. Lead operation: Autodesk List Records. Self-contained
+    Naftiko capability covering one Autodesk business surface.'
+  tags:
+  - Autodesk
+  - Records
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AUTODESK_API_KEY: AUTODESK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: sustainability-data-records
+    baseUri: https://developer.api.autodesk.com
+    description: Autodesk Sustainability Data API — Records business capability. Self-contained, no shared references.
+    resources:
+    - name: sustainability-v3-datasets-datasetId-records
+      path: /sustainability/v3/datasets/{datasetId}/records
+      operations:
+      - name: getrecords
+        method: GET
+        description: Autodesk List Records
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: datasetId
+          in: path
+          type: string
+          required: true
+        - name: filter[region]
+          in: query
+          type: string
+          description: Filter by region or country code.
+        - name: filter[category]
+          in: query
+          type: string
+          description: Filter by category.
+        - name: filter[year]
+          in: query
+          type: integer
+          description: Filter by year.
+        - name: page[offset]
+          in: query
+          type: integer
+        - name: page[limit]
+          in: query
+          type: integer
+    - name: sustainability-v3-datasets-datasetId-records-recordId
+      path: /sustainability/v3/datasets/{datasetId}/records/{recordId}
+      operations:
+      - name: getrecord
+        method: GET
+        description: Autodesk Get Record
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: datasetId
+          in: path
+          type: string
+          required: true
+        - name: recordId
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.AUTODESK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: sustainability-data-records-rest
+    port: 8080
+    description: REST adapter for Autodesk Sustainability Data API — Records. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/sustainability/v3/datasets/{datasetid}/records
+      name: sustainability-v3-datasets-datasetid-records
+      description: REST surface for sustainability-v3-datasets-datasetId-records.
+      operations:
+      - method: GET
+        name: getrecords
+        description: Autodesk List Records
+        call: sustainability-data-records.getrecords
+        with:
+          datasetId: rest.datasetId
+          filter[region]: rest.filter[region]
+          filter[category]: rest.filter[category]
+          filter[year]: rest.filter[year]
+          page[offset]: rest.page[offset]
+          page[limit]: rest.page[limit]
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sustainability/v3/datasets/{datasetid}/records/{recordid}
+      name: sustainability-v3-datasets-datasetid-records-recordid
+      description: REST surface for sustainability-v3-datasets-datasetId-records-recordId.
+      operations:
+      - method: GET
+        name: getrecord
+        description: Autodesk Get Record
+        call: sustainability-data-records.getrecord
+        with:
+          datasetId: rest.datasetId
+          recordId: rest.recordId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: sustainability-data-records-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Autodesk Sustainability Data API — Records. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: autodesk-list-records
+      description: Autodesk List Records
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sustainability-data-records.getrecords
+      with:
+        datasetId: tools.datasetId
+        filter[region]: tools.filter[region]
+        filter[category]: tools.filter[category]
+        filter[year]: tools.filter[year]
+        page[offset]: tools.page[offset]
+        page[limit]: tools.page[limit]
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-get-record
+      description: Autodesk Get Record
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sustainability-data-records.getrecord
+      with:
+        datasetId: tools.datasetId
+        recordId: tools.recordId
+      outputParameters:
+      - type: object
+        mapping: $.

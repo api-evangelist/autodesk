@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Autodesk Authentication API — Users
+  description: 'Autodesk Authentication API — Users. 1 operations. Lead operation: Autodesk Get User Profile. Self-contained
+    Naftiko capability covering one Autodesk business surface.'
+  tags:
+  - Autodesk
+  - Users
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AUTODESK_API_KEY: AUTODESK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: authentication-users
+    baseUri: https://developer.api.autodesk.com
+    description: Autodesk Authentication API — Users business capability. Self-contained, no shared references.
+    resources:
+    - name: userprofile-v1-users-@me
+      path: /userprofile/v1/users/@me
+      operations:
+      - name: getuserprofile
+        method: GET
+        description: Autodesk Get User Profile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.AUTODESK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: authentication-users-rest
+    port: 8080
+    description: REST adapter for Autodesk Authentication API — Users. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/userprofile/v1/users/me
+      name: userprofile-v1-users-me
+      description: REST surface for userprofile-v1-users-@me.
+      operations:
+      - method: GET
+        name: getuserprofile
+        description: Autodesk Get User Profile
+        call: authentication-users.getuserprofile
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: authentication-users-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Autodesk Authentication API — Users. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: autodesk-get-user-profile
+      description: Autodesk Get User Profile
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: authentication-users.getuserprofile
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,179 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Autodesk Tandem Data API — Streams
+  description: 'Autodesk Tandem Data API — Streams. 3 operations. Lead operation: Autodesk Get Timeseries Data. Self-contained
+    Naftiko capability covering one Autodesk business surface.'
+  tags:
+  - Autodesk
+  - Streams
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AUTODESK_API_KEY: AUTODESK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: tandem-data-streams
+    baseUri: https://developer.api.autodesk.com
+    description: Autodesk Tandem Data API — Streams business capability. Self-contained, no shared references.
+    resources:
+    - name: tandem-v1-timeseries-streamId
+      path: /tandem/v1/timeseries/{streamId}
+      operations:
+      - name: gettimeseriesdata
+        method: GET
+        description: Autodesk Get Timeseries Data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: streamId
+          in: path
+          type: string
+          required: true
+        - name: from
+          in: query
+          type: string
+          description: Start time (ISO 8601 or Unix timestamp).
+        - name: to
+          in: query
+          type: string
+          description: End time (ISO 8601 or Unix timestamp).
+        - name: resolution
+          in: query
+          type: string
+          description: Data resolution.
+      - name: pushtimeseriesdata
+        method: POST
+        description: Autodesk Push Timeseries Data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: streamId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: tandem-v1-twins-twinId-streams
+      path: /tandem/v1/twins/{twinId}/streams
+      operations:
+      - name: getstreams
+        method: GET
+        description: Autodesk List Streams
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: twinId
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.AUTODESK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: tandem-data-streams-rest
+    port: 8080
+    description: REST adapter for Autodesk Tandem Data API — Streams. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/tandem/v1/timeseries/{streamid}
+      name: tandem-v1-timeseries-streamid
+      description: REST surface for tandem-v1-timeseries-streamId.
+      operations:
+      - method: GET
+        name: gettimeseriesdata
+        description: Autodesk Get Timeseries Data
+        call: tandem-data-streams.gettimeseriesdata
+        with:
+          streamId: rest.streamId
+          from: rest.from
+          to: rest.to
+          resolution: rest.resolution
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: pushtimeseriesdata
+        description: Autodesk Push Timeseries Data
+        call: tandem-data-streams.pushtimeseriesdata
+        with:
+          streamId: rest.streamId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/tandem/v1/twins/{twinid}/streams
+      name: tandem-v1-twins-twinid-streams
+      description: REST surface for tandem-v1-twins-twinId-streams.
+      operations:
+      - method: GET
+        name: getstreams
+        description: Autodesk List Streams
+        call: tandem-data-streams.getstreams
+        with:
+          twinId: rest.twinId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: tandem-data-streams-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Autodesk Tandem Data API — Streams. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: autodesk-get-timeseries-data
+      description: Autodesk Get Timeseries Data
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tandem-data-streams.gettimeseriesdata
+      with:
+        streamId: tools.streamId
+        from: tools.from
+        to: tools.to
+        resolution: tools.resolution
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-push-timeseries-data
+      description: Autodesk Push Timeseries Data
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tandem-data-streams.pushtimeseriesdata
+      with:
+        streamId: tools.streamId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-list-streams
+      description: Autodesk List Streams
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tandem-data-streams.getstreams
+      with:
+        twinId: tools.twinId
+      outputParameters:
+      - type: object
+        mapping: $.

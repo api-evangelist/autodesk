@@ -1,0 +1,94 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Autodesk BIM 360 API — RFIs
+  description: 'Autodesk BIM 360 API — RFIs. 1 operations. Lead operation: Autodesk List RFIs. Self-contained Naftiko capability
+    covering one Autodesk business surface.'
+  tags:
+  - Autodesk
+  - RFIs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AUTODESK_API_KEY: AUTODESK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: bim360-rfis
+    baseUri: https://developer.api.autodesk.com
+    description: Autodesk BIM 360 API — RFIs business capability. Self-contained, no shared references.
+    resources:
+    - name: bim360-rfis-v2-containers-containerId-rfis
+      path: /bim360/rfis/v2/containers/{containerId}/rfis
+      operations:
+      - name: getrfis
+        method: GET
+        description: Autodesk List RFIs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: containerId
+          in: path
+          type: string
+          required: true
+        - name: filter[status]
+          in: query
+          type: string
+        - name: page[limit]
+          in: query
+          type: integer
+        - name: page[offset]
+          in: query
+          type: integer
+    authentication:
+      type: bearer
+      token: '{{env.AUTODESK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: bim360-rfis-rest
+    port: 8080
+    description: REST adapter for Autodesk BIM 360 API — RFIs. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/bim360/rfis/v2/containers/{containerid}/rfis
+      name: bim360-rfis-v2-containers-containerid-rfis
+      description: REST surface for bim360-rfis-v2-containers-containerId-rfis.
+      operations:
+      - method: GET
+        name: getrfis
+        description: Autodesk List RFIs
+        call: bim360-rfis.getrfis
+        with:
+          containerId: rest.containerId
+          filter[status]: rest.filter[status]
+          page[limit]: rest.page[limit]
+          page[offset]: rest.page[offset]
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: bim360-rfis-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Autodesk BIM 360 API — RFIs. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: autodesk-list-rfis
+      description: Autodesk List RFIs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bim360-rfis.getrfis
+      with:
+        containerId: tools.containerId
+        filter[status]: tools.filter[status]
+        page[limit]: tools.page[limit]
+        page[offset]: tools.page[offset]
+      outputParameters:
+      - type: object
+        mapping: $.

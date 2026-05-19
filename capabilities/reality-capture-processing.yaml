@@ -1,0 +1,79 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Autodesk Reality Capture API — Processing
+  description: 'Autodesk Reality Capture API — Processing. 1 operations. Lead operation: Process Photoscene. Self-contained
+    Naftiko capability covering one Autodesk business surface.'
+  tags:
+  - Autodesk
+  - Processing
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AUTODESK_API_KEY: AUTODESK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: reality-capture-processing
+    baseUri: https://developer.api.autodesk.com
+    description: Autodesk Reality Capture API — Processing business capability. Self-contained, no shared references.
+    resources:
+    - name: photo-to-3d-v1-photoscene-photosceneid
+      path: /photo-to-3d/v1/photoscene/{photosceneid}
+      operations:
+      - name: processphotoscene
+        method: POST
+        description: Process Photoscene
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: photosceneid
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.AUTODESK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: reality-capture-processing-rest
+    port: 8080
+    description: REST adapter for Autodesk Reality Capture API — Processing. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/photo-to-3d/v1/photoscene/{photosceneid}
+      name: photo-to-3d-v1-photoscene-photosceneid
+      description: REST surface for photo-to-3d-v1-photoscene-photosceneid.
+      operations:
+      - method: POST
+        name: processphotoscene
+        description: Process Photoscene
+        call: reality-capture-processing.processphotoscene
+        with:
+          photosceneid: rest.photosceneid
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: reality-capture-processing-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Autodesk Reality Capture API — Processing. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: process-photoscene
+      description: Process Photoscene
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: reality-capture-processing.processphotoscene
+      with:
+        photosceneid: tools.photosceneid
+      outputParameters:
+      - type: object
+        mapping: $.

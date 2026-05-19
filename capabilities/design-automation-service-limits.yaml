@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Autodesk Design Automation API — Service Limits
+  description: 'Autodesk Design Automation API — Service Limits. 1 operations. Lead operation: Autodesk Get Service Limits.
+    Self-contained Naftiko capability covering one Autodesk business surface.'
+  tags:
+  - Autodesk
+  - Service Limits
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AUTODESK_API_KEY: AUTODESK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: design-automation-service-limits
+    baseUri: https://developer.api.autodesk.com
+    description: Autodesk Design Automation API — Service Limits business capability. Self-contained, no shared references.
+    resources:
+    - name: da-us-east-v3-servicelimits-me
+      path: /da/us-east/v3/servicelimits/me
+      operations:
+      - name: getservicelimits
+        method: GET
+        description: Autodesk Get Service Limits
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.AUTODESK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: design-automation-service-limits-rest
+    port: 8080
+    description: REST adapter for Autodesk Design Automation API — Service Limits. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/da/us-east/v3/servicelimits/me
+      name: da-us-east-v3-servicelimits-me
+      description: REST surface for da-us-east-v3-servicelimits-me.
+      operations:
+      - method: GET
+        name: getservicelimits
+        description: Autodesk Get Service Limits
+        call: design-automation-service-limits.getservicelimits
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: design-automation-service-limits-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Autodesk Design Automation API — Service Limits. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: autodesk-get-service-limits
+      description: Autodesk Get Service Limits
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: design-automation-service-limits.getservicelimits
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,513 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Autodesk Data Management API — Object Storage Service
+  description: 'Autodesk Data Management API — Object Storage Service. 10 operations. Lead operation: Autodesk List Buckets.
+    Self-contained Naftiko capability covering one Autodesk business surface.'
+  tags:
+  - Autodesk
+  - Object Storage Service
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AUTODESK_API_KEY: AUTODESK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: data-management-object-storage-service
+    baseUri: https://developer.api.autodesk.com
+    description: Autodesk Data Management API — Object Storage Service business capability. Self-contained, no shared references.
+    resources:
+    - name: oss-v2-buckets
+      path: /oss/v2/buckets
+      operations:
+      - name: getbuckets
+        method: GET
+        description: Autodesk List Buckets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: region
+          in: query
+          type: string
+          description: Region for the bucket (US, EMEA).
+        - name: limit
+          in: query
+          type: integer
+        - name: startAt
+          in: query
+          type: string
+      - name: createbucket
+        method: POST
+        description: Autodesk Create Bucket
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: oss-v2-buckets-bucketKey
+      path: /oss/v2/buckets/{bucketKey}
+      operations:
+      - name: getbucketdetails
+        method: GET
+        description: Autodesk Get Bucket Details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: bucketKey
+          in: path
+          type: string
+          required: true
+      - name: deletebucket
+        method: DELETE
+        description: Autodesk Delete Bucket
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: bucketKey
+          in: path
+          type: string
+          required: true
+    - name: oss-v2-buckets-bucketKey-objects
+      path: /oss/v2/buckets/{bucketKey}/objects
+      operations:
+      - name: getobjects
+        method: GET
+        description: Autodesk List Objects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: bucketKey
+          in: path
+          type: string
+          required: true
+        - name: limit
+          in: query
+          type: integer
+        - name: beginsWith
+          in: query
+          type: string
+        - name: startAt
+          in: query
+          type: string
+    - name: oss-v2-buckets-bucketKey-objects-objectKey
+      path: /oss/v2/buckets/{bucketKey}/objects/{objectKey}
+      operations:
+      - name: getobject
+        method: GET
+        description: Autodesk Download Object
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: bucketKey
+          in: path
+          type: string
+          required: true
+        - name: objectKey
+          in: path
+          type: string
+          required: true
+        - name: Range
+          in: header
+          type: string
+          description: Byte range for partial downloads.
+      - name: uploadobject
+        method: PUT
+        description: Autodesk Upload Object
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: bucketKey
+          in: path
+          type: string
+          required: true
+        - name: objectKey
+          in: path
+          type: string
+          required: true
+        - name: Content-Length
+          in: header
+          type: integer
+          required: true
+        - name: Content-Type
+          in: header
+          type: string
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleteobject
+        method: DELETE
+        description: Autodesk Delete Object
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: bucketKey
+          in: path
+          type: string
+          required: true
+        - name: objectKey
+          in: path
+          type: string
+          required: true
+    - name: oss-v2-buckets-bucketKey-objects-objectKey-details
+      path: /oss/v2/buckets/{bucketKey}/objects/{objectKey}/details
+      operations:
+      - name: getobjectdetails
+        method: GET
+        description: Autodesk Get Object Details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: bucketKey
+          in: path
+          type: string
+          required: true
+        - name: objectKey
+          in: path
+          type: string
+          required: true
+    - name: oss-v2-buckets-bucketKey-objects-objectKey-signed
+      path: /oss/v2/buckets/{bucketKey}/objects/{objectKey}/signed
+      operations:
+      - name: createsignedurl
+        method: POST
+        description: Autodesk Create Signed URL
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: bucketKey
+          in: path
+          type: string
+          required: true
+        - name: objectKey
+          in: path
+          type: string
+          required: true
+        - name: access
+          in: query
+          type: string
+          description: Access level for the signed URL.
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.AUTODESK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: data-management-object-storage-service-rest
+    port: 8080
+    description: REST adapter for Autodesk Data Management API — Object Storage Service. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/oss/v2/buckets
+      name: oss-v2-buckets
+      description: REST surface for oss-v2-buckets.
+      operations:
+      - method: GET
+        name: getbuckets
+        description: Autodesk List Buckets
+        call: data-management-object-storage-service.getbuckets
+        with:
+          region: rest.region
+          limit: rest.limit
+          startAt: rest.startAt
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createbucket
+        description: Autodesk Create Bucket
+        call: data-management-object-storage-service.createbucket
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/oss/v2/buckets/{bucketkey}
+      name: oss-v2-buckets-bucketkey
+      description: REST surface for oss-v2-buckets-bucketKey.
+      operations:
+      - method: GET
+        name: getbucketdetails
+        description: Autodesk Get Bucket Details
+        call: data-management-object-storage-service.getbucketdetails
+        with:
+          bucketKey: rest.bucketKey
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletebucket
+        description: Autodesk Delete Bucket
+        call: data-management-object-storage-service.deletebucket
+        with:
+          bucketKey: rest.bucketKey
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/oss/v2/buckets/{bucketkey}/objects
+      name: oss-v2-buckets-bucketkey-objects
+      description: REST surface for oss-v2-buckets-bucketKey-objects.
+      operations:
+      - method: GET
+        name: getobjects
+        description: Autodesk List Objects
+        call: data-management-object-storage-service.getobjects
+        with:
+          bucketKey: rest.bucketKey
+          limit: rest.limit
+          beginsWith: rest.beginsWith
+          startAt: rest.startAt
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/oss/v2/buckets/{bucketkey}/objects/{objectkey}
+      name: oss-v2-buckets-bucketkey-objects-objectkey
+      description: REST surface for oss-v2-buckets-bucketKey-objects-objectKey.
+      operations:
+      - method: GET
+        name: getobject
+        description: Autodesk Download Object
+        call: data-management-object-storage-service.getobject
+        with:
+          bucketKey: rest.bucketKey
+          objectKey: rest.objectKey
+          Range: rest.Range
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: uploadobject
+        description: Autodesk Upload Object
+        call: data-management-object-storage-service.uploadobject
+        with:
+          bucketKey: rest.bucketKey
+          objectKey: rest.objectKey
+          Content-Length: rest.Content-Length
+          Content-Type: rest.Content-Type
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteobject
+        description: Autodesk Delete Object
+        call: data-management-object-storage-service.deleteobject
+        with:
+          bucketKey: rest.bucketKey
+          objectKey: rest.objectKey
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/oss/v2/buckets/{bucketkey}/objects/{objectkey}/details
+      name: oss-v2-buckets-bucketkey-objects-objectkey-details
+      description: REST surface for oss-v2-buckets-bucketKey-objects-objectKey-details.
+      operations:
+      - method: GET
+        name: getobjectdetails
+        description: Autodesk Get Object Details
+        call: data-management-object-storage-service.getobjectdetails
+        with:
+          bucketKey: rest.bucketKey
+          objectKey: rest.objectKey
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/oss/v2/buckets/{bucketkey}/objects/{objectkey}/signed
+      name: oss-v2-buckets-bucketkey-objects-objectkey-signed
+      description: REST surface for oss-v2-buckets-bucketKey-objects-objectKey-signed.
+      operations:
+      - method: POST
+        name: createsignedurl
+        description: Autodesk Create Signed URL
+        call: data-management-object-storage-service.createsignedurl
+        with:
+          bucketKey: rest.bucketKey
+          objectKey: rest.objectKey
+          access: rest.access
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: data-management-object-storage-service-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Autodesk Data Management API — Object Storage Service. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: autodesk-list-buckets
+      description: Autodesk List Buckets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: data-management-object-storage-service.getbuckets
+      with:
+        region: tools.region
+        limit: tools.limit
+        startAt: tools.startAt
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-create-bucket
+      description: Autodesk Create Bucket
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: data-management-object-storage-service.createbucket
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-get-bucket-details
+      description: Autodesk Get Bucket Details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: data-management-object-storage-service.getbucketdetails
+      with:
+        bucketKey: tools.bucketKey
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-delete-bucket
+      description: Autodesk Delete Bucket
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: data-management-object-storage-service.deletebucket
+      with:
+        bucketKey: tools.bucketKey
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-list-objects
+      description: Autodesk List Objects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: data-management-object-storage-service.getobjects
+      with:
+        bucketKey: tools.bucketKey
+        limit: tools.limit
+        beginsWith: tools.beginsWith
+        startAt: tools.startAt
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-download-object
+      description: Autodesk Download Object
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: data-management-object-storage-service.getobject
+      with:
+        bucketKey: tools.bucketKey
+        objectKey: tools.objectKey
+        Range: tools.Range
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-upload-object
+      description: Autodesk Upload Object
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: data-management-object-storage-service.uploadobject
+      with:
+        bucketKey: tools.bucketKey
+        objectKey: tools.objectKey
+        Content-Length: tools.Content-Length
+        Content-Type: tools.Content-Type
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-delete-object
+      description: Autodesk Delete Object
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: data-management-object-storage-service.deleteobject
+      with:
+        bucketKey: tools.bucketKey
+        objectKey: tools.objectKey
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-get-object-details
+      description: Autodesk Get Object Details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: data-management-object-storage-service.getobjectdetails
+      with:
+        bucketKey: tools.bucketKey
+        objectKey: tools.objectKey
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autodesk-create-signed-url
+      description: Autodesk Create Signed URL
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: data-management-object-storage-service.createsignedurl
+      with:
+        bucketKey: tools.bucketKey
+        objectKey: tools.objectKey
+        access: tools.access
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
