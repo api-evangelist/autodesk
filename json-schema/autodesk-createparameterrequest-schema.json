@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateParameterRequest",
+  "title": "CreateParameterRequest",
+  "type": "object",
+  "required": [
+    "name",
+    "specId"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "specId": {
+      "type": "string"
+    },
+    "groupId": {
+      "type": "string"
+    },
+    "isInstance": {
+      "type": "boolean"
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "disciplines": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

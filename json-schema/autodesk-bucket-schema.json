@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Bucket",
+  "title": "Bucket",
+  "type": "object",
+  "properties": {
+    "bucketKey": {
+      "type": "string",
+      "description": "The unique bucket key."
+    },
+    "bucketOwner": {
+      "type": "string",
+      "description": "The application client ID that owns the bucket."
+    },
+    "createdDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "permissions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "authId": {
+            "type": "string"
+          },
+          "access": {
+            "type": "string",
+            "enum": [
+              "full",
+              "read"
+            ]
+          }
+        }
+      }
+    },
+    "policyKey": {
+      "type": "string",
+      "description": "Retention policy.",
+      "enum": [
+        "transient",
+        "temporary",
+        "persistent"
+      ]
+    }
+  }
+}

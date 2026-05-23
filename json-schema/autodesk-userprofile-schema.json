@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UserProfile",
+  "title": "UserProfile",
+  "type": "object",
+  "properties": {
+    "userId": {
+      "type": "string",
+      "description": "The unique identifier of the user."
+    },
+    "userName": {
+      "type": "string",
+      "description": "The username."
+    },
+    "emailId": {
+      "type": "string",
+      "description": "The user's email address."
+    },
+    "firstName": {
+      "type": "string",
+      "description": "The user's first name."
+    },
+    "lastName": {
+      "type": "string",
+      "description": "The user's last name."
+    },
+    "emailVerified": {
+      "type": "boolean",
+      "description": "Whether the email has been verified."
+    },
+    "2FaEnabled": {
+      "type": "boolean",
+      "description": "Whether two-factor authentication is enabled."
+    },
+    "profileImages": {
+      "type": "object",
+      "description": "URLs of the user's profile images.",
+      "properties": {
+        "sizeX20": {
+          "type": "string"
+        },
+        "sizeX40": {
+          "type": "string"
+        },
+        "sizeX50": {
+          "type": "string"
+        },
+        "sizeX58": {
+          "type": "string"
+        },
+        "sizeX80": {
+          "type": "string"
+        },
+        "sizeX120": {
+          "type": "string"
+        },
+        "sizeX160": {
+          "type": "string"
+        },
+        "sizeX176": {
+          "type": "string"
+        },
+        "sizeX240": {
+          "type": "string"
+        },
+        "sizeX360": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

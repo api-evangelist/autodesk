@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ServiceLimits",
+  "title": "ServiceLimits",
+  "type": "object",
+  "properties": {
+    "frontendLimits": {
+      "type": "object",
+      "properties": {
+        "limitMonthlyProcessingTimeInHours": {
+          "type": "number"
+        }
+      }
+    },
+    "backendLimits": {
+      "type": "object"
+    }
+  }
+}

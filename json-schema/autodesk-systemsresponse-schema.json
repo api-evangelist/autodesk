@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SystemsResponse",
+  "title": "SystemsResponse",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "system": {
+            "type": "string",
+            "description": "System identifier (data, derivative, adsk.c4r, adsk.docs)."
+          }
+        }
+      }
+    }
+  }
+}

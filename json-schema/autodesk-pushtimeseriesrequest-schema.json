@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PushTimeseriesRequest",
+  "title": "PushTimeseriesRequest",
+  "type": "object",
+  "required": [
+    "datapoints"
+  ],
+  "properties": {
+    "datapoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "timestamp",
+          "value"
+        ],
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "value": {}
+        }
+      }
+    }
+  }
+}

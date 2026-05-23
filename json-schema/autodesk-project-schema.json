@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Project",
+  "title": "Project",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive",
+        "archived",
+        "suspended"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "description": "Project type."
+    },
+    "platform": {
+      "type": "string",
+      "enum": [
+        "acc",
+        "bim360"
+      ]
+    },
+    "jobNumber": {
+      "type": "string"
+    },
+    "addressLine1": {
+      "type": "string"
+    },
+    "addressLine2": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "stateOrProvince": {
+      "type": "string"
+    },
+    "postalCode": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "timezone": {
+      "type": "string"
+    },
+    "constructionType": {
+      "type": "string"
+    },
+    "deliveryMethod": {
+      "type": "string"
+    },
+    "contractType": {
+      "type": "string"
+    },
+    "currentPhase": {
+      "type": "string"
+    },
+    "value": {
+      "type": "number",
+      "description": "Project value."
+    },
+    "currency": {
+      "type": "string"
+    },
+    "startDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "endDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

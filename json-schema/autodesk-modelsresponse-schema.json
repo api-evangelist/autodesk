@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ModelsResponse",
+  "title": "ModelsResponse",
+  "type": "object",
+  "properties": {
+    "models": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "modelId": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "urn": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "lastSyncTime": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    }
+  }
+}

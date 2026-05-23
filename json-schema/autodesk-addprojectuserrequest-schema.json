@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AddProjectUserRequest",
+  "title": "AddProjectUserRequest",
+  "type": "object",
+  "required": [
+    "email"
+  ],
+  "properties": {
+    "email": {
+      "type": "string"
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "access": {
+            "type": "string",
+            "enum": [
+              "administrator",
+              "member"
+            ]
+          }
+        }
+      }
+    },
+    "industryRoles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "companyId": {
+      "type": "string"
+    }
+  }
+}

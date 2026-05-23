@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TimeseriesResponse",
+  "title": "TimeseriesResponse",
+  "type": "object",
+  "properties": {
+    "timestamps": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "values": {
+      "type": "array",
+      "items": {}
+    },
+    "count": {
+      "type": "integer"
+    }
+  }
+}

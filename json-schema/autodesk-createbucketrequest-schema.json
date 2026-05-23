@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateBucketRequest",
+  "title": "CreateBucketRequest",
+  "type": "object",
+  "required": [
+    "bucketKey",
+    "policyKey"
+  ],
+  "properties": {
+    "bucketKey": {
+      "type": "string",
+      "description": "Unique bucket key (3-128 characters, lowercase letters, digits, hyphens, underscores).",
+      "pattern": "^[-_.a-z0-9]{3,128}$"
+    },
+    "policyKey": {
+      "type": "string",
+      "description": "Retention policy for the bucket.",
+      "enum": [
+        "transient",
+        "temporary",
+        "persistent"
+      ]
+    },
+    "allow": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "authId": {
+            "type": "string"
+          },
+          "access": {
+            "type": "string",
+            "enum": [
+              "full",
+              "read"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

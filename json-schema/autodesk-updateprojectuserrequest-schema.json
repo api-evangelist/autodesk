@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateProjectUserRequest",
+  "title": "UpdateProjectUserRequest",
+  "type": "object",
+  "properties": {
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "access": {
+            "type": "string",
+            "enum": [
+              "administrator",
+              "member",
+              "none"
+            ]
+          }
+        }
+      }
+    },
+    "industryRoles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "companyId": {
+      "type": "string"
+    }
+  }
+}

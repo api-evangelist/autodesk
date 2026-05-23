@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AppBundle",
+  "title": "AppBundle",
+  "type": "object",
+  "properties": {
+    "uploadParameters": {
+      "type": "object",
+      "properties": {
+        "endpointURL": {
+          "type": "string",
+          "format": "uri"
+        },
+        "formData": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "id": {
+      "type": "string"
+    },
+    "engine": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer"
+    }
+  }
+}

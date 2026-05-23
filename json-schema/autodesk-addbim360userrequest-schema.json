@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AddBim360UserRequest",
+  "title": "AddBim360UserRequest",
+  "type": "object",
+  "required": [
+    "email"
+  ],
+  "properties": {
+    "email": {
+      "type": "string"
+    },
+    "services": {
+      "type": "object",
+      "properties": {
+        "document_management": {
+          "type": "object",
+          "properties": {
+            "access_level": {
+              "type": "string",
+              "enum": [
+                "admin",
+                "user"
+              ]
+            }
+          }
+        },
+        "project_administration": {
+          "type": "object",
+          "properties": {
+            "access_level": {
+              "type": "string",
+              "enum": [
+                "admin",
+                "user"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "company_id": {
+      "type": "string"
+    },
+    "industry_roles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

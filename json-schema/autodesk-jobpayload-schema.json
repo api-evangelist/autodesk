@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/JobPayload",
+  "title": "JobPayload",
+  "type": "object",
+  "required": [
+    "input",
+    "output"
+  ],
+  "properties": {
+    "input": {
+      "type": "object",
+      "required": [
+        "urn"
+      ],
+      "properties": {
+        "urn": {
+          "type": "string",
+          "description": "The URL-safe Base64-encoded URN of the source design file."
+        },
+        "compressedUrn": {
+          "type": "boolean",
+          "description": "Set to true if the URN is a zipped file."
+        },
+        "rootFilename": {
+          "type": "string",
+          "description": "The root filename within a zipped file."
+        }
+      }
+    },
+    "output": {
+      "type": "object",
+      "required": [
+        "formats"
+      ],
+      "properties": {
+        "destination": {
+          "type": "object",
+          "properties": {
+            "region": {
+              "type": "string",
+              "description": "Region for storing derivatives.",
+              "enum": [
+                "us",
+                "emea"
+              ]
+            }
+          }
+        },
+        "formats": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "type"
+            ],
+            "properties": {
+              "type": {
+                "type": "string",
+                "description": "Output format type.",
+                "enum": [
+                  "svf",
+                  "svf2",
+                  "thumbnail",
+                  "stl",
+                  "step",
+                  "iges",
+                  "obj",
+                  "ifc",
+                  "dwg"
+                ]
+              },
+              "views": {
+                "type": "array",
+                "description": "Viewable types for SVF/SVF2 output.",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "2d",
+                    "3d"
+                  ]
+                }
+              },
+              "advanced": {
+                "type": "object",
+                "description": "Advanced output options.",
+                "properties": {
+                  "exportFileStructure": {
+                    "type": "string",
+                    "enum": [
+                      "single",
+                      "multiple"
+                    ]
+                  },
+                  "modelGuid": {
+                    "type": "string"
+                  },
+                  "objectIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

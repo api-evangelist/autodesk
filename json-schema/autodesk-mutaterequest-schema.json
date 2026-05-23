@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MutateRequest",
+  "title": "MutateRequest",
+  "type": "object",
+  "required": [
+    "mutations"
+  ],
+  "properties": {
+    "mutations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "key",
+          "properties"
+        ],
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "Element key to mutate."
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": true,
+            "description": "Property family:column pairs and their new values."
+          }
+        }
+      }
+    }
+  }
+}

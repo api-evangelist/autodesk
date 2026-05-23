@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DerivativeChild",
+  "title": "DerivativeChild",
+  "type": "object",
+  "properties": {
+    "guid": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "resource",
+        "geometry",
+        "view"
+      ]
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "3d",
+        "2d",
+        "graphics",
+        "thumbnail",
+        "Autodesk.CloudPlatform.PropertyDatabase"
+      ]
+    },
+    "name": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "progress": {
+      "type": "string"
+    },
+    "mime": {
+      "type": "string"
+    },
+    "urn": {
+      "type": "string"
+    },
+    "children": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/DerivativeChild"
+      }
+    }
+  }
+}

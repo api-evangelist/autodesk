@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProjectUser",
+  "title": "ProjectUser",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "autodeskId": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive",
+        "pending"
+      ]
+    },
+    "accessLevels": {
+      "type": "object",
+      "properties": {
+        "accountAdmin": {
+          "type": "boolean"
+        },
+        "projectAdmin": {
+          "type": "boolean"
+        },
+        "executive": {
+          "type": "boolean"
+        }
+      }
+    },
+    "companyId": {
+      "type": "string"
+    },
+    "companyName": {
+      "type": "string"
+    },
+    "industryRoles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "access": {
+            "type": "string",
+            "enum": [
+              "administrator",
+              "member",
+              "none"
+            ]
+          }
+        }
+      }
+    },
+    "addedOn": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

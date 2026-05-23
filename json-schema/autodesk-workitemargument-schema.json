@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/WorkItemArgument",
+  "title": "WorkItemArgument",
+  "type": "object",
+  "properties": {
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to download input or upload output."
+    },
+    "verb": {
+      "type": "string",
+      "enum": [
+        "get",
+        "put",
+        "post",
+        "patch",
+        "read"
+      ]
+    },
+    "headers": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "localName": {
+      "type": "string"
+    },
+    "pathInZip": {
+      "type": "string"
+    },
+    "optional": {
+      "type": "boolean"
+    }
+  }
+}

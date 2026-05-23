@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateIssueRequest",
+  "title": "UpdateIssueRequest",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "quality_issues"
+        },
+        "id": {
+          "type": "string"
+        },
+        "attributes": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "assigned_to": {
+              "type": "string"
+            },
+            "due_date": {
+              "type": "string",
+              "format": "date"
+            },
+            "priority": {
+              "type": "string"
+            },
+            "answer": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

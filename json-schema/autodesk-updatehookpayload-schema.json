@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateHookPayload",
+  "title": "UpdateHookPayload",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive"
+      ]
+    },
+    "filter": {
+      "type": "string"
+    },
+    "hookAttribute": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "hookExpiry": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "autoReactivateHook": {
+      "type": "boolean"
+    }
+  }
+}

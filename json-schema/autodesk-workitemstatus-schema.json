@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/WorkItemStatus",
+  "title": "WorkItemStatus",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "inprogress",
+        "success",
+        "failedDownload",
+        "failedInstructions",
+        "failedUpload",
+        "cancelled",
+        "failedLimitProcessingTime",
+        "failedLimitDataSize"
+      ]
+    },
+    "progress": {
+      "type": "string"
+    },
+    "reportUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the processing report."
+    },
+    "stats": {
+      "type": "object",
+      "properties": {
+        "timeQueued": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timeDownloadStarted": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timeInstructionsStarted": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timeInstructionsEnded": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timeUploadEnded": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "bytesDownloaded": {
+          "type": "integer"
+        },
+        "bytesUploaded": {
+          "type": "integer"
+        }
+      }
+    },
+    "id": {
+      "type": "string"
+    }
+  }
+}

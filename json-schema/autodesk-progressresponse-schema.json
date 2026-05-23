@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProgressResponse",
+  "title": "ProgressResponse",
+  "type": "object",
+  "properties": {
+    "Photoscene": {
+      "type": "object",
+      "properties": {
+        "photosceneid": {
+          "type": "string"
+        },
+        "progressmsg": {
+          "type": "string",
+          "description": "Current processing stage description."
+        },
+        "progress": {
+          "type": "string",
+          "description": "Processing progress percentage."
+        }
+      }
+    }
+  }
+}

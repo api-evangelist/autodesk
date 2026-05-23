@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PropertiesResponse",
+  "title": "PropertiesResponse",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "properties"
+        },
+        "collection": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "objectid": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "externalId": {
+                "type": "string"
+              },
+              "properties": {
+                "type": "object",
+                "additionalProperties": true
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

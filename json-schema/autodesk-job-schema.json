@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Job",
+  "title": "Job",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "graphId": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "queued",
+        "running",
+        "succeeded",
+        "failed",
+        "cancelled"
+      ]
+    },
+    "progress": {
+      "type": "number",
+      "description": "Progress percentage (0-100)."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "startedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "completedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "error": {
+      "type": "string",
+      "description": "Error message if job failed."
+    },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Input parameter values."
+    }
+  }
+}

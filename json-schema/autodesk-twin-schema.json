@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Twin",
+  "title": "Twin",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "settings": {
+      "type": "object",
+      "properties": {
+        "dateCreated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "dateModified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "props": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    },
+    "docs": {
+      "type": "array",
+      "description": "Associated document/model references.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "modelId": {
+            "type": "string"
+          },
+          "urn": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

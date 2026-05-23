@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/IntrospectionResponse",
+  "title": "IntrospectionResponse",
+  "type": "object",
+  "properties": {
+    "active": {
+      "type": "boolean",
+      "description": "Whether the token is active."
+    },
+    "scope": {
+      "type": "string",
+      "description": "Space-separated list of scopes."
+    },
+    "client_id": {
+      "type": "string",
+      "description": "The client ID the token was issued to."
+    },
+    "exp": {
+      "type": "integer",
+      "description": "Token expiration time as a Unix timestamp."
+    },
+    "userid": {
+      "type": "string",
+      "description": "The user ID (for three-legged tokens)."
+    }
+  }
+}

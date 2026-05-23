@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Issue",
+  "title": "Issue",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "example": "quality_issues"
+    },
+    "attributes": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "open",
+            "pending",
+            "in_review",
+            "closed",
+            "void"
+          ]
+        },
+        "assigned_to": {
+          "type": "string"
+        },
+        "assigned_to_type": {
+          "type": "string",
+          "enum": [
+            "user",
+            "company",
+            "role"
+          ]
+        },
+        "due_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "priority": {
+          "type": "string"
+        },
+        "location_description": {
+          "type": "string"
+        },
+        "issue_type_id": {
+          "type": "string"
+        },
+        "issue_sub_type_id": {
+          "type": "string"
+        },
+        "root_cause_id": {
+          "type": "string"
+        },
+        "target_urn": {
+          "type": "string"
+        },
+        "target_urn_page": {
+          "type": "string"
+        },
+        "starting_version": {
+          "type": "integer"
+        },
+        "sheet_metadata": {
+          "type": "object"
+        },
+        "pushpin_attributes": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "location": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number"
+                },
+                "y": {
+                  "type": "number"
+                },
+                "z": {
+                  "type": "number"
+                }
+              }
+            },
+            "viewer_state": {
+              "type": "object"
+            }
+          }
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "closed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "closed_by": {
+          "type": "string"
+        },
+        "answer": {
+          "type": "string"
+        },
+        "answered_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "answered_by": {
+          "type": "string"
+        },
+        "comment_count": {
+          "type": "integer"
+        },
+        "attachment_count": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

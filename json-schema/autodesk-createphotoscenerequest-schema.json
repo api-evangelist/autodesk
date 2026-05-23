@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreatePhotosceneRequest",
+  "title": "CreatePhotosceneRequest",
+  "type": "object",
+  "required": [
+    "scenename",
+    "scenetype",
+    "format"
+  ],
+  "properties": {
+    "scenename": {
+      "type": "string",
+      "description": "Name for the photoscene."
+    },
+    "scenetype": {
+      "type": "string",
+      "description": "Processing type.",
+      "enum": [
+        "aerial",
+        "object"
+      ]
+    },
+    "format": {
+      "type": "string",
+      "description": "Output format.",
+      "enum": [
+        "rcm",
+        "rcs",
+        "obj",
+        "ortho"
+      ]
+    },
+    "gpstype": {
+      "type": "string",
+      "description": "GPS data type.",
+      "enum": [
+        "none",
+        "wgs84",
+        "nadcon"
+      ]
+    },
+    "callback": {
+      "type": "string",
+      "format": "uri",
+      "description": "Optional callback URL to receive notification when processing completes."
+    }
+  }
+}

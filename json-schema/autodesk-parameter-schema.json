@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Parameter",
+  "title": "Parameter",
+  "type": "object",
+  "properties": {
+    "zip": {
+      "type": "boolean",
+      "description": "Whether the parameter is a zip file."
+    },
+    "ondemand": {
+      "type": "boolean"
+    },
+    "verb": {
+      "type": "string",
+      "description": "HTTP verb for accessing the parameter.",
+      "enum": [
+        "get",
+        "put",
+        "post",
+        "patch",
+        "read"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "required": {
+      "type": "boolean"
+    },
+    "localName": {
+      "type": "string",
+      "description": "Local filename for the parameter."
+    }
+  }
+}

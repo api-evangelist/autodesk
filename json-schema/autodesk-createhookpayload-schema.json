@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateHookPayload",
+  "title": "CreateHookPayload",
+  "type": "object",
+  "required": [
+    "callbackUrl"
+  ],
+  "properties": {
+    "callbackUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "The URL that will receive webhook POST callbacks."
+    },
+    "scope": {
+      "type": "object",
+      "description": "Scope criteria to filter which resources trigger the webhook.",
+      "properties": {
+        "folder": {
+          "type": "string",
+          "description": "Folder URN to scope events to."
+        },
+        "workflow": {
+          "type": "string"
+        }
+      }
+    },
+    "hookAttribute": {
+      "type": "object",
+      "description": "Custom metadata to include in callbacks.",
+      "additionalProperties": true
+    },
+    "filter": {
+      "type": "string",
+      "description": "JSON filter expression to narrow events (e.g., by file extension)."
+    },
+    "hookExpiry": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Expiration date for the webhook."
+    },
+    "autoReactivateHook": {
+      "type": "boolean",
+      "description": "Auto-reactivate after consecutive failures."
+    }
+  }
+}

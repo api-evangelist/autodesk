@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateFolderRequest",
+  "title": "CreateFolderRequest",
+  "type": "object",
+  "properties": {
+    "jsonapi": {
+      "$ref": "#/components/schemas/JsonApiVersion"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "folders"
+        },
+        "attributes": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "extension": {
+              "$ref": "#/components/schemas/Extension"
+            }
+          }
+        },
+        "relationships": {
+          "type": "object",
+          "properties": {
+            "parent": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "example": "folders"
+                    },
+                    "id": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

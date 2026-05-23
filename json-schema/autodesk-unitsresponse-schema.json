@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UnitsResponse",
+  "title": "UnitsResponse",
+  "type": "object",
+  "properties": {
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "specId": {
+            "type": "string"
+          },
+          "symbol": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

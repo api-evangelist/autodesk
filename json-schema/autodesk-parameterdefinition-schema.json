@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ParameterDefinition",
+  "title": "ParameterDefinition",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "specId": {
+      "type": "string",
+      "description": "The spec type (data type) of the parameter."
+    },
+    "groupId": {
+      "type": "string"
+    },
+    "isReadOnly": {
+      "type": "boolean"
+    },
+    "isShared": {
+      "type": "boolean"
+    },
+    "isInstance": {
+      "type": "boolean",
+      "description": "Whether the parameter is instance-level or type-level."
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "disciplines": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "guid": {
+      "type": "string",
+      "description": "Globally unique parameter identifier."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

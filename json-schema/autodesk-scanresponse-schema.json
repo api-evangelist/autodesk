@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ScanResponse",
+  "title": "ScanResponse",
+  "type": "object",
+  "properties": {
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "description": "Each row is an array of property values.",
+        "items": {}
+      }
+    },
+    "qualifiedColumns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "fam": {
+            "type": "string"
+          },
+          "col": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

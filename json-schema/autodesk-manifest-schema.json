@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Manifest",
+  "title": "Manifest",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "example": "manifest"
+    },
+    "hasThumbnail": {
+      "type": "string",
+      "enum": [
+        "true",
+        "false"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "description": "Overall translation status.",
+      "enum": [
+        "pending",
+        "inprogress",
+        "success",
+        "failed",
+        "timeout"
+      ]
+    },
+    "progress": {
+      "type": "string",
+      "description": "Translation progress percentage."
+    },
+    "region": {
+      "type": "string"
+    },
+    "urn": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "derivatives": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Derivative"
+      }
+    }
+  }
+}

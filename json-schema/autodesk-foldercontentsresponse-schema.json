@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/FolderContentsResponse",
+  "title": "FolderContentsResponse",
+  "type": "object",
+  "properties": {
+    "jsonapi": {
+      "$ref": "#/components/schemas/JsonApiVersion"
+    },
+    "data": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Folder"
+          },
+          {
+            "$ref": "#/components/schemas/Item"
+          }
+        ]
+      }
+    },
+    "links": {
+      "$ref": "#/components/schemas/PaginationLinks"
+    }
+  }
+}

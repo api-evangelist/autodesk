@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CalculationResponse",
+  "title": "CalculationResponse",
+  "type": "object",
+  "properties": {
+    "totalEmissions": {
+      "type": "number",
+      "description": "Total calculated emissions in kgCO2e."
+    },
+    "unit": {
+      "type": "string",
+      "example": "kgCO2e"
+    },
+    "emissionFactor": {
+      "type": "number"
+    },
+    "quantity": {
+      "type": "number"
+    },
+    "record": {
+      "$ref": "#/components/schemas/Record"
+    }
+  }
+}

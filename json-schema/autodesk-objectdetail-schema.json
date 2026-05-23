@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ObjectDetail",
+  "title": "ObjectDetail",
+  "type": "object",
+  "properties": {
+    "bucketKey": {
+      "type": "string"
+    },
+    "objectKey": {
+      "type": "string"
+    },
+    "objectId": {
+      "type": "string",
+      "description": "URN-encoded object identifier."
+    },
+    "sha1": {
+      "type": "string"
+    },
+    "size": {
+      "type": "integer"
+    },
+    "contentType": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string",
+      "format": "uri"
+    }
+  }
+}

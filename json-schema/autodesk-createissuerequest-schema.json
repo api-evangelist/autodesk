@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateIssueRequest",
+  "title": "CreateIssueRequest",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "quality_issues"
+        },
+        "attributes": {
+          "type": "object",
+          "required": [
+            "title"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "assigned_to": {
+              "type": "string"
+            },
+            "assigned_to_type": {
+              "type": "string"
+            },
+            "due_date": {
+              "type": "string",
+              "format": "date"
+            },
+            "priority": {
+              "type": "string"
+            },
+            "issue_type_id": {
+              "type": "string"
+            },
+            "issue_sub_type_id": {
+              "type": "string"
+            },
+            "location_description": {
+              "type": "string"
+            },
+            "target_urn": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

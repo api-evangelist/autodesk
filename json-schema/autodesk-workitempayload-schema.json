@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/WorkItemPayload",
+  "title": "WorkItemPayload",
+  "type": "object",
+  "required": [
+    "activityId"
+  ],
+  "properties": {
+    "activityId": {
+      "type": "string",
+      "description": "Fully qualified Activity ID (e.g., owner.activityname+alias)."
+    },
+    "arguments": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/WorkItemArgument"
+      }
+    },
+    "limitProcessingTimeSec": {
+      "type": "integer",
+      "description": "Processing time limit in seconds."
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateJobRequest",
+  "title": "CreateJobRequest",
+  "type": "object",
+  "required": [
+    "graphId"
+  ],
+  "properties": {
+    "graphId": {
+      "type": "string"
+    },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Input parameter values matching the graph's input port names."
+    },
+    "callbackUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Optional URL to receive completion notification."
+    }
+  }
+}

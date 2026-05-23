@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PropsRequest",
+  "title": "PropsRequest",
+  "type": "object",
+  "required": [
+    "keys"
+  ],
+  "properties": {
+    "keys": {
+      "type": "array",
+      "description": "Element keys to retrieve properties for.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "columns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "fam": {
+            "type": "string"
+          },
+          "col": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

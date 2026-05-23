@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SignedUrlResponse",
+  "title": "SignedUrlResponse",
+  "type": "object",
+  "properties": {
+    "signedUrl": {
+      "type": "string",
+      "format": "uri"
+    },
+    "expiration": {
+      "type": "integer",
+      "description": "Expiration time as Unix timestamp."
+    }
+  }
+}

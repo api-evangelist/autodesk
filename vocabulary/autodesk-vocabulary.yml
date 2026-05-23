@@ -1,0 +1,11 @@
+name: Autodesk Domain Vocabulary
+provider: Autodesk
+providerId: autodesk
+description: Tag-derived vocabulary for the Autodesk API surface; sourced from openapi/ tags.
+terms:
+- term: Folders
+- term: Hubs
+- term: Items
+- term: Object Storage Service
+- term: Projects
+- term: Versions

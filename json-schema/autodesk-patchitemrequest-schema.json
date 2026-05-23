@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PatchItemRequest",
+  "title": "PatchItemRequest",
+  "type": "object",
+  "properties": {
+    "jsonapi": {
+      "$ref": "#/components/schemas/JsonApiVersion"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "items"
+        },
+        "id": {
+          "type": "string"
+        },
+        "attributes": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

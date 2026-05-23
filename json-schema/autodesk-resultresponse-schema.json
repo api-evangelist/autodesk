@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ResultResponse",
+  "title": "ResultResponse",
+  "type": "object",
+  "properties": {
+    "Photoscene": {
+      "type": "object",
+      "properties": {
+        "photosceneid": {
+          "type": "string"
+        },
+        "scenelink": {
+          "type": "string",
+          "format": "uri",
+          "description": "Temporary download URL for the result."
+        },
+        "filesize": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

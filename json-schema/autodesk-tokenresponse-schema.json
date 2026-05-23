@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TokenResponse",
+  "title": "TokenResponse",
+  "type": "object",
+  "properties": {
+    "access_token": {
+      "type": "string",
+      "description": "The access token string."
+    },
+    "token_type": {
+      "type": "string",
+      "description": "The type of token, typically Bearer.",
+      "example": "Bearer"
+    },
+    "expires_in": {
+      "type": "integer",
+      "description": "The token lifetime in seconds.",
+      "example": 3600
+    },
+    "refresh_token": {
+      "type": "string",
+      "description": "The refresh token (only returned for three-legged authentication)."
+    },
+    "scope": {
+      "type": "string",
+      "description": "Space-separated list of scopes granted."
+    }
+  }
+}

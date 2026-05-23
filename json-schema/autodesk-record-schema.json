@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Record",
+  "title": "Record",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "datasetId": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    },
+    "year": {
+      "type": "integer"
+    },
+    "unit": {
+      "type": "string",
+      "description": "Unit of measurement."
+    },
+    "emissionFactor": {
+      "type": "number",
+      "description": "Carbon emission factor value."
+    },
+    "emissionFactorUnit": {
+      "type": "string",
+      "description": "Unit for the emission factor (e.g., kgCO2e/kWh)."
+    },
+    "gwp": {
+      "type": "number",
+      "description": "Global Warming Potential value."
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/StreamsResponse",
+  "title": "StreamsResponse",
+  "type": "object",
+  "properties": {
+    "streams": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "streamId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "elementKey": {
+            "type": "string"
+          },
+          "propertyId": {
+            "type": "string"
+          },
+          "lastValue": {},
+          "lastTimestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    }
+  }
+}

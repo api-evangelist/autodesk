@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ErrorResponse",
+  "title": "ErrorResponse",
+  "type": "object",
+  "properties": {
+    "developerMessage": {
+      "type": "string",
+      "description": "A developer-facing error message."
+    },
+    "userMessage": {
+      "type": "string",
+      "description": "A user-facing error message."
+    },
+    "errorCode": {
+      "type": "string",
+      "description": "An error code."
+    },
+    "more info": {
+      "type": "string",
+      "description": "A link to more information about the error."
+    }
+  }
+}

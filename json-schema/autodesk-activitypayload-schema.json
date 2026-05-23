@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ActivityPayload",
+  "title": "ActivityPayload",
+  "type": "object",
+  "required": [
+    "id",
+    "engine",
+    "commandLine",
+    "parameters"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "engine": {
+      "type": "string"
+    },
+    "commandLine": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Command line instructions for the engine."
+    },
+    "description": {
+      "type": "string"
+    },
+    "appbundles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of AppBundles to load."
+    },
+    "parameters": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/Parameter"
+      }
+    },
+    "settings": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object"
+      }
+    }
+  }
+}

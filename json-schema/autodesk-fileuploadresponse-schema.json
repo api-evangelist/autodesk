@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/FileUploadResponse",
+  "title": "FileUploadResponse",
+  "type": "object",
+  "properties": {
+    "photosceneid": {
+      "type": "string"
+    },
+    "Files": {
+      "type": "object",
+      "properties": {
+        "file": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "filename": {
+                "type": "string"
+              },
+              "fileid": {
+                "type": "string"
+              },
+              "filesize": {
+                "type": "integer"
+              },
+              "msg": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

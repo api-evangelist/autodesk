@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PropertiesQuery",
+  "title": "PropertiesQuery",
+  "type": "object",
+  "properties": {
+    "query": {
+      "type": "object",
+      "properties": {
+        "$prefix": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "$contains": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "$between": {
+          "type": "array",
+          "items": {}
+        },
+        "$eq": {
+          "type": "array",
+          "items": {}
+        },
+        "$le": {
+          "type": "array",
+          "items": {}
+        },
+        "$ge": {
+          "type": "array",
+          "items": {}
+        },
+        "$gt": {
+          "type": "array",
+          "items": {}
+        },
+        "$lt": {
+          "type": "array",
+          "items": {}
+        },
+        "$ne": {
+          "type": "array",
+          "items": {}
+        },
+        "$in": {
+          "type": "array",
+          "items": {}
+        },
+        "$nin": {
+          "type": "array",
+          "items": {}
+        }
+      }
+    },
+    "fields": {
+      "type": "array",
+      "description": "List of property names to return.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "pagination": {
+      "type": "object",
+      "properties": {
+        "offset": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

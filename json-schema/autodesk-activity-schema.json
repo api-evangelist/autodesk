@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Activity",
+  "title": "Activity",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "engine": {
+      "type": "string"
+    },
+    "commandLine": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "description": {
+      "type": "string"
+    },
+    "appbundles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "parameters": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/Parameter"
+      }
+    },
+    "version": {
+      "type": "integer"
+    }
+  }
+}

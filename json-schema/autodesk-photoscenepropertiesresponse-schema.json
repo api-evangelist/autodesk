@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PhotoscenePropertiesResponse",
+  "title": "PhotoscenePropertiesResponse",
+  "type": "object",
+  "properties": {
+    "Photoscene": {
+      "type": "object",
+      "properties": {
+        "photosceneid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "Created",
+            "Processing",
+            "Done",
+            "Error"
+          ]
+        },
+        "progressmsg": {
+          "type": "string"
+        },
+        "scenelink": {
+          "type": "string",
+          "format": "uri"
+        },
+        "filesize": {
+          "type": "integer"
+        },
+        "convertformat": {
+          "type": "string"
+        },
+        "convertStatus": {
+          "type": "string"
+        },
+        "nb3dpoints": {
+          "type": "integer"
+        },
+        "nbfaces": {
+          "type": "integer"
+        },
+        "nbshots": {
+          "type": "integer"
+        },
+        "nbstitchedshots": {
+          "type": "integer"
+        },
+        "files": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "fileid": {
+                "type": "string"
+              },
+              "filename": {
+                "type": "string"
+              },
+              "filesize": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

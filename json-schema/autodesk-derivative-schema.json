@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Derivative",
+  "title": "Derivative",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "hasThumbnail": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "inprogress",
+        "success",
+        "failed",
+        "timeout"
+      ]
+    },
+    "progress": {
+      "type": "string"
+    },
+    "outputType": {
+      "type": "string"
+    },
+    "children": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/DerivativeChild"
+      }
+    }
+  }
+}

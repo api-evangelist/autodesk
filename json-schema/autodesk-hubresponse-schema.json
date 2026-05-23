@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/HubResponse",
+  "title": "HubResponse",
+  "type": "object",
+  "properties": {
+    "jsonapi": {
+      "$ref": "#/components/schemas/JsonApiVersion"
+    },
+    "data": {
+      "$ref": "#/components/schemas/Hub"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateCompanyRequest",
+  "title": "CreateCompanyRequest",
+  "type": "object",
+  "required": [
+    "name"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "trade": {
+      "type": "string"
+    },
+    "addressLine1": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "stateOrProvince": {
+      "type": "string"
+    },
+    "postalCode": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "websiteUrl": {
+      "type": "string",
+      "format": "uri"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

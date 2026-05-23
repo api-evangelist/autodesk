@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AccountUsersResponse",
+  "title": "AccountUsersResponse",
+  "type": "object",
+  "properties": {
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "autodeskId": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "companyId": {
+            "type": "string"
+          },
+          "companyName": {
+            "type": "string"
+          },
+          "addedOn": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    "pagination": {
+      "$ref": "#/components/schemas/Pagination"
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateProjectRequest",
+  "title": "CreateProjectRequest",
+  "type": "object",
+  "required": [
+    "name"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive"
+      ]
+    },
+    "jobNumber": {
+      "type": "string"
+    },
+    "addressLine1": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "stateOrProvince": {
+      "type": "string"
+    },
+    "postalCode": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "timezone": {
+      "type": "string"
+    },
+    "constructionType": {
+      "type": "string"
+    },
+    "deliveryMethod": {
+      "type": "string"
+    },
+    "startDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "endDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "value": {
+      "type": "number"
+    },
+    "currency": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Bim360UsersResponse",
+  "title": "Bim360UsersResponse",
+  "type": "object",
+  "properties": {
+    "results": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Bim360User"
+      }
+    },
+    "pagination": {
+      "$ref": "#/components/schemas/Pagination"
+    }
+  }
+}

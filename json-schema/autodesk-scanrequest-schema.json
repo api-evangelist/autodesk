@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ScanRequest",
+  "title": "ScanRequest",
+  "type": "object",
+  "properties": {
+    "families": {
+      "type": "array",
+      "description": "Filter by Revit family names.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "categoryId": {
+      "type": "integer",
+      "description": "Filter by category ID."
+    },
+    "includeHistory": {
+      "type": "boolean"
+    },
+    "columns": {
+      "type": "array",
+      "description": "Property columns to return.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "fam": {
+            "type": "string"
+          },
+          "col": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

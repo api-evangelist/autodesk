@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Hook",
+  "title": "Hook",
+  "type": "object",
+  "properties": {
+    "hookId": {
+      "type": "string",
+      "description": "Unique hook identifier."
+    },
+    "tenant": {
+      "type": "string",
+      "description": "The tenant (application client ID)."
+    },
+    "callbackUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL that receives webhook callbacks."
+    },
+    "createdBy": {
+      "type": "string"
+    },
+    "event": {
+      "type": "string",
+      "description": "The event type."
+    },
+    "createdDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "lastUpdatedDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "system": {
+      "type": "string",
+      "description": "The event system."
+    },
+    "creatorType": {
+      "type": "string",
+      "description": "Creator type (Application or User).",
+      "enum": [
+        "Application",
+        "O2User"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive"
+      ]
+    },
+    "autoReactivateHook": {
+      "type": "boolean",
+      "description": "Whether to auto-reactivate after failures."
+    },
+    "scope": {
+      "type": "object",
+      "description": "Scope of the webhook (e.g., which folder or project to watch).",
+      "properties": {
+        "folder": {
+          "type": "string"
+        },
+        "workflow": {
+          "type": "string"
+        }
+      }
+    },
+    "urn": {
+      "type": "string"
+    },
+    "filter": {
+      "type": "string",
+      "description": "JSON-encoded filter criteria for narrowing events."
+    }
+  }
+}

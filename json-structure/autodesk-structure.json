@@ -1,0 +1,408 @@
+{
+  "provider": "Autodesk",
+  "providerId": "autodesk",
+  "kind": "json-structure",
+  "description": "Structural overview of the Autodesk API surface; extracted from openapi/.",
+  "schemaCount": 28,
+  "operationCount": 25,
+  "schemas": [
+    {
+      "name": "HubsResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "HubResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "Hub",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "ProjectsResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "ProjectResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "Project",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "FoldersResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "FolderResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "Folder",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "FolderContentsResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "CreateFolderRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ItemResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "Item",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "CreateItemRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "PatchItemRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "VersionsResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "VersionResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "Version",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "CreateVersionRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "BucketsResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "Bucket",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "CreateBucketRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "bucketKey",
+        "policyKey"
+      ]
+    },
+    {
+      "name": "ObjectsResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ObjectDetail",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "SignedUrlResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "Extension",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "JsonApiVersion",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "PaginationLinks",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/project/v1/hubs",
+      "operationId": "getHubs",
+      "summary": "Autodesk List Hubs",
+      "tags": [
+        "Hubs"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/project/v1/hubs/{hub_id}",
+      "operationId": "getHub",
+      "summary": "Autodesk Get Hub",
+      "tags": [
+        "Hubs"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/project/v1/hubs/{hub_id}/projects",
+      "operationId": "getHubProjects",
+      "summary": "Autodesk List Projects",
+      "tags": [
+        "Projects"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/project/v1/hubs/{hub_id}/projects/{project_id}",
+      "operationId": "getProject",
+      "summary": "Autodesk Get Project",
+      "tags": [
+        "Projects"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/project/v1/hubs/{hub_id}/projects/{project_id}/topFolders",
+      "operationId": "getProjectTopFolders",
+      "summary": "Autodesk List Top Folders",
+      "tags": [
+        "Projects"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/data/v1/projects/{project_id}/folders/{folder_id}",
+      "operationId": "getFolder",
+      "summary": "Autodesk Get Folder",
+      "tags": [
+        "Folders"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/data/v1/projects/{project_id}/folders/{folder_id}/contents",
+      "operationId": "getFolderContents",
+      "summary": "Autodesk List Folder Contents",
+      "tags": [
+        "Folders"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/data/v1/projects/{project_id}/folders/{folder_id}/search",
+      "operationId": "searchFolder",
+      "summary": "Autodesk Search Folder",
+      "tags": [
+        "Folders"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/data/v1/projects/{project_id}/folders",
+      "operationId": "createFolder",
+      "summary": "Autodesk Create Folder",
+      "tags": [
+        "Folders"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/data/v1/projects/{project_id}/items",
+      "operationId": "createItem",
+      "summary": "Autodesk Create Item",
+      "tags": [
+        "Items"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/data/v1/projects/{project_id}/items/{item_id}",
+      "operationId": "getItem",
+      "summary": "Autodesk Get Item",
+      "tags": [
+        "Items"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/data/v1/projects/{project_id}/items/{item_id}",
+      "operationId": "patchItem",
+      "summary": "Autodesk Update Item",
+      "tags": [
+        "Items"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/data/v1/projects/{project_id}/items/{item_id}/versions",
+      "operationId": "getItemVersions",
+      "summary": "Autodesk List Item Versions",
+      "tags": [
+        "Versions"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/data/v1/projects/{project_id}/versions",
+      "operationId": "createVersion",
+      "summary": "Autodesk Create Version",
+      "tags": [
+        "Versions"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/data/v1/projects/{project_id}/versions/{version_id}",
+      "operationId": "getVersion",
+      "summary": "Autodesk Get Version",
+      "tags": [
+        "Versions"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/oss/v2/buckets",
+      "operationId": "getBuckets",
+      "summary": "Autodesk List Buckets",
+      "tags": [
+        "Object Storage Service"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/oss/v2/buckets",
+      "operationId": "createBucket",
+      "summary": "Autodesk Create Bucket",
+      "tags": [
+        "Object Storage Service"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/oss/v2/buckets/{bucketKey}",
+      "operationId": "getBucketDetails",
+      "summary": "Autodesk Get Bucket Details",
+      "tags": [
+        "Object Storage Service"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/oss/v2/buckets/{bucketKey}",
+      "operationId": "deleteBucket",
+      "summary": "Autodesk Delete Bucket",
+      "tags": [
+        "Object Storage Service"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/oss/v2/buckets/{bucketKey}/objects",
+      "operationId": "getObjects",
+      "summary": "Autodesk List Objects",
+      "tags": [
+        "Object Storage Service"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/oss/v2/buckets/{bucketKey}/objects/{objectKey}",
+      "operationId": "getObject",
+      "summary": "Autodesk Download Object",
+      "tags": [
+        "Object Storage Service"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/oss/v2/buckets/{bucketKey}/objects/{objectKey}",
+      "operationId": "uploadObject",
+      "summary": "Autodesk Upload Object",
+      "tags": [
+        "Object Storage Service"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/oss/v2/buckets/{bucketKey}/objects/{objectKey}",
+      "operationId": "deleteObject",
+      "summary": "Autodesk Delete Object",
+      "tags": [
+        "Object Storage Service"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/oss/v2/buckets/{bucketKey}/objects/{objectKey}/details",
+      "operationId": "getObjectDetails",
+      "summary": "Autodesk Get Object Details",
+      "tags": [
+        "Object Storage Service"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/oss/v2/buckets/{bucketKey}/objects/{objectKey}/signed",
+      "operationId": "createSignedUrl",
+      "summary": "Autodesk Create Signed URL",
+      "tags": [
+        "Object Storage Service"
+      ]
+    }
+  ]
+}

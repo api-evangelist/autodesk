@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TwinsResponse",
+  "title": "TwinsResponse",
+  "type": "object",
+  "properties": {
+    "twins": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Twin"
+      }
+    }
+  }
+}
