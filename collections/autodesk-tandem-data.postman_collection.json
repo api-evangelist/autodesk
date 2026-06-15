@@ -1,0 +1,1591 @@
+{
+  "item": [
+    {
+      "id": "8a17cd71-1d0d-41f0-94d7-4f09a39ed6cc",
+      "name": "Elements",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2b0a7ade-081e-458c-ac46-ec3626d0b5de",
+          "name": "Autodesk Scan Elements",
+          "request": {
+            "name": "Autodesk Scan Elements",
+            "description": {
+              "content": "Scans and returns elements from a model, optionally filtered by category, family, or property values. Returns element keys and properties.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tandem",
+                "v1",
+                "modeldata",
+                ":modelId",
+                "scan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "modelId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"families\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"categoryId\": \"<integer>\",\n  \"includeHistory\": \"<boolean>\",\n  \"columns\": [\n    {\n      \"fam\": \"<string>\",\n      \"col\": \"<string>\"\n    },\n    {\n      \"fam\": \"<string>\",\n      \"col\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ad38e251-5721-4b56-89fb-1c07c56ee560",
+              "name": "Successfully scanned elements.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tandem",
+                    "v1",
+                    "modeldata",
+                    ":modelId",
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "modelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"families\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"categoryId\": \"<integer>\",\n  \"includeHistory\": \"<boolean>\",\n  \"columns\": [\n    {\n      \"fam\": \"<string>\",\n      \"col\": \"<string>\"\n    },\n    {\n      \"fam\": \"<string>\",\n      \"col\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"rows\": [\n    [],\n    []\n  ],\n  \"qualifiedColumns\": [\n    {\n      \"fam\": \"string\",\n      \"col\": \"string\",\n      \"category\": \"string\"\n    },\n    {\n      \"fam\": \"string\",\n      \"col\": \"string\",\n      \"category\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cf1d9369-527e-46aa-9470-41a2db8a56c7",
+          "name": "Autodesk Get Element Properties",
+          "request": {
+            "name": "Autodesk Get Element Properties",
+            "description": {
+              "content": "Returns properties for specific elements identified by their keys.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tandem",
+                "v1",
+                "modeldata",
+                ":modelId",
+                "props"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "modelId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"columns\": [\n    {\n      \"fam\": \"<string>\",\n      \"col\": \"<string>\"\n    },\n    {\n      \"fam\": \"<string>\",\n      \"col\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bb4cfccf-f083-49d6-91e7-f734e7d0f3e4",
+              "name": "Successfully retrieved properties.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tandem",
+                    "v1",
+                    "modeldata",
+                    ":modelId",
+                    "props"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "modelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"columns\": [\n    {\n      \"fam\": \"<string>\",\n      \"col\": \"<string>\"\n    },\n    {\n      \"fam\": \"<string>\",\n      \"col\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"rows\": [\n    {\n      \"key_0\": 2857.3522254853447,\n      \"key_1\": 1604\n    },\n    {\n      \"key_0\": 1580,\n      \"key_1\": false,\n      \"key_2\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ca9cfaa0-f909-4629-885a-d1ae4cfb2282",
+          "name": "Autodesk Mutate Element Properties",
+          "request": {
+            "name": "Autodesk Mutate Element Properties",
+            "description": {
+              "content": "Creates, updates, or deletes custom property values on elements. Only properties defined in user-created schemas can be mutated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tandem",
+                "v1",
+                "modeldata",
+                ":modelId",
+                "mutate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "modelId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "data:read data:write"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mutations\": [\n    {\n      \"key\": \"<string>\",\n      \"properties\": {\n        \"key_0\": \"string\",\n        \"key_1\": 8304.948377077551\n      }\n    },\n    {\n      \"key\": \"<string>\",\n      \"properties\": {\n        \"key_0\": 3659.7913798565505,\n        \"key_1\": 4944.685005870621\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a686004b-d334-48f7-b086-4b1b3e27589a",
+              "name": "Properties mutated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tandem",
+                    "v1",
+                    "modeldata",
+                    ":modelId",
+                    "mutate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "modelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mutations\": [\n    {\n      \"key\": \"<string>\",\n      \"properties\": {\n        \"key_0\": 6173,\n        \"key_1\": 9782,\n        \"key_2\": \"string\"\n      }\n    },\n    {\n      \"key\": \"<string>\",\n      \"properties\": {\n        \"key_0\": 9870\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c8e190b0-6beb-42a2-abc6-aa134ed7397f",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tandem",
+                    "v1",
+                    "modeldata",
+                    ":modelId",
+                    "mutate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "modelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mutations\": [\n    {\n      \"key\": \"<string>\",\n      \"properties\": {\n        \"key_0\": 6173,\n        \"key_1\": 9782,\n        \"key_2\": \"string\"\n      }\n    },\n    {\n      \"key\": \"<string>\",\n      \"properties\": {\n        \"key_0\": 9870\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "8aa94af2-90e6-4fd0-a44b-e7e9e5ff4702",
+      "name": "Groups",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5eef66ba-15ec-47ba-8977-f52afc1c7a70",
+          "name": "Autodesk List Groups",
+          "request": {
+            "name": "Autodesk List Groups",
+            "description": {
+              "content": "Returns a list of facility groups (teams) that the authenticated user has access to.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tandem",
+                "v1",
+                "groups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "85a77f68-06af-45d8-acab-fd8963906c4c",
+              "name": "Successfully retrieved groups.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tandem",
+                    "v1",
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"groups\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"twins\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"twins\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f538452c-2661-437e-81dd-51fbf9a362fe",
+          "name": "Autodesk Get Group",
+          "request": {
+            "name": "Autodesk Get Group",
+            "description": {
+              "content": "Returns details of a specific group.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tandem",
+                "v1",
+                "groups",
+                ":groupId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "groupId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "905ad1a1-5f9e-43c8-a430-3297f5007018",
+              "name": "Successfully retrieved group.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tandem",
+                    "v1",
+                    "groups",
+                    ":groupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "groupId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"twins\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "7b2d3c90-7d13-4b1c-866f-9f89931c8f11",
+      "name": "Models",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8ea00709-f739-467f-b3f9-e9b224567ef6",
+          "name": "Autodesk List Models",
+          "request": {
+            "name": "Autodesk List Models",
+            "description": {
+              "content": "Returns a list of BIM models associated with a digital twin facility.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tandem",
+                "v1",
+                "twins",
+                ":twinId",
+                "models"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "twinId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "51dc8b4f-93c9-49c0-bac7-5f559062129b",
+              "name": "Successfully retrieved models.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tandem",
+                    "v1",
+                    "twins",
+                    ":twinId",
+                    "models"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "twinId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"models\": [\n    {\n      \"modelId\": \"string\",\n      \"label\": \"string\",\n      \"urn\": \"string\",\n      \"status\": \"string\",\n      \"lastSyncTime\": \"1949-06-25T04:43:18.290Z\"\n    },\n    {\n      \"modelId\": \"string\",\n      \"label\": \"string\",\n      \"urn\": \"string\",\n      \"status\": \"string\",\n      \"lastSyncTime\": \"1963-01-30T15:12:09.440Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "be7558d4-9d8e-457c-8455-b82379f93cde",
+      "name": "Schema",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fb2904c5-f989-4a5a-aa26-c39d49e77d83",
+          "name": "Autodesk Get Twin Schema",
+          "request": {
+            "name": "Autodesk Get Twin Schema",
+            "description": {
+              "content": "Returns the schema definition for a digital twin, including built-in and custom property definitions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tandem",
+                "v1",
+                "twins",
+                ":twinId",
+                "schema"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "twinId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d66b92c0-0901-4e28-9603-9efc3eb642ab",
+              "name": "Successfully retrieved schema.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tandem",
+                    "v1",
+                    "twins",
+                    ":twinId",
+                    "schema"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "twinId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"schemas\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"version\": 4293,\n      \"attrs\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"category\": \"string\",\n          \"dataType\": 5653,\n          \"flags\": 947,\n          \"forgeUnit\": \"string\",\n          \"forgeSpec\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"category\": \"string\",\n          \"dataType\": 6447,\n          \"flags\": 1560,\n          \"forgeUnit\": \"string\",\n          \"forgeSpec\": \"string\"\n        }\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"version\": 434,\n      \"attrs\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"category\": \"string\",\n          \"dataType\": 8224,\n          \"flags\": 8096,\n          \"forgeUnit\": \"string\",\n          \"forgeSpec\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"category\": \"string\",\n          \"dataType\": 7613,\n          \"flags\": 5132,\n          \"forgeUnit\": \"string\",\n          \"forgeSpec\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "db72a4d0-48e0-44b2-a5da-681937e4db8e",
+      "name": "Streams",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a5737391-e8ed-48ea-962b-66495f9c9fb7",
+          "name": "Autodesk List Streams",
+          "request": {
+            "name": "Autodesk List Streams",
+            "description": {
+              "content": "Returns IoT data streams associated with a digital twin for time-series sensor data integration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tandem",
+                "v1",
+                "twins",
+                ":twinId",
+                "streams"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "twinId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ac7295fa-bb3e-4140-a320-3e3400b419bd",
+              "name": "Successfully retrieved streams.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tandem",
+                    "v1",
+                    "twins",
+                    ":twinId",
+                    "streams"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "twinId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"streams\": [\n    {\n      \"streamId\": \"string\",\n      \"name\": \"string\",\n      \"elementKey\": \"string\",\n      \"propertyId\": \"string\",\n      \"lastValue\": \"\",\n      \"lastTimestamp\": \"1985-06-30T11:54:13.048Z\"\n    },\n    {\n      \"streamId\": \"string\",\n      \"name\": \"string\",\n      \"elementKey\": \"string\",\n      \"propertyId\": \"string\",\n      \"lastValue\": \"\",\n      \"lastTimestamp\": \"2005-02-12T05:28:25.964Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8f3056b3-bee6-41c1-905f-c8ac7e10bde0",
+          "name": "Autodesk Get Timeseries Data",
+          "request": {
+            "name": "Autodesk Get Timeseries Data",
+            "description": {
+              "content": "Returns time-series data for a specific IoT stream.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tandem",
+                "v1",
+                "timeseries",
+                ":streamId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "Start time (ISO 8601 or Unix timestamp)."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>",
+                  "description": "End time (ISO 8601 or Unix timestamp)."
+                },
+                {
+                  "disabled": false,
+                  "key": "resolution",
+                  "value": "<string>",
+                  "description": "Data resolution."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "streamId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7fe200c3-4051-43c1-9ff4-eb0c9ed17a03",
+              "name": "Successfully retrieved timeseries data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tandem",
+                    "v1",
+                    "timeseries",
+                    ":streamId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "resolution",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "streamId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamps\": [\n    \"2016-10-12T08:34:17.268Z\",\n    \"1977-05-10T23:29:12.093Z\"\n  ],\n  \"count\": 1810\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8d2cc9ff-3cb9-4fed-9a2c-1245b0145f41",
+          "name": "Autodesk Push Timeseries Data",
+          "request": {
+            "name": "Autodesk Push Timeseries Data",
+            "description": {
+              "content": "Pushes new time-series data points to a stream.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tandem",
+                "v1",
+                "timeseries",
+                ":streamId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "streamId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "data:read data:write"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"datapoints\": [\n    {\n      \"timestamp\": \"<dateTime>\",\n      \"value\": \"\"\n    },\n    {\n      \"timestamp\": \"<dateTime>\",\n      \"value\": \"\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2fea89c1-7827-4a65-bfb8-7bb2c94a192b",
+              "name": "Data pushed successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tandem",
+                    "v1",
+                    "timeseries",
+                    ":streamId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "streamId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"datapoints\": [\n    {\n      \"timestamp\": \"<dateTime>\",\n      \"value\": \"\"\n    },\n    {\n      \"timestamp\": \"<dateTime>\",\n      \"value\": \"\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a7a6f883-2834-4c2d-b28e-f714c294ee86",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tandem",
+                    "v1",
+                    "timeseries",
+                    ":streamId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "streamId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"datapoints\": [\n    {\n      \"timestamp\": \"<dateTime>\",\n      \"value\": \"\"\n    },\n    {\n      \"timestamp\": \"<dateTime>\",\n      \"value\": \"\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "16def1ac-dc49-4618-9b12-ed8420741f50",
+      "name": "Twins",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "22d4df49-409e-4dd2-839d-100fb71772af",
+          "name": "Autodesk List Twins",
+          "request": {
+            "name": "Autodesk List Twins",
+            "description": {
+              "content": "Returns a list of digital twin facilities that the authenticated user has access to.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tandem",
+                "v1",
+                "twins"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e46e03e5-7b81-42a9-b4e7-b04c62cc34bb",
+              "name": "Successfully retrieved twins.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tandem",
+                    "v1",
+                    "twins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"twins\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"settings\": {\n        \"dateCreated\": \"1954-03-31T20:32:42.521Z\",\n        \"dateModified\": \"1959-02-23T22:17:19.547Z\",\n        \"props\": {\n          \"key_0\": 9220\n        }\n      },\n      \"docs\": [\n        {\n          \"modelId\": \"string\",\n          \"urn\": \"string\",\n          \"label\": \"string\"\n        },\n        {\n          \"modelId\": \"string\",\n          \"urn\": \"string\",\n          \"label\": \"string\"\n        }\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"settings\": {\n        \"dateCreated\": \"1981-11-15T06:56:12.402Z\",\n        \"dateModified\": \"1973-07-25T21:56:15.277Z\",\n        \"props\": {\n          \"key_0\": \"string\"\n        }\n      },\n      \"docs\": [\n        {\n          \"modelId\": \"string\",\n          \"urn\": \"string\",\n          \"label\": \"string\"\n        },\n        {\n          \"modelId\": \"string\",\n          \"urn\": \"string\",\n          \"label\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f73f085d-3e4a-4c2f-8eeb-445b25dd2a97",
+          "name": "Autodesk Get Twin",
+          "request": {
+            "name": "Autodesk Get Twin",
+            "description": {
+              "content": "Returns details of a specific digital twin facility.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tandem",
+                "v1",
+                "twins",
+                ":twinId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "twinId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3f92f737-b116-410b-bc76-aaa2a504034b",
+              "name": "Successfully retrieved twin.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tandem",
+                    "v1",
+                    "twins",
+                    ":twinId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "twinId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"settings\": {\n    \"dateCreated\": \"1996-06-23T20:52:57.494Z\",\n    \"dateModified\": \"2026-04-03T18:44:36.719Z\",\n    \"props\": {\n      \"key_0\": true,\n      \"key_1\": 4011.6078755959593,\n      \"key_2\": 8401\n    }\n  },\n  \"docs\": [\n    {\n      \"modelId\": \"string\",\n      \"urn\": \"string\",\n      \"label\": \"string\"\n    },\n    {\n      \"modelId\": \"string\",\n      \"urn\": \"string\",\n      \"label\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "97796779-4ab3-48b3-927b-2f3d7fb9f1ba",
+              "name": "Twin not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tandem",
+                    "v1",
+                    "twins",
+                    ":twinId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "twinId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developer.api.autodesk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "data:read data:write"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "aff483bb-a7c6-408a-a40f-f3e84130a1b4",
+    "name": "Autodesk Tandem Data API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Tandem Data API enables reading BIM model data and reading/writing custom schema properties for digital twin facility management. It facilitates integration with external systems like asset management platforms, work-order systems, and IoT sensors for creating and managing digital twins of physical facilities.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+      "type": "text/plain"
+    }
+  }
+}

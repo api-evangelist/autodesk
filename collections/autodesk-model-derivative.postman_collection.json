@@ -1,0 +1,2025 @@
+{
+  "item": [
+    {
+      "id": "da00c379-64fe-4fb2-9a10-df88d352661e",
+      "name": "Derivatives",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f1eb20ec-535f-4741-9183-f44ef65788ca",
+          "name": "Autodesk Download Derivative",
+          "request": {
+            "name": "Autodesk Download Derivative",
+            "description": {
+              "content": "Downloads a specific derivative file.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "modelderivative",
+                "v2",
+                "designdata",
+                ":urn",
+                "manifest",
+                ":derivativeUrn"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "urn",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "derivativeUrn",
+                  "description": "(Required) URL-encoded URN of the derivative."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a64b975a-4195-4c66-bcd6-682cd598110f",
+              "name": "Successfully downloaded derivative.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "modelderivative",
+                    "v2",
+                    "designdata",
+                    ":urn",
+                    "manifest",
+                    ":derivativeUrn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "urn",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "derivativeUrn",
+                      "description": "(Required) URL-encoded URN of the derivative."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/octet-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/octet-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3362d726-56c1-4263-8103-6f74eee70650",
+              "name": "Derivative not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "modelderivative",
+                    "v2",
+                    "designdata",
+                    ":urn",
+                    "manifest",
+                    ":derivativeUrn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "urn",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "derivativeUrn",
+                      "description": "(Required) URL-encoded URN of the derivative."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "acf9239a-bbb8-4790-8aee-1ec086f6eca9",
+      "name": "Informational",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "70dfdd17-7fe4-4b6c-b65f-7cd6985b71d9",
+          "name": "Autodesk List Supported Formats",
+          "request": {
+            "name": "Autodesk List Supported Formats",
+            "description": {
+              "content": "Returns a list of supported input and output formats for translation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "modelderivative",
+                "v2",
+                "designdata",
+                "formats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "db388069-1acd-43b3-be93-9871771fd829",
+              "name": "Successfully retrieved supported formats.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "modelderivative",
+                    "v2",
+                    "designdata",
+                    "formats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"formats\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "46603204-80f6-4c8f-8ca6-db2f1fc5d749",
+      "name": "Jobs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fae17a8a-f801-4028-834f-fe9cddd3b769",
+          "name": "Autodesk Start Translation Job",
+          "request": {
+            "name": "Autodesk Start Translation Job",
+            "description": {
+              "content": "Starts a translation job to convert a source design file into one or more derivative formats. The source file is identified by its URN (Base64-encoded object ID from the Data Management or OSS API).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "modelderivative",
+                "v2",
+                "designdata",
+                "job"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Set to true to force re-translation even if the output already exists.",
+                "key": "x-ads-force",
+                "value": "<boolean>"
+              },
+              {
+                "disabled": false,
+                "description": "The derivative format version (v2 for SVF2).",
+                "key": "x-ads-derivative-format",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"input\": {\n    \"urn\": \"<string>\",\n    \"compressedUrn\": \"<boolean>\",\n    \"rootFilename\": \"<string>\"\n  },\n  \"output\": {\n    \"formats\": [\n      {\n        \"type\": \"<string>\",\n        \"views\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"<string>\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      },\n      {\n        \"type\": \"<string>\",\n        \"views\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"<string>\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      }\n    ],\n    \"destination\": {\n      \"region\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3607cb65-4535-4a01-8ec9-851089bcfe98",
+              "name": "Translation job started or already complete.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "modelderivative",
+                    "v2",
+                    "designdata",
+                    "job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Set to true to force re-translation even if the output already exists.",
+                    "key": "x-ads-force",
+                    "value": "<boolean>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The derivative format version (v2 for SVF2).",
+                    "key": "x-ads-derivative-format",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": {\n    \"urn\": \"<string>\",\n    \"compressedUrn\": \"<boolean>\",\n    \"rootFilename\": \"<string>\"\n  },\n  \"output\": {\n    \"formats\": [\n      {\n        \"type\": \"<string>\",\n        \"views\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"<string>\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      },\n      {\n        \"type\": \"<string>\",\n        \"views\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"<string>\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      }\n    ],\n    \"destination\": {\n      \"region\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"urn\": \"string\",\n  \"acceptedJobs\": {\n    \"output\": {\n      \"formats\": [\n        {\n          \"type\": \"string\"\n        },\n        {\n          \"type\": \"string\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e358e0e4-3243-46b3-94b8-223cf9dbcab7",
+              "name": "Translation job accepted and started.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "modelderivative",
+                    "v2",
+                    "designdata",
+                    "job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Set to true to force re-translation even if the output already exists.",
+                    "key": "x-ads-force",
+                    "value": "<boolean>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The derivative format version (v2 for SVF2).",
+                    "key": "x-ads-derivative-format",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": {\n    \"urn\": \"<string>\",\n    \"compressedUrn\": \"<boolean>\",\n    \"rootFilename\": \"<string>\"\n  },\n  \"output\": {\n    \"formats\": [\n      {\n        \"type\": \"<string>\",\n        \"views\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"<string>\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      },\n      {\n        \"type\": \"<string>\",\n        \"views\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"<string>\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      }\n    ],\n    \"destination\": {\n      \"region\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"urn\": \"string\",\n  \"acceptedJobs\": {\n    \"output\": {\n      \"formats\": [\n        {\n          \"type\": \"string\"\n        },\n        {\n          \"type\": \"string\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "032d2af7-83b0-4b19-a69c-d8cabfcf45b4",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "modelderivative",
+                    "v2",
+                    "designdata",
+                    "job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Set to true to force re-translation even if the output already exists.",
+                    "key": "x-ads-force",
+                    "value": "<boolean>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The derivative format version (v2 for SVF2).",
+                    "key": "x-ads-derivative-format",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": {\n    \"urn\": \"<string>\",\n    \"compressedUrn\": \"<boolean>\",\n    \"rootFilename\": \"<string>\"\n  },\n  \"output\": {\n    \"formats\": [\n      {\n        \"type\": \"<string>\",\n        \"views\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"<string>\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      },\n      {\n        \"type\": \"<string>\",\n        \"views\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"<string>\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      }\n    ],\n    \"destination\": {\n      \"region\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7df585ab-0805-4c14-a817-ba3988d1c8a1",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "modelderivative",
+                    "v2",
+                    "designdata",
+                    "job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Set to true to force re-translation even if the output already exists.",
+                    "key": "x-ads-force",
+                    "value": "<boolean>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The derivative format version (v2 for SVF2).",
+                    "key": "x-ads-derivative-format",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": {\n    \"urn\": \"<string>\",\n    \"compressedUrn\": \"<boolean>\",\n    \"rootFilename\": \"<string>\"\n  },\n  \"output\": {\n    \"formats\": [\n      {\n        \"type\": \"<string>\",\n        \"views\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"<string>\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      },\n      {\n        \"type\": \"<string>\",\n        \"views\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"<string>\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      }\n    ],\n    \"destination\": {\n      \"region\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "da0090ef-cff9-4924-a817-339d6ba29355",
+      "name": "Manifest",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "23327bc1-a76c-4b9f-9a1d-28c307cbc91b",
+          "name": "Autodesk Get Manifest",
+          "request": {
+            "name": "Autodesk Get Manifest",
+            "description": {
+              "content": "Returns information about derivatives that correspond to a specific source design, including derivative URNs, translation status, and available outputs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "modelderivative",
+                "v2",
+                "designdata",
+                ":urn",
+                "manifest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "urn",
+                  "description": "(Required) The Base64 (URL-safe) encoded URN of the source design."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "91eb7e5f-26c4-46aa-9aac-95629f0ba4da",
+              "name": "Successfully retrieved manifest.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "modelderivative",
+                    "v2",
+                    "designdata",
+                    ":urn",
+                    "manifest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "urn",
+                      "description": "(Required) The Base64 (URL-safe) encoded URN of the source design."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"manifest\",\n  \"hasThumbnail\": \"true\",\n  \"status\": \"success\",\n  \"progress\": \"string\",\n  \"region\": \"string\",\n  \"urn\": \"string\",\n  \"version\": \"string\",\n  \"derivatives\": [\n    {\n      \"name\": \"string\",\n      \"hasThumbnail\": \"string\",\n      \"status\": \"success\",\n      \"progress\": \"string\",\n      \"outputType\": \"string\",\n      \"children\": [\n        {\n          \"guid\": \"string\",\n          \"type\": \"view\",\n          \"role\": \"thumbnail\",\n          \"name\": \"string\",\n          \"status\": \"string\",\n          \"progress\": \"string\",\n          \"mime\": \"string\",\n          \"urn\": \"string\",\n          \"children\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/DerivativeChild detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/DerivativeChild detected>\"\n            }\n          ]\n        },\n        {\n          \"guid\": \"string\",\n          \"type\": \"resource\",\n          \"role\": \"thumbnail\",\n          \"name\": \"string\",\n          \"status\": \"string\",\n          \"progress\": \"string\",\n          \"mime\": \"string\",\n          \"urn\": \"string\",\n          \"children\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/DerivativeChild detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/DerivativeChild detected>\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"hasThumbnail\": \"string\",\n      \"status\": \"success\",\n      \"progress\": \"string\",\n      \"outputType\": \"string\",\n      \"children\": [\n        {\n          \"guid\": \"string\",\n          \"type\": \"view\",\n          \"role\": \"2d\",\n          \"name\": \"string\",\n          \"status\": \"string\",\n          \"progress\": \"string\",\n          \"mime\": \"string\",\n          \"urn\": \"string\",\n          \"children\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/DerivativeChild detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/DerivativeChild detected>\"\n            }\n          ]\n        },\n        {\n          \"guid\": \"string\",\n          \"type\": \"geometry\",\n          \"role\": \"3d\",\n          \"name\": \"string\",\n          \"status\": \"string\",\n          \"progress\": \"string\",\n          \"mime\": \"string\",\n          \"urn\": \"string\",\n          \"children\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/DerivativeChild detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/DerivativeChild detected>\"\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "65569ebf-4e8d-4e03-8a82-2ff3b60d54ae",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "modelderivative",
+                    "v2",
+                    "designdata",
+                    ":urn",
+                    "manifest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "urn",
+                      "description": "(Required) The Base64 (URL-safe) encoded URN of the source design."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4e628133-2f18-4717-be71-a66df27c529c",
+              "name": "Manifest not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "modelderivative",
+                    "v2",
+                    "designdata",
+                    ":urn",
+                    "manifest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "urn",
+                      "description": "(Required) The Base64 (URL-safe) encoded URN of the source design."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "529e0b2b-8f33-4966-93a7-71be72c126af",
+          "name": "Autodesk Delete Manifest",
+          "request": {
+            "name": "Autodesk Delete Manifest",
+            "description": {
+              "content": "Deletes the manifest and all derivatives of a source design. Does not delete the source design itself.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "modelderivative",
+                "v2",
+                "designdata",
+                ":urn",
+                "manifest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "urn",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a431a80a-572d-44ca-a313-5ea742d1136a",
+              "name": "Manifest and derivatives deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "modelderivative",
+                    "v2",
+                    "designdata",
+                    ":urn",
+                    "manifest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "21cd638b-2153-47c3-9738-8ed8f17409ae",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "modelderivative",
+                    "v2",
+                    "designdata",
+                    ":urn",
+                    "manifest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c2764f54-625e-4f70-bc33-2309ea3e0915",
+              "name": "Manifest not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "modelderivative",
+                    "v2",
+                    "designdata",
+                    ":urn",
+                    "manifest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "8372fa58-046b-4ff1-ad64-5dcf97be49b8",
+      "name": "Metadata",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b8ac21f5-bb53-4a4b-9af4-dc577d798c09",
+          "name": "Autodesk Get Metadata",
+          "request": {
+            "name": "Autodesk Get Metadata",
+            "description": {
+              "content": "Returns a list of model views (viewables) available for the source design. Each viewable has a GUID that can be used to query its object tree and properties.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "modelderivative",
+                "v2",
+                "designdata",
+                ":urn",
+                "metadata"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "urn",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "39052fae-a1da-49fd-b50e-39954c962979",
+              "name": "Successfully retrieved metadata.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "modelderivative",
+                    "v2",
+                    "designdata",
+                    ":urn",
+                    "metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"type\": \"metadata\",\n    \"metadata\": [\n      {\n        \"name\": \"string\",\n        \"guid\": \"string\",\n        \"role\": \"3d\",\n        \"isMasterView\": true\n      },\n      {\n        \"name\": \"string\",\n        \"guid\": \"string\",\n        \"role\": \"3d\",\n        \"isMasterView\": false\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "865681c1-e8be-41e3-a8e2-e9bcf55d7328",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "modelderivative",
+                    "v2",
+                    "designdata",
+                    ":urn",
+                    "metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0545c2ea-8f2a-4587-b87c-af0570fb0724",
+              "name": "Metadata not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "modelderivative",
+                    "v2",
+                    "designdata",
+                    ":urn",
+                    "metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a6b8b776-4f3a-4af3-a9a9-f8f11a552c38",
+          "name": "Autodesk Get Object Tree",
+          "request": {
+            "name": "Autodesk Get Object Tree",
+            "description": {
+              "content": "Returns the object hierarchy tree for a specific viewable within the source design.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "modelderivative",
+                "v2",
+                "designdata",
+                ":urn",
+                "metadata",
+                ":guid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "forceget",
+                  "value": "<boolean>",
+                  "description": "Set to true to force fetching the full tree instead of using pagination."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "urn",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "guid",
+                  "description": "(Required) The GUID of the viewable."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "845cc199-0f46-427e-b5b9-1954242f4008",
+              "name": "Successfully retrieved object tree.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "modelderivative",
+                    "v2",
+                    "designdata",
+                    ":urn",
+                    "metadata",
+                    ":guid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "forceget",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "urn",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "guid",
+                      "description": "(Required) The GUID of the viewable."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"type\": \"objects\",\n    \"objects\": [\n      {\n        \"objectid\": 480,\n        \"name\": \"string\",\n        \"objects\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/ObjectNode detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/ObjectNode detected>\"\n          }\n        ]\n      },\n      {\n        \"objectid\": 5298,\n        \"name\": \"string\",\n        \"objects\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/ObjectNode detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/ObjectNode detected>\"\n          }\n        ]\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7cadc94c-df72-4183-b3e7-3f1f3ee6c6dd",
+              "name": "Object tree is being generated. Retry later.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "modelderivative",
+                    "v2",
+                    "designdata",
+                    ":urn",
+                    "metadata",
+                    ":guid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "forceget",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "urn",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "guid",
+                      "description": "(Required) The GUID of the viewable."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ded55769-8960-462b-adae-b433b53c84a7",
+          "name": "Autodesk Get All Properties",
+          "request": {
+            "name": "Autodesk Get All Properties",
+            "description": {
+              "content": "Returns the properties of all objects in a specific viewable. For large models, use the forceget parameter to ensure all data is returned.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "modelderivative",
+                "v2",
+                "designdata",
+                ":urn",
+                "metadata",
+                ":guid",
+                "properties"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "forceget",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "objectid",
+                  "value": "<integer>",
+                  "description": "Filter properties by a specific object ID."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "urn",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "guid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "85be28e8-ca8d-4522-8589-50a072720d2a",
+              "name": "Successfully retrieved properties.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "modelderivative",
+                    "v2",
+                    "designdata",
+                    ":urn",
+                    "metadata",
+                    ":guid",
+                    "properties"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "forceget",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "objectid",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "urn",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "guid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"type\": \"properties\",\n    \"collection\": [\n      {\n        \"objectid\": 858,\n        \"name\": \"string\",\n        \"externalId\": \"string\",\n        \"properties\": {\n          \"key_0\": \"string\",\n          \"key_1\": 8272.932974108287\n        }\n      },\n      {\n        \"objectid\": 5815,\n        \"name\": \"string\",\n        \"externalId\": \"string\",\n        \"properties\": {\n          \"key_0\": true,\n          \"key_1\": 2957,\n          \"key_2\": \"string\"\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "13a2f9a7-2812-47d3-96d7-eb518983958a",
+              "name": "Properties are being generated. Retry later.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "modelderivative",
+                    "v2",
+                    "designdata",
+                    ":urn",
+                    "metadata",
+                    ":guid",
+                    "properties"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "forceget",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "objectid",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "urn",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "guid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "70c29bcf-80b9-49db-9fce-f5278d605d4c",
+          "name": "Autodesk Query Properties",
+          "request": {
+            "name": "Autodesk Query Properties",
+            "description": {
+              "content": "Returns a filtered set of properties for a viewable based on specified criteria. Supports pagination for large result sets.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "modelderivative",
+                "v2",
+                "designdata",
+                ":urn",
+                "metadata",
+                ":guid",
+                "properties:query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "urn",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "guid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": {\n    \"$prefix\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$contains\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"pagination\": {\n    \"offset\": \"<integer>\",\n    \"limit\": \"<integer>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "52848f69-cec2-44ae-b91d-b25672de342e",
+              "name": "Successfully queried properties.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "modelderivative",
+                    "v2",
+                    "designdata",
+                    ":urn",
+                    "metadata",
+                    ":guid",
+                    "properties:query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "urn",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "guid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": {\n    \"$prefix\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$contains\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"pagination\": {\n    \"offset\": \"<integer>\",\n    \"limit\": \"<integer>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"type\": \"properties\",\n    \"collection\": [\n      {\n        \"objectid\": 858,\n        \"name\": \"string\",\n        \"externalId\": \"string\",\n        \"properties\": {\n          \"key_0\": \"string\",\n          \"key_1\": 8272.932974108287\n        }\n      },\n      {\n        \"objectid\": 5815,\n        \"name\": \"string\",\n        \"externalId\": \"string\",\n        \"properties\": {\n          \"key_0\": true,\n          \"key_1\": 2957,\n          \"key_2\": \"string\"\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ea83a64c-dec4-4430-bf8b-e4cfbce98c4a",
+      "name": "Thumbnails",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c45b66ad-f4ef-4a43-a11a-5bf4a5e6b38d",
+          "name": "Autodesk Get Thumbnail",
+          "request": {
+            "name": "Autodesk Get Thumbnail",
+            "description": {
+              "content": "Returns a thumbnail image of the source design.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "modelderivative",
+                "v2",
+                "designdata",
+                ":urn",
+                "thumbnail"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "width",
+                  "value": "<integer>",
+                  "description": "Width of the thumbnail in pixels (100, 200, or 400)."
+                },
+                {
+                  "disabled": false,
+                  "key": "height",
+                  "value": "<integer>",
+                  "description": "Height of the thumbnail in pixels (100, 200, or 400)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "urn",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "image/png"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e51fd9c1-9d15-4cb4-81a7-419b81414b86",
+              "name": "Successfully retrieved thumbnail.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "modelderivative",
+                    "v2",
+                    "designdata",
+                    ":urn",
+                    "thumbnail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "width",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "height",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "image/png"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "image/png"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d1deeb39-92bf-492c-9899-53dbdc2d2e8d",
+              "name": "Thumbnail not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "modelderivative",
+                    "v2",
+                    "designdata",
+                    ":urn",
+                    "thumbnail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "width",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "height",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "urn",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developer.api.autodesk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "data:read data:write data:create"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "469c714d-9e03-4ec0-a5da-a39997edd202",
+    "name": "Autodesk Model Derivative API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Model Derivative API translates design files into formats suitable for rendering in the Autodesk Viewer (SVF, SVF2), converts to standard outputs (OBJ, STL, STEP, IGES), and extracts metadata including object hierarchy trees, properties, and geometries from over 60 input file formats.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+      "type": "text/plain"
+    }
+  }
+}

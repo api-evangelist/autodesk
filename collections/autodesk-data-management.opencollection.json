@@ -1,0 +1,876 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Autodesk Data Management API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://developer.api.autodesk.com/authentication/v2/authorize",
+      "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Hubs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk List Hubs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/project/v1/hubs",
+            "params": [
+              {
+                "name": "filter[id]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by hub ID."
+              },
+              {
+                "name": "filter[name]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by hub name."
+              },
+              {
+                "name": "filter[extension.type]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by extension type."
+              }
+            ]
+          },
+          "docs": "Returns a collection of accessible hubs for the authenticated user. A hub represents an Autodesk account or BIM 360 account."
+        },
+        {
+          "info": {
+            "name": "Autodesk Get Hub",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/project/v1/hubs/:hub_id",
+            "params": [
+              {
+                "name": "hub_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the hub."
+              }
+            ]
+          },
+          "docs": "Returns data for a specific hub."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk List Projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/project/v1/hubs/:hub_id/projects",
+            "params": [
+              {
+                "name": "hub_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the hub."
+              },
+              {
+                "name": "filter[id]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by project ID."
+              },
+              {
+                "name": "page[number]",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination."
+              },
+              {
+                "name": "page[limit]",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page (max 200)."
+              }
+            ]
+          },
+          "docs": "Returns a collection of projects for a given hub."
+        },
+        {
+          "info": {
+            "name": "Autodesk Get Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/project/v1/hubs/:hub_id/projects/:project_id",
+            "params": [
+              {
+                "name": "hub_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a specific project within a hub."
+        },
+        {
+          "info": {
+            "name": "Autodesk List Top Folders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/project/v1/hubs/:hub_id/projects/:project_id/topFolders",
+            "params": [
+              {
+                "name": "hub_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the top-level folders for a project."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Folders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk Get Folder",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/data/v1/projects/:project_id/folders/:folder_id",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "folder_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a specific folder."
+        },
+        {
+          "info": {
+            "name": "Autodesk List Folder Contents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/data/v1/projects/:project_id/folders/:folder_id/contents",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "folder_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "filter[type]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by resource type (items, folders)."
+              },
+              {
+                "name": "filter[id]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter[extension.type]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page[number]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page[limit]",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a collection of items and folders within a folder."
+        },
+        {
+          "info": {
+            "name": "Autodesk Search Folder",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/data/v1/projects/:project_id/folders/:folder_id/search",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "folder_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "filter[displayName]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by display name."
+              },
+              {
+                "name": "filter[fileType]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by file type extension."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://developer.api.autodesk.com/authentication/v2/authorize",
+              "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Searches for items within a folder hierarchy."
+        },
+        {
+          "info": {
+            "name": "Autodesk Create Folder",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/data/v1/projects/:project_id/folders",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://developer.api.autodesk.com/authentication/v2/authorize",
+              "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Creates a new folder in the specified project."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Items",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk Create Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/data/v1/projects/:project_id/items",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://developer.api.autodesk.com/authentication/v2/authorize",
+              "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Creates a new item in the specified project. The item references a storage location containing the uploaded file."
+        },
+        {
+          "info": {
+            "name": "Autodesk Get Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/data/v1/projects/:project_id/items/:item_id",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "item_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a specific item within a project."
+        },
+        {
+          "info": {
+            "name": "Autodesk Update Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://developer.api.autodesk.com/data/v1/projects/:project_id/items/:item_id",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "item_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://developer.api.autodesk.com/authentication/v2/authorize",
+              "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Updates the display name or other properties of an item."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Versions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk List Item Versions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/data/v1/projects/:project_id/items/:item_id/versions",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "item_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page[number]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page[limit]",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns all versions of a given item."
+        },
+        {
+          "info": {
+            "name": "Autodesk Create Version",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/data/v1/projects/:project_id/versions",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://developer.api.autodesk.com/authentication/v2/authorize",
+              "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Creates a new version of an existing item. The version references a storage location containing the uploaded file."
+        },
+        {
+          "info": {
+            "name": "Autodesk Get Version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/data/v1/projects/:project_id/versions/:version_id",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a specific version of an item."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Object Storage Service",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk List Buckets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/oss/v2/buckets",
+            "params": [
+              {
+                "name": "region",
+                "value": "",
+                "type": "query",
+                "description": "Region for the bucket (US, EMEA)."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startAt",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Returns a list of buckets owned by the application."
+        },
+        {
+          "info": {
+            "name": "Autodesk Create Bucket",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/oss/v2/buckets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Creates a new OSS bucket."
+        },
+        {
+          "info": {
+            "name": "Autodesk Get Bucket Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/oss/v2/buckets/:bucketKey",
+            "params": [
+              {
+                "name": "bucketKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Returns details of a specific bucket."
+        },
+        {
+          "info": {
+            "name": "Autodesk Delete Bucket",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://developer.api.autodesk.com/oss/v2/buckets/:bucketKey",
+            "params": [
+              {
+                "name": "bucketKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Deletes a bucket. The bucket must be empty."
+        },
+        {
+          "info": {
+            "name": "Autodesk List Objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/oss/v2/buckets/:bucketKey/objects",
+            "params": [
+              {
+                "name": "bucketKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "beginsWith",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startAt",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Returns a list of objects in a bucket."
+        },
+        {
+          "info": {
+            "name": "Autodesk Download Object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/oss/v2/buckets/:bucketKey/objects/:objectKey",
+            "headers": [
+              {
+                "name": "Range",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "bucketKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "objectKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Downloads an object from a bucket."
+        },
+        {
+          "info": {
+            "name": "Autodesk Upload Object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://developer.api.autodesk.com/oss/v2/buckets/:bucketKey/objects/:objectKey",
+            "headers": [
+              {
+                "name": "Content-Length",
+                "value": ""
+              },
+              {
+                "name": "Content-Type",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "bucketKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "objectKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Uploads an object to a bucket."
+        },
+        {
+          "info": {
+            "name": "Autodesk Delete Object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://developer.api.autodesk.com/oss/v2/buckets/:bucketKey/objects/:objectKey",
+            "params": [
+              {
+                "name": "bucketKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "objectKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Deletes an object from a bucket."
+        },
+        {
+          "info": {
+            "name": "Autodesk Get Object Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/oss/v2/buckets/:bucketKey/objects/:objectKey/details",
+            "params": [
+              {
+                "name": "bucketKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "objectKey",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Returns metadata about a specific object."
+        },
+        {
+          "info": {
+            "name": "Autodesk Create Signed URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/oss/v2/buckets/:bucketKey/objects/:objectKey/signed",
+            "params": [
+              {
+                "name": "bucketKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "objectKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "access",
+                "value": "",
+                "type": "query",
+                "description": "Access level for the signed URL."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Creates a signed URL for downloading or uploading an object without requiring an access token."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

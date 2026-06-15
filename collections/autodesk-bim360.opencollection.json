@@ -1,0 +1,395 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Autodesk BIM 360 API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://developer.api.autodesk.com/authentication/v2/authorize",
+      "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Admin",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk List Project Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/bim360/admin/v1/projects/:projectId/users",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of users assigned to a BIM 360 project."
+        },
+        {
+          "info": {
+            "name": "Autodesk Add Project User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/bim360/admin/v1/projects/:projectId/users",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://developer.api.autodesk.com/authentication/v2/authorize",
+              "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Adds a user to a BIM 360 project."
+        },
+        {
+          "info": {
+            "name": "Autodesk Import Project Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/bim360/admin/v1/projects/:projectId/users/import",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://developer.api.autodesk.com/authentication/v2/authorize",
+              "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Bulk imports users to a BIM 360 project."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Issues",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk List Issues",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/issues/v1/containers/:containerId/quality-issues",
+            "params": [
+              {
+                "name": "containerId",
+                "value": "",
+                "type": "path",
+                "description": "The issues container ID for the project."
+              },
+              {
+                "name": "filter[status]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter[assigned_to]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter[due_date]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter[created_at]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter[target_urn]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page[limit]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page[offset]",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of issues within a BIM 360 project container."
+        },
+        {
+          "info": {
+            "name": "Autodesk Create Issue",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/issues/v1/containers/:containerId/quality-issues",
+            "params": [
+              {
+                "name": "containerId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://developer.api.autodesk.com/authentication/v2/authorize",
+              "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Creates a new issue in the project."
+        },
+        {
+          "info": {
+            "name": "Autodesk Get Issue",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/issues/v1/containers/:containerId/quality-issues/:issueId",
+            "params": [
+              {
+                "name": "containerId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "issueId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a specific issue."
+        },
+        {
+          "info": {
+            "name": "Autodesk Update Issue",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://developer.api.autodesk.com/issues/v1/containers/:containerId/quality-issues/:issueId",
+            "params": [
+              {
+                "name": "containerId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "issueId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://developer.api.autodesk.com/authentication/v2/authorize",
+              "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Updates an existing issue."
+        },
+        {
+          "info": {
+            "name": "Autodesk List Issue Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/issues/v1/containers/:containerId/issue-types",
+            "params": [
+              {
+                "name": "containerId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns available issue types and subtypes for the container."
+        },
+        {
+          "info": {
+            "name": "Autodesk List Issue Comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/issues/v1/containers/:containerId/quality-issues/:issueId/comments",
+            "params": [
+              {
+                "name": "containerId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "issueId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns comments on a specific issue."
+        },
+        {
+          "info": {
+            "name": "Autodesk Create Issue Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/issues/v1/containers/:containerId/quality-issues/:issueId/comments",
+            "params": [
+              {
+                "name": "containerId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "issueId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://developer.api.autodesk.com/authentication/v2/authorize",
+              "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Adds a comment to an issue."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "RFIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk List RFIs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/bim360/rfis/v2/containers/:containerId/rfis",
+            "params": [
+              {
+                "name": "containerId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "filter[status]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page[limit]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page[offset]",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of RFIs in the container."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1348 @@
+{
+  "item": [
+    {
+      "id": "4b142281-8153-4d16-ad60-a6aa2376318c",
+      "name": "Authorization",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "13d458bc-bd87-4eea-91c5-d44e2dd846b5",
+          "name": "Autodesk Authorize User",
+          "request": {
+            "name": "Autodesk Authorize User",
+            "description": {
+              "content": "Redirects the user to the Autodesk login page where they grant your application access to their data. This is the first step of the three-legged OAuth flow. After the user grants consent, Autodesk redirects them back to the redirect URI with an authorization code.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "authentication",
+                "v2",
+                "authorize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "response_type",
+                  "value": "<string>",
+                  "description": "(Required) Must be set to `code` for authorization code flow."
+                },
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>",
+                  "description": "(Required) The Client ID of your APS application."
+                },
+                {
+                  "disabled": false,
+                  "key": "redirect_uri",
+                  "value": "<uri>",
+                  "description": "(Required) The URI that Autodesk redirects the user to after granting consent. Must match a redirect URI registered with the application."
+                },
+                {
+                  "disabled": false,
+                  "key": "scope",
+                  "value": "<string>",
+                  "description": "(Required) Space-separated list of scopes requested. Common scopes include data:read, data:write, data:create, account:read, account:write."
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "An opaque value that the application uses to maintain state between the request and callback. Used to prevent CSRF attacks."
+                },
+                {
+                  "disabled": false,
+                  "key": "nonce",
+                  "value": "<string>",
+                  "description": "A random string used to associate a client session with an ID token."
+                },
+                {
+                  "disabled": false,
+                  "key": "prompt",
+                  "value": "<string>",
+                  "description": "Controls the authentication experience presented to the user."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5ecb865a-0bc9-427d-90d1-fc314195862b",
+              "name": "Redirects the user to the Autodesk login page.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "v2",
+                    "authorize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "response_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "redirect_uri",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nonce",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "prompt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Found",
+              "code": 302,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cedc7d57-3c7f-40b8-b1c4-5b69537e66cd",
+          "name": "Autodesk Logout",
+          "request": {
+            "name": "Autodesk Logout",
+            "description": {
+              "content": "Ends the user's Autodesk session and optionally redirects the user to a specified URI.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "authentication",
+                "v2",
+                "logout"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "post_logout_redirect_uri",
+                  "value": "<uri>",
+                  "description": "URI to redirect the user to after logout."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7badabe7-28a1-42bc-8807-574ebc04c0b1",
+              "name": "Redirects the user after logout.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "v2",
+                    "logout"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "post_logout_redirect_uri",
+                      "value": "<uri>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Found",
+              "code": 302,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "f29c0e8c-fba0-4c58-89b8-e799d84fc33f",
+      "name": "Keys",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2056061f-98f7-4ac9-af05-45c5910d8b19",
+          "name": "Autodesk Get JWKS",
+          "request": {
+            "name": "Autodesk Get JWKS",
+            "description": {
+              "content": "Returns the JSON Web Key Set (JWKS) containing the public keys used to verify JSON Web Tokens (JWTs) issued by the Autodesk authentication service.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "authentication",
+                "v2",
+                "keys"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "95386526-18ca-47c5-8dbf-7343de6088f1",
+              "name": "Successfully retrieved JWKS.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "v2",
+                    "keys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"keys\": [\n    {\n      \"kty\": \"string\",\n      \"kid\": \"string\",\n      \"use\": \"string\",\n      \"n\": \"string\",\n      \"e\": \"string\",\n      \"alg\": \"string\"\n    },\n    {\n      \"kty\": \"string\",\n      \"kid\": \"string\",\n      \"use\": \"string\",\n      \"n\": \"string\",\n      \"e\": \"string\",\n      \"alg\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "322545e4-4d0b-4acb-8b34-a567055f32c3",
+      "name": "Token",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c3160cb1-898f-4fc9-9243-638389c6c97e",
+          "name": "Autodesk Get Token",
+          "request": {
+            "name": "Autodesk Get Token",
+            "description": {
+              "content": "Returns an access token or refresh an existing token. Supports client_credentials (two-legged), authorization_code (three-legged), and refresh_token grant types.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "authentication",
+                "v2",
+                "token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "grant_type",
+                  "value": "<string>",
+                  "description": "(Required) The grant type for the token request."
+                },
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>",
+                  "description": "The Client ID of your application. Required if not using HTTP Basic authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "client_secret",
+                  "value": "<string>",
+                  "description": "The Client Secret of your application. Required for confidential clients if not using HTTP Basic authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>",
+                  "description": "The authorization code received from the authorize endpoint. Required when grant_type is authorization_code."
+                },
+                {
+                  "disabled": false,
+                  "key": "redirect_uri",
+                  "value": "<uri>",
+                  "description": "The redirect URI used in the authorization request. Required when grant_type is authorization_code."
+                },
+                {
+                  "disabled": false,
+                  "key": "scope",
+                  "value": "<string>",
+                  "description": "Space-separated list of scopes. Required for client_credentials grant type."
+                },
+                {
+                  "disabled": false,
+                  "key": "refresh_token",
+                  "value": "<string>",
+                  "description": "The refresh token. Required when grant_type is refresh_token."
+                },
+                {
+                  "disabled": false,
+                  "key": "code_verifier",
+                  "value": "<string>",
+                  "description": "The PKCE code verifier. Required if a code_challenge was used in the authorize request."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "940b7f20-2225-4b70-9c39-a8d3ddd7c327",
+              "name": "Successfully obtained access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "v2",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The grant type for the token request.",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The Client ID of your application. Required if not using HTTP Basic authentication.",
+                        "type": "text/plain"
+                      },
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The Client Secret of your application. Required for confidential clients if not using HTTP Basic authentication.",
+                        "type": "text/plain"
+                      },
+                      "key": "client_secret",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The authorization code received from the authorize endpoint. Required when grant_type is authorization_code.",
+                        "type": "text/plain"
+                      },
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The redirect URI used in the authorization request. Required when grant_type is authorization_code.",
+                        "type": "text/plain"
+                      },
+                      "key": "redirect_uri",
+                      "value": "<uri>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Space-separated list of scopes. Required for client_credentials grant type.",
+                        "type": "text/plain"
+                      },
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The refresh token. Required when grant_type is refresh_token.",
+                        "type": "text/plain"
+                      },
+                      "key": "refresh_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The PKCE code verifier. Required if a code_challenge was used in the authorize request.",
+                        "type": "text/plain"
+                      },
+                      "key": "code_verifier",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_token\": \"string\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 3600,\n  \"refresh_token\": \"string\",\n  \"scope\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0dde0e83-20f4-4fcc-8e73-f78c803198b0",
+              "name": "Bad request - invalid grant type or missing parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "v2",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The grant type for the token request.",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The Client ID of your application. Required if not using HTTP Basic authentication.",
+                        "type": "text/plain"
+                      },
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The Client Secret of your application. Required for confidential clients if not using HTTP Basic authentication.",
+                        "type": "text/plain"
+                      },
+                      "key": "client_secret",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The authorization code received from the authorize endpoint. Required when grant_type is authorization_code.",
+                        "type": "text/plain"
+                      },
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The redirect URI used in the authorization request. Required when grant_type is authorization_code.",
+                        "type": "text/plain"
+                      },
+                      "key": "redirect_uri",
+                      "value": "<uri>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Space-separated list of scopes. Required for client_credentials grant type.",
+                        "type": "text/plain"
+                      },
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The refresh token. Required when grant_type is refresh_token.",
+                        "type": "text/plain"
+                      },
+                      "key": "refresh_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The PKCE code verifier. Required if a code_challenge was used in the authorize request.",
+                        "type": "text/plain"
+                      },
+                      "key": "code_verifier",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"developerMessage\": \"string\",\n  \"userMessage\": \"string\",\n  \"errorCode\": \"string\",\n  \"more info\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "03a93ee7-8900-4195-9536-00bcd15c4ed4",
+              "name": "Unauthorized - invalid client credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "v2",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The grant type for the token request.",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The Client ID of your application. Required if not using HTTP Basic authentication.",
+                        "type": "text/plain"
+                      },
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The Client Secret of your application. Required for confidential clients if not using HTTP Basic authentication.",
+                        "type": "text/plain"
+                      },
+                      "key": "client_secret",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The authorization code received from the authorize endpoint. Required when grant_type is authorization_code.",
+                        "type": "text/plain"
+                      },
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The redirect URI used in the authorization request. Required when grant_type is authorization_code.",
+                        "type": "text/plain"
+                      },
+                      "key": "redirect_uri",
+                      "value": "<uri>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Space-separated list of scopes. Required for client_credentials grant type.",
+                        "type": "text/plain"
+                      },
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The refresh token. Required when grant_type is refresh_token.",
+                        "type": "text/plain"
+                      },
+                      "key": "refresh_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The PKCE code verifier. Required if a code_challenge was used in the authorize request.",
+                        "type": "text/plain"
+                      },
+                      "key": "code_verifier",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"developerMessage\": \"string\",\n  \"userMessage\": \"string\",\n  \"errorCode\": \"string\",\n  \"more info\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4f8aa192-1ac1-48bf-b948-a7e4018d9791",
+          "name": "Autodesk Revoke Token",
+          "request": {
+            "name": "Autodesk Revoke Token",
+            "description": {
+              "content": "Revokes an active access token or refresh token, rendering it invalid for further use.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "authentication",
+                "v2",
+                "revoke"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "(Required) The token to revoke."
+                },
+                {
+                  "disabled": false,
+                  "key": "token_type_hint",
+                  "value": "<string>",
+                  "description": "(Required) The type of the token being revoked."
+                },
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>",
+                  "description": "(Required) The Client ID of your application."
+                },
+                {
+                  "disabled": false,
+                  "key": "client_secret",
+                  "value": "<string>",
+                  "description": "The Client Secret of your application. Required for confidential clients."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "880e1184-88ae-421b-b7d8-5e72d7f34ed4",
+              "name": "Token successfully revoked.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "v2",
+                    "revoke"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The token to revoke.",
+                        "type": "text/plain"
+                      },
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The type of the token being revoked.",
+                        "type": "text/plain"
+                      },
+                      "key": "token_type_hint",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The Client ID of your application.",
+                        "type": "text/plain"
+                      },
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The Client Secret of your application. Required for confidential clients.",
+                        "type": "text/plain"
+                      },
+                      "key": "client_secret",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "426a7fc9-6be0-4cf5-a58a-0646770ddbc7",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "v2",
+                    "revoke"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The token to revoke.",
+                        "type": "text/plain"
+                      },
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The type of the token being revoked.",
+                        "type": "text/plain"
+                      },
+                      "key": "token_type_hint",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The Client ID of your application.",
+                        "type": "text/plain"
+                      },
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The Client Secret of your application. Required for confidential clients.",
+                        "type": "text/plain"
+                      },
+                      "key": "client_secret",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"developerMessage\": \"string\",\n  \"userMessage\": \"string\",\n  \"errorCode\": \"string\",\n  \"more info\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "50eb6db5-9314-4c79-8b90-bf1dd91d3688",
+          "name": "Autodesk Introspect Token",
+          "request": {
+            "name": "Autodesk Introspect Token",
+            "description": {
+              "content": "Returns metadata about a token, including whether it is active, the scopes it was granted, and its expiration time.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "authentication",
+                "v2",
+                "introspect"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "(Required) The token to introspect."
+                },
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>",
+                  "description": "The Client ID of your application."
+                },
+                {
+                  "disabled": false,
+                  "key": "client_secret",
+                  "value": "<string>",
+                  "description": "The Client Secret of your application."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "915dd507-0384-4eb0-a66d-f02be8641a53",
+              "name": "Token introspection result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "v2",
+                    "introspect"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The token to introspect.",
+                        "type": "text/plain"
+                      },
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The Client ID of your application.",
+                        "type": "text/plain"
+                      },
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The Client Secret of your application.",
+                        "type": "text/plain"
+                      },
+                      "key": "client_secret",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"active\": true,\n  \"scope\": \"string\",\n  \"client_id\": \"string\",\n  \"exp\": 8785,\n  \"userid\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d0700217-520c-4665-8a9b-e8b637539e1b",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "v2",
+                    "introspect"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The token to introspect.",
+                        "type": "text/plain"
+                      },
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The Client ID of your application.",
+                        "type": "text/plain"
+                      },
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The Client Secret of your application.",
+                        "type": "text/plain"
+                      },
+                      "key": "client_secret",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"developerMessage\": \"string\",\n  \"userMessage\": \"string\",\n  \"errorCode\": \"string\",\n  \"more info\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "2211ff05-5f0c-434f-a85b-5273e122c093",
+      "name": "Users",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7f25f587-7d42-4004-9113-ad3a1848707c",
+          "name": "Autodesk Get User Profile",
+          "request": {
+            "name": "Autodesk Get User Profile",
+            "description": {
+              "content": "Returns the profile information of the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "userprofile",
+                "v1",
+                "users",
+                "@me"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "data:read data:write data:create data:search user-profile:read account:read account:write"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2b602288-4632-4b85-b651-5967ef4008a2",
+              "name": "Successfully retrieved user profile.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "userprofile",
+                    "v1",
+                    "users",
+                    "@me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"userId\": \"string\",\n  \"userName\": \"string\",\n  \"emailId\": \"string\",\n  \"firstName\": \"string\",\n  \"lastName\": \"string\",\n  \"emailVerified\": true,\n  \"2FaEnabled\": true,\n  \"profileImages\": {\n    \"sizeX20\": \"string\",\n    \"sizeX40\": \"string\",\n    \"sizeX50\": \"string\",\n    \"sizeX58\": \"string\",\n    \"sizeX80\": \"string\",\n    \"sizeX120\": \"string\",\n    \"sizeX160\": \"string\",\n    \"sizeX176\": \"string\",\n    \"sizeX240\": \"string\",\n    \"sizeX360\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "94e4e02a-4c12-45c8-9382-f52262ae9700",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "userprofile",
+                    "v1",
+                    "users",
+                    "@me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"developerMessage\": \"string\",\n  \"userMessage\": \"string\",\n  \"errorCode\": \"string\",\n  \"more info\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developer.api.autodesk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "11757ccc-1d3f-41a8-b50b-dbfc02a69f31",
+    "name": "Autodesk Authentication API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Autodesk Authentication API provides OAuth 2.0 based authentication and authorization for Autodesk Platform Services (APS). It supports two-legged (client credentials) and three-legged (authorization code) OAuth flows, enabling applications to securely access user data across Autodesk cloud services without directly handling user passwords.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+      "type": "text/plain"
+    }
+  }
+}

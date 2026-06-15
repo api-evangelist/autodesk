@@ -1,0 +1,1586 @@
+{
+  "item": [
+    {
+      "id": "8ee4c17f-5aaa-4595-a00e-6f09b1a8e9f5",
+      "name": "Admin",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ca8c536c-f29b-46d1-aa83-e6f88d5e0bc0",
+          "name": "Autodesk List Project Users",
+          "request": {
+            "name": "Autodesk List Project Users",
+            "description": {
+              "content": "Returns a list of users assigned to a BIM 360 project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bim360",
+                "admin",
+                "v1",
+                "projects",
+                ":projectId",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4501d725-c71e-4d34-bd24-e1f49a037967",
+              "name": "Successfully retrieved project users.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bim360",
+                    "admin",
+                    "v1",
+                    "projects",
+                    ":projectId",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"account_id\": \"string\",\n      \"email\": \"string\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"uid\": \"string\",\n      \"image_url\": \"http://LlGtSO.qkjqlLOiRMiuLn9S7ba,+HtAA1GByVZnEDhb.nxleZ,IU8xemM4c-toh\",\n      \"status\": \"pending\",\n      \"company_id\": \"string\",\n      \"company_name\": \"string\",\n      \"role\": \"string\",\n      \"industry_roles\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"account_id\": \"string\",\n      \"email\": \"string\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"uid\": \"string\",\n      \"image_url\": \"http://KuvldkYifHXgF.knmVI5sTF\",\n      \"status\": \"inactive\",\n      \"company_id\": \"string\",\n      \"company_name\": \"string\",\n      \"role\": \"string\",\n      \"industry_roles\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"pagination\": {\n    \"offset\": 4059,\n    \"limit\": 207,\n    \"totalResults\": 6110\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d375bf0d-48a2-4b12-97f5-4089f0b64372",
+          "name": "Autodesk Add Project User",
+          "request": {
+            "name": "Autodesk Add Project User",
+            "description": {
+              "content": "Adds a user to a BIM 360 project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bim360",
+                "admin",
+                "v1",
+                "projects",
+                ":projectId",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "account:read account:write data:read data:write"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"services\": {\n    \"document_management\": {\n      \"access_level\": \"<string>\"\n    },\n    \"project_administration\": {\n      \"access_level\": \"<string>\"\n    }\n  },\n  \"company_id\": \"<string>\",\n  \"industry_roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a3c4db1e-5098-477b-8623-aadc3c80b820",
+              "name": "User added.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bim360",
+                    "admin",
+                    "v1",
+                    "projects",
+                    ":projectId",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"services\": {\n    \"document_management\": {\n      \"access_level\": \"<string>\"\n    },\n    \"project_administration\": {\n      \"access_level\": \"<string>\"\n    }\n  },\n  \"company_id\": \"<string>\",\n  \"industry_roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"account_id\": \"string\",\n  \"email\": \"string\",\n  \"name\": \"string\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"uid\": \"string\",\n  \"image_url\": \"http://HfryQxJGxzEKJvjuLgjjBeBExjcRj.zlqyOtFkBdaCuUSdGnO5oyl+qTRmE6S.Gq+CZBElOD28\",\n  \"status\": \"inactive\",\n  \"company_id\": \"string\",\n  \"company_name\": \"string\",\n  \"role\": \"string\",\n  \"industry_roles\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eeeba6f5-e553-4dc9-8f2c-5a16cf23adea",
+          "name": "Autodesk Import Project Users",
+          "request": {
+            "name": "Autodesk Import Project Users",
+            "description": {
+              "content": "Bulk imports users to a BIM 360 project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bim360",
+                "admin",
+                "v1",
+                "projects",
+                ":projectId",
+                "users",
+                "import"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "account:read account:write data:read data:write"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"email\": \"<string>\",\n    \"services\": {\n      \"document_management\": {\n        \"access_level\": \"<string>\"\n      },\n      \"project_administration\": {\n        \"access_level\": \"<string>\"\n      }\n    },\n    \"company_id\": \"<string>\",\n    \"industry_roles\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  {\n    \"email\": \"<string>\",\n    \"services\": {\n      \"document_management\": {\n        \"access_level\": \"<string>\"\n      },\n      \"project_administration\": {\n        \"access_level\": \"<string>\"\n      }\n    },\n    \"company_id\": \"<string>\",\n    \"industry_roles\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2f354e26-0bd1-4b5b-8f87-c01b5a9a00ea",
+              "name": "Users imported.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bim360",
+                    "admin",
+                    "v1",
+                    "projects",
+                    ":projectId",
+                    "users",
+                    "import"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"email\": \"string\",\n    \"services\": {\n      \"document_management\": {\n        \"access_level\": \"admin\"\n      },\n      \"project_administration\": {\n        \"access_level\": \"admin\"\n      }\n    },\n    \"company_id\": \"string\",\n    \"industry_roles\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  {\n    \"email\": \"string\",\n    \"services\": {\n      \"document_management\": {\n        \"access_level\": \"user\"\n      },\n      \"project_administration\": {\n        \"access_level\": \"user\"\n      }\n    },\n    \"company_id\": \"string\",\n    \"industry_roles\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": 8149,\n  \"failure\": 4596,\n  \"success_items\": [\n    {\n      \"id\": \"string\",\n      \"account_id\": \"string\",\n      \"email\": \"string\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"uid\": \"string\",\n      \"image_url\": \"https://Eey.tvoyiIRRDjRkAYa\",\n      \"status\": \"pending\",\n      \"company_id\": \"string\",\n      \"company_name\": \"string\",\n      \"role\": \"string\",\n      \"industry_roles\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"account_id\": \"string\",\n      \"email\": \"string\",\n      \"name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"uid\": \"string\",\n      \"image_url\": \"https://aYGgUMQIcubaUO.xhdkVkAF2Jfgl.sRU0EPmqKrKzj.2PAGNreuH7Dt5sQZAal4Yen1XRPDPe4raI-.+A\",\n      \"status\": \"inactive\",\n      \"company_id\": \"string\",\n      \"company_name\": \"string\",\n      \"role\": \"string\",\n      \"industry_roles\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "76cb4b34-044b-4f3a-b5b0-4c52037a9970",
+      "name": "Issues",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dbe98ff4-5080-45e5-9c66-409699e573cc",
+          "name": "Autodesk List Issues",
+          "request": {
+            "name": "Autodesk List Issues",
+            "description": {
+              "content": "Returns a list of issues within a BIM 360 project container.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "issues",
+                "v1",
+                "containers",
+                ":containerId",
+                "quality-issues"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter[status]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[assigned_to]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[due_date]",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[created_at]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[target_urn]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page[offset]",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "containerId",
+                  "description": "(Required) The issues container ID for the project."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9484865c-d618-4a14-bc33-91bb819ebd5c",
+              "name": "Successfully retrieved issues.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    "v1",
+                    "containers",
+                    ":containerId",
+                    "quality-issues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[status]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[assigned_to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[due_date]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[created_at]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[target_urn]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "containerId",
+                      "description": "(Required) The issues container ID for the project."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"quality_issues\",\n      \"attributes\": {\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"status\": \"void\",\n        \"assigned_to\": \"string\",\n        \"assigned_to_type\": \"company\",\n        \"due_date\": \"2010-10-18\",\n        \"priority\": \"string\",\n        \"location_description\": \"string\",\n        \"issue_type_id\": \"string\",\n        \"issue_sub_type_id\": \"string\",\n        \"root_cause_id\": \"string\",\n        \"target_urn\": \"string\",\n        \"target_urn_page\": \"string\",\n        \"starting_version\": 6370,\n        \"sheet_metadata\": {},\n        \"pushpin_attributes\": {\n          \"type\": \"string\",\n          \"location\": {\n            \"x\": 9739.192627174867,\n            \"y\": 984.6958606013978,\n            \"z\": 7947.200866261046\n          },\n          \"viewer_state\": {}\n        },\n        \"created_at\": \"1952-08-25T20:33:44.792Z\",\n        \"updated_at\": \"1947-09-11T02:35:22.355Z\",\n        \"created_by\": \"string\",\n        \"closed_at\": \"2010-02-10T06:30:30.776Z\",\n        \"closed_by\": \"string\",\n        \"answer\": \"string\",\n        \"answered_at\": \"2017-03-15T17:21:54.661Z\",\n        \"answered_by\": \"string\",\n        \"comment_count\": 4588,\n        \"attachment_count\": 8201\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"quality_issues\",\n      \"attributes\": {\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"status\": \"in_review\",\n        \"assigned_to\": \"string\",\n        \"assigned_to_type\": \"role\",\n        \"due_date\": \"2004-12-05\",\n        \"priority\": \"string\",\n        \"location_description\": \"string\",\n        \"issue_type_id\": \"string\",\n        \"issue_sub_type_id\": \"string\",\n        \"root_cause_id\": \"string\",\n        \"target_urn\": \"string\",\n        \"target_urn_page\": \"string\",\n        \"starting_version\": 7459,\n        \"sheet_metadata\": {},\n        \"pushpin_attributes\": {\n          \"type\": \"string\",\n          \"location\": {\n            \"x\": 5553.001206954809,\n            \"y\": 6615.654685292454,\n            \"z\": 6269.822569513891\n          },\n          \"viewer_state\": {}\n        },\n        \"created_at\": \"1970-09-10T07:22:38.677Z\",\n        \"updated_at\": \"1969-08-11T20:49:08.427Z\",\n        \"created_by\": \"string\",\n        \"closed_at\": \"1991-11-25T13:38:37.210Z\",\n        \"closed_by\": \"string\",\n        \"answer\": \"string\",\n        \"answered_at\": \"2013-03-31T01:33:51.512Z\",\n        \"answered_by\": \"string\",\n        \"comment_count\": 4848,\n        \"attachment_count\": 8410\n      }\n    }\n  ],\n  \"meta\": {\n    \"record_count\": 3230,\n    \"page\": {\n      \"limit\": 6361,\n      \"offset\": 9975\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b30de7c0-c31d-4645-93bb-e8f5efcf8ac3",
+          "name": "Autodesk Create Issue",
+          "request": {
+            "name": "Autodesk Create Issue",
+            "description": {
+              "content": "Creates a new issue in the project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "issues",
+                "v1",
+                "containers",
+                ":containerId",
+                "quality-issues"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "containerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/vnd.api+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "account:read account:write data:read data:write"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"type\": \"<string>\",\n    \"attributes\": {\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"status\": \"<string>\",\n      \"assigned_to\": \"<string>\",\n      \"assigned_to_type\": \"<string>\",\n      \"due_date\": \"<date>\",\n      \"priority\": \"<string>\",\n      \"issue_type_id\": \"<string>\",\n      \"issue_sub_type_id\": \"<string>\",\n      \"location_description\": \"<string>\",\n      \"target_urn\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ba5cb81a-b04f-4744-8280-bdeb8a06708d",
+              "name": "Issue created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    "v1",
+                    "containers",
+                    ":containerId",
+                    "quality-issues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "containerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"type\": \"quality_issues\",\n    \"attributes\": {\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"status\": \"<string>\",\n      \"assigned_to\": \"<string>\",\n      \"assigned_to_type\": \"<string>\",\n      \"due_date\": \"<date>\",\n      \"priority\": \"<string>\",\n      \"issue_type_id\": \"<string>\",\n      \"issue_sub_type_id\": \"<string>\",\n      \"location_description\": \"<string>\",\n      \"target_urn\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"string\",\n    \"type\": \"quality_issues\",\n    \"attributes\": {\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"status\": \"closed\",\n      \"assigned_to\": \"string\",\n      \"assigned_to_type\": \"user\",\n      \"due_date\": \"1975-02-02\",\n      \"priority\": \"string\",\n      \"location_description\": \"string\",\n      \"issue_type_id\": \"string\",\n      \"issue_sub_type_id\": \"string\",\n      \"root_cause_id\": \"string\",\n      \"target_urn\": \"string\",\n      \"target_urn_page\": \"string\",\n      \"starting_version\": 5655,\n      \"sheet_metadata\": {},\n      \"pushpin_attributes\": {\n        \"type\": \"string\",\n        \"location\": {\n          \"x\": 4343.382257639834,\n          \"y\": 2348.829565631947,\n          \"z\": 3725.510228617379\n        },\n        \"viewer_state\": {}\n      },\n      \"created_at\": \"1954-01-21T18:03:24.761Z\",\n      \"updated_at\": \"1985-08-16T13:26:29.433Z\",\n      \"created_by\": \"string\",\n      \"closed_at\": \"1957-04-06T00:20:35.980Z\",\n      \"closed_by\": \"string\",\n      \"answer\": \"string\",\n      \"answered_at\": \"1992-02-08T20:28:13.685Z\",\n      \"answered_by\": \"string\",\n      \"comment_count\": 8947,\n      \"attachment_count\": 2346\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6aa3d007-4020-4385-a7b1-b17a87b810d4",
+          "name": "Autodesk Get Issue",
+          "request": {
+            "name": "Autodesk Get Issue",
+            "description": {
+              "content": "Returns a specific issue.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "issues",
+                "v1",
+                "containers",
+                ":containerId",
+                "quality-issues",
+                ":issueId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "containerId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "issueId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d36da5dc-da59-4b92-aa2f-8997ccd70c7f",
+              "name": "Successfully retrieved issue.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    "v1",
+                    "containers",
+                    ":containerId",
+                    "quality-issues",
+                    ":issueId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "containerId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "issueId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"string\",\n    \"type\": \"quality_issues\",\n    \"attributes\": {\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"status\": \"closed\",\n      \"assigned_to\": \"string\",\n      \"assigned_to_type\": \"user\",\n      \"due_date\": \"1975-02-02\",\n      \"priority\": \"string\",\n      \"location_description\": \"string\",\n      \"issue_type_id\": \"string\",\n      \"issue_sub_type_id\": \"string\",\n      \"root_cause_id\": \"string\",\n      \"target_urn\": \"string\",\n      \"target_urn_page\": \"string\",\n      \"starting_version\": 5655,\n      \"sheet_metadata\": {},\n      \"pushpin_attributes\": {\n        \"type\": \"string\",\n        \"location\": {\n          \"x\": 4343.382257639834,\n          \"y\": 2348.829565631947,\n          \"z\": 3725.510228617379\n        },\n        \"viewer_state\": {}\n      },\n      \"created_at\": \"1954-01-21T18:03:24.761Z\",\n      \"updated_at\": \"1985-08-16T13:26:29.433Z\",\n      \"created_by\": \"string\",\n      \"closed_at\": \"1957-04-06T00:20:35.980Z\",\n      \"closed_by\": \"string\",\n      \"answer\": \"string\",\n      \"answered_at\": \"1992-02-08T20:28:13.685Z\",\n      \"answered_by\": \"string\",\n      \"comment_count\": 8947,\n      \"attachment_count\": 2346\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8ea73698-aa77-46ed-806c-25c5e4dcb540",
+          "name": "Autodesk Update Issue",
+          "request": {
+            "name": "Autodesk Update Issue",
+            "description": {
+              "content": "Updates an existing issue.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "issues",
+                "v1",
+                "containers",
+                ":containerId",
+                "quality-issues",
+                ":issueId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "containerId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "issueId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/vnd.api+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "account:read account:write data:read data:write"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"type\": \"<string>\",\n    \"id\": \"<string>\",\n    \"attributes\": {\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"status\": \"<string>\",\n      \"assigned_to\": \"<string>\",\n      \"due_date\": \"<date>\",\n      \"priority\": \"<string>\",\n      \"answer\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c01a5207-e996-4141-8710-9ddad53df813",
+              "name": "Issue updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    "v1",
+                    "containers",
+                    ":containerId",
+                    "quality-issues",
+                    ":issueId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "containerId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "issueId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"type\": \"quality_issues\",\n    \"id\": \"<string>\",\n    \"attributes\": {\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"status\": \"<string>\",\n      \"assigned_to\": \"<string>\",\n      \"due_date\": \"<date>\",\n      \"priority\": \"<string>\",\n      \"answer\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"string\",\n    \"type\": \"quality_issues\",\n    \"attributes\": {\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"status\": \"closed\",\n      \"assigned_to\": \"string\",\n      \"assigned_to_type\": \"user\",\n      \"due_date\": \"1975-02-02\",\n      \"priority\": \"string\",\n      \"location_description\": \"string\",\n      \"issue_type_id\": \"string\",\n      \"issue_sub_type_id\": \"string\",\n      \"root_cause_id\": \"string\",\n      \"target_urn\": \"string\",\n      \"target_urn_page\": \"string\",\n      \"starting_version\": 5655,\n      \"sheet_metadata\": {},\n      \"pushpin_attributes\": {\n        \"type\": \"string\",\n        \"location\": {\n          \"x\": 4343.382257639834,\n          \"y\": 2348.829565631947,\n          \"z\": 3725.510228617379\n        },\n        \"viewer_state\": {}\n      },\n      \"created_at\": \"1954-01-21T18:03:24.761Z\",\n      \"updated_at\": \"1985-08-16T13:26:29.433Z\",\n      \"created_by\": \"string\",\n      \"closed_at\": \"1957-04-06T00:20:35.980Z\",\n      \"closed_by\": \"string\",\n      \"answer\": \"string\",\n      \"answered_at\": \"1992-02-08T20:28:13.685Z\",\n      \"answered_by\": \"string\",\n      \"comment_count\": 8947,\n      \"attachment_count\": 2346\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8758b440-f946-4a9a-8822-a2fb2b778033",
+          "name": "Autodesk List Issue Types",
+          "request": {
+            "name": "Autodesk List Issue Types",
+            "description": {
+              "content": "Returns available issue types and subtypes for the container.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "issues",
+                "v1",
+                "containers",
+                ":containerId",
+                "issue-types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "containerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bf2e8d47-b41c-414a-b1ec-279326187cc7",
+              "name": "Successfully retrieved issue types.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    "v1",
+                    "containers",
+                    ":containerId",
+                    "issue-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "containerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"attributes\": {\n        \"title\": \"string\",\n        \"subtypes\": [\n          {\n            \"id\": \"string\",\n            \"title\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"title\": \"string\"\n          }\n        ]\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"attributes\": {\n        \"title\": \"string\",\n        \"subtypes\": [\n          {\n            \"id\": \"string\",\n            \"title\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"title\": \"string\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b14be18-e67f-442d-b405-6921f71b34bc",
+          "name": "Autodesk List Issue Comments",
+          "request": {
+            "name": "Autodesk List Issue Comments",
+            "description": {
+              "content": "Returns comments on a specific issue.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "issues",
+                "v1",
+                "containers",
+                ":containerId",
+                "quality-issues",
+                ":issueId",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "containerId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "issueId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fff8e6bb-0b85-4627-8d37-27fdb2aa03d2",
+              "name": "Successfully retrieved comments.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    "v1",
+                    "containers",
+                    ":containerId",
+                    "quality-issues",
+                    ":issueId",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "containerId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "issueId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"attributes\": {\n        \"body\": \"string\",\n        \"created_at\": \"1952-06-04T19:10:49.688Z\",\n        \"created_by\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"attributes\": {\n        \"body\": \"string\",\n        \"created_at\": \"1948-03-25T08:39:52.687Z\",\n        \"created_by\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e70883c4-4cdb-4930-ab1d-7e9ff51df79a",
+          "name": "Autodesk Create Issue Comment",
+          "request": {
+            "name": "Autodesk Create Issue Comment",
+            "description": {
+              "content": "Adds a comment to an issue.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "issues",
+                "v1",
+                "containers",
+                ":containerId",
+                "quality-issues",
+                ":issueId",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "containerId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "issueId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "account:read account:write data:read data:write"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"type\": \"<string>\",\n    \"attributes\": {\n      \"body\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "04ac5521-660d-435c-8f47-bd4b7ec9e3c1",
+              "name": "Comment created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    "v1",
+                    "containers",
+                    ":containerId",
+                    "quality-issues",
+                    ":issueId",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "containerId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "issueId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"type\": \"comments\",\n    \"attributes\": {\n      \"body\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "3df5afb9-24f0-49a2-8606-b02d86058468",
+      "name": "RFIs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "34377401-db3d-45e4-8a69-70a9c5efaa0e",
+          "name": "Autodesk List RFIs",
+          "request": {
+            "name": "Autodesk List RFIs",
+            "description": {
+              "content": "Returns a list of RFIs in the container.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bim360",
+                "rfis",
+                "v2",
+                "containers",
+                ":containerId",
+                "rfis"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter[status]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page[offset]",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "containerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "143e9953-fb6e-425d-955b-36b84cb5fcd2",
+              "name": "Successfully retrieved RFIs.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bim360",
+                    "rfis",
+                    "v2",
+                    "containers",
+                    ":containerId",
+                    "rfis"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[status]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "containerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"status\": \"string\",\n      \"assignedTo\": \"string\",\n      \"dueDate\": \"1959-09-07\",\n      \"createdAt\": \"2015-05-16T08:58:18.483Z\",\n      \"updatedAt\": \"1972-06-01T17:39:54.895Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"status\": \"string\",\n      \"assignedTo\": \"string\",\n      \"dueDate\": \"1969-12-13\",\n      \"createdAt\": \"2006-12-13T16:48:49.671Z\",\n      \"updatedAt\": \"2009-07-27T22:47:12.998Z\"\n    }\n  ],\n  \"pagination\": {\n    \"offset\": 8619,\n    \"limit\": 6769,\n    \"totalResults\": 4679\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developer.api.autodesk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write data:read data:write"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2e3a1fdd-cb94-49de-ada9-05f6ab88ab17",
+    "name": "Autodesk BIM 360 API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The BIM 360 API enables integration with the BIM 360 cloud-based construction management platform, providing access to project data, documents, issues, checklists, and administrative functions. It supports project administration, user management, and issue tracking workflows.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+      "type": "text/plain"
+    }
+  }
+}

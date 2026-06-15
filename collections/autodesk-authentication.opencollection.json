@@ -1,0 +1,256 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Autodesk Authentication API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authorization",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk Authorize User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/authentication/v2/authorize",
+            "params": [
+              {
+                "name": "response_type",
+                "value": "",
+                "type": "query",
+                "description": "Must be set to `code` for authorization code flow."
+              },
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "query",
+                "description": "The Client ID of your APS application."
+              },
+              {
+                "name": "redirect_uri",
+                "value": "",
+                "type": "query",
+                "description": "The URI that Autodesk redirects the user to after granting consent. Must match a redirect URI registered with the application."
+              },
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query",
+                "description": "Space-separated list of scopes requested. Common scopes include data:read, data:write, data:create, account:read, account:write."
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "An opaque value that the application uses to maintain state between the request and callback. Used to prevent CSRF attacks."
+              },
+              {
+                "name": "nonce",
+                "value": "",
+                "type": "query",
+                "description": "A random string used to associate a client session with an ID token."
+              },
+              {
+                "name": "prompt",
+                "value": "",
+                "type": "query",
+                "description": "Controls the authentication experience presented to the user."
+              }
+            ]
+          },
+          "docs": "Redirects the user to the Autodesk login page where they grant your application access to their data. This is the first step of the three-legged OAuth flow. After the user grants consent, Autodesk redirects them back to the redirect URI with an authorization code."
+        },
+        {
+          "info": {
+            "name": "Autodesk Logout",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/authentication/v2/logout",
+            "params": [
+              {
+                "name": "post_logout_redirect_uri",
+                "value": "",
+                "type": "query",
+                "description": "URI to redirect the user to after logout."
+              }
+            ]
+          },
+          "docs": "Ends the user's Autodesk session and optionally redirects the user to a specified URI."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Token",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk Get Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/authentication/v2/token",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "grant_type",
+                  "value": ""
+                },
+                {
+                  "name": "client_id",
+                  "value": ""
+                },
+                {
+                  "name": "client_secret",
+                  "value": ""
+                },
+                {
+                  "name": "code",
+                  "value": ""
+                },
+                {
+                  "name": "redirect_uri",
+                  "value": ""
+                },
+                {
+                  "name": "scope",
+                  "value": ""
+                },
+                {
+                  "name": "refresh_token",
+                  "value": ""
+                },
+                {
+                  "name": "code_verifier",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Returns an access token or refresh an existing token. Supports client_credentials (two-legged), authorization_code (three-legged), and refresh_token grant types."
+        },
+        {
+          "info": {
+            "name": "Autodesk Revoke Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/authentication/v2/revoke",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "token",
+                  "value": ""
+                },
+                {
+                  "name": "token_type_hint",
+                  "value": ""
+                },
+                {
+                  "name": "client_id",
+                  "value": ""
+                },
+                {
+                  "name": "client_secret",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Revokes an active access token or refresh token, rendering it invalid for further use."
+        },
+        {
+          "info": {
+            "name": "Autodesk Introspect Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/authentication/v2/introspect",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "token",
+                  "value": ""
+                },
+                {
+                  "name": "client_id",
+                  "value": ""
+                },
+                {
+                  "name": "client_secret",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Returns metadata about a token, including whether it is active, the scopes it was granted, and its expiration time."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Keys",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk Get JWKS",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/authentication/v2/keys"
+          },
+          "docs": "Returns the JSON Web Key Set (JWKS) containing the public keys used to verify JSON Web Tokens (JWTs) issued by the Autodesk authentication service."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk Get User Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/userprofile/v1/users/@me",
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://developer.api.autodesk.com/authentication/v2/authorize",
+              "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Returns the profile information of the authenticated user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

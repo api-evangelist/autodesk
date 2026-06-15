@@ -1,0 +1,4926 @@
+{
+  "item": [
+    {
+      "id": "1d521412-12c5-4073-a3bf-7513d9932d66",
+      "name": "Folders",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "04e83fab-b827-4e15-a286-542c2f86a1b0",
+          "name": "Autodesk Get Folder",
+          "request": {
+            "name": "Autodesk Get Folder",
+            "description": {
+              "content": "Returns a specific folder.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "v1",
+                "projects",
+                ":project_id",
+                "folders",
+                ":folder_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "folder_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "708cf03d-3ebf-488c-a9f9-8cb86f7ee6b5",
+              "name": "Successfully retrieved folder.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "v1",
+                    "projects",
+                    ":project_id",
+                    "folders",
+                    ":folder_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "folder_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"jsonapi\": {\n    \"version\": \"1.0\"\n  },\n  \"data\": {\n    \"type\": \"folders\",\n    \"id\": \"string\",\n    \"attributes\": {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"createTime\": \"1989-06-02T20:38:06.637Z\",\n      \"createUserId\": \"string\",\n      \"createUserName\": \"string\",\n      \"lastModifiedTime\": \"2022-07-07T18:01:42.342Z\",\n      \"lastModifiedUserId\": \"string\",\n      \"lastModifiedUserName\": \"string\",\n      \"objectCount\": 729,\n      \"extension\": {\n        \"type\": \"string\",\n        \"version\": \"string\",\n        \"data\": {}\n      },\n      \"hidden\": true\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3876d716-9434-406d-8067-9f1ea7ba87ac",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "v1",
+                    "projects",
+                    ":project_id",
+                    "folders",
+                    ":folder_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "folder_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3c665e04-2113-46dd-a59f-8c943b4aafd1",
+              "name": "Folder not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "v1",
+                    "projects",
+                    ":project_id",
+                    "folders",
+                    ":folder_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "folder_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9b425f7a-d030-42d7-9297-599af3f415de",
+          "name": "Autodesk List Folder Contents",
+          "request": {
+            "name": "Autodesk List Folder Contents",
+            "description": {
+              "content": "Returns a collection of items and folders within a folder.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "v1",
+                "projects",
+                ":project_id",
+                "folders",
+                ":folder_id",
+                "contents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter[type]",
+                  "value": "<string>",
+                  "description": "Filter by resource type (items, folders)."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[id]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[extension.type]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page[number]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "folder_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8647bc4f-e3f3-4630-8621-2f0fbfb4cce4",
+              "name": "Successfully retrieved folder contents.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "v1",
+                    "projects",
+                    ":project_id",
+                    "folders",
+                    ":folder_id",
+                    "contents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[extension.type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[number]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "folder_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"jsonapi\": {\n    \"version\": \"1.0\"\n  },\n  \"data\": [\n    {\n      \"type\": \"folders\",\n      \"id\": \"string\",\n      \"attributes\": {\n        \"name\": \"string\",\n        \"displayName\": \"string\",\n        \"createTime\": \"1954-03-26T10:45:32.047Z\",\n        \"createUserId\": \"string\",\n        \"createUserName\": \"string\",\n        \"lastModifiedTime\": \"1972-08-16T12:13:37.956Z\",\n        \"lastModifiedUserId\": \"string\",\n        \"lastModifiedUserName\": \"string\",\n        \"objectCount\": 9261,\n        \"extension\": {\n          \"type\": \"string\",\n          \"version\": \"string\",\n          \"data\": {}\n        },\n        \"hidden\": true\n      }\n    },\n    {\n      \"type\": \"folders\",\n      \"id\": \"string\",\n      \"attributes\": {\n        \"name\": \"string\",\n        \"displayName\": \"string\",\n        \"createTime\": \"1954-01-15T08:51:20.739Z\",\n        \"createUserId\": \"string\",\n        \"createUserName\": \"string\",\n        \"lastModifiedTime\": \"1962-03-12T12:18:50.698Z\",\n        \"lastModifiedUserId\": \"string\",\n        \"lastModifiedUserName\": \"string\",\n        \"objectCount\": 1656,\n        \"extension\": {\n          \"type\": \"string\",\n          \"version\": \"string\",\n          \"data\": {}\n        },\n        \"hidden\": true\n      }\n    }\n  ],\n  \"links\": {\n    \"self\": {\n      \"href\": \"http://XEYbIHTNuQlzJzTDYrUNJdzHmPAdnPNLM.smslPv4EnHSn5yqvQT\"\n    },\n    \"first\": {\n      \"href\": \"http://snYbzrypeZCYSRvCBNQay.zykoYmLQlGDgUEm7teQmgwmFnvPFNkc1LSQz\"\n    },\n    \"prev\": {\n      \"href\": \"https://AkNDNHYJhePpCNlSLpb.tqkTU.HsJqaE\"\n    },\n    \"next\": {\n      \"href\": \"https://wJQyryh.qccY8AiJoKPcdieZhk-nF+vKatHTI5cNfnyiCUog7pH8RfG3A\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b7dc032e-27ca-40c1-96af-a9c9fe9abbd5",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "v1",
+                    "projects",
+                    ":project_id",
+                    "folders",
+                    ":folder_id",
+                    "contents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[extension.type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[number]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "folder_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e9ecd8cf-bada-40dd-9faa-6e6f26771cf1",
+              "name": "Folder not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "v1",
+                    "projects",
+                    ":project_id",
+                    "folders",
+                    ":folder_id",
+                    "contents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[extension.type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[number]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "folder_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "19602c2c-8bd6-4d73-895a-3051e1b10141",
+          "name": "Autodesk Search Folder",
+          "request": {
+            "name": "Autodesk Search Folder",
+            "description": {
+              "content": "Searches for items within a folder hierarchy.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "v1",
+                "projects",
+                ":project_id",
+                "folders",
+                ":folder_id",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter[displayName]",
+                  "value": "<string>",
+                  "description": "Filter by display name."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[fileType]",
+                  "value": "<string>",
+                  "description": "Filter by file type extension."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "folder_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "data:read data:write data:create data:search"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "43754526-e7af-413f-a68d-1991fcecc5a5",
+              "name": "Successfully searched folder.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "v1",
+                    "projects",
+                    ":project_id",
+                    "folders",
+                    ":folder_id",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[displayName]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[fileType]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "folder_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"jsonapi\": {\n    \"version\": \"1.0\"\n  },\n  \"data\": [\n    {\n      \"type\": \"folders\",\n      \"id\": \"string\",\n      \"attributes\": {\n        \"name\": \"string\",\n        \"displayName\": \"string\",\n        \"createTime\": \"1954-03-26T10:45:32.047Z\",\n        \"createUserId\": \"string\",\n        \"createUserName\": \"string\",\n        \"lastModifiedTime\": \"1972-08-16T12:13:37.956Z\",\n        \"lastModifiedUserId\": \"string\",\n        \"lastModifiedUserName\": \"string\",\n        \"objectCount\": 9261,\n        \"extension\": {\n          \"type\": \"string\",\n          \"version\": \"string\",\n          \"data\": {}\n        },\n        \"hidden\": true\n      }\n    },\n    {\n      \"type\": \"folders\",\n      \"id\": \"string\",\n      \"attributes\": {\n        \"name\": \"string\",\n        \"displayName\": \"string\",\n        \"createTime\": \"1954-01-15T08:51:20.739Z\",\n        \"createUserId\": \"string\",\n        \"createUserName\": \"string\",\n        \"lastModifiedTime\": \"1962-03-12T12:18:50.698Z\",\n        \"lastModifiedUserId\": \"string\",\n        \"lastModifiedUserName\": \"string\",\n        \"objectCount\": 1656,\n        \"extension\": {\n          \"type\": \"string\",\n          \"version\": \"string\",\n          \"data\": {}\n        },\n        \"hidden\": true\n      }\n    }\n  ],\n  \"links\": {\n    \"self\": {\n      \"href\": \"http://XEYbIHTNuQlzJzTDYrUNJdzHmPAdnPNLM.smslPv4EnHSn5yqvQT\"\n    },\n    \"first\": {\n      \"href\": \"http://snYbzrypeZCYSRvCBNQay.zykoYmLQlGDgUEm7teQmgwmFnvPFNkc1LSQz\"\n    },\n    \"prev\": {\n      \"href\": \"https://AkNDNHYJhePpCNlSLpb.tqkTU.HsJqaE\"\n    },\n    \"next\": {\n      \"href\": \"https://wJQyryh.qccY8AiJoKPcdieZhk-nF+vKatHTI5cNfnyiCUog7pH8RfG3A\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e55bee6-c07b-4b62-b58b-f487403048d1",
+          "name": "Autodesk Create Folder",
+          "request": {
+            "name": "Autodesk Create Folder",
+            "description": {
+              "content": "Creates a new folder in the specified project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "v1",
+                "projects",
+                ":project_id",
+                "folders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/vnd.api+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "data:read data:write data:create data:search"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": {\n    \"type\": \"<string>\",\n    \"attributes\": {\n      \"name\": \"<string>\",\n      \"extension\": {\n        \"type\": \"<string>\",\n        \"version\": \"<string>\",\n        \"data\": \"<object>\"\n      }\n    },\n    \"relationships\": {\n      \"parent\": {\n        \"data\": {\n          \"type\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "53afe07c-cf94-469e-861a-f94310871fdd",
+              "name": "Folder created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "v1",
+                    "projects",
+                    ":project_id",
+                    "folders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"jsonapi\": {\n    \"version\": \"1.0\"\n  },\n  \"data\": {\n    \"type\": \"folders\",\n    \"attributes\": {\n      \"name\": \"<string>\",\n      \"extension\": {\n        \"type\": \"string\",\n        \"version\": \"string\",\n        \"data\": {}\n      }\n    },\n    \"relationships\": {\n      \"parent\": {\n        \"data\": {\n          \"type\": \"folders\",\n          \"id\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"jsonapi\": {\n    \"version\": \"1.0\"\n  },\n  \"data\": {\n    \"type\": \"folders\",\n    \"id\": \"string\",\n    \"attributes\": {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"createTime\": \"1989-06-02T20:38:06.637Z\",\n      \"createUserId\": \"string\",\n      \"createUserName\": \"string\",\n      \"lastModifiedTime\": \"2022-07-07T18:01:42.342Z\",\n      \"lastModifiedUserId\": \"string\",\n      \"lastModifiedUserName\": \"string\",\n      \"objectCount\": 729,\n      \"extension\": {\n        \"type\": \"string\",\n        \"version\": \"string\",\n        \"data\": {}\n      },\n      \"hidden\": true\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e0aa98c5-ac0f-4e3d-a78b-e1dc28fdea9a",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "v1",
+                    "projects",
+                    ":project_id",
+                    "folders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"jsonapi\": {\n    \"version\": \"1.0\"\n  },\n  \"data\": {\n    \"type\": \"folders\",\n    \"attributes\": {\n      \"name\": \"<string>\",\n      \"extension\": {\n        \"type\": \"string\",\n        \"version\": \"string\",\n        \"data\": {}\n      }\n    },\n    \"relationships\": {\n      \"parent\": {\n        \"data\": {\n          \"type\": \"folders\",\n          \"id\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6fa17177-e3e5-4bf1-bc92-ec2adeb0d825",
+              "name": "Forbidden.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "v1",
+                    "projects",
+                    ":project_id",
+                    "folders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"jsonapi\": {\n    \"version\": \"1.0\"\n  },\n  \"data\": {\n    \"type\": \"folders\",\n    \"attributes\": {\n      \"name\": \"<string>\",\n      \"extension\": {\n        \"type\": \"string\",\n        \"version\": \"string\",\n        \"data\": {}\n      }\n    },\n    \"relationships\": {\n      \"parent\": {\n        \"data\": {\n          \"type\": \"folders\",\n          \"id\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "794a5d98-9c31-4d41-8b13-9cd464c25c27",
+      "name": "Hubs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9069348b-7019-480f-9bca-f1001bf1599a",
+          "name": "Autodesk List Hubs",
+          "request": {
+            "name": "Autodesk List Hubs",
+            "description": {
+              "content": "Returns a collection of accessible hubs for the authenticated user. A hub represents an Autodesk account or BIM 360 account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "project",
+                "v1",
+                "hubs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter[id]",
+                  "value": "<string>",
+                  "description": "Filter by hub ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[name]",
+                  "value": "<string>",
+                  "description": "Filter by hub name."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[extension.type]",
+                  "value": "<string>",
+                  "description": "Filter by extension type."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "64b15877-24b6-41d7-887e-a49736ceb9b2",
+              "name": "Successfully retrieved hubs.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "project",
+                    "v1",
+                    "hubs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[name]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[extension.type]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"jsonapi\": {\n    \"version\": \"1.0\"\n  },\n  \"data\": [\n    {\n      \"type\": \"hubs\",\n      \"id\": \"string\",\n      \"attributes\": {\n        \"name\": \"string\",\n        \"extension\": {\n          \"type\": \"string\",\n          \"version\": \"string\",\n          \"data\": {}\n        },\n        \"region\": \"EMEA\"\n      },\n      \"relationships\": {\n        \"projects\": {\n          \"links\": {\n            \"related\": {\n              \"href\": \"http://aSTzKnJ.tfgzS+B9MzLm1N6hkfUksTrVKHY\"\n            }\n          }\n        }\n      },\n      \"links\": {\n        \"self\": {\n          \"href\": \"https://ypUkLdRwoUWuJHBWuLroJmGOLiruBZjd.luqvSITdfL4Vo-TrArV-ir.u5160KL2hgrIyrGf2WGMDt3ajJvCQ+3gDGL2eK1XltuhSPBaRrpHf1TbH\"\n        }\n      }\n    },\n    {\n      \"type\": \"hubs\",\n      \"id\": \"string\",\n      \"attributes\": {\n        \"name\": \"string\",\n        \"extension\": {\n          \"type\": \"string\",\n          \"version\": \"string\",\n          \"data\": {}\n        },\n        \"region\": \"EMEA\"\n      },\n      \"relationships\": {\n        \"projects\": {\n          \"links\": {\n            \"related\": {\n              \"href\": \"https://guKJfRsxwmbYk.wdb0qm7,K0Zo-fEgpm9HYIW0\"\n            }\n          }\n        }\n      },\n      \"links\": {\n        \"self\": {\n          \"href\": \"http://zA.ziaorUoSjRw\"\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6185959e-c76e-4a53-bcfb-21de9c608bd9",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "project",
+                    "v1",
+                    "hubs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[name]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[extension.type]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "231cebea-f01d-45e1-84bb-5d409ffb0a65",
+              "name": "Forbidden.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "project",
+                    "v1",
+                    "hubs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[name]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[extension.type]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f894c6dd-7cb0-4445-acaa-6bc4732017ba",
+          "name": "Autodesk Get Hub",
+          "request": {
+            "name": "Autodesk Get Hub",
+            "description": {
+              "content": "Returns data for a specific hub.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "project",
+                "v1",
+                "hubs",
+                ":hub_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "hub_id",
+                  "description": "(Required) The unique identifier of the hub."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b917ae87-854c-4393-9fce-68223884f8d2",
+              "name": "Successfully retrieved hub.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "project",
+                    "v1",
+                    "hubs",
+                    ":hub_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hub_id",
+                      "description": "(Required) The unique identifier of the hub."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"jsonapi\": {\n    \"version\": \"1.0\"\n  },\n  \"data\": {\n    \"type\": \"hubs\",\n    \"id\": \"string\",\n    \"attributes\": {\n      \"name\": \"string\",\n      \"extension\": {\n        \"type\": \"string\",\n        \"version\": \"string\",\n        \"data\": {}\n      },\n      \"region\": \"US\"\n    },\n    \"relationships\": {\n      \"projects\": {\n        \"links\": {\n          \"related\": {\n            \"href\": \"http://nWYCZXKzevDTWSKAzDDHAhb.orbOr+0EFoILX70xLTp-.GNFYCLtY7fCvzhtSHjEO\"\n          }\n        }\n      }\n    },\n    \"links\": {\n      \"self\": {\n        \"href\": \"http://skIxrNeqZLZUZiFNqYEC.evtamEKtATAYxvRrcKSsYdiW41Zm2LRMFeROnSNLVbo0u\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "29b29f3e-c5bc-4eb6-ad3c-075941182875",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "project",
+                    "v1",
+                    "hubs",
+                    ":hub_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hub_id",
+                      "description": "(Required) The unique identifier of the hub."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8f8cbca1-61a8-49b3-a1a4-2f573c06f3bc",
+              "name": "Forbidden.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "project",
+                    "v1",
+                    "hubs",
+                    ":hub_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hub_id",
+                      "description": "(Required) The unique identifier of the hub."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ca6acb8b-5182-4831-b8ac-1d1143af70d9",
+              "name": "Hub not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "project",
+                    "v1",
+                    "hubs",
+                    ":hub_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hub_id",
+                      "description": "(Required) The unique identifier of the hub."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "e634e23f-416f-4c2f-ad57-19ad78934a0d",
+      "name": "Items",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8794f431-05d5-475a-aab2-303bdbd2b354",
+          "name": "Autodesk Create Item",
+          "request": {
+            "name": "Autodesk Create Item",
+            "description": {
+              "content": "Creates a new item in the specified project. The item references a storage location containing the uploaded file.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "v1",
+                "projects",
+                ":project_id",
+                "items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/vnd.api+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "data:read data:write data:create data:search"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": {\n    \"type\": \"<string>\",\n    \"attributes\": {\n      \"displayName\": \"<string>\",\n      \"extension\": {\n        \"type\": \"<string>\",\n        \"version\": \"<string>\",\n        \"data\": \"<object>\"\n      }\n    },\n    \"relationships\": {\n      \"tip\": {\n        \"data\": {\n          \"type\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      },\n      \"parent\": {\n        \"data\": {\n          \"type\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2c3e64da-bdb2-47aa-be80-7b8b1575b9e9",
+              "name": "Item created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "v1",
+                    "projects",
+                    ":project_id",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"jsonapi\": {\n    \"version\": \"1.0\"\n  },\n  \"data\": {\n    \"type\": \"items\",\n    \"attributes\": {\n      \"displayName\": \"<string>\",\n      \"extension\": {\n        \"type\": \"string\",\n        \"version\": \"string\",\n        \"data\": {}\n      }\n    },\n    \"relationships\": {\n      \"tip\": {\n        \"data\": {\n          \"type\": \"versions\",\n          \"id\": \"<string>\"\n        }\n      },\n      \"parent\": {\n        \"data\": {\n          \"type\": \"folders\",\n          \"id\": \"<string>\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"jsonapi\": {\n    \"version\": \"1.0\"\n  },\n  \"data\": {\n    \"type\": \"items\",\n    \"id\": \"string\",\n    \"attributes\": {\n      \"displayName\": \"string\",\n      \"createTime\": \"2018-10-15T09:53:57.101Z\",\n      \"createUserId\": \"string\",\n      \"createUserName\": \"string\",\n      \"lastModifiedTime\": \"1970-05-28T08:28:45.076Z\",\n      \"lastModifiedUserId\": \"string\",\n      \"lastModifiedUserName\": \"string\",\n      \"hidden\": true,\n      \"reserved\": false,\n      \"extension\": {\n        \"type\": \"string\",\n        \"version\": \"string\",\n        \"data\": {}\n      }\n    },\n    \"relationships\": {\n      \"tip\": {\n        \"data\": {\n          \"type\": \"string\",\n          \"id\": \"string\"\n        }\n      },\n      \"versions\": {\n        \"links\": {\n          \"related\": {\n            \"href\": \"https://dFhuzzzmDQKBWdzgpSSUYcXwF.wxsAiGLlQmpBcC\"\n          }\n        }\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9c3f5402-0b4b-4478-9ae3-d4697624415b",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "v1",
+                    "projects",
+                    ":project_id",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"jsonapi\": {\n    \"version\": \"1.0\"\n  },\n  \"data\": {\n    \"type\": \"items\",\n    \"attributes\": {\n      \"displayName\": \"<string>\",\n      \"extension\": {\n        \"type\": \"string\",\n        \"version\": \"string\",\n        \"data\": {}\n      }\n    },\n    \"relationships\": {\n      \"tip\": {\n        \"data\": {\n          \"type\": \"versions\",\n          \"id\": \"<string>\"\n        }\n      },\n      \"parent\": {\n        \"data\": {\n          \"type\": \"folders\",\n          \"id\": \"<string>\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c5c88924-9b15-4616-94cc-eca9fc17c8d7",
+              "name": "Forbidden.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "v1",
+                    "projects",
+                    ":project_id",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"jsonapi\": {\n    \"version\": \"1.0\"\n  },\n  \"data\": {\n    \"type\": \"items\",\n    \"attributes\": {\n      \"displayName\": \"<string>\",\n      \"extension\": {\n        \"type\": \"string\",\n        \"version\": \"string\",\n        \"data\": {}\n      }\n    },\n    \"relationships\": {\n      \"tip\": {\n        \"data\": {\n          \"type\": \"versions\",\n          \"id\": \"<string>\"\n        }\n      },\n      \"parent\": {\n        \"data\": {\n          \"type\": \"folders\",\n          \"id\": \"<string>\"\n        }\n      }\n    }\n  },\n  \"included\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "78603db5-cbd1-42b1-a35e-8e96b3449cf9",
+          "name": "Autodesk Get Item",
+          "request": {
+            "name": "Autodesk Get Item",
+            "description": {
+              "content": "Returns a specific item within a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "v1",
+                "projects",
+                ":project_id",
+                "items",
+                ":item_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "item_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0eb01f93-3b49-4ef1-9865-aa3130bd3558",
+              "name": "Successfully retrieved item.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "v1",
+                    "projects",
+                    ":project_id",
+                    "items",
+                    ":item_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "item_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"jsonapi\": {\n    \"version\": \"1.0\"\n  },\n  \"data\": {\n    \"type\": \"items\",\n    \"id\": \"string\",\n    \"attributes\": {\n      \"displayName\": \"string\",\n      \"createTime\": \"2018-10-15T09:53:57.101Z\",\n      \"createUserId\": \"string\",\n      \"createUserName\": \"string\",\n      \"lastModifiedTime\": \"1970-05-28T08:28:45.076Z\",\n      \"lastModifiedUserId\": \"string\",\n      \"lastModifiedUserName\": \"string\",\n      \"hidden\": true,\n      \"reserved\": false,\n      \"extension\": {\n        \"type\": \"string\",\n        \"version\": \"string\",\n        \"data\": {}\n      }\n    },\n    \"relationships\": {\n      \"tip\": {\n        \"data\": {\n          \"type\": \"string\",\n          \"id\": \"string\"\n        }\n      },\n      \"versions\": {\n        \"links\": {\n          \"related\": {\n            \"href\": \"https://dFhuzzzmDQKBWdzgpSSUYcXwF.wxsAiGLlQmpBcC\"\n          }\n        }\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "344fb8d1-4fca-404e-9b6c-87381a9e0ec1",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "v1",
+                    "projects",
+                    ":project_id",
+                    "items",
+                    ":item_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "item_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a8b85f9f-fa4d-49fe-b648-4a547238b69d",
+              "name": "Item not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "v1",
+                    "projects",
+                    ":project_id",
+                    "items",
+                    ":item_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "item_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4444e27c-77f1-4511-bfc9-df8b45baccd5",
+          "name": "Autodesk Update Item",
+          "request": {
+            "name": "Autodesk Update Item",
+            "description": {
+              "content": "Updates the display name or other properties of an item.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "v1",
+                "projects",
+                ":project_id",
+                "items",
+                ":item_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "item_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/vnd.api+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "data:read data:write data:create data:search"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": {\n    \"type\": \"<string>\",\n    \"id\": \"<string>\",\n    \"attributes\": {\n      \"displayName\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e6387d15-1e9c-4a43-801a-e73c17e3b7d7",
+              "name": "Item updated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "v1",
+                    "projects",
+                    ":project_id",
+                    "items",
+                    ":item_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "item_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"jsonapi\": {\n    \"version\": \"1.0\"\n  },\n  \"data\": {\n    \"type\": \"items\",\n    \"id\": \"<string>\",\n    \"attributes\": {\n      \"displayName\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"jsonapi\": {\n    \"version\": \"1.0\"\n  },\n  \"data\": {\n    \"type\": \"items\",\n    \"id\": \"string\",\n    \"attributes\": {\n      \"displayName\": \"string\",\n      \"createTime\": \"2018-10-15T09:53:57.101Z\",\n      \"createUserId\": \"string\",\n      \"createUserName\": \"string\",\n      \"lastModifiedTime\": \"1970-05-28T08:28:45.076Z\",\n      \"lastModifiedUserId\": \"string\",\n      \"lastModifiedUserName\": \"string\",\n      \"hidden\": true,\n      \"reserved\": false,\n      \"extension\": {\n        \"type\": \"string\",\n        \"version\": \"string\",\n        \"data\": {}\n      }\n    },\n    \"relationships\": {\n      \"tip\": {\n        \"data\": {\n          \"type\": \"string\",\n          \"id\": \"string\"\n        }\n      },\n      \"versions\": {\n        \"links\": {\n          \"related\": {\n            \"href\": \"https://dFhuzzzmDQKBWdzgpSSUYcXwF.wxsAiGLlQmpBcC\"\n          }\n        }\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "12b1ce31-1a2c-42cb-86e1-2997db8fe9f3",
+      "name": "Object Storage Service",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c0f0b258-f8b8-438a-acdd-19f36dd968ee",
+          "name": "Autodesk List Buckets",
+          "request": {
+            "name": "Autodesk List Buckets",
+            "description": {
+              "content": "Returns a list of buckets owned by the application.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oss",
+                "v2",
+                "buckets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "region",
+                  "value": "<string>",
+                  "description": "Region for the bucket (US, EMEA)."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "startAt",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "data:read data:write data:create data:search bucket:create bucket:read bucket:update bucket:delete"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "27da2eab-cf82-4b71-9574-6a908fb2d957",
+              "name": "Successfully retrieved buckets.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oss",
+                    "v2",
+                    "buckets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "startAt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"bucketKey\": \"string\",\n      \"bucketOwner\": \"string\",\n      \"createdDate\": \"1991-12-14T17:59:20.872Z\",\n      \"permissions\": [\n        {\n          \"authId\": \"string\",\n          \"access\": \"read\"\n        },\n        {\n          \"authId\": \"string\",\n          \"access\": \"read\"\n        }\n      ],\n      \"policyKey\": \"persistent\"\n    },\n    {\n      \"bucketKey\": \"string\",\n      \"bucketOwner\": \"string\",\n      \"createdDate\": \"2005-07-26T04:24:59.808Z\",\n      \"permissions\": [\n        {\n          \"authId\": \"string\",\n          \"access\": \"read\"\n        },\n        {\n          \"authId\": \"string\",\n          \"access\": \"full\"\n        }\n      ],\n      \"policyKey\": \"temporary\"\n    }\n  ],\n  \"next\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "46be56f4-6d4c-4c8a-b820-4a0d026fc18a",
+          "name": "Autodesk Create Bucket",
+          "request": {
+            "name": "Autodesk Create Bucket",
+            "description": {
+              "content": "Creates a new OSS bucket.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oss",
+                "v2",
+                "buckets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "data:read data:write data:create data:search bucket:create bucket:read bucket:update bucket:delete"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bucketKey\": \"<string>\",\n  \"policyKey\": \"<string>\",\n  \"allow\": [\n    {\n      \"authId\": \"<string>\",\n      \"access\": \"<string>\"\n    },\n    {\n      \"authId\": \"<string>\",\n      \"access\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c1477062-a79d-4135-920c-395b3c2708ea",
+              "name": "Bucket created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oss",
+                    "v2",
+                    "buckets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bucketKey\": \"<string>\",\n  \"policyKey\": \"<string>\",\n  \"allow\": [\n    {\n      \"authId\": \"<string>\",\n      \"access\": \"<string>\"\n    },\n    {\n      \"authId\": \"<string>\",\n      \"access\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bucketKey\": \"string\",\n  \"bucketOwner\": \"string\",\n  \"createdDate\": \"2015-10-28T14:45:54.583Z\",\n  \"permissions\": [\n    {\n      \"authId\": \"string\",\n      \"access\": \"read\"\n    },\n    {\n      \"authId\": \"string\",\n      \"access\": \"read\"\n    }\n  ],\n  \"policyKey\": \"temporary\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "32e96141-8271-4a4a-9938-8331ba01d329",
+              "name": "Bucket already exists.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oss",
+                    "v2",
+                    "buckets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bucketKey\": \"<string>\",\n  \"policyKey\": \"<string>\",\n  \"allow\": [\n    {\n      \"authId\": \"<string>\",\n      \"access\": \"<string>\"\n    },\n    {\n      \"authId\": \"<string>\",\n      \"access\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d7139796-f8f7-4842-8608-563d57763147",
+          "name": "Autodesk Get Bucket Details",
+          "request": {
+            "name": "Autodesk Get Bucket Details",
+            "description": {
+              "content": "Returns details of a specific bucket.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oss",
+                "v2",
+                "buckets",
+                ":bucketKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bucketKey",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "data:read data:write data:create data:search bucket:create bucket:read bucket:update bucket:delete"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3310c605-eb7a-45e2-bfb4-bdda5f29487e",
+              "name": "Successfully retrieved bucket details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oss",
+                    "v2",
+                    "buckets",
+                    ":bucketKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bucketKey",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bucketKey\": \"string\",\n  \"bucketOwner\": \"string\",\n  \"createdDate\": \"2015-10-28T14:45:54.583Z\",\n  \"permissions\": [\n    {\n      \"authId\": \"string\",\n      \"access\": \"read\"\n    },\n    {\n      \"authId\": \"string\",\n      \"access\": \"read\"\n    }\n  ],\n  \"policyKey\": \"temporary\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "97b9ea79-6950-4a58-bde8-7fc4f4655095",
+          "name": "Autodesk Delete Bucket",
+          "request": {
+            "name": "Autodesk Delete Bucket",
+            "description": {
+              "content": "Deletes a bucket. The bucket must be empty.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oss",
+                "v2",
+                "buckets",
+                ":bucketKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bucketKey",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "data:read data:write data:create data:search bucket:create bucket:read bucket:update bucket:delete"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c937d98a-4616-4dcc-a977-5d43492b8a22",
+              "name": "Bucket deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oss",
+                    "v2",
+                    "buckets",
+                    ":bucketKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bucketKey",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4ecf0dea-5421-4599-9e78-f61e71957353",
+              "name": "Forbidden.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oss",
+                    "v2",
+                    "buckets",
+                    ":bucketKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bucketKey",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1c08d64f-52cb-484d-a36b-4ba1ce2b96ec",
+              "name": "Bucket not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oss",
+                    "v2",
+                    "buckets",
+                    ":bucketKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bucketKey",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7057d42b-e7ac-4214-b11b-3bbca2999757",
+          "name": "Autodesk List Objects",
+          "request": {
+            "name": "Autodesk List Objects",
+            "description": {
+              "content": "Returns a list of objects in a bucket.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oss",
+                "v2",
+                "buckets",
+                ":bucketKey",
+                "objects"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "beginsWith",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "startAt",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bucketKey",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "data:read data:write data:create data:search bucket:create bucket:read bucket:update bucket:delete"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5bc46e6c-00a1-454c-b067-b51cd6d2e3a6",
+              "name": "Successfully retrieved objects.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oss",
+                    "v2",
+                    "buckets",
+                    ":bucketKey",
+                    "objects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "beginsWith",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startAt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bucketKey",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"bucketKey\": \"string\",\n      \"objectKey\": \"string\",\n      \"objectId\": \"string\",\n      \"sha1\": \"string\",\n      \"size\": 6381,\n      \"contentType\": \"string\",\n      \"location\": \"http://TIDlwGPpfLjWBcgY.bpyEdnxEDsabIX7V.o-jfZyHUDOO,0tIef1BEMWt\"\n    },\n    {\n      \"bucketKey\": \"string\",\n      \"objectKey\": \"string\",\n      \"objectId\": \"string\",\n      \"sha1\": \"string\",\n      \"size\": 4990,\n      \"contentType\": \"string\",\n      \"location\": \"https://BdKkSMuVwVqVGxbHQmiwjPCVKBun.kuubaiPTaGnCE3PD4QYL\"\n    }\n  ],\n  \"next\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9f2f189f-dda5-42bf-a7b3-e60444e4885a",
+          "name": "Autodesk Download Object",
+          "request": {
+            "name": "Autodesk Download Object",
+            "description": {
+              "content": "Downloads an object from a bucket.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oss",
+                "v2",
+                "buckets",
+                ":bucketKey",
+                "objects",
+                ":objectKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bucketKey",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "objectKey",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Byte range for partial downloads.",
+                "key": "Range",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "data:read data:write data:create data:search bucket:create bucket:read bucket:update bucket:delete"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b89f6d42-2999-443f-ae71-9601a7b7e53a",
+              "name": "Successfully downloaded object.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oss",
+                    "v2",
+                    "buckets",
+                    ":bucketKey",
+                    "objects",
+                    ":objectKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bucketKey",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "objectKey",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Byte range for partial downloads.",
+                    "key": "Range",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/octet-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/octet-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5cb30724-afb8-43cb-a722-e85ad07fd38f",
+          "name": "Autodesk Upload Object",
+          "request": {
+            "name": "Autodesk Upload Object",
+            "description": {
+              "content": "Uploads an object to a bucket.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oss",
+                "v2",
+                "buckets",
+                ":bucketKey",
+                "objects",
+                ":objectKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bucketKey",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "objectKey",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Content-Length",
+                "value": "<integer>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/octet-stream"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "data:read data:write data:create data:search bucket:create bucket:read bucket:update bucket:delete"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "<binary>"
+            }
+          },
+          "response": [
+            {
+              "id": "72a4d99a-7978-4924-bf6b-523f3172fccb",
+              "name": "Object uploaded successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oss",
+                    "v2",
+                    "buckets",
+                    ":bucketKey",
+                    "objects",
+                    ":objectKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bucketKey",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "objectKey",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Content-Length",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "string",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<binary>"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bucketKey\": \"string\",\n  \"objectKey\": \"string\",\n  \"objectId\": \"string\",\n  \"sha1\": \"string\",\n  \"size\": 8695,\n  \"contentType\": \"string\",\n  \"location\": \"http://NkeBvljOnKuKPCDTDTXyUcVr.bdfeh8bVSfoIq\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3e67df1b-dd33-405d-8e5c-c946b599ab54",
+          "name": "Autodesk Delete Object",
+          "request": {
+            "name": "Autodesk Delete Object",
+            "description": {
+              "content": "Deletes an object from a bucket.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oss",
+                "v2",
+                "buckets",
+                ":bucketKey",
+                "objects",
+                ":objectKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bucketKey",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "objectKey",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "data:read data:write data:create data:search bucket:create bucket:read bucket:update bucket:delete"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5086843c-bf08-461a-ad71-9e7619755dc4",
+              "name": "Object deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oss",
+                    "v2",
+                    "buckets",
+                    ":bucketKey",
+                    "objects",
+                    ":objectKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bucketKey",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "objectKey",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "26b037b4-f4ea-47ef-9d0f-665c94fc3eb3",
+              "name": "Object not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oss",
+                    "v2",
+                    "buckets",
+                    ":bucketKey",
+                    "objects",
+                    ":objectKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bucketKey",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "objectKey",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cb0bae80-f148-4361-87d5-bd8785ecec02",
+          "name": "Autodesk Get Object Details",
+          "request": {
+            "name": "Autodesk Get Object Details",
+            "description": {
+              "content": "Returns metadata about a specific object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oss",
+                "v2",
+                "buckets",
+                ":bucketKey",
+                "objects",
+                ":objectKey",
+                "details"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bucketKey",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "objectKey",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "data:read data:write data:create data:search bucket:create bucket:read bucket:update bucket:delete"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d7cb6d65-fa7e-4b46-b2d3-a372f98ea3ec",
+              "name": "Successfully retrieved object details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oss",
+                    "v2",
+                    "buckets",
+                    ":bucketKey",
+                    "objects",
+                    ":objectKey",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bucketKey",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "objectKey",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bucketKey\": \"string\",\n  \"objectKey\": \"string\",\n  \"objectId\": \"string\",\n  \"sha1\": \"string\",\n  \"size\": 8695,\n  \"contentType\": \"string\",\n  \"location\": \"http://NkeBvljOnKuKPCDTDTXyUcVr.bdfeh8bVSfoIq\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "807056f9-a81b-4555-a217-f9022c858bc4",
+          "name": "Autodesk Create Signed URL",
+          "request": {
+            "name": "Autodesk Create Signed URL",
+            "description": {
+              "content": "Creates a signed URL for downloading or uploading an object without requiring an access token.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oss",
+                "v2",
+                "buckets",
+                ":bucketKey",
+                "objects",
+                ":objectKey",
+                "signed"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "access",
+                  "value": "<string>",
+                  "description": "Access level for the signed URL."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bucketKey",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "objectKey",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "data:read data:write data:create data:search bucket:create bucket:read bucket:update bucket:delete"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"minutesExpiration\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "79827bbb-8c1c-4175-96e6-daaedd85a15b",
+              "name": "Signed URL created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oss",
+                    "v2",
+                    "buckets",
+                    ":bucketKey",
+                    "objects",
+                    ":objectKey",
+                    "signed"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "access",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bucketKey",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "objectKey",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"minutesExpiration\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"signedUrl\": \"https://YFwGKWsnWNaXsSFAlZx.pwncntDj5ybAcKJP.Qhsz0S9Y8zWQNF\",\n  \"expiration\": 727\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "2424fa44-2e4f-44bc-8bc9-bcea3454b77f",
+      "name": "Projects",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cc658e3b-cd5e-4a60-8a7d-e62603b13351",
+          "name": "Autodesk List Projects",
+          "request": {
+            "name": "Autodesk List Projects",
+            "description": {
+              "content": "Returns a collection of projects for a given hub.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "project",
+                "v1",
+                "hubs",
+                ":hub_id",
+                "projects"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter[id]",
+                  "value": "<string>",
+                  "description": "Filter by project ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "page[number]",
+                  "value": "<integer>",
+                  "description": "Page number for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "<integer>",
+                  "description": "Number of results per page (max 200)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "hub_id",
+                  "description": "(Required) The unique identifier of the hub."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7182f1c0-6f25-46c7-9879-34bfb366facf",
+              "name": "Successfully retrieved projects.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "project",
+                    "v1",
+                    "hubs",
+                    ":hub_id",
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[number]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hub_id",
+                      "description": "(Required) The unique identifier of the hub."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"jsonapi\": {\n    \"version\": \"1.0\"\n  },\n  \"data\": [\n    {\n      \"type\": \"projects\",\n      \"id\": \"string\",\n      \"attributes\": {\n        \"name\": \"string\",\n        \"extension\": {\n          \"type\": \"string\",\n          \"version\": \"string\",\n          \"data\": {}\n        }\n      },\n      \"relationships\": {\n        \"hub\": {\n          \"data\": {\n            \"type\": \"string\",\n            \"id\": \"string\"\n          }\n        },\n        \"rootFolder\": {\n          \"data\": {\n            \"type\": \"string\",\n            \"id\": \"string\"\n          }\n        },\n        \"topFolders\": {\n          \"links\": {\n            \"related\": {\n              \"href\": \"https://CwraDmzzkJetakUiypw.ccrygzL\"\n            }\n          }\n        }\n      }\n    },\n    {\n      \"type\": \"projects\",\n      \"id\": \"string\",\n      \"attributes\": {\n        \"name\": \"string\",\n        \"extension\": {\n          \"type\": \"string\",\n          \"version\": \"string\",\n          \"data\": {}\n        }\n      },\n      \"relationships\": {\n        \"hub\": {\n          \"data\": {\n            \"type\": \"string\",\n            \"id\": \"string\"\n          }\n        },\n        \"rootFolder\": {\n          \"data\": {\n            \"type\": \"string\",\n            \"id\": \"string\"\n          }\n        },\n        \"topFolders\": {\n          \"links\": {\n            \"related\": {\n              \"href\": \"https://tukUlFu.czpAJumrFweIZIcJZOxkJtAvMNlUwH.9DFvJ+S5de\"\n            }\n          }\n        }\n      }\n    }\n  ],\n  \"links\": {\n    \"self\": {\n      \"href\": \"https://aiQOrHVPFtzrobeTuH.afgNO6UkVYNeJ.Lg\"\n    },\n    \"first\": {\n      \"href\": \"http://XjAXbkfYhgbXltAXwowO.edhLSR9D+sMhXbA8Z.Q6mW0wHgNt0ts\"\n    },\n    \"prev\": {\n      \"href\": \"http://nHWyFHoQgJPntfFovKfjG.pdctNQuxlDPCk8u1uoqmODpPzE6yeCI3.Kibh06gUTD8\"\n    },\n    \"next\": {\n      \"href\": \"https://CVyxlqsrPGtfOOrHXbYiZVAbGKcBQ.nrmq2H1MevUK,8\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5b439cb1-f3c5-476f-98af-0f58d162c33d",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "project",
+                    "v1",
+                    "hubs",
+                    ":hub_id",
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[number]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hub_id",
+                      "description": "(Required) The unique identifier of the hub."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "98e5146e-f6aa-4060-af68-2ebe4ad31078",
+              "name": "Forbidden.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "project",
+                    "v1",
+                    "hubs",
+                    ":hub_id",
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[number]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hub_id",
+                      "description": "(Required) The unique identifier of the hub."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b97599ee-194f-4070-8f51-713be15003f0",
+          "name": "Autodesk Get Project",
+          "request": {
+            "name": "Autodesk Get Project",
+            "description": {
+              "content": "Returns a specific project within a hub.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "project",
+                "v1",
+                "hubs",
+                ":hub_id",
+                "projects",
+                ":project_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "hub_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f58fad68-73fa-46d6-b680-3856d3b7b23c",
+              "name": "Successfully retrieved project.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "project",
+                    "v1",
+                    "hubs",
+                    ":hub_id",
+                    "projects",
+                    ":project_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hub_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"jsonapi\": {\n    \"version\": \"1.0\"\n  },\n  \"data\": {\n    \"type\": \"projects\",\n    \"id\": \"string\",\n    \"attributes\": {\n      \"name\": \"string\",\n      \"extension\": {\n        \"type\": \"string\",\n        \"version\": \"string\",\n        \"data\": {}\n      }\n    },\n    \"relationships\": {\n      \"hub\": {\n        \"data\": {\n          \"type\": \"string\",\n          \"id\": \"string\"\n        }\n      },\n      \"rootFolder\": {\n        \"data\": {\n          \"type\": \"string\",\n          \"id\": \"string\"\n        }\n      },\n      \"topFolders\": {\n        \"links\": {\n          \"related\": {\n            \"href\": \"http://uTQXCLwDuKYhFSaVXhp.licpER08EF,KIS\"\n          }\n        }\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0bfce4f8-5260-49fa-bf9a-64149826145e",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "project",
+                    "v1",
+                    "hubs",
+                    ":hub_id",
+                    "projects",
+                    ":project_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hub_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1fa09003-2c44-49e5-9da5-0d08b1cf9c55",
+              "name": "Project not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "project",
+                    "v1",
+                    "hubs",
+                    ":hub_id",
+                    "projects",
+                    ":project_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hub_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d9339776-5d60-42d2-95cb-4d59cc78fb61",
+          "name": "Autodesk List Top Folders",
+          "request": {
+            "name": "Autodesk List Top Folders",
+            "description": {
+              "content": "Returns the top-level folders for a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "project",
+                "v1",
+                "hubs",
+                ":hub_id",
+                "projects",
+                ":project_id",
+                "topFolders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "hub_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "17d34ba6-9ba3-40f3-aa6e-6f0c6b6d7dc3",
+              "name": "Successfully retrieved top folders.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "project",
+                    "v1",
+                    "hubs",
+                    ":hub_id",
+                    "projects",
+                    ":project_id",
+                    "topFolders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hub_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"jsonapi\": {\n    \"version\": \"1.0\"\n  },\n  \"data\": [\n    {\n      \"type\": \"folders\",\n      \"id\": \"string\",\n      \"attributes\": {\n        \"name\": \"string\",\n        \"displayName\": \"string\",\n        \"createTime\": \"1959-01-21T04:53:38.611Z\",\n        \"createUserId\": \"string\",\n        \"createUserName\": \"string\",\n        \"lastModifiedTime\": \"1953-08-19T14:00:36.655Z\",\n        \"lastModifiedUserId\": \"string\",\n        \"lastModifiedUserName\": \"string\",\n        \"objectCount\": 8890,\n        \"extension\": {\n          \"type\": \"string\",\n          \"version\": \"string\",\n          \"data\": {}\n        },\n        \"hidden\": false\n      }\n    },\n    {\n      \"type\": \"folders\",\n      \"id\": \"string\",\n      \"attributes\": {\n        \"name\": \"string\",\n        \"displayName\": \"string\",\n        \"createTime\": \"1964-05-31T12:20:56.292Z\",\n        \"createUserId\": \"string\",\n        \"createUserName\": \"string\",\n        \"lastModifiedTime\": \"1953-08-08T17:47:04.226Z\",\n        \"lastModifiedUserId\": \"string\",\n        \"lastModifiedUserName\": \"string\",\n        \"objectCount\": 7297,\n        \"extension\": {\n          \"type\": \"string\",\n          \"version\": \"string\",\n          \"data\": {}\n        },\n        \"hidden\": true\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "290dcbaf-e2db-41f8-ba42-8c0aa6d5b72b",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "project",
+                    "v1",
+                    "hubs",
+                    ":hub_id",
+                    "projects",
+                    ":project_id",
+                    "topFolders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hub_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7de99ac6-9dc0-4d36-bd9e-3ad13f425c0f",
+              "name": "Project not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "project",
+                    "v1",
+                    "hubs",
+                    ":hub_id",
+                    "projects",
+                    ":project_id",
+                    "topFolders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hub_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ed650d77-7740-4ffc-9cf6-689d3410abe6",
+      "name": "Versions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c1a4b52f-76ac-44ad-a3f3-25b900b60d90",
+          "name": "Autodesk List Item Versions",
+          "request": {
+            "name": "Autodesk List Item Versions",
+            "description": {
+              "content": "Returns all versions of a given item.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "v1",
+                "projects",
+                ":project_id",
+                "items",
+                ":item_id",
+                "versions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page[number]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "item_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3188456d-3a0f-4ec4-83b8-29e3d00671bd",
+              "name": "Successfully retrieved versions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "v1",
+                    "projects",
+                    ":project_id",
+                    "items",
+                    ":item_id",
+                    "versions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[number]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "item_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"jsonapi\": {\n    \"version\": \"1.0\"\n  },\n  \"data\": [\n    {\n      \"type\": \"versions\",\n      \"id\": \"string\",\n      \"attributes\": {\n        \"name\": \"string\",\n        \"displayName\": \"string\",\n        \"versionNumber\": 2948,\n        \"mimeType\": \"string\",\n        \"fileType\": \"string\",\n        \"storageSize\": 4323,\n        \"createTime\": \"2021-03-27T23:14:14.528Z\",\n        \"createUserId\": \"string\",\n        \"createUserName\": \"string\",\n        \"lastModifiedTime\": \"1967-06-22T07:07:42.380Z\",\n        \"lastModifiedUserId\": \"string\",\n        \"lastModifiedUserName\": \"string\",\n        \"extension\": {\n          \"type\": \"string\",\n          \"version\": \"string\",\n          \"data\": {}\n        }\n      }\n    },\n    {\n      \"type\": \"versions\",\n      \"id\": \"string\",\n      \"attributes\": {\n        \"name\": \"string\",\n        \"displayName\": \"string\",\n        \"versionNumber\": 4000,\n        \"mimeType\": \"string\",\n        \"fileType\": \"string\",\n        \"storageSize\": 6425,\n        \"createTime\": \"1970-12-01T19:27:51.287Z\",\n        \"createUserId\": \"string\",\n        \"createUserName\": \"string\",\n        \"lastModifiedTime\": \"1964-01-24T06:09:17.783Z\",\n        \"lastModifiedUserId\": \"string\",\n        \"lastModifiedUserName\": \"string\",\n        \"extension\": {\n          \"type\": \"string\",\n          \"version\": \"string\",\n          \"data\": {}\n        }\n      }\n    }\n  ],\n  \"links\": {\n    \"self\": {\n      \"href\": \"https://VOwuaocEdBfZrAImajANViBO.uqKuo36huTtKAnJ3IKplMLgGc4mAWEJOH1lktlZQGrS1t0z4\"\n    },\n    \"first\": {\n      \"href\": \"https://jXujVxXTLCGURpmvCinZHbEFJ.gsaBUWbwsL\"\n    },\n    \"prev\": {\n      \"href\": \"http://xbPsCxNveHjZyvTyVnJIEyTOeYxPcA.ulrUvlhmg++ViBeX7S9H4YIfW9iU\"\n    },\n    \"next\": {\n      \"href\": \"https://AluPdCykABzHiisGUZfDALIMZJ.bqyzlE-3IIf3dQvdvCT4,I0J,e,Af3p9nhJdYtkm79kW5\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72b07b85-f6b1-4d19-b06f-6ab93768fd16",
+          "name": "Autodesk Create Version",
+          "request": {
+            "name": "Autodesk Create Version",
+            "description": {
+              "content": "Creates a new version of an existing item. The version references a storage location containing the uploaded file.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "v1",
+                "projects",
+                ":project_id",
+                "versions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/vnd.api+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "data:read data:write data:create data:search"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": {\n    \"type\": \"<string>\",\n    \"attributes\": {\n      \"name\": \"<string>\",\n      \"extension\": {\n        \"type\": \"<string>\",\n        \"version\": \"<string>\",\n        \"data\": \"<object>\"\n      }\n    },\n    \"relationships\": {\n      \"item\": {\n        \"data\": {\n          \"type\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      },\n      \"storage\": {\n        \"data\": {\n          \"type\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0b1d6bc4-a635-4376-a9e5-671b95a232df",
+              "name": "Version created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "v1",
+                    "projects",
+                    ":project_id",
+                    "versions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"jsonapi\": {\n    \"version\": \"1.0\"\n  },\n  \"data\": {\n    \"type\": \"versions\",\n    \"attributes\": {\n      \"name\": \"<string>\",\n      \"extension\": {\n        \"type\": \"string\",\n        \"version\": \"string\",\n        \"data\": {}\n      }\n    },\n    \"relationships\": {\n      \"item\": {\n        \"data\": {\n          \"type\": \"items\",\n          \"id\": \"<string>\"\n        }\n      },\n      \"storage\": {\n        \"data\": {\n          \"type\": \"objects\",\n          \"id\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"jsonapi\": {\n    \"version\": \"1.0\"\n  },\n  \"data\": {\n    \"type\": \"versions\",\n    \"id\": \"string\",\n    \"attributes\": {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"versionNumber\": 8934,\n      \"mimeType\": \"string\",\n      \"fileType\": \"string\",\n      \"storageSize\": 7316,\n      \"createTime\": \"2021-11-25T12:36:50.126Z\",\n      \"createUserId\": \"string\",\n      \"createUserName\": \"string\",\n      \"lastModifiedTime\": \"1961-06-01T02:27:35.645Z\",\n      \"lastModifiedUserId\": \"string\",\n      \"lastModifiedUserName\": \"string\",\n      \"extension\": {\n        \"type\": \"string\",\n        \"version\": \"string\",\n        \"data\": {}\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c77a0a78-9488-406c-abc3-1b10f22cb4f7",
+          "name": "Autodesk Get Version",
+          "request": {
+            "name": "Autodesk Get Version",
+            "description": {
+              "content": "Returns a specific version of an item.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "v1",
+                "projects",
+                ":project_id",
+                "versions",
+                ":version_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "version_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "47fcc4fd-5674-47b0-8258-16d61ff320ac",
+              "name": "Successfully retrieved version.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "v1",
+                    "projects",
+                    ":project_id",
+                    "versions",
+                    ":version_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"jsonapi\": {\n    \"version\": \"1.0\"\n  },\n  \"data\": {\n    \"type\": \"versions\",\n    \"id\": \"string\",\n    \"attributes\": {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"versionNumber\": 8934,\n      \"mimeType\": \"string\",\n      \"fileType\": \"string\",\n      \"storageSize\": 7316,\n      \"createTime\": \"2021-11-25T12:36:50.126Z\",\n      \"createUserId\": \"string\",\n      \"createUserName\": \"string\",\n      \"lastModifiedTime\": \"1961-06-01T02:27:35.645Z\",\n      \"lastModifiedUserId\": \"string\",\n      \"lastModifiedUserName\": \"string\",\n      \"extension\": {\n        \"type\": \"string\",\n        \"version\": \"string\",\n        \"data\": {}\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developer.api.autodesk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "data:read data:write data:create data:search"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "06479277-a69d-4339-b334-d434d4540702",
+    "name": "Autodesk Data Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Data Management API enables management of data across Autodesk cloud services including Autodesk Docs, BIM 360, Fusion Team, and the Object Storage Service (OSS). It provides a consistent interface for navigating projects, managing folders, uploading and downloading files, and tracking item versions using a JSON:API compliant data model.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+      "type": "text/plain"
+    }
+  }
+}

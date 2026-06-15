@@ -1,0 +1,660 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Autodesk Design Automation API",
+    "version": "3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Engines",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk List Engines",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/engines",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page token for pagination."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of available engines. Engines correspond to Autodesk products that can process design files (AutoCAD, Revit, Inventor, 3ds Max)."
+        },
+        {
+          "info": {
+            "name": "Autodesk Get Engine",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/engines/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The fully qualified engine ID (e.g., Autodesk.AutoCAD+24_1)."
+              }
+            ]
+          },
+          "docs": "Returns details about a specific engine."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "AppBundles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk List AppBundles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/appbundles",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of AppBundles belonging to the caller. AppBundles contain custom code (plugins, scripts, add-ins) that run on the cloud engine."
+        },
+        {
+          "info": {
+            "name": "Autodesk Create AppBundle",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/appbundles",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new AppBundle."
+        },
+        {
+          "info": {
+            "name": "Autodesk Get AppBundle",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/appbundles/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns details of a specific AppBundle."
+        },
+        {
+          "info": {
+            "name": "Autodesk Delete AppBundle",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/appbundles/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes an AppBundle and all its versions and aliases."
+        },
+        {
+          "info": {
+            "name": "Autodesk List AppBundle Versions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/appbundles/:id/versions",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns all versions of a specific AppBundle."
+        },
+        {
+          "info": {
+            "name": "Autodesk Create AppBundle Version",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/appbundles/:id/versions",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new version of an existing AppBundle."
+        },
+        {
+          "info": {
+            "name": "Autodesk List AppBundle Aliases",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/appbundles/:id/aliases",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns all aliases for a specific AppBundle."
+        },
+        {
+          "info": {
+            "name": "Autodesk Create AppBundle Alias",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/appbundles/:id/aliases",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates an alias that points to a specific AppBundle version."
+        },
+        {
+          "info": {
+            "name": "Autodesk Get AppBundle Alias",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/appbundles/:id/aliases/:aliasId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "aliasId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns details of a specific AppBundle alias."
+        },
+        {
+          "info": {
+            "name": "Autodesk Update AppBundle Alias",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/appbundles/:id/aliases/:aliasId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "aliasId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an alias to point to a different version."
+        },
+        {
+          "info": {
+            "name": "Autodesk Delete AppBundle Alias",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/appbundles/:id/aliases/:aliasId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "aliasId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes an AppBundle alias."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Activities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk List Activities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/activities",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of Activities belonging to the caller. Activities define the instructions (script, plugin, parameters) that run on an engine."
+        },
+        {
+          "info": {
+            "name": "Autodesk Create Activity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/activities",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new Activity."
+        },
+        {
+          "info": {
+            "name": "Autodesk Get Activity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/activities/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns details of a specific Activity."
+        },
+        {
+          "info": {
+            "name": "Autodesk Delete Activity",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/activities/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes an Activity and all its versions and aliases."
+        },
+        {
+          "info": {
+            "name": "Autodesk List Activity Versions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/activities/:id/versions",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns all versions of an Activity."
+        },
+        {
+          "info": {
+            "name": "Autodesk Create Activity Version",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/activities/:id/versions",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new version of an Activity."
+        },
+        {
+          "info": {
+            "name": "Autodesk List Activity Aliases",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/activities/:id/aliases",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns all aliases for a specific Activity."
+        },
+        {
+          "info": {
+            "name": "Autodesk Create Activity Alias",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/activities/:id/aliases",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates an alias for an Activity version."
+        },
+        {
+          "info": {
+            "name": "Autodesk Get Activity Alias",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/activities/:id/aliases/:aliasId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "aliasId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns details of a specific Activity alias."
+        },
+        {
+          "info": {
+            "name": "Autodesk Update Activity Alias",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/activities/:id/aliases/:aliasId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "aliasId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an Activity alias to point to a different version."
+        },
+        {
+          "info": {
+            "name": "Autodesk Delete Activity Alias",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/activities/:id/aliases/:aliasId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "aliasId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes an Activity alias."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "WorkItems",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk Create WorkItem",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/workitems",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates and executes a WorkItem. A WorkItem is an instance of an Activity that processes specific input files and produces output files."
+        },
+        {
+          "info": {
+            "name": "Autodesk Get WorkItem Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/workitems/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the status of a specific WorkItem."
+        },
+        {
+          "info": {
+            "name": "Autodesk Cancel WorkItem",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/workitems/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Cancels a pending or running WorkItem."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Forge Apps",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk Get Nickname",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/forgeapps/me"
+          },
+          "docs": "Returns the nickname for the caller's Forge app."
+        },
+        {
+          "info": {
+            "name": "Autodesk Create/Update Nickname",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/forgeapps/me",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or updates the nickname for the caller's Forge app."
+        },
+        {
+          "info": {
+            "name": "Autodesk Delete Nickname",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/forgeapps/me"
+          },
+          "docs": "Removes the nickname for the caller's Forge app, also removing all AppBundles and Activities."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Service Limits",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk Get Service Limits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/servicelimits/me"
+          },
+          "docs": "Returns the service limits for the caller."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

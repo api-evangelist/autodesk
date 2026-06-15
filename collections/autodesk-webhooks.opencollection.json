@@ -1,0 +1,277 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Autodesk Webhooks API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://developer.api.autodesk.com/authentication/v2/authorize",
+      "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Systems",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk List Event Systems",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/webhooks/v1/systems"
+          },
+          "docs": "Returns a list of available event systems that support webhook subscriptions (e.g., data, derivative, adsk.c4r, adsk.docs)."
+        },
+        {
+          "info": {
+            "name": "Autodesk List System Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/webhooks/v1/systems/:system/events",
+            "params": [
+              {
+                "name": "system",
+                "value": "",
+                "type": "path",
+                "description": "The system identifier (e.g., data, derivative, adsk.c4r)."
+              }
+            ]
+          },
+          "docs": "Returns a list of events available for a specific system."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Hooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk List Hooks for Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/webhooks/v1/systems/:system/events/:event/hooks",
+            "params": [
+              {
+                "name": "system",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "event",
+                "value": "",
+                "type": "path",
+                "description": "The event type (e.g., dm.version.added, dm.version.deleted, extraction.finished)."
+              },
+              {
+                "name": "pageState",
+                "value": "",
+                "type": "query",
+                "description": "Pagination state token."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by hook status."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of webhook subscriptions for a specific system and event."
+        },
+        {
+          "info": {
+            "name": "Autodesk Create Hook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/webhooks/v1/systems/:system/events/:event/hooks",
+            "params": [
+              {
+                "name": "system",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "event",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new webhook subscription for a specific event in a system."
+        },
+        {
+          "info": {
+            "name": "Autodesk Get Hook",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/webhooks/v1/systems/:system/events/:event/hooks/:hook_id",
+            "params": [
+              {
+                "name": "system",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "event",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "hook_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique hook identifier."
+              }
+            ]
+          },
+          "docs": "Returns details of a specific webhook subscription."
+        },
+        {
+          "info": {
+            "name": "Autodesk Update Hook",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://developer.api.autodesk.com/webhooks/v1/systems/:system/events/:event/hooks/:hook_id",
+            "params": [
+              {
+                "name": "system",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "event",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "hook_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates properties of an existing webhook subscription."
+        },
+        {
+          "info": {
+            "name": "Autodesk Delete Hook",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://developer.api.autodesk.com/webhooks/v1/systems/:system/events/:event/hooks/:hook_id",
+            "params": [
+              {
+                "name": "system",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "event",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "hook_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a webhook subscription."
+        },
+        {
+          "info": {
+            "name": "Autodesk List All Hooks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/webhooks/v1/hooks",
+            "params": [
+              {
+                "name": "pageState",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns all webhook subscriptions for the calling application across all systems and events."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Tokens",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk Create/Update Webhook Secret Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://developer.api.autodesk.com/webhooks/v1/tokens/@me",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or updates a secret token used to sign webhook payloads. The token is included in the x-adsk-signature header of callback requests for payload verification."
+        },
+        {
+          "info": {
+            "name": "Autodesk Delete Webhook Secret Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://developer.api.autodesk.com/webhooks/v1/tokens/@me"
+          },
+          "docs": "Deletes the webhook secret token."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

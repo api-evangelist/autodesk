@@ -1,0 +1,326 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Autodesk Tandem Data API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://developer.api.autodesk.com/authentication/v2/authorize",
+      "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk List Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/tandem/v1/groups"
+          },
+          "docs": "Returns a list of facility groups (teams) that the authenticated user has access to."
+        },
+        {
+          "info": {
+            "name": "Autodesk Get Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/tandem/v1/groups/:groupId",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns details of a specific group."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Twins",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk List Twins",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/tandem/v1/twins"
+          },
+          "docs": "Returns a list of digital twin facilities that the authenticated user has access to."
+        },
+        {
+          "info": {
+            "name": "Autodesk Get Twin",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/tandem/v1/twins/:twinId",
+            "params": [
+              {
+                "name": "twinId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns details of a specific digital twin facility."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Models",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk List Models",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/tandem/v1/twins/:twinId/models",
+            "params": [
+              {
+                "name": "twinId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a list of BIM models associated with a digital twin facility."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Elements",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk Scan Elements",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/tandem/v1/modeldata/:modelId/scan",
+            "params": [
+              {
+                "name": "modelId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Scans and returns elements from a model, optionally filtered by category, family, or property values. Returns element keys and properties."
+        },
+        {
+          "info": {
+            "name": "Autodesk Get Element Properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/tandem/v1/modeldata/:modelId/props",
+            "params": [
+              {
+                "name": "modelId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns properties for specific elements identified by their keys."
+        },
+        {
+          "info": {
+            "name": "Autodesk Mutate Element Properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/tandem/v1/modeldata/:modelId/mutate",
+            "params": [
+              {
+                "name": "modelId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://developer.api.autodesk.com/authentication/v2/authorize",
+              "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Creates, updates, or deletes custom property values on elements. Only properties defined in user-created schemas can be mutated."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Schema",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk Get Twin Schema",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/tandem/v1/twins/:twinId/schema",
+            "params": [
+              {
+                "name": "twinId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the schema definition for a digital twin, including built-in and custom property definitions."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Streams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk List Streams",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/tandem/v1/twins/:twinId/streams",
+            "params": [
+              {
+                "name": "twinId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns IoT data streams associated with a digital twin for time-series sensor data integration."
+        },
+        {
+          "info": {
+            "name": "Autodesk Get Timeseries Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/tandem/v1/timeseries/:streamId",
+            "params": [
+              {
+                "name": "streamId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start time (ISO 8601 or Unix timestamp)."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End time (ISO 8601 or Unix timestamp)."
+              },
+              {
+                "name": "resolution",
+                "value": "",
+                "type": "query",
+                "description": "Data resolution."
+              }
+            ]
+          },
+          "docs": "Returns time-series data for a specific IoT stream."
+        },
+        {
+          "info": {
+            "name": "Autodesk Push Timeseries Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/tandem/v1/timeseries/:streamId",
+            "params": [
+              {
+                "name": "streamId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://developer.api.autodesk.com/authentication/v2/authorize",
+              "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Pushes new time-series data points to a stream."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

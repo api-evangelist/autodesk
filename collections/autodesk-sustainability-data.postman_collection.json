@@ -1,0 +1,868 @@
+{
+  "item": [
+    {
+      "id": "ef67d3a0-535e-46ac-871a-a6a7d9aa521e",
+      "name": "Calculations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b4b4a935-1829-48f9-ad7c-53600c52468a",
+          "name": "Autodesk Calculate Emissions",
+          "request": {
+            "name": "Autodesk Calculate Emissions",
+            "description": {
+              "content": "Calculates carbon emissions based on provided parameters such as energy consumption, material quantities, or transportation distances.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sustainability",
+                "v3",
+                "calculation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"datasetId\": \"<string>\",\n  \"recordId\": \"<string>\",\n  \"quantity\": \"<number>\",\n  \"unit\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9b9abcb4-0fb4-414c-b85c-2dc18eb66d22",
+              "name": "Calculation completed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sustainability",
+                    "v3",
+                    "calculation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"datasetId\": \"<string>\",\n  \"recordId\": \"<string>\",\n  \"quantity\": \"<number>\",\n  \"unit\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalEmissions\": 6353.593968850143,\n  \"unit\": \"kgCO2e\",\n  \"emissionFactor\": 2231.5049397575713,\n  \"quantity\": 5196.471162810092,\n  \"record\": {\n    \"id\": \"string\",\n    \"datasetId\": \"string\",\n    \"name\": \"string\",\n    \"category\": \"string\",\n    \"region\": \"string\",\n    \"year\": 9468,\n    \"unit\": \"string\",\n    \"emissionFactor\": 3439.338461420339,\n    \"emissionFactorUnit\": \"string\",\n    \"gwp\": 5348.772774947771,\n    \"metadata\": {\n      \"key_0\": false\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0521ccba-7c21-47ca-8c0d-ce8d7899993d",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sustainability",
+                    "v3",
+                    "calculation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"datasetId\": \"<string>\",\n  \"recordId\": \"<string>\",\n  \"quantity\": \"<number>\",\n  \"unit\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "134d0834-6546-45e8-a118-332162f0349a",
+      "name": "Datasets",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c6f52ef1-be0e-4f5d-bdc5-e4b8478ac80f",
+          "name": "Autodesk List Datasets",
+          "request": {
+            "name": "Autodesk List Datasets",
+            "description": {
+              "content": "Returns a list of available sustainability datasets. Each dataset contains environmental impact data from specific data providers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sustainability",
+                "v3",
+                "datasets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page[offset]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[type]",
+                  "value": "<string>",
+                  "description": "Filter by dataset type."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e3b1f797-acf8-4b55-88a0-213aea57fc9c",
+              "name": "Successfully retrieved datasets.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sustainability",
+                    "v3",
+                    "datasets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[offset]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[type]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"type\": \"material\",\n      \"provider\": \"string\",\n      \"version\": \"string\",\n      \"regions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"lastUpdated\": \"1966-08-25T17:39:58.088Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"type\": \"transportation\",\n      \"provider\": \"string\",\n      \"version\": \"string\",\n      \"regions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"lastUpdated\": \"1967-11-23T17:17:42.646Z\"\n    }\n  ],\n  \"pagination\": {\n    \"offset\": 3216,\n    \"limit\": 4039,\n    \"totalResults\": 919\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4120308b-a7d8-483e-9588-8022a6dd2844",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sustainability",
+                    "v3",
+                    "datasets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[offset]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[type]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fab58914-61d7-4e73-8292-5a09f539ff51",
+          "name": "Autodesk Get Dataset",
+          "request": {
+            "name": "Autodesk Get Dataset",
+            "description": {
+              "content": "Returns details of a specific dataset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sustainability",
+                "v3",
+                "datasets",
+                ":datasetId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "datasetId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "05c31e3f-73a0-45f1-9d90-14cbd5a09bd9",
+              "name": "Successfully retrieved dataset.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sustainability",
+                    "v3",
+                    "datasets",
+                    ":datasetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"type\": \"construction\",\n  \"provider\": \"string\",\n  \"version\": \"string\",\n  \"regions\": [\n    \"string\",\n    \"string\"\n  ],\n  \"lastUpdated\": \"2000-01-01T22:00:18.487Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "467948d9-b636-4f93-a298-7c0257d5ee0f",
+              "name": "Dataset not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sustainability",
+                    "v3",
+                    "datasets",
+                    ":datasetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "11d1e53a-6ca6-4a4e-988e-f2171b7fdefc",
+      "name": "Records",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "661473be-d5f5-4d35-8d71-18e87aac5a3a",
+          "name": "Autodesk List Records",
+          "request": {
+            "name": "Autodesk List Records",
+            "description": {
+              "content": "Returns environmental impact records from a specific dataset. Records contain emission factors, carbon intensities, and other environmental metrics.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sustainability",
+                "v3",
+                "datasets",
+                ":datasetId",
+                "records"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter[region]",
+                  "value": "<string>",
+                  "description": "Filter by region or country code."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[category]",
+                  "value": "<string>",
+                  "description": "Filter by category."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[year]",
+                  "value": "<integer>",
+                  "description": "Filter by year."
+                },
+                {
+                  "disabled": false,
+                  "key": "page[offset]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "datasetId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "72037b00-2067-4eaa-b782-b2070e49ea8d",
+              "name": "Successfully retrieved records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sustainability",
+                    "v3",
+                    "datasets",
+                    ":datasetId",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[region]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[category]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[year]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"datasetId\": \"string\",\n      \"name\": \"string\",\n      \"category\": \"string\",\n      \"region\": \"string\",\n      \"year\": 3511,\n      \"unit\": \"string\",\n      \"emissionFactor\": 992.5566666410623,\n      \"emissionFactorUnit\": \"string\",\n      \"gwp\": 3073.9432983593306,\n      \"metadata\": {\n        \"key_0\": 3113.7746001227006,\n        \"key_1\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"datasetId\": \"string\",\n      \"name\": \"string\",\n      \"category\": \"string\",\n      \"region\": \"string\",\n      \"year\": 95,\n      \"unit\": \"string\",\n      \"emissionFactor\": 6054.777040702044,\n      \"emissionFactorUnit\": \"string\",\n      \"gwp\": 8284.99509451782,\n      \"metadata\": {\n        \"key_0\": 3515.2590767371425\n      }\n    }\n  ],\n  \"pagination\": {\n    \"offset\": 2557,\n    \"limit\": 8606,\n    \"totalResults\": 2687\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b4574cd1-6cca-4723-99c4-0a5cbe081b87",
+          "name": "Autodesk Get Record",
+          "request": {
+            "name": "Autodesk Get Record",
+            "description": {
+              "content": "Returns a specific environmental impact record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sustainability",
+                "v3",
+                "datasets",
+                ":datasetId",
+                "records",
+                ":recordId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "datasetId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "recordId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a19d78c2-aea8-4657-8e82-554bc5d75677",
+              "name": "Successfully retrieved record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sustainability",
+                    "v3",
+                    "datasets",
+                    ":datasetId",
+                    "records",
+                    ":recordId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recordId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"datasetId\": \"string\",\n  \"name\": \"string\",\n  \"category\": \"string\",\n  \"region\": \"string\",\n  \"year\": 2570,\n  \"unit\": \"string\",\n  \"emissionFactor\": 9501.72643775578,\n  \"emissionFactorUnit\": \"string\",\n  \"gwp\": 7627.4422579855545,\n  \"metadata\": {\n    \"key_0\": 5837,\n    \"key_1\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "72127d7a-2ccb-48d9-972e-16c0e680f702",
+              "name": "Record not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sustainability",
+                    "v3",
+                    "datasets",
+                    ":datasetId",
+                    "records",
+                    ":recordId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recordId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developer.api.autodesk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "data:read"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9c1a66ab-2054-4931-b450-3e239fa3c192",
+    "name": "Autodesk Sustainability Data API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Sustainability Data API provides access to regional environmental data through a standardized interface, enabling accurate carbon calculations and integration of trusted third-party sustainability datasets into applications at all design stages. It includes data on electricity grids, materials, transportation, and construction activities.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+      "type": "text/plain"
+    }
+  }
+}
