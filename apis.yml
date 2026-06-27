@@ -10,17 +10,17 @@ type: Index
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Fortune 1000
-- 3D Modeling
-- Architecture
-- BIM
-- CAD
-- Construction
-- Design
-- Digital Twins
-- Engineering
-- Manufacturing
-- Media and Entertainment
-- Sustainability
+  - 3D Modeling
+  - Architecture
+  - BIM
+  - CAD
+  - Construction
+  - Design
+  - Digital Twins
+  - Engineering
+  - Manufacturing
+  - Media and Entertainment
+  - Sustainability
 url: https://raw.githubusercontent.com/api-evangelist/autodesk/refs/heads/main/apis.yml
 created: '2024-11-13'
 modified: '2026-05-19'
@@ -608,7 +608,7 @@ common:
   url: https://aps.autodesk.com/code-samples
 - type: Tutorials
   url: https://tutorials.autodesk.io/
-- type: Quickstart
+- type: GettingStarted
   url: https://get-started.aps.autodesk.com/
 - type: StatusPage
   url: https://health.autodesk.com/
