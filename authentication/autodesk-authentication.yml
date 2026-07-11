@@ -1,0 +1,45 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/autodesk-acc-account-admin-openapi.yml, openapi/autodesk-authentication-openapi.yml,
+  openapi/autodesk-bim360-openapi.yml, openapi/autodesk-data-management-openapi.yml, openapi/autodesk-design-automation-openapi.yml,
+  openapi/autodesk-flow-graph-engine-openapi.yml, openapi/autodesk-model-derivative-openapi.yml,
+  openapi/autodesk-parameters-openapi.yml, openapi/autodesk-reality-capture-openapi.yml, openapi/autodesk-sustainability-data-openapi.yml,
+  openapi/autodesk-tandem-data-openapi.yml, openapi/autodesk-webhooks-openapi.yml
+summary:
+  types:
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+  - clientCredentials
+schemes:
+- name: OAuth2ThreeLegged
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://developer.api.autodesk.com/authentication/v2/authorize
+    tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+    scopes: 2
+  sources:
+  - openapi/autodesk-acc-account-admin-openapi.yml
+  - openapi/autodesk-authentication-openapi.yml
+  - openapi/autodesk-bim360-openapi.yml
+  - openapi/autodesk-data-management-openapi.yml
+  - openapi/autodesk-model-derivative-openapi.yml
+  - openapi/autodesk-parameters-openapi.yml
+  - openapi/autodesk-tandem-data-openapi.yml
+  - openapi/autodesk-webhooks-openapi.yml
+- name: OAuth2TwoLegged
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+    scopes: 11
+  sources:
+  - openapi/autodesk-authentication-openapi.yml
+  - openapi/autodesk-data-management-openapi.yml
+  - openapi/autodesk-design-automation-openapi.yml
+  - openapi/autodesk-flow-graph-engine-openapi.yml
+  - openapi/autodesk-model-derivative-openapi.yml
+  - openapi/autodesk-reality-capture-openapi.yml
+  - openapi/autodesk-sustainability-data-openapi.yml
+  - openapi/autodesk-webhooks-openapi.yml
