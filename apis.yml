@@ -583,6 +583,8 @@ apis:
   - type: OpenAPI
     url: https://raw.githubusercontent.com/api-evangelist/autodesk/refs/heads/main/openapi/autodesk-bim360-openapi.yml
 common:
+- type: AgenticAccess
+  url: agentic-access/autodesk-agentic-access.yml
 - type: DomainSecurity
   url: security/autodesk-domain-security.yml
 - type: Authentication
