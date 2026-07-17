@@ -1,0 +1,43 @@
+generated: '2026-06-20'
+method: derived
+source: openapi/*.yml, well-known/autodesk-openid-configuration.json, docs (aps.autodesk.com)
+notes: >-
+  Cross-cutting request/response semantics for Autodesk Platform Services (APS). Derived from the
+  harvested OpenAPI and the OIDC discovery metadata, cross-linked to the authentication/, scopes/,
+  errors/, lifecycle/, and rate-limits/ artifacts. APS spans several service generations, so some
+  conventions vary by API (noted per section).
+authentication:
+  style: OAuth 2.0 bearer token
+  flows: [authorizationCode (3-legged), clientCredentials (2-legged), refresh_token]
+  token_endpoint: https://developer.api.autodesk.com/authentication/v2/token
+  pkce: S256
+  header: 'Authorization: Bearer <access_token>'
+  ref: authentication/autodesk-authentication.yml
+  scopes_ref: scopes/autodesk-scopes.yml
+versioning:
+  style: uri-path
+  detail: Each API is independently versioned in the path (e.g. /authentication/v2, /modelderivative/v2, /da/{region}/v3, /oss/v2, /webhooks/v1).
+  ref: lifecycle/autodesk-lifecycle.yml
+pagination:
+  styles: [offset-limit, page-number]
+  params: [limit, offset, page]
+  detail: Data Management (JSON:API) uses page[number]/page[limit] with links.next; ACC/Parameters use limit+offset; response bodies carry pagination links or a pagination object.
+regions:
+  detail: US is the default region; EMEA (regions/eu) is available for select services such as Model Derivative and Data Management, selected via a region path segment or header.
+error_envelope:
+  formats:
+  - name: legacy-forge
+    shape: '{ developerMessage, userMessage, errorCode, moreInfo }'
+  - name: jsonapi
+    shape: '{ jsonapi: {version}, errors: [ { id, status, code, detail, ... } ] }'
+  content_type: application/json
+  problem_json: false
+  ref: errors/autodesk-problem-types.yml
+rate_limiting:
+  detail: Per-API and per-token rate limits with quota notifications; 429 responses honor Retry-After. Design Automation and Model Derivative meter by job/usage.
+  ref: rate-limits/autodesk-rate-limits.yml
+async_jobs:
+  detail: Long-running work (Model Derivative translation, Design Automation workitems, Reality Capture photoscenes) is job-based — submit a job, poll status/manifest, or subscribe via the Webhooks API for completion events.
+  webhooks_ref: asyncapi/autodesk-webhooks-asyncapi.yml
+storage:
+  detail: Binary assets live in the Object Storage Service (OSS) addressed by bucketKey + objectKey, encoded as a URN that Model Derivative and the Viewer consume.

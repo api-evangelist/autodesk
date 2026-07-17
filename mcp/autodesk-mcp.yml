@@ -1,0 +1,485 @@
+generated: '2026-06-20'
+method: searched
+status: reference
+source: https://github.com/autodesk-platform-services/aps-mcp-server-nodejs
+server:
+  name: aps-mcp-server-nodejs
+  official: true
+  transport: stdio
+  repository: https://github.com/autodesk-platform-services/aps-mcp-server-nodejs
+  status: archived 2026-05-07 (read-only reference implementation)
+  auth: Secure Service Accounts (SSA) for fine-grained access control
+  notes: Official Autodesk reference MCP server (self-hosted via stdio). Autodesk also publishes an MCP
+    publisher guide for the Design & Make Marketplace and an Autodesk AI MCP servers program.
+related:
+- name: MCP publisher guide
+  url: https://aps.autodesk.com/marketplace/mcp-publisher-guide
+- name: Autodesk MCP Servers (Autodesk AI)
+  url: https://www.autodesk.com/solutions/autodesk-ai/autodesk-mcp-servers
+- name: Building custom MCP servers with APS (blog)
+  url: https://aps.autodesk.com/blog/building-custom-mcp-servers-autodesk-platform-services
+- name: aps-mcp-server-gen Agent Skill
+  url: https://github.com/autodesk-platform-services/skills
+candidate_tools_note: Below are candidate tools derived one-per-operation from the harvested OpenAPI,
+  offered as a starting map for an MCP surface; the official reference server exposes a curated subset
+  guarded by SSA.
+candidate_tools:
+- name: getProjects
+  description: Autodesk List Projects
+  source_operation: openapi/autodesk-acc-account-admin-openapi.yml#getProjects
+- name: createProject
+  description: Autodesk Create Project
+  source_operation: openapi/autodesk-acc-account-admin-openapi.yml#createProject
+- name: getProject
+  description: Autodesk Get Project
+  source_operation: openapi/autodesk-acc-account-admin-openapi.yml#getProject
+- name: updateProject
+  description: Autodesk Update Project
+  source_operation: openapi/autodesk-acc-account-admin-openapi.yml#updateProject
+- name: getProjectUsers
+  description: Autodesk List Project Users
+  source_operation: openapi/autodesk-acc-account-admin-openapi.yml#getProjectUsers
+- name: addProjectUser
+  description: Autodesk Add Project User
+  source_operation: openapi/autodesk-acc-account-admin-openapi.yml#addProjectUser
+- name: updateProjectUser
+  description: Autodesk Update Project User
+  source_operation: openapi/autodesk-acc-account-admin-openapi.yml#updateProjectUser
+- name: removeProjectUser
+  description: Autodesk Remove Project User
+  source_operation: openapi/autodesk-acc-account-admin-openapi.yml#removeProjectUser
+- name: getAccountUsers
+  description: Autodesk List Account Users
+  source_operation: openapi/autodesk-acc-account-admin-openapi.yml#getAccountUsers
+- name: getCompanies
+  description: Autodesk List Companies
+  source_operation: openapi/autodesk-acc-account-admin-openapi.yml#getCompanies
+- name: createCompany
+  description: Autodesk Create Company
+  source_operation: openapi/autodesk-acc-account-admin-openapi.yml#createCompany
+- name: getIndustryRoles
+  description: Autodesk List Industry Roles
+  source_operation: openapi/autodesk-acc-account-admin-openapi.yml#getIndustryRoles
+- name: authorize
+  description: Autodesk Authorize User
+  source_operation: openapi/autodesk-authentication-openapi.yml#authorize
+- name: getToken
+  description: Autodesk Get Token
+  source_operation: openapi/autodesk-authentication-openapi.yml#getToken
+- name: revokeToken
+  description: Autodesk Revoke Token
+  source_operation: openapi/autodesk-authentication-openapi.yml#revokeToken
+- name: getKeys
+  description: Autodesk Get JWKS
+  source_operation: openapi/autodesk-authentication-openapi.yml#getKeys
+- name: getUserProfile
+  description: Autodesk Get User Profile
+  source_operation: openapi/autodesk-authentication-openapi.yml#getUserProfile
+- name: introspectToken
+  description: Autodesk Introspect Token
+  source_operation: openapi/autodesk-authentication-openapi.yml#introspectToken
+- name: logout
+  description: Autodesk Logout
+  source_operation: openapi/autodesk-authentication-openapi.yml#logout
+- name: getBim360ProjectUsers
+  description: Autodesk List Project Users
+  source_operation: openapi/autodesk-bim360-openapi.yml#getBim360ProjectUsers
+- name: addBim360ProjectUser
+  description: Autodesk Add Project User
+  source_operation: openapi/autodesk-bim360-openapi.yml#addBim360ProjectUser
+- name: importBim360ProjectUsers
+  description: Autodesk Import Project Users
+  source_operation: openapi/autodesk-bim360-openapi.yml#importBim360ProjectUsers
+- name: getIssues
+  description: Autodesk List Issues
+  source_operation: openapi/autodesk-bim360-openapi.yml#getIssues
+- name: createIssue
+  description: Autodesk Create Issue
+  source_operation: openapi/autodesk-bim360-openapi.yml#createIssue
+- name: getIssue
+  description: Autodesk Get Issue
+  source_operation: openapi/autodesk-bim360-openapi.yml#getIssue
+- name: updateIssue
+  description: Autodesk Update Issue
+  source_operation: openapi/autodesk-bim360-openapi.yml#updateIssue
+- name: getIssueTypes
+  description: Autodesk List Issue Types
+  source_operation: openapi/autodesk-bim360-openapi.yml#getIssueTypes
+- name: getIssueComments
+  description: Autodesk List Issue Comments
+  source_operation: openapi/autodesk-bim360-openapi.yml#getIssueComments
+- name: createIssueComment
+  description: Autodesk Create Issue Comment
+  source_operation: openapi/autodesk-bim360-openapi.yml#createIssueComment
+- name: getRfis
+  description: Autodesk List RFIs
+  source_operation: openapi/autodesk-bim360-openapi.yml#getRfis
+- name: getHubs
+  description: Autodesk List Hubs
+  source_operation: openapi/autodesk-data-management-openapi.yml#getHubs
+- name: getHub
+  description: Autodesk Get Hub
+  source_operation: openapi/autodesk-data-management-openapi.yml#getHub
+- name: getHubProjects
+  description: Autodesk List Projects
+  source_operation: openapi/autodesk-data-management-openapi.yml#getHubProjects
+- name: getProject
+  description: Autodesk Get Project
+  source_operation: openapi/autodesk-data-management-openapi.yml#getProject
+- name: getProjectTopFolders
+  description: Autodesk List Top Folders
+  source_operation: openapi/autodesk-data-management-openapi.yml#getProjectTopFolders
+- name: getFolder
+  description: Autodesk Get Folder
+  source_operation: openapi/autodesk-data-management-openapi.yml#getFolder
+- name: getFolderContents
+  description: Autodesk List Folder Contents
+  source_operation: openapi/autodesk-data-management-openapi.yml#getFolderContents
+- name: searchFolder
+  description: Autodesk Search Folder
+  source_operation: openapi/autodesk-data-management-openapi.yml#searchFolder
+- name: createFolder
+  description: Autodesk Create Folder
+  source_operation: openapi/autodesk-data-management-openapi.yml#createFolder
+- name: createItem
+  description: Autodesk Create Item
+  source_operation: openapi/autodesk-data-management-openapi.yml#createItem
+- name: getItem
+  description: Autodesk Get Item
+  source_operation: openapi/autodesk-data-management-openapi.yml#getItem
+- name: patchItem
+  description: Autodesk Update Item
+  source_operation: openapi/autodesk-data-management-openapi.yml#patchItem
+- name: getItemVersions
+  description: Autodesk List Item Versions
+  source_operation: openapi/autodesk-data-management-openapi.yml#getItemVersions
+- name: createVersion
+  description: Autodesk Create Version
+  source_operation: openapi/autodesk-data-management-openapi.yml#createVersion
+- name: getVersion
+  description: Autodesk Get Version
+  source_operation: openapi/autodesk-data-management-openapi.yml#getVersion
+- name: getBuckets
+  description: Autodesk List Buckets
+  source_operation: openapi/autodesk-data-management-openapi.yml#getBuckets
+- name: createBucket
+  description: Autodesk Create Bucket
+  source_operation: openapi/autodesk-data-management-openapi.yml#createBucket
+- name: getBucketDetails
+  description: Autodesk Get Bucket Details
+  source_operation: openapi/autodesk-data-management-openapi.yml#getBucketDetails
+- name: deleteBucket
+  description: Autodesk Delete Bucket
+  source_operation: openapi/autodesk-data-management-openapi.yml#deleteBucket
+- name: getObjects
+  description: Autodesk List Objects
+  source_operation: openapi/autodesk-data-management-openapi.yml#getObjects
+- name: getObject
+  description: Autodesk Download Object
+  source_operation: openapi/autodesk-data-management-openapi.yml#getObject
+- name: uploadObject
+  description: Autodesk Upload Object
+  source_operation: openapi/autodesk-data-management-openapi.yml#uploadObject
+- name: deleteObject
+  description: Autodesk Delete Object
+  source_operation: openapi/autodesk-data-management-openapi.yml#deleteObject
+- name: getObjectDetails
+  description: Autodesk Get Object Details
+  source_operation: openapi/autodesk-data-management-openapi.yml#getObjectDetails
+- name: createSignedUrl
+  description: Autodesk Create Signed URL
+  source_operation: openapi/autodesk-data-management-openapi.yml#createSignedUrl
+- name: getEngines
+  description: Autodesk List Engines
+  source_operation: openapi/autodesk-design-automation-openapi.yml#getEngines
+- name: getEngine
+  description: Autodesk Get Engine
+  source_operation: openapi/autodesk-design-automation-openapi.yml#getEngine
+- name: getAppBundles
+  description: Autodesk List AppBundles
+  source_operation: openapi/autodesk-design-automation-openapi.yml#getAppBundles
+- name: createAppBundle
+  description: Autodesk Create AppBundle
+  source_operation: openapi/autodesk-design-automation-openapi.yml#createAppBundle
+- name: getAppBundle
+  description: Autodesk Get AppBundle
+  source_operation: openapi/autodesk-design-automation-openapi.yml#getAppBundle
+- name: deleteAppBundle
+  description: Autodesk Delete AppBundle
+  source_operation: openapi/autodesk-design-automation-openapi.yml#deleteAppBundle
+- name: getAppBundleVersions
+  description: Autodesk List AppBundle Versions
+  source_operation: openapi/autodesk-design-automation-openapi.yml#getAppBundleVersions
+- name: createAppBundleVersion
+  description: Autodesk Create AppBundle Version
+  source_operation: openapi/autodesk-design-automation-openapi.yml#createAppBundleVersion
+- name: getAppBundleAliases
+  description: Autodesk List AppBundle Aliases
+  source_operation: openapi/autodesk-design-automation-openapi.yml#getAppBundleAliases
+- name: createAppBundleAlias
+  description: Autodesk Create AppBundle Alias
+  source_operation: openapi/autodesk-design-automation-openapi.yml#createAppBundleAlias
+- name: getAppBundleAlias
+  description: Autodesk Get AppBundle Alias
+  source_operation: openapi/autodesk-design-automation-openapi.yml#getAppBundleAlias
+- name: updateAppBundleAlias
+  description: Autodesk Update AppBundle Alias
+  source_operation: openapi/autodesk-design-automation-openapi.yml#updateAppBundleAlias
+- name: deleteAppBundleAlias
+  description: Autodesk Delete AppBundle Alias
+  source_operation: openapi/autodesk-design-automation-openapi.yml#deleteAppBundleAlias
+- name: getActivities
+  description: Autodesk List Activities
+  source_operation: openapi/autodesk-design-automation-openapi.yml#getActivities
+- name: createActivity
+  description: Autodesk Create Activity
+  source_operation: openapi/autodesk-design-automation-openapi.yml#createActivity
+- name: getActivity
+  description: Autodesk Get Activity
+  source_operation: openapi/autodesk-design-automation-openapi.yml#getActivity
+- name: deleteActivity
+  description: Autodesk Delete Activity
+  source_operation: openapi/autodesk-design-automation-openapi.yml#deleteActivity
+- name: getActivityVersions
+  description: Autodesk List Activity Versions
+  source_operation: openapi/autodesk-design-automation-openapi.yml#getActivityVersions
+- name: createActivityVersion
+  description: Autodesk Create Activity Version
+  source_operation: openapi/autodesk-design-automation-openapi.yml#createActivityVersion
+- name: getActivityAliases
+  description: Autodesk List Activity Aliases
+  source_operation: openapi/autodesk-design-automation-openapi.yml#getActivityAliases
+- name: createActivityAlias
+  description: Autodesk Create Activity Alias
+  source_operation: openapi/autodesk-design-automation-openapi.yml#createActivityAlias
+- name: getActivityAlias
+  description: Autodesk Get Activity Alias
+  source_operation: openapi/autodesk-design-automation-openapi.yml#getActivityAlias
+- name: updateActivityAlias
+  description: Autodesk Update Activity Alias
+  source_operation: openapi/autodesk-design-automation-openapi.yml#updateActivityAlias
+- name: deleteActivityAlias
+  description: Autodesk Delete Activity Alias
+  source_operation: openapi/autodesk-design-automation-openapi.yml#deleteActivityAlias
+- name: createWorkItem
+  description: Autodesk Create WorkItem
+  source_operation: openapi/autodesk-design-automation-openapi.yml#createWorkItem
+- name: getWorkItemStatus
+  description: Autodesk Get WorkItem Status
+  source_operation: openapi/autodesk-design-automation-openapi.yml#getWorkItemStatus
+- name: deleteWorkItem
+  description: Autodesk Cancel WorkItem
+  source_operation: openapi/autodesk-design-automation-openapi.yml#deleteWorkItem
+- name: getNickname
+  description: Autodesk Get Nickname
+  source_operation: openapi/autodesk-design-automation-openapi.yml#getNickname
+- name: deleteNickname
+  description: Autodesk Delete Nickname
+  source_operation: openapi/autodesk-design-automation-openapi.yml#deleteNickname
+- name: createNickname
+  description: Autodesk Create/Update Nickname
+  source_operation: openapi/autodesk-design-automation-openapi.yml#createNickname
+- name: getServiceLimits
+  description: Autodesk Get Service Limits
+  source_operation: openapi/autodesk-design-automation-openapi.yml#getServiceLimits
+- name: getGraphs
+  description: Autodesk List Graphs
+  source_operation: openapi/autodesk-flow-graph-engine-openapi.yml#getGraphs
+- name: uploadGraph
+  description: Autodesk Upload Graph
+  source_operation: openapi/autodesk-flow-graph-engine-openapi.yml#uploadGraph
+- name: getGraph
+  description: Autodesk Get Graph
+  source_operation: openapi/autodesk-flow-graph-engine-openapi.yml#getGraph
+- name: deleteGraph
+  description: Autodesk Delete Graph
+  source_operation: openapi/autodesk-flow-graph-engine-openapi.yml#deleteGraph
+- name: getJobs
+  description: Autodesk List Jobs
+  source_operation: openapi/autodesk-flow-graph-engine-openapi.yml#getJobs
+- name: createJob
+  description: Autodesk Create Job
+  source_operation: openapi/autodesk-flow-graph-engine-openapi.yml#createJob
+- name: getJob
+  description: Autodesk Get Job
+  source_operation: openapi/autodesk-flow-graph-engine-openapi.yml#getJob
+- name: cancelJob
+  description: Autodesk Cancel Job
+  source_operation: openapi/autodesk-flow-graph-engine-openapi.yml#cancelJob
+- name: getJobResult
+  description: Autodesk Get Job Result
+  source_operation: openapi/autodesk-flow-graph-engine-openapi.yml#getJobResult
+- name: startJob
+  description: Autodesk Start Translation Job
+  source_operation: openapi/autodesk-model-derivative-openapi.yml#startJob
+- name: getManifest
+  description: Autodesk Get Manifest
+  source_operation: openapi/autodesk-model-derivative-openapi.yml#getManifest
+- name: deleteManifest
+  description: Autodesk Delete Manifest
+  source_operation: openapi/autodesk-model-derivative-openapi.yml#deleteManifest
+- name: getMetadata
+  description: Autodesk Get Metadata
+  source_operation: openapi/autodesk-model-derivative-openapi.yml#getMetadata
+- name: getObjectTree
+  description: Autodesk Get Object Tree
+  source_operation: openapi/autodesk-model-derivative-openapi.yml#getObjectTree
+- name: getProperties
+  description: Autodesk Get All Properties
+  source_operation: openapi/autodesk-model-derivative-openapi.yml#getProperties
+- name: queryProperties
+  description: Autodesk Query Properties
+  source_operation: openapi/autodesk-model-derivative-openapi.yml#queryProperties
+- name: getThumbnail
+  description: Autodesk Get Thumbnail
+  source_operation: openapi/autodesk-model-derivative-openapi.yml#getThumbnail
+- name: getDerivativeDownload
+  description: Autodesk Download Derivative
+  source_operation: openapi/autodesk-model-derivative-openapi.yml#getDerivativeDownload
+- name: getFormats
+  description: Autodesk List Supported Formats
+  source_operation: openapi/autodesk-model-derivative-openapi.yml#getFormats
+- name: getCollections
+  description: Autodesk List Collections
+  source_operation: openapi/autodesk-parameters-openapi.yml#getCollections
+- name: createCollection
+  description: Autodesk Create Collection
+  source_operation: openapi/autodesk-parameters-openapi.yml#createCollection
+- name: getCollection
+  description: Autodesk Get Collection
+  source_operation: openapi/autodesk-parameters-openapi.yml#getCollection
+- name: updateCollection
+  description: Autodesk Update Collection
+  source_operation: openapi/autodesk-parameters-openapi.yml#updateCollection
+- name: deleteCollection
+  description: Autodesk Delete Collection
+  source_operation: openapi/autodesk-parameters-openapi.yml#deleteCollection
+- name: getParameters
+  description: Autodesk List Parameters
+  source_operation: openapi/autodesk-parameters-openapi.yml#getParameters
+- name: createParameter
+  description: Autodesk Create Parameter
+  source_operation: openapi/autodesk-parameters-openapi.yml#createParameter
+- name: getParameter
+  description: Autodesk Get Parameter
+  source_operation: openapi/autodesk-parameters-openapi.yml#getParameter
+- name: updateParameter
+  description: Autodesk Update Parameter
+  source_operation: openapi/autodesk-parameters-openapi.yml#updateParameter
+- name: deleteParameter
+  description: Autodesk Delete Parameter
+  source_operation: openapi/autodesk-parameters-openapi.yml#deleteParameter
+- name: getGroups
+  description: Autodesk List Groups
+  source_operation: openapi/autodesk-parameters-openapi.yml#getGroups
+- name: createGroup
+  description: Autodesk Create Group
+  source_operation: openapi/autodesk-parameters-openapi.yml#createGroup
+- name: getSpecs
+  description: Autodesk List Specs
+  source_operation: openapi/autodesk-parameters-openapi.yml#getSpecs
+- name: getCategories
+  description: Autodesk List Categories
+  source_operation: openapi/autodesk-parameters-openapi.yml#getCategories
+- name: getDisciplines
+  description: Autodesk List Disciplines
+  source_operation: openapi/autodesk-parameters-openapi.yml#getDisciplines
+- name: getUnits
+  description: Autodesk List Units
+  source_operation: openapi/autodesk-parameters-openapi.yml#getUnits
+- name: createPhotoscene
+  description: Create Photoscene
+  source_operation: openapi/autodesk-reality-capture-openapi.yml#createPhotoscene
+- name: processPhotoscene
+  description: Process Photoscene
+  source_operation: openapi/autodesk-reality-capture-openapi.yml#processPhotoscene
+- name: uploadFiles
+  description: Upload Files to Photoscene
+  source_operation: openapi/autodesk-reality-capture-openapi.yml#uploadFiles
+- name: getPhotosceneProgress
+  description: Get Processing Progress
+  source_operation: openapi/autodesk-reality-capture-openapi.yml#getPhotosceneProgress
+- name: getPhotosceneResult
+  description: Get Photoscene Result
+  source_operation: openapi/autodesk-reality-capture-openapi.yml#getPhotosceneResult
+- name: getDatasets
+  description: Autodesk List Datasets
+  source_operation: openapi/autodesk-sustainability-data-openapi.yml#getDatasets
+- name: getDataset
+  description: Autodesk Get Dataset
+  source_operation: openapi/autodesk-sustainability-data-openapi.yml#getDataset
+- name: getRecords
+  description: Autodesk List Records
+  source_operation: openapi/autodesk-sustainability-data-openapi.yml#getRecords
+- name: getRecord
+  description: Autodesk Get Record
+  source_operation: openapi/autodesk-sustainability-data-openapi.yml#getRecord
+- name: calculateEmissions
+  description: Autodesk Calculate Emissions
+  source_operation: openapi/autodesk-sustainability-data-openapi.yml#calculateEmissions
+- name: getGroups
+  description: Autodesk List Groups
+  source_operation: openapi/autodesk-tandem-data-openapi.yml#getGroups
+- name: getGroup
+  description: Autodesk Get Group
+  source_operation: openapi/autodesk-tandem-data-openapi.yml#getGroup
+- name: getTwins
+  description: Autodesk List Twins
+  source_operation: openapi/autodesk-tandem-data-openapi.yml#getTwins
+- name: getTwin
+  description: Autodesk Get Twin
+  source_operation: openapi/autodesk-tandem-data-openapi.yml#getTwin
+- name: getModels
+  description: Autodesk List Models
+  source_operation: openapi/autodesk-tandem-data-openapi.yml#getModels
+- name: scanElements
+  description: Autodesk Scan Elements
+  source_operation: openapi/autodesk-tandem-data-openapi.yml#scanElements
+- name: getElementProperties
+  description: Autodesk Get Element Properties
+  source_operation: openapi/autodesk-tandem-data-openapi.yml#getElementProperties
+- name: mutateElements
+  description: Autodesk Mutate Element Properties
+  source_operation: openapi/autodesk-tandem-data-openapi.yml#mutateElements
+- name: getSchema
+  description: Autodesk Get Twin Schema
+  source_operation: openapi/autodesk-tandem-data-openapi.yml#getSchema
+- name: getStreams
+  description: Autodesk List Streams
+  source_operation: openapi/autodesk-tandem-data-openapi.yml#getStreams
+- name: getTimeseriesData
+  description: Autodesk Get Timeseries Data
+  source_operation: openapi/autodesk-tandem-data-openapi.yml#getTimeseriesData
+- name: pushTimeseriesData
+  description: Autodesk Push Timeseries Data
+  source_operation: openapi/autodesk-tandem-data-openapi.yml#pushTimeseriesData
+- name: getSystems
+  description: Autodesk List Event Systems
+  source_operation: openapi/autodesk-webhooks-openapi.yml#getSystems
+- name: getSystemEvents
+  description: Autodesk List System Events
+  source_operation: openapi/autodesk-webhooks-openapi.yml#getSystemEvents
+- name: getHooks
+  description: Autodesk List Hooks for Event
+  source_operation: openapi/autodesk-webhooks-openapi.yml#getHooks
+- name: createHook
+  description: Autodesk Create Hook
+  source_operation: openapi/autodesk-webhooks-openapi.yml#createHook
+- name: getHook
+  description: Autodesk Get Hook
+  source_operation: openapi/autodesk-webhooks-openapi.yml#getHook
+- name: updateHook
+  description: Autodesk Update Hook
+  source_operation: openapi/autodesk-webhooks-openapi.yml#updateHook
+- name: deleteHook
+  description: Autodesk Delete Hook
+  source_operation: openapi/autodesk-webhooks-openapi.yml#deleteHook
+- name: getAllHooks
+  description: Autodesk List All Hooks
+  source_operation: openapi/autodesk-webhooks-openapi.yml#getAllHooks
+- name: createToken
+  description: Autodesk Create/Update Webhook Secret Token
+  source_operation: openapi/autodesk-webhooks-openapi.yml#createToken
+- name: deleteToken
+  description: Autodesk Delete Webhook Secret Token
+  source_operation: openapi/autodesk-webhooks-openapi.yml#deleteToken

@@ -1,0 +1,85 @@
+generated: '2026-06-20'
+method: searched
+source: npmjs.com, nuget.org, github.com/autodesk-platform-services
+notes: >-
+  Autodesk Platform Services (APS, formerly Forge) ships official first-party SDKs for Node.js and
+  .NET, split into per-service packages coordinated by a shared SDK Manager. There is no official
+  first-party Python or Java SDK on PyPI/Maven at this time (community packages exist but are not
+  first-party). The Viewer is delivered as a hosted JS library, not a registry package (see
+  components/autodesk-components.yml).
+packages:
+- language: javascript
+  registry: npm
+  name: "@aps_sdk/autodesk-sdkmanager"
+  url: https://www.npmjs.com/package/@aps_sdk/autodesk-sdkmanager
+  install: npm install @aps_sdk/autodesk-sdkmanager
+  official: true
+  note: Shared manager module providing configuration and common functionality for the APS Node.js SDK.
+- language: javascript
+  registry: npm
+  name: "@aps_sdk/authentication"
+  url: https://www.npmjs.com/package/@aps_sdk/authentication
+  install: npm install @aps_sdk/authentication
+  official: true
+- language: javascript
+  registry: npm
+  name: "@aps_sdk/oss"
+  url: https://www.npmjs.com/package/@aps_sdk/oss
+  install: npm install @aps_sdk/oss
+  official: true
+  note: Object Storage Service client.
+- language: javascript
+  registry: npm
+  name: "@aps_sdk/data-management"
+  url: https://www.npmjs.com/package/@aps_sdk/data-management
+  install: npm install @aps_sdk/data-management
+  official: true
+- language: javascript
+  registry: npm
+  name: "@aps_sdk/model-derivative"
+  url: https://www.npmjs.com/package/@aps_sdk/model-derivative
+  install: npm install @aps_sdk/model-derivative
+  official: true
+- language: javascript
+  registry: npm
+  name: "@aps_sdk/webhooks"
+  url: https://www.npmjs.com/package/@aps_sdk/webhooks
+  install: npm install @aps_sdk/webhooks
+  official: true
+- language: dotnet
+  registry: nuget
+  name: Autodesk.SDKManager
+  url: https://www.nuget.org/profiles/AutodeskPlatformServices.SDK
+  install: dotnet add package Autodesk.SDKManager
+  official: true
+  note: .NET SDK Manager; per-service packages (Autodesk.Authentication, Autodesk.Oss, Autodesk.DataManagement, Autodesk.ModelDerivative, Autodesk.Webhooks) are published under the AutodeskPlatformServices.SDK NuGet profile.
+- language: dotnet
+  registry: nuget
+  name: Autodesk.Authentication
+  url: https://www.nuget.org/packages/Autodesk.Authentication
+  install: dotnet add package Autodesk.Authentication
+  official: true
+- language: dotnet
+  registry: nuget
+  name: Autodesk.ModelDerivative
+  url: https://www.nuget.org/packages/Autodesk.ModelDerivative
+  install: dotnet add package Autodesk.ModelDerivative
+  official: true
+source_repositories:
+- name: aps-sdk-node
+  url: https://github.com/autodesk-platform-services/aps-sdk-node
+  official: true
+- name: aps-sdk-net
+  url: https://github.com/autodesk-platform-services/aps-sdk-net
+  official: true
+community_packages:
+- language: python
+  registry: pypi
+  name: aps-toolkit
+  url: https://pypi.org/project/aps-toolkit/
+  official: false
+- language: python
+  registry: pypi
+  name: py-aps
+  url: https://pypi.org/project/py-aps/
+  official: false

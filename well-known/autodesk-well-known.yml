@@ -1,0 +1,22 @@
+generated: '2026-06-20'
+method: searched
+source: live probes of APS hosts
+host: https://developer.api.autodesk.com
+documents:
+- path: /.well-known/openid-configuration
+  status: 200
+  file: autodesk-openid-configuration.json
+  note: OIDC discovery — issuer, authorize/token/revoke/introspect endpoints, jwks_uri, 16 supported scopes, PKCE S256.
+- path: /.well-known/oauth-authorization-server
+  status: 200
+  file: autodesk-openid-configuration.json
+  note: RFC 8414 authorization server metadata; identical payload to openid-configuration.
+- path: /.well-known/security.txt
+  status: 404
+- path: /.well-known/api-catalog
+  status: 404
+- path: /.well-known/ai-plugin.json
+  status: 404
+other_hosts:
+- host: https://www.autodesk.com
+  note: /.well-known/security.txt returned 403 to automated fetch; Autodesk publishes its VDP at /trust/security/vulnerability-disclosure-policy (see security/autodesk-vulnerability-disclosure.yml).

@@ -1,0 +1,18 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Autodesk Model Derivative API
+  version: 1.0.0
+extends: openapi/autodesk-model-derivative-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: autodesk
+    x-apievangelist-enriched: '2026-06-20'
+    x-apievangelist-artifacts:
+    - scopes/autodesk-scopes.yml
+    - authentication/autodesk-authentication.yml
+    - conformance/autodesk-conformance.yml
+    - errors/autodesk-problem-types.yml
+- target: $.info
+  update:
+    x-apievangelist-well-known: https://developer.api.autodesk.com/.well-known/openid-configuration

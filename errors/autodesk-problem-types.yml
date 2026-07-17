@@ -1,0 +1,91 @@
+generated: '2026-06-20'
+method: derived
+source: openapi/*.yml (4xx/5xx responses)
+format: application/json
+notes: APS returns errors as application/json (not RFC 9457 problem+json). Error bodies typically follow
+  either a {developerMessage, errorCode, userMessage, moreInfo} envelope (legacy Forge services) or a
+  JSON:API {jsonapi, errors:[{id,status,detail,...}]} envelope (Data Management / newer services). Codes
+  below are the HTTP statuses declared across the harvested specs.
+docs: https://aps.autodesk.com/en/docs/oauth/v2/developers_guide/error-handling/
+problems:
+- status: 401
+  title: Unauthorized
+  content_type: unspecified
+  remediation: Obtain a valid OAuth 2.0 bearer token from the Authentication API (v2) and include it in
+    the Authorization header.
+  seen_in:
+  - autodesk-acc-account-admin-openapi.yml
+  - autodesk-authentication-openapi.yml
+  - autodesk-data-management-openapi.yml
+  - autodesk-design-automation-openapi.yml
+  - autodesk-model-derivative-openapi.yml
+  - autodesk-parameters-openapi.yml
+  - autodesk-reality-capture-openapi.yml
+  - autodesk-sustainability-data-openapi.yml
+  example_operations:
+  - openapi/autodesk-acc-account-admin-openapi.yml#getProjects
+  - openapi/autodesk-authentication-openapi.yml#getToken
+  - openapi/autodesk-authentication-openapi.yml#getUserProfile
+- status: 400
+  title: Bad Request
+  content_type: unspecified
+  remediation: Validate request parameters, headers, and body against the API reference before retrying.
+  seen_in:
+  - autodesk-acc-account-admin-openapi.yml
+  - autodesk-authentication-openapi.yml
+  - autodesk-data-management-openapi.yml
+  - autodesk-design-automation-openapi.yml
+  - autodesk-flow-graph-engine-openapi.yml
+  - autodesk-model-derivative-openapi.yml
+  - autodesk-parameters-openapi.yml
+  - autodesk-reality-capture-openapi.yml
+  - autodesk-sustainability-data-openapi.yml
+  - autodesk-tandem-data-openapi.yml
+  - autodesk-webhooks-openapi.yml
+  example_operations:
+  - openapi/autodesk-acc-account-admin-openapi.yml#createProject
+  - openapi/autodesk-authentication-openapi.yml#getToken
+  - openapi/autodesk-authentication-openapi.yml#revokeToken
+- status: 403
+  title: Forbidden
+  content_type: unspecified
+  remediation: Ensure the token carries the required scopes and the account/user has permission for the
+    resource.
+  seen_in:
+  - autodesk-data-management-openapi.yml
+  example_operations:
+  - openapi/autodesk-data-management-openapi.yml#getHubs
+  - openapi/autodesk-data-management-openapi.yml#getHub
+  - openapi/autodesk-data-management-openapi.yml#getHubProjects
+- status: 404
+  title: Not Found
+  content_type: unspecified
+  remediation: Verify the resource identifier (URN, project/hub id, bucket key) exists and is spelled
+    correctly.
+  seen_in:
+  - autodesk-data-management-openapi.yml
+  - autodesk-design-automation-openapi.yml
+  - autodesk-flow-graph-engine-openapi.yml
+  - autodesk-model-derivative-openapi.yml
+  - autodesk-parameters-openapi.yml
+  - autodesk-reality-capture-openapi.yml
+  - autodesk-sustainability-data-openapi.yml
+  - autodesk-tandem-data-openapi.yml
+  - autodesk-webhooks-openapi.yml
+  example_operations:
+  - openapi/autodesk-data-management-openapi.yml#getHub
+  - openapi/autodesk-data-management-openapi.yml#getProject
+  - openapi/autodesk-data-management-openapi.yml#getProjectTopFolders
+- status: 409
+  title: Conflict
+  content_type: unspecified
+  remediation: Resolve the resource state conflict (duplicate name, version mismatch, or in-progress job)
+    before retrying.
+  seen_in:
+  - autodesk-data-management-openapi.yml
+  - autodesk-design-automation-openapi.yml
+  - autodesk-webhooks-openapi.yml
+  example_operations:
+  - openapi/autodesk-data-management-openapi.yml#createBucket
+  - openapi/autodesk-design-automation-openapi.yml#createAppBundle
+  - openapi/autodesk-design-automation-openapi.yml#createActivity

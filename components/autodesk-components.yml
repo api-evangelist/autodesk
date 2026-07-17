@@ -1,0 +1,25 @@
+generated: '2026-06-20'
+method: searched
+source: https://aps.autodesk.com/developer/overview/viewer-sdk
+notes: >-
+  APS exposes client-side, embeddable UI surfaces distinct from the server-side SDKs in
+  packages/. The flagship is the Viewer — a hosted JavaScript library that renders 2D/3D
+  design models (SVF/SVF2) in the browser with a customizable toolbar and extension framework.
+components:
+- family: Viewer
+  kind: embedded-3d-viewer
+  description: >-
+    JavaScript library for building interactive web apps that display 2D and 3D design models
+    (60+ CAD formats via Model Derivative), with customizable toolbars and a pluggable extension
+    framework.
+  loader: https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.min.js
+  stylesheet: https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/style.min.css
+  docs: https://aps.autodesk.com/en/docs/viewer/v7/developers_guide/
+  current_major: v7
+  extensions: https://aps.autodesk.com/en/docs/viewer/v7/reference/Extensions/
+- family: Viewer Extensions
+  kind: plugin-framework
+  description: >-
+    First-party and community extensions (markup, measure, section, model structure panel,
+    docking panels) that plug into the Viewer runtime to add UI and interaction.
+  docs: https://aps.autodesk.com/en/docs/viewer/v7/reference/Extensions/

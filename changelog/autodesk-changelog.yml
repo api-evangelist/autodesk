@@ -1,0 +1,41 @@
+generated: '2026-06-20'
+method: searched
+source: https://aps.autodesk.com/blog
+notes: >-
+  APS does not publish a single machine-readable changelog feed. Platform changes are announced
+  through monthly "News Recap" blog posts, per-product release-notes/change-history pages, a Breaking
+  Changes topic page, and a Product Updates topic. The recent entries below are drawn from the APS
+  blog (mirrored in this repo under blogs/). Versioning is per-API in the URL path (see
+  lifecycle/autodesk-lifecycle.yml).
+scheme: per-api-uri-path
+channels:
+- type: BlogRecap
+  url: https://aps.autodesk.com/blog
+- type: BreakingChanges
+  url: https://aps.autodesk.com/topics/breaking-changes
+- type: ProductUpdates
+  url: https://aps.autodesk.com/topics/product-updates
+- type: ViewerChangelog
+  url: https://aps.autodesk.com/en/docs/viewer/v7/change_history/changelog_v2
+entries:
+- date: '2026-06-25'
+  type: addition
+  highlight: Autodesk Assistant now available on APS.
+- date: '2026-06-23'
+  type: addition
+  highlight: 'A new way to work with APS — Autodesk Assistant is here.'
+- date: '2026-06-21'
+  type: addition
+  highlight: More visibility and control with APS quota notifications.
+- date: '2026-06-17'
+  type: addition
+  highlight: Efficient incremental data sync with Data Connector delta; Revit automation jobs start faster during peak usage.
+- date: '2026-05-07'
+  type: addition
+  highlight: Secure Service Account SDKs now in beta (.NET and TypeScript).
+- date: '2026-04-30'
+  type: addition
+  highlight: Content Catalog API introduced in public beta; Agent Skills for APS development.
+- date: '2026-02-11'
+  type: change
+  highlight: APS continues to evolve — Data Model APIs now included with subscription.

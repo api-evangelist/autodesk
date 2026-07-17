@@ -1,0 +1,45 @@
+generated: '2026-06-20'
+method: derived
+source: openapi/*.yml, well-known/autodesk-openid-configuration.json, asyncapi/, graphql/
+standards:
+- id: oauth2
+  conforms: true
+  evidence: OpenAPI securitySchemes declare oauth2 (authorizationCode + clientCredentials); tokens issued
+    by Authentication API v2.
+- id: oidc
+  conforms: true
+  evidence: /.well-known/openid-configuration published at developer.api.autodesk.com with issuer, jwks_uri,
+    id_token RS256, openid scope.
+- id: rfc8414-oauth-authorization-server
+  conforms: true
+  evidence: /.well-known/oauth-authorization-server metadata served (mirrors openid-configuration).
+- id: pkce
+  conforms: true
+  evidence: 'code_challenge_methods_supported: [S256] in discovery metadata.'
+- id: jsonapi
+  conforms: true
+  evidence: Data Management API uses JSON:API v1.0 envelope (jsonapi/data/relationships) per schemas.
+- id: graphql
+  conforms: true
+  evidence: AEC Data Model and Data Exchange expose GraphQL endpoints (graphql/autodesk-graphql.md).
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Error responses use application/json, not application/problem+json.
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: No Sunset/Deprecation header usage documented in harvested specs.
+- id: webhooks
+  conforms: true
+  evidence: Webhooks API delivers event callbacks; AsyncAPI captured in asyncapi/.
+- id: pagination
+  conforms: true
+  evidence: Offset/limit and page-based pagination parameters across Data Management, ACC, Parameters
+    specs.
+- id: fhir-r4
+  conforms: false
+- id: fapi
+  conforms: false
+- id: scim
+  conforms: false
+- id: odata
+  conforms: false

@@ -23,7 +23,7 @@ tags:
   - Sustainability
 url: https://raw.githubusercontent.com/api-evangelist/autodesk/refs/heads/main/apis.yml
 created: '2024-11-13'
-modified: '2026-05-19'
+modified: '2026-06-20'
 specificationVersion: '0.19'
 apis:
 - aid: autodesk:autodesk-build-photos
@@ -717,6 +717,56 @@ common:
     description: >-
       ERP integration connecting ACC cost management and project data with SAP for enterprise financial reporting
       and project accounting.
+- type: Packages
+  url: packages/autodesk-packages.yml
+- type: WellKnown
+  url: well-known/autodesk-well-known.yml
+- type: MCPServer
+  url: mcp/autodesk-mcp.yml
+- type: LLMsTxt
+  url: llms/autodesk-llms.txt
+- type: Conformance
+  url: conformance/autodesk-conformance.yml
+- type: ErrorCatalog
+  url: errors/autodesk-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/autodesk-lifecycle.yml
+- type: Conventions
+  url: conventions/autodesk-conventions.yml
+- type: ChangeLog
+  url: changelog/autodesk-changelog.yml
+- type: Components
+  url: components/autodesk-components.yml
+- type: DataModel
+  url: data-model/autodesk-data-model.yml
+- type: VulnerabilityDisclosure
+  url: security/autodesk-vulnerability-disclosure.yml
+- type: TrustCenter
+  url: security/autodesk-trust-center.yml
+- type: Overlay
+  url: overlays/autodesk-acc-account-admin-overlay.yaml
+- type: Overlay
+  url: overlays/autodesk-authentication-overlay.yaml
+- type: Overlay
+  url: overlays/autodesk-bim360-overlay.yaml
+- type: Overlay
+  url: overlays/autodesk-data-management-overlay.yaml
+- type: Overlay
+  url: overlays/autodesk-design-automation-overlay.yaml
+- type: Overlay
+  url: overlays/autodesk-flow-graph-engine-overlay.yaml
+- type: Overlay
+  url: overlays/autodesk-model-derivative-overlay.yaml
+- type: Overlay
+  url: overlays/autodesk-parameters-overlay.yaml
+- type: Overlay
+  url: overlays/autodesk-reality-capture-overlay.yaml
+- type: Overlay
+  url: overlays/autodesk-sustainability-data-overlay.yaml
+- type: Overlay
+  url: overlays/autodesk-tandem-data-overlay.yaml
+- type: Overlay
+  url: overlays/autodesk-webhooks-overlay.yaml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

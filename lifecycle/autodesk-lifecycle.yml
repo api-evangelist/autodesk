@@ -1,0 +1,32 @@
+generated: '2026-06-20'
+method: searched
+source: https://aps.autodesk.com/topics/breaking-changes, https://aps.autodesk.com/topics/product-updates
+versioning:
+  scheme: uri-path
+  note: Each APS API is independently versioned in the URL path (e.g. /authentication/v2, /modelderivative/v2,
+    /da/us-east/v3, /oss/v2, /webhooks/v1).
+  current_examples:
+    authentication: v2
+    data-management: v2
+    model-derivative: v2
+    design-automation: v3
+    webhooks: v1
+    oss: v2
+deprecation:
+  policy_url: https://aps.autodesk.com/topics/breaking-changes
+  announced_via:
+  - https://aps.autodesk.com/blog
+  - https://aps.autodesk.com/topics/product-updates
+  - APS Change Log email digests
+  sunset_header: false
+  notes: Breaking changes and migrations (e.g. Authentication v1->v2, legacy Forge domain retirement)
+    are announced on the Breaking Changes topic page and blog with migration windows.
+sla:
+  url: https://aps.autodesk.com/pricing
+  note: Enterprise/paid usage tiers; no single public uptime SLA percentage published for the developer
+    platform.
+status_page: https://health.autodesk.com/
+deprecated_operations: []
+notes: No operations are flagged deprecated:true in the harvested OpenAPI. Product-level deprecations
+  (e.g. legacy BIM 360 endpoints migrating to ACC, Forge->APS rebrand) are tracked on the Breaking Changes
+  page.
