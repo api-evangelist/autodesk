@@ -103,6 +103,37 @@ paths:
                     type: string
         '404':
           description: Photoscene not found.
+    post:
+      operationId: processPhotoscene
+      summary: Process Photoscene
+      description: >-
+        Starts the photogrammetry processing for a photoscene. Must have
+        uploaded at least 3 photos before processing.
+      tags:
+        - Processing
+      parameters:
+        - name: photosceneid
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Processing started.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  msg:
+                    type: string
+                  Photoscene:
+                    type: object
+                    properties:
+                      photosceneid:
+                        type: string
+        '400':
+          description: Bad request - insufficient photos.
   /photo-to-3d/v1/file:
     post:
       operationId: uploadFiles
@@ -169,38 +200,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProgressResponse'
-  /photo-to-3d/v1/photoscene/{photosceneid}:
-    post:
-      operationId: processPhotoscene
-      summary: Process Photoscene
-      description: >-
-        Starts the photogrammetry processing for a photoscene. Must have
-        uploaded at least 3 photos before processing.
-      tags:
-        - Processing
-      parameters:
-        - name: photosceneid
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Processing started.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  msg:
-                    type: string
-                  Photoscene:
-                    type: object
-                    properties:
-                      photosceneid:
-                        type: string
-        '400':
-          description: Bad request - insufficient photos.
   /photo-to-3d/v1/photoscene/{photosceneid}?format={format}:
     get:
       operationId: getPhotosceneResult

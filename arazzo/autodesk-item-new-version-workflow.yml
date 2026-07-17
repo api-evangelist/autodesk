@@ -1,0 +1,163 @@
+arazzo: 1.0.1
+info:
+  title: Autodesk Add a New Version to an Existing File
+  summary: Search a folder for a file, read its current tip, create a new version, and list the version history.
+  description: >-
+    Autodesk Docs and BIM 360 never overwrite a file; they version it. This is the
+    flow a desktop sync agent or a CI pipeline runs when it has new bytes for a file
+    that already exists: search the folder for the file by display name, read its
+    current tip version, create a new version pointing at freshly uploaded storage,
+    and list the version history to confirm the new tip. Every step spells out its
+    request inline so the flow can be read and executed without opening the underlying
+    OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: dataManagementApi
+  url: ../openapi/autodesk-data-management-openapi.yml
+  type: openapi
+workflows:
+- workflowId: add-new-file-version
+  summary: Version an existing project file rather than replacing it.
+  description: >-
+    Searches a folder hierarchy for the item by display name, reads the item to
+    capture its current tip, creates a new version bound to a storage object, and
+    lists versions to confirm the history.
+  inputs:
+    type: object
+    required:
+    - projectId
+    - folderId
+    - fileName
+    - storageObjectId
+    properties:
+      projectId:
+        type: string
+        description: The project containing the file.
+      folderId:
+        type: string
+        description: The folder to search beneath for the existing file.
+      fileName:
+        type: string
+        description: Display name of the file to version (e.g. "tower.rvt").
+      fileType:
+        type: string
+        description: File extension to narrow the search (e.g. "rvt").
+      storageObjectId:
+        type: string
+        description: >-
+          The storage object URN holding the new bytes for this version.
+      versionExtensionType:
+        type: string
+        description: >-
+          The version extension type for the host product (e.g.
+          "versions:autodesk.bim360:File").
+        default: versions:autodesk.bim360:File
+  steps:
+  - stepId: findExistingFile
+    description: >-
+      Search the folder hierarchy for the file by display name. Search walks
+      subfolders, unlike a plain folder contents listing, and requires the data:search
+      scope.
+    operationId: searchFolder
+    parameters:
+    - name: project_id
+      in: path
+      value: $inputs.projectId
+    - name: folder_id
+      in: path
+      value: $inputs.folderId
+    - name: filter[displayName]
+      in: query
+      value: $inputs.fileName
+    - name: filter[fileType]
+      in: query
+      value: $inputs.fileType
+    successCriteria:
+    - condition: $statusCode == 200
+    - context: $response.body
+      condition: $.data.length > 0
+      type: jsonpath
+    outputs:
+      itemId: $response.body#/data/0/id
+      matches: $response.body#/data
+  - stepId: readCurrentTip
+    description: >-
+      Read the item to capture the version that is currently the tip, so the caller
+      can tell what it is superseding.
+    operationId: getItem
+    parameters:
+    - name: project_id
+      in: path
+      value: $inputs.projectId
+    - name: item_id
+      in: path
+      value: $steps.findExistingFile.outputs.itemId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      itemId: $response.body#/data/id
+      displayName: $response.body#/data/attributes/displayName
+      previousTipVersionId: $response.body#/data/relationships/tip/data/id
+      reserved: $response.body#/data/attributes/reserved
+  - stepId: createNewVersion
+    description: >-
+      Create the new version, relating it to the existing item and to the storage
+      object holding the new bytes. This becomes the item's tip.
+    operationId: createVersion
+    parameters:
+    - name: project_id
+      in: path
+      value: $inputs.projectId
+    requestBody:
+      contentType: application/vnd.api+json
+      payload:
+        jsonapi:
+          version: '1.0'
+        data:
+          type: versions
+          attributes:
+            name: $inputs.fileName
+            extension:
+              type: $inputs.versionExtensionType
+              version: '1.0'
+          relationships:
+            item:
+              data:
+                type: items
+                id: $steps.readCurrentTip.outputs.itemId
+            storage:
+              data:
+                type: objects
+                id: $inputs.storageObjectId
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      versionId: $response.body#/data/id
+      versionNumber: $response.body#/data/attributes/versionNumber
+      storageSize: $response.body#/data/attributes/storageSize
+  - stepId: listVersionHistory
+    description: >-
+      List the item's versions to confirm the new version is present and is now the
+      most recent entry in the history.
+    operationId: getItemVersions
+    parameters:
+    - name: project_id
+      in: path
+      value: $inputs.projectId
+    - name: item_id
+      in: path
+      value: $steps.readCurrentTip.outputs.itemId
+    - name: page[limit]
+      in: query
+      value: 50
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      versions: $response.body#/data
+      latestVersionId: $response.body#/data/0/id
+      latestVersionNumber: $response.body#/data/0/attributes/versionNumber
+  outputs:
+    itemId: $steps.readCurrentTip.outputs.itemId
+    previousTipVersionId: $steps.readCurrentTip.outputs.previousTipVersionId
+    newVersionId: $steps.createNewVersion.outputs.versionId
+    newVersionNumber: $steps.createNewVersion.outputs.versionNumber

@@ -1,0 +1,203 @@
+arazzo: 1.0.1
+info:
+  title: Autodesk Upload and Translate a Model for the Viewer
+  summary: Create an OSS bucket, upload a design file, translate it to SVF2, and poll the manifest until it is viewable.
+  description: >-
+    The flagship Autodesk Platform Services pipeline: getting a CAD or BIM file from
+    a local disk into the Autodesk Viewer. The workflow creates an Object Storage
+    Service bucket, uploads the source design into it, starts a Model Derivative
+    translation job, polls the manifest until translation reports success, and reads
+    back the viewable GUID the Viewer needs to render the model. Every step spells
+    out its request inline so the flow can be read and executed without opening the
+    underlying OpenAPI descriptions.
+  version: 1.0.0
+sourceDescriptions:
+- name: dataManagementApi
+  url: ../openapi/autodesk-data-management-openapi.yml
+  type: openapi
+- name: modelDerivativeApi
+  url: ../openapi/autodesk-model-derivative-openapi.yml
+  type: openapi
+workflows:
+- workflowId: upload-and-translate-model
+  summary: Take a design file from local disk to a Viewer-ready SVF2 derivative.
+  description: >-
+    Creates a bucket, uploads the source design, starts an SVF2 translation, waits
+    for the manifest to report success, and resolves the viewable GUID. The URN the
+    translation job consumes is the URL-safe Base64 encoding of the objectId returned
+    by the upload step; that encoding is performed by the client between the upload
+    and translation steps and is supplied here as an input.
+  inputs:
+    type: object
+    required:
+    - bucketKey
+    - objectKey
+    - fileContent
+    - contentLength
+    - urnBase64
+    properties:
+      bucketKey:
+        type: string
+        description: >-
+          Globally unique bucket key, 3-128 characters of lowercase letters, digits,
+          hyphens, underscores.
+      policyKey:
+        type: string
+        description: >-
+          Bucket retention policy: transient (24h), temporary (30d), or persistent.
+        default: temporary
+      objectKey:
+        type: string
+        description: The object name to store the design under (e.g. "tower.rvt").
+      fileContent:
+        type: string
+        description: The raw bytes of the source design file.
+      contentLength:
+        type: integer
+        description: Size of the source design file in bytes.
+      contentType:
+        type: string
+        description: MIME type of the source design file.
+        default: application/octet-stream
+      urnBase64:
+        type: string
+        description: >-
+          The URL-safe Base64 encoding of the objectId returned by the upload step.
+          Model Derivative addresses source designs by this encoded URN.
+      region:
+        type: string
+        description: Region the derivatives are stored in (us or emea).
+        default: us
+  steps:
+  - stepId: createStorageBucket
+    description: >-
+      Create the OSS bucket that will hold the source design. Bucket keys are global
+      across all of APS, so a 409 here means the key is already taken.
+    operationId: createBucket
+    requestBody:
+      contentType: application/json
+      payload:
+        bucketKey: $inputs.bucketKey
+        policyKey: $inputs.policyKey
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      bucketKey: $response.body#/bucketKey
+      bucketOwner: $response.body#/bucketOwner
+      policyKey: $response.body#/policyKey
+  - stepId: uploadDesign
+    description: >-
+      Upload the source design file into the bucket. The objectId returned here is
+      the URN that Model Derivative translates, once Base64 encoded.
+    operationId: uploadObject
+    parameters:
+    - name: bucketKey
+      in: path
+      value: $steps.createStorageBucket.outputs.bucketKey
+    - name: objectKey
+      in: path
+      value: $inputs.objectKey
+    - name: Content-Length
+      in: header
+      value: $inputs.contentLength
+    - name: Content-Type
+      in: header
+      value: $inputs.contentType
+    requestBody:
+      contentType: application/octet-stream
+      payload: $inputs.fileContent
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      objectId: $response.body#/objectId
+      objectKey: $response.body#/objectKey
+      size: $response.body#/size
+      sha1: $response.body#/sha1
+  - stepId: startTranslation
+    description: >-
+      Start a Model Derivative job that translates the uploaded design into SVF2 with
+      both 2D and 3D viewables. Returns 200 when a matching derivative already exists
+      and 201 when a new job is accepted.
+    operationId: startJob
+    parameters:
+    - name: x-ads-force
+      in: header
+      value: false
+    - name: x-ads-derivative-format
+      in: header
+      value: latest
+    requestBody:
+      contentType: application/json
+      payload:
+        input:
+          urn: $inputs.urnBase64
+        output:
+          destination:
+            region: $inputs.region
+          formats:
+          - type: svf2
+            views:
+            - 2d
+            - 3d
+    successCriteria:
+    - context: $statusCode
+      condition: ^20[01]$
+      type: regex
+    outputs:
+      result: $response.body#/result
+      urn: $response.body#/urn
+  - stepId: awaitTranslation
+    description: >-
+      Poll the manifest until translation reports success. The manifest returns 200
+      while the job is still pending or inprogress, so the terminal state is read from
+      the body rather than the status code. Ends the workflow if translation fails or
+      times out.
+    operationId: getManifest
+    parameters:
+    - name: urn
+      in: path
+      value: $inputs.urnBase64
+    successCriteria:
+    - condition: $statusCode == 200
+    - context: $response.body
+      condition: $.status == "success"
+      type: jsonpath
+    onFailure:
+    - name: stillTranslating
+      type: retry
+      retryAfter: 15
+      retryLimit: 40
+      criteria:
+      - context: $response.body
+        condition: $.status == "inprogress" || $.status == "pending"
+        type: jsonpath
+    - name: translationFailed
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.status == "failed" || $.status == "timeout"
+        type: jsonpath
+    outputs:
+      status: $response.body#/status
+      progress: $response.body#/progress
+      derivatives: $response.body#/derivatives
+      hasThumbnail: $response.body#/hasThumbnail
+  - stepId: resolveViewable
+    description: >-
+      Read the model views produced by the translation. The GUID of a viewable is what
+      the Viewer, the object tree, and the property queries are all addressed by.
+    operationId: getMetadata
+    parameters:
+    - name: urn
+      in: path
+      value: $inputs.urnBase64
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      viewableGuid: $response.body#/data/metadata/0/guid
+      viewableName: $response.body#/data/metadata/0/name
+      viewables: $response.body#/data/metadata
+  outputs:
+    objectId: $steps.uploadDesign.outputs.objectId
+    translationStatus: $steps.awaitTranslation.outputs.status
+    viewableGuid: $steps.resolveViewable.outputs.viewableGuid

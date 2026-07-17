@@ -1,0 +1,127 @@
+arazzo: 1.0.1
+info:
+  title: Autodesk Three-Legged User Login
+  summary: Send a user through Autodesk consent, exchange the code for tokens, and read their profile.
+  description: >-
+    The three-legged OAuth flow that any application acting on a user's Autodesk data
+    must implement. The workflow redirects the user to the Autodesk login and consent
+    page, exchanges the returned authorization code for an access and refresh token
+    pair, and reads the authenticated user's profile to confirm who the tokens belong
+    to. Every step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: authenticationApi
+  url: ../openapi/autodesk-authentication-openapi.yml
+  type: openapi
+workflows:
+- workflowId: three-legged-user-login
+  summary: Authorize a user, exchange the code for tokens, and identify the user.
+  description: >-
+    Builds the authorize redirect, exchanges the authorization code the user's browser
+    returns to the redirect URI for an access and refresh token, and calls the user
+    profile endpoint with the resulting three-legged token.
+  inputs:
+    type: object
+    required:
+    - clientId
+    - clientSecret
+    - redirectUri
+    - scope
+    - authorizationCode
+    properties:
+      clientId:
+        type: string
+        description: The Client ID of your APS application.
+      clientSecret:
+        type: string
+        description: The Client Secret of your APS application.
+      redirectUri:
+        type: string
+        description: >-
+          The URI Autodesk redirects the user back to. Must exactly match a redirect
+          URI registered on the APS application.
+      scope:
+        type: string
+        description: >-
+          Space-separated scopes to request (e.g. "data:read user-profile:read").
+      state:
+        type: string
+        description: Opaque anti-CSRF value echoed back on the redirect.
+      authorizationCode:
+        type: string
+        description: >-
+          The authorization code captured from the redirect URI query string after
+          the user granted consent. Obtained out of band by the browser, not by the
+          first step of this workflow.
+      codeVerifier:
+        type: string
+        description: >-
+          The PKCE code verifier, required only if a code_challenge was sent on the
+          authorize request.
+  steps:
+  - stepId: requestConsent
+    description: >-
+      Build the Autodesk authorize redirect. The user's browser follows the 302 to
+      the Autodesk login page and, after consent, is redirected back to redirectUri
+      with a short-lived authorization code on the query string.
+    operationId: authorize
+    parameters:
+    - name: response_type
+      in: query
+      value: code
+    - name: client_id
+      in: query
+      value: $inputs.clientId
+    - name: redirect_uri
+      in: query
+      value: $inputs.redirectUri
+    - name: scope
+      in: query
+      value: $inputs.scope
+    - name: state
+      in: query
+      value: $inputs.state
+    successCriteria:
+    - condition: $statusCode == 302
+    outputs:
+      loginUrl: $response.header.Location
+  - stepId: exchangeCode
+    description: >-
+      Exchange the authorization code for an access token and a refresh token. The
+      redirect_uri must match the one used on the authorize request exactly.
+    operationId: getToken
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        grant_type: authorization_code
+        code: $inputs.authorizationCode
+        redirect_uri: $inputs.redirectUri
+        client_id: $inputs.clientId
+        client_secret: $inputs.clientSecret
+        code_verifier: $inputs.codeVerifier
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      accessToken: $response.body#/access_token
+      refreshToken: $response.body#/refresh_token
+      expiresIn: $response.body#/expires_in
+      grantedScope: $response.body#/scope
+  - stepId: readProfile
+    description: >-
+      Read the profile of the user the token was issued for. This confirms the token
+      is three-legged and identifies the account whose data the application may now
+      act on. Requires the user-profile:read scope.
+    operationId: getUserProfile
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      userId: $response.body#/userId
+      userName: $response.body#/userName
+      emailId: $response.body#/emailId
+      emailVerified: $response.body#/emailVerified
+  outputs:
+    accessToken: $steps.exchangeCode.outputs.accessToken
+    refreshToken: $steps.exchangeCode.outputs.refreshToken
+    userId: $steps.readProfile.outputs.userId
+    emailId: $steps.readProfile.outputs.emailId

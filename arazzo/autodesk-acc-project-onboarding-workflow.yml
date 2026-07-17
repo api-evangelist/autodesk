@@ -1,0 +1,185 @@
+arazzo: 1.0.1
+info:
+  title: Autodesk Onboard a Project and Its First Member
+  summary: Create an ACC project, resolve industry roles and the member's company, add the user, and confirm the roster.
+  description: >-
+    The Autodesk Construction Cloud administration flow that replaces clicking through
+    the Account Admin UI for every new job. The workflow creates the project, resolves
+    the industry roles that project exposes and the partner company the member belongs
+    to, adds the user with the right product access, and reads the roster back to
+    confirm the assignment landed. Roles and company are resolved from the account
+    directory rather than guessed, because both are ids, not names. Every step spells
+    out its request inline so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: accAccountAdminApi
+  url: ../openapi/autodesk-acc-account-admin-openapi.yml
+  type: openapi
+workflows:
+- workflowId: onboard-project-and-member
+  summary: Stand up a new construction project and seat its first member.
+  description: >-
+    Creates the project in the account, lists the project's industry roles, finds the
+    member's company in the account directory, adds the user with an industry role and
+    product access, and confirms the user appears on the project roster.
+  inputs:
+    type: object
+    required:
+    - accountId
+    - projectName
+    - userEmail
+    - companyName
+    properties:
+      accountId:
+        type: string
+        description: The ACC account (hub) id the project is created in.
+      projectName:
+        type: string
+        description: Name of the new project.
+      projectType:
+        type: string
+        description: Project type (e.g. "Commercial", "Office").
+      jobNumber:
+        type: string
+        description: Internal job or cost code for the project.
+      startDate:
+        type: string
+        description: Project start date (YYYY-MM-DD).
+      endDate:
+        type: string
+        description: Project end date (YYYY-MM-DD).
+      country:
+        type: string
+        description: Country the project is located in.
+      timezone:
+        type: string
+        description: Project timezone (e.g. "America/New_York").
+      userEmail:
+        type: string
+        description: Email of the first member to seat on the project.
+      companyName:
+        type: string
+        description: Partner company the member belongs to, resolved to an id.
+  steps:
+  - stepId: createNewProject
+    description: >-
+      Create the project in the account. Everything downstream, including roles, is
+      scoped to the id this returns.
+    operationId: createProject
+    parameters:
+    - name: accountId
+      in: path
+      value: $inputs.accountId
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.projectName
+        type: $inputs.projectType
+        status: active
+        jobNumber: $inputs.jobNumber
+        startDate: $inputs.startDate
+        endDate: $inputs.endDate
+        country: $inputs.country
+        timezone: $inputs.timezone
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      projectId: $response.body#/id
+      projectName: $response.body#/name
+      status: $response.body#/status
+  - stepId: listIndustryRoles
+    description: >-
+      List the industry roles the new project exposes. Roles are project-scoped ids,
+      so they cannot be assigned by name.
+    operationId: getIndustryRoles
+    parameters:
+    - name: projectId
+      in: path
+      value: $steps.createNewProject.outputs.projectId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      roles: $response.body#/results
+      roleId: $response.body#/results/0/id
+      roleName: $response.body#/results/0/name
+  - stepId: resolveCompany
+    description: >-
+      Find the member's partner company in the account directory so the user is seated
+      against the right company rather than left unattributed.
+    operationId: getCompanies
+    parameters:
+    - name: accountId
+      in: path
+      value: $inputs.accountId
+    - name: filter[name]
+      in: query
+      value: $inputs.companyName
+    - name: limit
+      in: query
+      value: 10
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      companyId: $response.body#/results/0/id
+      resolvedCompanyName: $response.body#/results/0/name
+  - stepId: seatMember
+    description: >-
+      Add the user to the project with their company, industry role, and product
+      access. An invitation is sent if the email is not already in the account
+      directory.
+    operationId: addProjectUser
+    parameters:
+    - name: accountId
+      in: path
+      value: $inputs.accountId
+    - name: projectId
+      in: path
+      value: $steps.createNewProject.outputs.projectId
+    requestBody:
+      contentType: application/json
+      payload:
+        email: $inputs.userEmail
+        companyId: $steps.resolveCompany.outputs.companyId
+        industryRoles:
+        - $steps.listIndustryRoles.outputs.roleId
+        products:
+        - key: projectAdministration
+          access: administrator
+        - key: docs
+          access: member
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      userId: $response.body#/id
+      userStatus: $response.body#/status
+      userEmail: $response.body#/email
+  - stepId: confirmRoster
+    description: >-
+      Read the project roster filtered to the member's email to confirm the seat
+      exists and to capture the access levels the service actually recorded.
+    operationId: getProjectUsers
+    parameters:
+    - name: accountId
+      in: path
+      value: $inputs.accountId
+    - name: projectId
+      in: path
+      value: $steps.createNewProject.outputs.projectId
+    - name: filter[email]
+      in: query
+      value: $inputs.userEmail
+    successCriteria:
+    - condition: $statusCode == 200
+    - context: $response.body
+      condition: $.results.length > 0
+      type: jsonpath
+    outputs:
+      userId: $response.body#/results/0/id
+      status: $response.body#/results/0/status
+      accessLevels: $response.body#/results/0/accessLevels
+      companyName: $response.body#/results/0/companyName
+  outputs:
+    projectId: $steps.createNewProject.outputs.projectId
+    userId: $steps.confirmRoster.outputs.userId
+    userStatus: $steps.confirmRoster.outputs.status

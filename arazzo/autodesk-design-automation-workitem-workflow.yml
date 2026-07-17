@@ -1,0 +1,235 @@
+arazzo: 1.0.1
+info:
+  title: Autodesk Run a Design Automation WorkItem
+  summary: Pick an engine, publish an AppBundle and Activity with aliases, then run and poll a WorkItem.
+  description: >-
+    The full Design Automation setup-and-run path: how you get custom AutoCAD, Revit,
+    Inventor, or 3ds Max code running in the cloud with no desktop install. The
+    workflow lists the available engines, creates an AppBundle for the custom code and
+    aliases it, defines an Activity that invokes it and aliases that, then submits a
+    WorkItem against the aliased Activity and polls until it reaches a terminal state.
+    Every step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: designAutomationApi
+  url: ../openapi/autodesk-design-automation-openapi.yml
+  type: openapi
+workflows:
+- workflowId: run-design-automation-workitem
+  summary: Publish an AppBundle and Activity, then execute a WorkItem against them.
+  description: >-
+    Lists engines, creates and aliases an AppBundle, creates and aliases an Activity
+    that loads it, submits a WorkItem with input and output arguments, and polls the
+    WorkItem until it succeeds or fails. AppBundle binaries are uploaded to the
+    returned uploadParameters endpoint out of band between the AppBundle and alias
+    steps.
+  inputs:
+    type: object
+    required:
+    - engine
+    - appBundleName
+    - activityName
+    - aliasName
+    - qualifiedActivityId
+    - inputFileUrl
+    - outputFileUrl
+    properties:
+      engine:
+        type: string
+        description: >-
+          The fully qualified engine id the code targets (e.g. "Autodesk.AutoCAD+24_1").
+      appBundleName:
+        type: string
+        description: Name of the AppBundle holding the custom plugin or script.
+      activityName:
+        type: string
+        description: Name of the Activity that invokes the AppBundle.
+      aliasName:
+        type: string
+        description: Alias to publish both the AppBundle and Activity under (e.g. "prod").
+      qualifiedActivityId:
+        type: string
+        description: >-
+          The fully qualified Activity id the WorkItem runs, in owner.activity+alias
+          form. The owner segment is your app's nickname.
+      commandLine:
+        type: array
+        description: Command line instructions handed to the engine.
+        items:
+          type: string
+      inputFileUrl:
+        type: string
+        description: URL the engine downloads the input drawing from.
+      outputFileUrl:
+        type: string
+        description: URL the engine uploads the result to.
+      inputLocalName:
+        type: string
+        description: Local filename the engine sees for the input.
+        default: input.dwg
+      outputLocalName:
+        type: string
+        description: Local filename the engine writes the result to.
+        default: result.dwg
+      limitProcessingTimeSec:
+        type: integer
+        description: Hard processing time limit for the WorkItem, in seconds.
+        default: 900
+  steps:
+  - stepId: listEngines
+    description: >-
+      List the engines available to the caller so the Activity targets a version that
+      actually exists rather than a guessed product string.
+    operationId: getEngines
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      engines: $response.body#/data
+  - stepId: createBundle
+    description: >-
+      Create the AppBundle record. The response carries uploadParameters, the
+      pre-signed form endpoint the packaged binary is POSTed to before the alias is
+      created.
+    operationId: createAppBundle
+    requestBody:
+      contentType: application/json
+      payload:
+        id: $inputs.appBundleName
+        engine: $inputs.engine
+        description: Custom plugin published by an Arazzo workflow.
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      appBundleId: $response.body#/id
+      version: $response.body#/version
+      uploadUrl: $response.body#/uploadParameters/endpointURL
+      uploadFormData: $response.body#/uploadParameters/formData
+  - stepId: aliasBundle
+    description: >-
+      Point a stable alias at the AppBundle version just created, so Activities can
+      reference "name+alias" and never a moving version number.
+    operationId: createAppBundleAlias
+    parameters:
+    - name: id
+      in: path
+      value: $inputs.appBundleName
+    requestBody:
+      contentType: application/json
+      payload:
+        id: $inputs.aliasName
+        version: $steps.createBundle.outputs.version
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      aliasId: $response.body#/id
+      aliasVersion: $response.body#/version
+  - stepId: createActivityDefinition
+    description: >-
+      Define the Activity: which engine runs, which AppBundle loads, what command line
+      executes, and the input and output parameters the WorkItem will bind URLs to.
+    operationId: createActivity
+    requestBody:
+      contentType: application/json
+      payload:
+        id: $inputs.activityName
+        engine: $inputs.engine
+        description: Activity published by an Arazzo workflow.
+        commandLine: $inputs.commandLine
+        appbundles:
+        - $inputs.appBundleName
+        parameters:
+          inputFile:
+            verb: get
+            required: true
+            localName: $inputs.inputLocalName
+            description: The source drawing downloaded before the script runs.
+          outputFile:
+            verb: put
+            required: true
+            localName: $inputs.outputLocalName
+            description: The result uploaded after the script runs.
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      activityId: $response.body#/id
+      version: $response.body#/version
+  - stepId: aliasActivity
+    description: >-
+      Alias the Activity version so WorkItems submit against a stable id while new
+      versions can be published behind it.
+    operationId: createActivityAlias
+    parameters:
+    - name: id
+      in: path
+      value: $inputs.activityName
+    requestBody:
+      contentType: application/json
+      payload:
+        id: $inputs.aliasName
+        version: $steps.createActivityDefinition.outputs.version
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      aliasId: $response.body#/id
+      aliasVersion: $response.body#/version
+  - stepId: submitWorkItem
+    description: >-
+      Submit the WorkItem, binding the Activity's declared parameters to real URLs.
+      The engine downloads inputFile, runs the command line, and uploads outputFile.
+    operationId: createWorkItem
+    requestBody:
+      contentType: application/json
+      payload:
+        activityId: $inputs.qualifiedActivityId
+        arguments:
+          inputFile:
+            url: $inputs.inputFileUrl
+            verb: get
+          outputFile:
+            url: $inputs.outputFileUrl
+            verb: put
+        limitProcessingTimeSec: $inputs.limitProcessingTimeSec
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      workItemId: $response.body#/id
+      initialStatus: $response.body#/status
+  - stepId: awaitWorkItem
+    description: >-
+      Poll the WorkItem until it succeeds. The endpoint returns 200 throughout, so the
+      terminal state is read from the body. On any failed state the workflow ends and
+      the reportUrl carries the engine's log.
+    operationId: getWorkItemStatus
+    parameters:
+    - name: id
+      in: path
+      value: $steps.submitWorkItem.outputs.workItemId
+    successCriteria:
+    - condition: $statusCode == 200
+    - context: $response.body
+      condition: $.status == "success"
+      type: jsonpath
+    onFailure:
+    - name: stillRunning
+      type: retry
+      retryAfter: 10
+      retryLimit: 60
+      criteria:
+      - context: $response.body
+        condition: $.status == "pending" || $.status == "inprogress"
+        type: jsonpath
+    - name: workItemFailed
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.status != "pending" && $.status != "inprogress" && $.status != "success"
+        type: jsonpath
+    outputs:
+      status: $response.body#/status
+      reportUrl: $response.body#/reportUrl
+      stats: $response.body#/stats
+  outputs:
+    workItemId: $steps.submitWorkItem.outputs.workItemId
+    status: $steps.awaitWorkItem.outputs.status
+    reportUrl: $steps.awaitWorkItem.outputs.reportUrl

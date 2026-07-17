@@ -767,6 +767,57 @@ common:
   url: overlays/autodesk-tandem-data-overlay.yaml
 - type: Overlay
   url: overlays/autodesk-webhooks-overlay.yaml
+- type: Arazzo
+  url: arazzo/autodesk-two-legged-token-lifecycle-workflow.yml
+  name: Autodesk Two-Legged Token Lifecycle
+- type: Arazzo
+  url: arazzo/autodesk-three-legged-user-login-workflow.yml
+  name: Autodesk Three-Legged User Login
+- type: Arazzo
+  url: arazzo/autodesk-model-translation-workflow.yml
+  name: Autodesk Upload and Translate a Model for the Viewer
+- type: Arazzo
+  url: arazzo/autodesk-model-properties-extraction-workflow.yml
+  name: Autodesk Extract Model Properties
+- type: Arazzo
+  url: arazzo/autodesk-oss-signed-url-distribution-workflow.yml
+  name: Autodesk Distribute an OSS Object via Signed URL
+- type: Arazzo
+  url: arazzo/autodesk-project-file-upload-workflow.yml
+  name: Autodesk Publish a File into a Project Folder
+- type: Arazzo
+  url: arazzo/autodesk-item-new-version-workflow.yml
+  name: Autodesk Add a New Version to an Existing File
+- type: Arazzo
+  url: arazzo/autodesk-design-automation-workitem-workflow.yml
+  name: Autodesk Run a Design Automation WorkItem
+- type: Arazzo
+  url: arazzo/autodesk-reality-capture-photoscene-workflow.yml
+  name: Autodesk Photogrammetry Reconstruction
+- type: Arazzo
+  url: arazzo/autodesk-webhook-subscription-workflow.yml
+  name: Autodesk Subscribe to Events with a Signed Webhook
+- type: Arazzo
+  url: arazzo/autodesk-acc-project-onboarding-workflow.yml
+  name: Autodesk Onboard a Project and Its First Member
+- type: Arazzo
+  url: arazzo/autodesk-bim360-issue-triage-workflow.yml
+  name: Autodesk Open, Comment On, and Close a BIM 360 Issue
+- type: Arazzo
+  url: arazzo/autodesk-flow-graph-evaluation-workflow.yml
+  name: Autodesk Evaluate a Bifrost Graph in the Cloud
+- type: Arazzo
+  url: arazzo/autodesk-tandem-element-properties-workflow.yml
+  name: Autodesk Write Facility Data Back to a Tandem Twin
+- type: Arazzo
+  url: arazzo/autodesk-tandem-iot-stream-workflow.yml
+  name: Autodesk Push Sensor Readings into a Tandem Stream
+- type: Arazzo
+  url: arazzo/autodesk-sustainability-carbon-calculation-workflow.yml
+  name: Autodesk Calculate Embodied Carbon from a Regional Dataset
+- type: Arazzo
+  url: arazzo/autodesk-parameters-collection-setup-workflow.yml
+  name: Autodesk Define a Shared Parameter in a Collection
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

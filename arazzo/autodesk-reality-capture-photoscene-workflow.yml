@@ -1,0 +1,170 @@
+arazzo: 1.0.1
+info:
+  title: Autodesk Photogrammetry Reconstruction
+  summary: Create a photoscene, upload photos, start processing, poll until done, and fetch the 3D result.
+  description: >-
+    Turning a set of photographs into a 3D mesh or point cloud with the Reality
+    Capture API. This is a textbook submit-poll-collect pipeline: create the
+    photoscene container that carries the output format and processing type, upload at
+    least three photos to it, start the photogrammetry job, poll the photoscene until
+    its status reaches Done, and retrieve the download link for the reconstructed
+    result. Every step spells out its request inline so the flow can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: realityCaptureApi
+  url: ../openapi/autodesk-reality-capture-openapi.yml
+  type: openapi
+workflows:
+- workflowId: reconstruct-photoscene
+  summary: Reconstruct a 3D model from photographs and download the result.
+  description: >-
+    Creates the photoscene, uploads photos into it, kicks off processing, waits for
+    the scene status to become Done, and resolves a download link in the requested
+    format.
+  inputs:
+    type: object
+    required:
+    - sceneName
+    - sceneType
+    - format
+    - firstPhoto
+    - secondPhoto
+    properties:
+      sceneName:
+        type: string
+        description: Name for the photoscene.
+      sceneType:
+        type: string
+        description: >-
+          Processing type: "aerial" for drone or survey imagery, "object" for
+          close-range captures.
+      format:
+        type: string
+        description: >-
+          Output format: rcm, rcs, obj, or ortho.
+      gpsType:
+        type: string
+        description: >-
+          GPS data type carried by the photos: none, wgs84, or nadcon.
+        default: none
+      callback:
+        type: string
+        description: Optional URL notified when processing completes.
+      firstPhoto:
+        type: string
+        description: The first image file. Reality Capture requires at least 3 photos.
+      secondPhoto:
+        type: string
+        description: An additional image file uploaded in the same request.
+      resultFormat:
+        type: string
+        description: >-
+          The format to download the finished result in: rcm, rcs, obj, ortho, or
+          report.
+  steps:
+  - stepId: createScene
+    description: >-
+      Create the photoscene. The scene type and output format are fixed at creation
+      time and drive how the photogrammetry engine reconstructs the geometry.
+    operationId: createPhotoscene
+    requestBody:
+      contentType: application/json
+      payload:
+        scenename: $inputs.sceneName
+        scenetype: $inputs.sceneType
+        format: $inputs.format
+        gpstype: $inputs.gpsType
+        callback: $inputs.callback
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      photosceneId: $response.body#/Photoscene/photosceneid
+  - stepId: uploadPhotos
+    description: >-
+      Upload photos into the photoscene. Processing will reject a scene with fewer
+      than three photos, so callers with more images repeat this step before starting
+      the job.
+    operationId: uploadFiles
+    requestBody:
+      contentType: multipart/form-data
+      payload:
+        photosceneid: $steps.createScene.outputs.photosceneId
+        type: image
+        file[0]: $inputs.firstPhoto
+        file[1]: $inputs.secondPhoto
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      photosceneId: $response.body#/photosceneid
+      uploadedFiles: $response.body#/Files/file
+  - stepId: startProcessing
+    description: >-
+      Start the photogrammetry reconstruction. Returns 400 when the scene does not yet
+      hold enough photos.
+    operationId: processPhotoscene
+    parameters:
+    - name: photosceneid
+      in: path
+      value: $steps.createScene.outputs.photosceneId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      message: $response.body#/msg
+  - stepId: awaitReconstruction
+    description: >-
+      Poll the photoscene until its status reaches Done. Reconstruction of a large
+      aerial set takes a long time, so this loop is deliberately patient, and it ends
+      the workflow if the engine reports Error.
+    operationId: getPhotoscene
+    parameters:
+    - name: photosceneid
+      in: path
+      value: $steps.createScene.outputs.photosceneId
+    successCriteria:
+    - condition: $statusCode == 200
+    - context: $response.body
+      condition: $.Photoscene.status == "Done"
+      type: jsonpath
+    onFailure:
+    - name: stillProcessing
+      type: retry
+      retryAfter: 30
+      retryLimit: 120
+      criteria:
+      - context: $response.body
+        condition: $.Photoscene.status == "Processing" || $.Photoscene.status == "Created"
+        type: jsonpath
+    - name: reconstructionFailed
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.Photoscene.status == "Error"
+        type: jsonpath
+    outputs:
+      status: $response.body#/Photoscene/status
+      progressMessage: $response.body#/Photoscene/progressmsg
+      pointCount: $response.body#/Photoscene/nb3dpoints
+      faceCount: $response.body#/Photoscene/nbfaces
+      stitchedShots: $response.body#/Photoscene/nbstitchedshots
+  - stepId: fetchResult
+    description: >-
+      Resolve a temporary download link for the reconstructed scene in the requested
+      format. Returns 404 while the result is not yet ready.
+    operationId: getPhotosceneResult
+    parameters:
+    - name: photosceneid
+      in: path
+      value: $steps.createScene.outputs.photosceneId
+    - name: format
+      in: query
+      value: $inputs.resultFormat
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      downloadUrl: $response.body#/Photoscene/scenelink
+      fileSize: $response.body#/Photoscene/filesize
+  outputs:
+    photosceneId: $steps.createScene.outputs.photosceneId
+    status: $steps.awaitReconstruction.outputs.status
+    downloadUrl: $steps.fetchResult.outputs.downloadUrl

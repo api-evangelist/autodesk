@@ -1,0 +1,103 @@
+arazzo: 1.0.1
+info:
+  title: Autodesk Two-Legged Token Lifecycle
+  summary: Mint a client-credentials access token, verify its scopes, and revoke it.
+  description: >-
+    Every Autodesk Platform Services (APS) integration starts here. Server-to-server
+    applications mint a two-legged access token with the client credentials grant,
+    confirm the token is active and carries the scopes the application expects, and
+    revoke it when the work is done rather than leaving a long-lived credential in
+    circulation. Every step spells out its request inline so the flow can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: authenticationApi
+  url: ../openapi/autodesk-authentication-openapi.yml
+  type: openapi
+workflows:
+- workflowId: two-legged-token-lifecycle
+  summary: Obtain, introspect, and revoke a two-legged APS access token.
+  description: >-
+    Requests an access token using the client_credentials grant, introspects it to
+    verify that it is active and was granted the requested scopes, and then revokes
+    it so the credential cannot be replayed.
+  inputs:
+    type: object
+    required:
+    - clientId
+    - clientSecret
+    - scope
+    properties:
+      clientId:
+        type: string
+        description: The Client ID of your APS application.
+      clientSecret:
+        type: string
+        description: The Client Secret of your APS application.
+      scope:
+        type: string
+        description: >-
+          Space-separated list of scopes to request (e.g. "data:read data:write
+          bucket:create").
+  steps:
+  - stepId: mintToken
+    description: >-
+      Request an access token with the client_credentials grant. Two-legged tokens
+      represent the application itself, not an end user.
+    operationId: getToken
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        grant_type: client_credentials
+        client_id: $inputs.clientId
+        client_secret: $inputs.clientSecret
+        scope: $inputs.scope
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      accessToken: $response.body#/access_token
+      tokenType: $response.body#/token_type
+      expiresIn: $response.body#/expires_in
+      grantedScope: $response.body#/scope
+  - stepId: verifyToken
+    description: >-
+      Introspect the freshly minted token to confirm it is active and to read back
+      the scopes and expiry the authorization server actually granted, which may be
+      narrower than what was requested.
+    operationId: introspectToken
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        token: $steps.mintToken.outputs.accessToken
+        client_id: $inputs.clientId
+        client_secret: $inputs.clientSecret
+    successCriteria:
+    - condition: $statusCode == 200
+    - context: $response.body
+      condition: $.active == true
+      type: jsonpath
+    outputs:
+      active: $response.body#/active
+      effectiveScope: $response.body#/scope
+      expiresAt: $response.body#/exp
+      issuedToClient: $response.body#/client_id
+  - stepId: revokeAccessToken
+    description: >-
+      Revoke the access token once the work is complete so it cannot be reused if
+      it leaks from logs or a crash dump.
+    operationId: revokeToken
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        token: $steps.mintToken.outputs.accessToken
+        token_type_hint: access_token
+        client_id: $inputs.clientId
+        client_secret: $inputs.clientSecret
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      revoked: $statusCode
+  outputs:
+    accessToken: $steps.mintToken.outputs.accessToken
+    effectiveScope: $steps.verifyToken.outputs.effectiveScope
+    expiresAt: $steps.verifyToken.outputs.expiresAt

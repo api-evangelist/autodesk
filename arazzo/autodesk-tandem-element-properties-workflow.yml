@@ -1,0 +1,173 @@
+arazzo: 1.0.1
+info:
+  title: Autodesk Write Facility Data Back to a Tandem Twin
+  summary: Resolve a twin and model, read its schema, scan elements, read their properties, and mutate custom values.
+  description: >-
+    The Tandem round trip that connects a digital twin to the systems that actually
+    run a building. An asset management or work-order platform resolves the twin and
+    its model, reads the schema so it knows which custom properties exist, scans for
+    the elements it cares about, reads their current property values, and writes new
+    values back. Only properties defined in user-created schemas can be mutated, which
+    is why the schema is read before anything is written. Every step spells out its
+    request inline so the flow can be read and executed without opening the underlying
+    OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: tandemDataApi
+  url: ../openapi/autodesk-tandem-data-openapi.yml
+  type: openapi
+workflows:
+- workflowId: sync-element-properties
+  summary: Scan twin elements and write custom property values back to them.
+  description: >-
+    Lists accessible twins, lists the models in the target twin, reads the twin schema,
+    scans the model for elements, reads properties for specific element keys, and
+    mutates custom property values on them.
+  inputs:
+    type: object
+    required:
+    - elementKeys
+    - mutationElementKey
+    - propertyUpdates
+    properties:
+      twinName:
+        type: string
+        description: >-
+          Name of the target facility twin, used to identify it among the listed twins.
+      categoryId:
+        type: integer
+        description: Revit category id to restrict the element scan to.
+      families:
+        type: array
+        description: Revit family names to restrict the element scan to.
+        items:
+          type: string
+      propertyFamily:
+        type: string
+        description: Property family qualifier for the columns to return (the "fam" value).
+      propertyColumn:
+        type: string
+        description: Property column qualifier for the columns to return (the "col" value).
+      elementKeys:
+        type: array
+        description: Element keys to read properties for, as returned by the scan.
+        items:
+          type: string
+      mutationElementKey:
+        type: string
+        description: >-
+          The single element key to write custom property values onto. Callers syncing
+          many elements send one mutation entry per key.
+      propertyUpdates:
+        type: object
+        description: >-
+          Custom property values to write, keyed by property family and column. Only
+          properties from user-created schemas are mutable.
+  steps:
+  - stepId: listTwins
+    description: >-
+      List the digital twin facilities the authenticated user can reach and take the
+      first as the working twin.
+    operationId: getTwins
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      twins: $response.body#/twins
+      twinId: $response.body#/twins/0/id
+      twinName: $response.body#/twins/0/name
+  - stepId: listModels
+    description: >-
+      List the BIM models bound to the twin. Element data is addressed per model, not
+      per twin.
+    operationId: getModels
+    parameters:
+    - name: twinId
+      in: path
+      value: $steps.listTwins.outputs.twinId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      models: $response.body#/models
+      modelId: $response.body#/models/0/modelId
+      modelLabel: $response.body#/models/0/label
+  - stepId: readSchema
+    description: >-
+      Read the twin's schema. This tells the integration which custom property
+      attributes exist and are therefore writable, before it attempts a mutation.
+    operationId: getSchema
+    parameters:
+    - name: twinId
+      in: path
+      value: $steps.listTwins.outputs.twinId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      schemas: $response.body#/schemas
+      firstSchemaId: $response.body#/schemas/0/id
+  - stepId: scanModelElements
+    description: >-
+      Scan the model for the elements of interest, narrowed by category and family so
+      a large facility does not return every element in the building.
+    operationId: scanElements
+    parameters:
+    - name: modelId
+      in: path
+      value: $steps.listModels.outputs.modelId
+    requestBody:
+      contentType: application/json
+      payload:
+        families: $inputs.families
+        categoryId: $inputs.categoryId
+        includeHistory: false
+        columns:
+        - fam: $inputs.propertyFamily
+          col: $inputs.propertyColumn
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      rows: $response.body#/rows
+      qualifiedColumns: $response.body#/qualifiedColumns
+  - stepId: readElementProperties
+    description: >-
+      Read the current property values for the specific element keys being synced, so
+      the caller can diff before writing.
+    operationId: getElementProperties
+    parameters:
+    - name: modelId
+      in: path
+      value: $steps.listModels.outputs.modelId
+    requestBody:
+      contentType: application/json
+      payload:
+        keys: $inputs.elementKeys
+        columns:
+        - fam: $inputs.propertyFamily
+          col: $inputs.propertyColumn
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      rows: $response.body#/rows
+  - stepId: writeElementProperties
+    description: >-
+      Write the new custom property values onto the elements. Requires data:write, and
+      will reject any property that is not part of a user-created schema.
+    operationId: mutateElements
+    parameters:
+    - name: modelId
+      in: path
+      value: $steps.listModels.outputs.modelId
+    requestBody:
+      contentType: application/json
+      payload:
+        mutations:
+        - key: $inputs.mutationElementKey
+          properties: $inputs.propertyUpdates
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      mutated: $statusCode
+  outputs:
+    twinId: $steps.listTwins.outputs.twinId
+    modelId: $steps.listModels.outputs.modelId
+    scannedRows: $steps.scanModelElements.outputs.rows
+    currentProperties: $steps.readElementProperties.outputs.rows

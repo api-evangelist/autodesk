@@ -1,0 +1,184 @@
+arazzo: 1.0.1
+info:
+  title: Autodesk Define a Shared Parameter in a Collection
+  summary: Resolve valid specs, create a collection and group, define a parameter, and read it back.
+  description: >-
+    Standing up a standards library that stays synchronized across Autodesk products
+    instead of living in a shared parameters text file that every office copies and
+    drifts from. The workflow resolves the valid spec types, creates the collection
+    that scopes the standard, adds a group to organize it, defines a parameter bound
+    to categories and disciplines, and reads it back to capture the GUID that
+    identifies it everywhere it is used. The spec is resolved first because it is an id
+    and cannot be guessed from a friendly type name. Every step spells out its request
+    inline so the flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: parametersApi
+  url: ../openapi/autodesk-parameters-openapi.yml
+  type: openapi
+workflows:
+- workflowId: define-shared-parameter
+  summary: Create a parameter collection, group, and parameter definition.
+  description: >-
+    Lists the available spec types, creates a collection, creates a group inside it,
+    defines a parameter against a spec and group, and reads the parameter back to
+    confirm its GUID.
+  inputs:
+    type: object
+    required:
+    - accountId
+    - collectionName
+    - groupName
+    - parameterName
+    - specId
+    properties:
+      accountId:
+        type: string
+        description: >-
+          The Autodesk account id (the hub id without the "b." prefix).
+      collectionName:
+        type: string
+        description: Name of the parameter collection to create.
+      collectionDescription:
+        type: string
+        description: What standard this collection represents.
+      groupName:
+        type: string
+        description: Name of the group organizing the parameters.
+      groupDescription:
+        type: string
+        description: What the group covers.
+      parameterName:
+        type: string
+        description: Name of the parameter being defined.
+      parameterDescription:
+        type: string
+        description: What the parameter records.
+      specId:
+        type: string
+        description: >-
+          The spec (data type) id the parameter uses, taken from the resolved spec
+          list (e.g. a length, area, or text spec).
+      categories:
+        type: array
+        description: Revit category ids the parameter binds to.
+        items:
+          type: string
+      disciplines:
+        type: array
+        description: Discipline ids the parameter is classified under.
+        items:
+          type: string
+  steps:
+  - stepId: listSpecs
+    description: >-
+      List the available spec types. A parameter's spec is an id, not a friendly name
+      like "length", so it has to be resolved before a definition can be created.
+    operationId: getSpecs
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      specs: $response.body#/results
+      firstSpecId: $response.body#/results/0/id
+  - stepId: createParameterCollection
+    description: >-
+      Create the collection that scopes this set of parameters. Collections are the
+      unit products subscribe to, so one per standard rather than one per project.
+    operationId: createCollection
+    parameters:
+    - name: accountId
+      in: path
+      value: $inputs.accountId
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.collectionName
+        description: $inputs.collectionDescription
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      collectionId: $response.body#/id
+      collectionName: $response.body#/name
+      createdAt: $response.body#/createdAt
+  - stepId: createParameterGroup
+    description: >-
+      Create a group within the collection. Groups are how a large standard stays
+      navigable once it holds hundreds of parameters.
+    operationId: createGroup
+    parameters:
+    - name: accountId
+      in: path
+      value: $inputs.accountId
+    - name: collectionId
+      in: path
+      value: $steps.createParameterCollection.outputs.collectionId
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.groupName
+        description: $inputs.groupDescription
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      groupId: $response.body#/id
+      groupName: $response.body#/name
+  - stepId: defineParameter
+    description: >-
+      Define the parameter against the resolved spec and group, bound to the
+      categories and disciplines it applies to. Instance parameters vary per placed
+      element; type parameters vary per family type.
+    operationId: createParameter
+    parameters:
+    - name: accountId
+      in: path
+      value: $inputs.accountId
+    - name: collectionId
+      in: path
+      value: $steps.createParameterCollection.outputs.collectionId
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.parameterName
+        description: $inputs.parameterDescription
+        specId: $inputs.specId
+        groupId: $steps.createParameterGroup.outputs.groupId
+        isInstance: true
+        categories: $inputs.categories
+        disciplines: $inputs.disciplines
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      parameterId: $response.body#/id
+      guid: $response.body#/guid
+      specId: $response.body#/specId
+  - stepId: confirmParameter
+    description: >-
+      Read the parameter back to confirm the definition and capture its GUID, which is
+      the identifier that follows the parameter into every model that consumes the
+      collection.
+    operationId: getParameter
+    parameters:
+    - name: accountId
+      in: path
+      value: $inputs.accountId
+    - name: collectionId
+      in: path
+      value: $steps.createParameterCollection.outputs.collectionId
+    - name: parameterId
+      in: path
+      value: $steps.defineParameter.outputs.parameterId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      parameterId: $response.body#/id
+      name: $response.body#/name
+      guid: $response.body#/guid
+      specId: $response.body#/specId
+      isInstance: $response.body#/isInstance
+      categories: $response.body#/categories
+  outputs:
+    collectionId: $steps.createParameterCollection.outputs.collectionId
+    groupId: $steps.createParameterGroup.outputs.groupId
+    parameterId: $steps.confirmParameter.outputs.parameterId
+    guid: $steps.confirmParameter.outputs.guid

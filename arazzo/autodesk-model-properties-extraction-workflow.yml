@@ -1,0 +1,150 @@
+arazzo: 1.0.1
+info:
+  title: Autodesk Extract Model Properties
+  summary: Confirm a translation, resolve a viewable, walk its object tree, and query filtered properties.
+  description: >-
+    A read-only extraction pass over a design that Model Derivative has already
+    translated. Integrators run this to pull a bill of materials, a quantity takeoff,
+    or an asset register out of a Revit or AutoCAD model without ever opening the
+    desktop product. The workflow confirms the derivative is ready, resolves the
+    viewable GUID, retrieves the object hierarchy, and then runs a filtered property
+    query rather than downloading every property of every object. Every step spells
+    out its request inline so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: modelDerivativeApi
+  url: ../openapi/autodesk-model-derivative-openapi.yml
+  type: openapi
+workflows:
+- workflowId: extract-model-properties
+  summary: Pull filtered object properties out of an already-translated design.
+  description: >-
+    Verifies the manifest reports a successful translation, resolves the first
+    viewable, fetches its object tree, and issues a property query filtered to the
+    fields the caller actually needs.
+  inputs:
+    type: object
+    required:
+    - urnBase64
+    - propertyKey
+    - propertyValue
+    properties:
+      urnBase64:
+        type: string
+        description: >-
+          The URL-safe Base64 encoded URN of the source design.
+      propertyKey:
+        type: string
+        description: >-
+          The property path to match on in the query (e.g. "s.props.p20d8441e" or
+          a name path exposed by the property database).
+      propertyValue:
+        type: string
+        description: The value the property must equal for the object to be returned.
+      fields:
+        type: array
+        description: >-
+          The property names to return for each matched object. Keeps large models
+          from returning every property of every object.
+        items:
+          type: string
+      limit:
+        type: integer
+        description: Maximum number of objects to return in one page.
+        default: 100
+  steps:
+  - stepId: confirmTranslation
+    description: >-
+      Confirm the manifest reports a successful translation before attempting to read
+      derived data. Properties do not exist until the property database derivative has
+      finished generating.
+    operationId: getManifest
+    parameters:
+    - name: urn
+      in: path
+      value: $inputs.urnBase64
+    successCriteria:
+    - condition: $statusCode == 200
+    - context: $response.body
+      condition: $.status == "success"
+      type: jsonpath
+    outputs:
+      status: $response.body#/status
+      derivatives: $response.body#/derivatives
+  - stepId: resolveViewable
+    description: >-
+      List the model views of the design and take the GUID of the first viewable,
+      which addresses the object tree and property database for that view.
+    operationId: getMetadata
+    parameters:
+    - name: urn
+      in: path
+      value: $inputs.urnBase64
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      viewableGuid: $response.body#/data/metadata/0/guid
+      viewableName: $response.body#/data/metadata/0/name
+  - stepId: readObjectTree
+    description: >-
+      Retrieve the object hierarchy for the viewable. A 202 means the tree is still
+      being generated on demand, so the step retries rather than failing.
+    operationId: getObjectTree
+    parameters:
+    - name: urn
+      in: path
+      value: $inputs.urnBase64
+    - name: guid
+      in: path
+      value: $steps.resolveViewable.outputs.viewableGuid
+    - name: forceget
+      in: query
+      value: true
+    successCriteria:
+    - condition: $statusCode == 200
+    onFailure:
+    - name: treeStillGenerating
+      type: retry
+      retryAfter: 10
+      retryLimit: 12
+      criteria:
+      - condition: $statusCode == 202
+    outputs:
+      objects: $response.body#/data/objects
+      rootObjectId: $response.body#/data/objects/0/objectid
+      rootName: $response.body#/data/objects/0/name
+  - stepId: queryMatchingProperties
+    description: >-
+      Query the property database for the objects whose property matches the supplied
+      value, returning only the requested fields. This is the scalable alternative to
+      pulling all properties for large models.
+    operationId: queryProperties
+    parameters:
+    - name: urn
+      in: path
+      value: $inputs.urnBase64
+    - name: guid
+      in: path
+      value: $steps.resolveViewable.outputs.viewableGuid
+    requestBody:
+      contentType: application/json
+      payload:
+        query:
+          $eq:
+          - $inputs.propertyKey
+          - $inputs.propertyValue
+        fields: $inputs.fields
+        pagination:
+          offset: 0
+          limit: $inputs.limit
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      collection: $response.body#/data/collection
+      firstObjectId: $response.body#/data/collection/0/objectid
+      firstExternalId: $response.body#/data/collection/0/externalId
+  outputs:
+    viewableGuid: $steps.resolveViewable.outputs.viewableGuid
+    objects: $steps.readObjectTree.outputs.objects
+    matchedProperties: $steps.queryMatchingProperties.outputs.collection

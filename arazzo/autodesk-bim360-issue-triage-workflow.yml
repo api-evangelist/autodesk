@@ -1,0 +1,189 @@
+arazzo: 1.0.1
+info:
+  title: Autodesk Open, Comment On, and Close a BIM 360 Issue
+  summary: Resolve issue types, open an issue against a model, add a comment, close it with an answer, and read it back.
+  description: >-
+    The full life of a quality issue in BIM 360, which is what most field-to-office
+    integrations are actually automating. The workflow resolves the container's issue
+    types and subtypes, opens an issue pinned to a target model URN and assigned to a
+    user, adds a comment carrying the field context, closes the issue with an answer,
+    and reads it back to confirm the recorded state. Issue types are resolved rather
+    than guessed because they are container-scoped ids. Every step spells out its
+    request inline so the flow can be read and executed without opening the underlying
+    OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: bim360Api
+  url: ../openapi/autodesk-bim360-openapi.yml
+  type: openapi
+workflows:
+- workflowId: triage-quality-issue
+  summary: Take a BIM 360 quality issue from open to closed with an audit trail.
+  description: >-
+    Lists the issue types available in the container, creates an issue of the first
+    type and subtype, comments on it, closes it with an answer, and reads the issue
+    back to confirm status and comment count.
+  inputs:
+    type: object
+    required:
+    - containerId
+    - title
+    - description
+    - assignedTo
+    - commentBody
+    - resolution
+    properties:
+      containerId:
+        type: string
+        description: The issues container id for the BIM 360 project.
+      title:
+        type: string
+        description: Short title of the issue.
+      description:
+        type: string
+        description: Full description of what was observed.
+      assignedTo:
+        type: string
+        description: The Autodesk id of the user the issue is assigned to.
+      dueDate:
+        type: string
+        description: Due date for the issue (YYYY-MM-DD).
+      priority:
+        type: string
+        description: Issue priority.
+      locationDescription:
+        type: string
+        description: Where in the building the issue was observed.
+      targetUrn:
+        type: string
+        description: URN of the model or sheet the issue is pinned to.
+      commentBody:
+        type: string
+        description: The comment to add to the issue.
+      resolution:
+        type: string
+        description: The answer recorded when the issue is closed.
+  steps:
+  - stepId: listIssueTypes
+    description: >-
+      List the issue types and subtypes configured in the container. Both ids are
+      container-scoped, so an issue cannot be created without resolving them first.
+    operationId: getIssueTypes
+    parameters:
+    - name: containerId
+      in: path
+      value: $inputs.containerId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      issueTypes: $response.body#/data
+      issueTypeId: $response.body#/data/0/id
+      issueSubTypeId: $response.body#/data/0/attributes/subtypes/0/id
+  - stepId: openIssue
+    description: >-
+      Create the issue against the resolved type and subtype, pinned to the target
+      model and assigned to a user. The issues API speaks JSON:API.
+    operationId: createIssue
+    parameters:
+    - name: containerId
+      in: path
+      value: $inputs.containerId
+    requestBody:
+      contentType: application/vnd.api+json
+      payload:
+        data:
+          type: quality_issues
+          attributes:
+            title: $inputs.title
+            description: $inputs.description
+            status: open
+            issue_type_id: $steps.listIssueTypes.outputs.issueTypeId
+            issue_sub_type_id: $steps.listIssueTypes.outputs.issueSubTypeId
+            assigned_to: $inputs.assignedTo
+            assigned_to_type: user
+            due_date: $inputs.dueDate
+            priority: $inputs.priority
+            location_description: $inputs.locationDescription
+            target_urn: $inputs.targetUrn
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      issueId: $response.body#/data/id
+      status: $response.body#/data/attributes/status
+      createdAt: $response.body#/data/attributes/created_at
+  - stepId: addComment
+    description: >-
+      Comment on the issue. Comments are the audit trail an integration writes back
+      when field context arrives from another system.
+    operationId: createIssueComment
+    parameters:
+    - name: containerId
+      in: path
+      value: $inputs.containerId
+    - name: issueId
+      in: path
+      value: $steps.openIssue.outputs.issueId
+    requestBody:
+      contentType: application/vnd.api+json
+      payload:
+        data:
+          type: comments
+          attributes:
+            body: $inputs.commentBody
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      commentPosted: $statusCode
+  - stepId: closeIssue
+    description: >-
+      Close the issue with an answer recording how it was resolved. Patching status
+      alone without an answer leaves the record unexplained.
+    operationId: updateIssue
+    parameters:
+    - name: containerId
+      in: path
+      value: $inputs.containerId
+    - name: issueId
+      in: path
+      value: $steps.openIssue.outputs.issueId
+    requestBody:
+      contentType: application/vnd.api+json
+      payload:
+        data:
+          type: quality_issues
+          id: $steps.openIssue.outputs.issueId
+          attributes:
+            status: closed
+            answer: $inputs.resolution
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      status: $response.body#/data/attributes/status
+      answeredAt: $response.body#/data/attributes/answered_at
+  - stepId: confirmIssue
+    description: >-
+      Read the issue back to confirm it is closed and that the comment was recorded
+      against it.
+    operationId: getIssue
+    parameters:
+    - name: containerId
+      in: path
+      value: $inputs.containerId
+    - name: issueId
+      in: path
+      value: $steps.openIssue.outputs.issueId
+    successCriteria:
+    - condition: $statusCode == 200
+    - context: $response.body
+      condition: $.data.attributes.status == "closed"
+      type: jsonpath
+    outputs:
+      issueId: $response.body#/data/id
+      status: $response.body#/data/attributes/status
+      commentCount: $response.body#/data/attributes/comment_count
+      closedAt: $response.body#/data/attributes/closed_at
+      closedBy: $response.body#/data/attributes/closed_by
+  outputs:
+    issueId: $steps.confirmIssue.outputs.issueId
+    status: $steps.confirmIssue.outputs.status
+    commentCount: $steps.confirmIssue.outputs.commentCount

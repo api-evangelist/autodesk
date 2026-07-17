@@ -1,0 +1,153 @@
+arazzo: 1.0.1
+info:
+  title: Autodesk Subscribe to Events with a Signed Webhook
+  summary: Discover event systems and events, set a signing secret, create a scoped hook, and confirm it is active.
+  description: >-
+    How an integration stops polling Autodesk and starts being told. The workflow
+    discovers which event systems exist, lists the events a chosen system emits,
+    installs the secret token Autodesk uses to sign callback payloads, creates a hook
+    scoped to a single folder, and reads the hook back to confirm it is active. The
+    signing secret is set before the hook is created so that no unsigned callback can
+    ever arrive. Every step spells out its request inline so the flow can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: webhooksApi
+  url: ../openapi/autodesk-webhooks-openapi.yml
+  type: openapi
+workflows:
+- workflowId: subscribe-to-events
+  summary: Stand up a signed, folder-scoped webhook subscription.
+  description: >-
+    Lists systems and their events, installs a payload signing secret, creates a hook
+    for one event scoped to one folder, and confirms the resulting subscription.
+  inputs:
+    type: object
+    required:
+    - system
+    - event
+    - callbackUrl
+    - secretToken
+    - folderUrn
+    properties:
+      system:
+        type: string
+        description: >-
+          The event system to subscribe within (e.g. "data", "derivative",
+          "adsk.c4r").
+      event:
+        type: string
+        description: >-
+          The event type to subscribe to (e.g. "dm.version.added",
+          "extraction.finished").
+      callbackUrl:
+        type: string
+        description: The HTTPS endpoint Autodesk POSTs callbacks to.
+      secretToken:
+        type: string
+        description: >-
+          Secret used to sign callback payloads. Arrives on callbacks in the
+          x-adsk-signature header and must be verified before trusting a payload.
+      folderUrn:
+        type: string
+        description: The folder URN to scope the subscription to.
+      filter:
+        type: string
+        description: >-
+          Optional JSON filter expression narrowing which events fire the hook
+          (e.g. by file extension).
+  steps:
+  - stepId: listSystems
+    description: >-
+      Discover which event systems currently accept webhook subscriptions rather than
+      hardcoding a system string that may be retired.
+    operationId: getSystems
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      systems: $response.body#/data
+  - stepId: listEvents
+    description: >-
+      List the events the chosen system emits, confirming the event to subscribe to
+      is real before a hook is created against it.
+    operationId: getSystemEvents
+    parameters:
+    - name: system
+      in: path
+      value: $inputs.system
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      events: $response.body#/data
+  - stepId: installSigningSecret
+    description: >-
+      Install the secret token Autodesk signs callback payloads with. Done before the
+      hook exists so that every callback the hook ever fires is signed.
+    operationId: createToken
+    requestBody:
+      contentType: application/json
+      payload:
+        token: $inputs.secretToken
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      tokenInstalled: $statusCode
+  - stepId: createSubscription
+    description: >-
+      Create the hook, scoped to a single folder so the callback endpoint is not
+      flooded with events from the whole hub. autoReactivateHook keeps the
+      subscription alive through a transient outage of the callback endpoint.
+    operationId: createHook
+    parameters:
+    - name: system
+      in: path
+      value: $inputs.system
+    - name: event
+      in: path
+      value: $inputs.event
+    requestBody:
+      contentType: application/json
+      payload:
+        callbackUrl: $inputs.callbackUrl
+        scope:
+          folder: $inputs.folderUrn
+        filter: $inputs.filter
+        autoReactivateHook: true
+        hookAttribute:
+          createdByWorkflow: autodesk-webhook-subscription-workflow
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      hookId: $response.body#/hookId
+      tenant: $response.body#/tenant
+      status: $response.body#/status
+  - stepId: confirmSubscription
+    description: >-
+      Read the hook back to confirm it is active and pointed at the intended callback
+      URL and scope.
+    operationId: getHook
+    parameters:
+    - name: system
+      in: path
+      value: $inputs.system
+    - name: event
+      in: path
+      value: $inputs.event
+    - name: hook_id
+      in: path
+      value: $steps.createSubscription.outputs.hookId
+    successCriteria:
+    - condition: $statusCode == 200
+    - context: $response.body
+      condition: $.status == "active"
+      type: jsonpath
+    outputs:
+      hookId: $response.body#/hookId
+      status: $response.body#/status
+      callbackUrl: $response.body#/callbackUrl
+      scope: $response.body#/scope
+      createdDate: $response.body#/createdDate
+  outputs:
+    hookId: $steps.confirmSubscription.outputs.hookId
+    status: $steps.confirmSubscription.outputs.status
+    callbackUrl: $steps.confirmSubscription.outputs.callbackUrl

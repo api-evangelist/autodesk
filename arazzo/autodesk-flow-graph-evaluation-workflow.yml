@@ -1,0 +1,140 @@
+arazzo: 1.0.1
+info:
+  title: Autodesk Evaluate a Bifrost Graph in the Cloud
+  summary: Upload a Bifrost graph, queue an evaluation job with inputs, poll it, and collect the outputs.
+  description: >-
+    Offloading a Bifrost graph evaluation to the Flow Graph Engine so an effects,
+    simulation, or procedural content task runs on cloud hardware instead of an
+    artist's workstation. The workflow uploads the .bif graph, reads back the input
+    ports it declares, queues a job binding values to those ports, polls until the job
+    reaches a terminal state, and collects the outputs. Every step spells out its
+    request inline so the flow can be read and executed without opening the underlying
+    OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: flowGraphEngineApi
+  url: ../openapi/autodesk-flow-graph-engine-openapi.yml
+  type: openapi
+workflows:
+- workflowId: evaluate-bifrost-graph
+  summary: Upload a graph, run it against inputs, and collect the result.
+  description: >-
+    Uploads a Bifrost graph file, queues an evaluation job with input parameter values
+    matching the graph's declared input ports, waits for the job to succeed, and
+    retrieves the outputs and any binary download link.
+  inputs:
+    type: object
+    required:
+    - graphFile
+    - graphName
+    - graphInputs
+    properties:
+      graphFile:
+        type: string
+        description: The Bifrost graph file (.bif) to upload.
+      graphName:
+        type: string
+        description: Display name for the uploaded graph.
+      graphDescription:
+        type: string
+        description: Description of what the graph computes.
+      graphInputs:
+        type: object
+        description: >-
+          Input parameter values keyed by the graph's input port names, as reported by
+          the upload step.
+      callbackUrl:
+        type: string
+        description: Optional URL notified when the job completes.
+  steps:
+  - stepId: uploadBifrostGraph
+    description: >-
+      Upload the Bifrost graph. The response declares the graph's input and output
+      ports, which is what the job's inputs must be keyed by.
+    operationId: uploadGraph
+    requestBody:
+      contentType: multipart/form-data
+      payload:
+        file: $inputs.graphFile
+        name: $inputs.graphName
+        description: $inputs.graphDescription
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      graphId: $response.body#/id
+      inputPorts: $response.body#/inputs
+      outputPorts: $response.body#/outputs
+      fileSize: $response.body#/fileSize
+  - stepId: queueEvaluation
+    description: >-
+      Queue an evaluation job against the uploaded graph, binding values to its input
+      ports. A callback URL avoids the polling loop entirely for callers that can
+      receive one.
+    operationId: createJob
+    requestBody:
+      contentType: application/json
+      payload:
+        graphId: $steps.uploadBifrostGraph.outputs.graphId
+        inputs: $inputs.graphInputs
+        callbackUrl: $inputs.callbackUrl
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      jobId: $response.body#/id
+      status: $response.body#/status
+      createdAt: $response.body#/createdAt
+  - stepId: awaitEvaluation
+    description: >-
+      Poll the job until it succeeds. The endpoint returns 200 while queued or
+      running, so the terminal state is read from the body, and the workflow ends with
+      the error message if the evaluation fails or is cancelled.
+    operationId: getJob
+    parameters:
+    - name: jobId
+      in: path
+      value: $steps.queueEvaluation.outputs.jobId
+    successCriteria:
+    - condition: $statusCode == 200
+    - context: $response.body
+      condition: $.status == "succeeded"
+      type: jsonpath
+    onFailure:
+    - name: stillEvaluating
+      type: retry
+      retryAfter: 15
+      retryLimit: 60
+      criteria:
+      - context: $response.body
+        condition: $.status == "queued" || $.status == "running"
+        type: jsonpath
+    - name: evaluationFailed
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.status == "failed" || $.status == "cancelled"
+        type: jsonpath
+    outputs:
+      status: $response.body#/status
+      progress: $response.body#/progress
+      completedAt: $response.body#/completedAt
+      error: $response.body#/error
+  - stepId: collectResult
+    description: >-
+      Retrieve the evaluation outputs. Returns 404 if called before the job reaches a
+      completed state, which the poll above guarantees it has.
+    operationId: getJobResult
+    parameters:
+    - name: jobId
+      in: path
+      value: $steps.queueEvaluation.outputs.jobId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      jobId: $response.body#/jobId
+      outputs: $response.body#/outputs
+      downloadUrl: $response.body#/downloadUrl
+  outputs:
+    graphId: $steps.uploadBifrostGraph.outputs.graphId
+    jobId: $steps.queueEvaluation.outputs.jobId
+    status: $steps.awaitEvaluation.outputs.status
+    downloadUrl: $steps.collectResult.outputs.downloadUrl

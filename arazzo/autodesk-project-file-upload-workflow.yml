@@ -1,0 +1,226 @@
+arazzo: 1.0.1
+info:
+  title: Autodesk Publish a File into a Project Folder
+  summary: Navigate hub to project to top folders, create a subfolder, and publish a file item into it.
+  description: >-
+    The Data Management navigation every Autodesk Docs, BIM 360, and Fusion Team
+    integration has to perform before it can write anything. The workflow resolves the
+    hub, resolves the project inside it, lists the project's top folders, creates a
+    subfolder, and creates a file item that points at previously uploaded storage.
+    Every step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: dataManagementApi
+  url: ../openapi/autodesk-data-management-openapi.yml
+  type: openapi
+workflows:
+- workflowId: publish-file-into-project-folder
+  summary: Walk the hub/project/folder tree and publish a new file item.
+  description: >-
+    Resolves the hub by name, resolves the project, takes the first top folder,
+    creates a named subfolder beneath it, creates the item that binds a storage object
+    to that folder, and reads the item back to confirm its tip version.
+  inputs:
+    type: object
+    required:
+    - hubName
+    - projectId
+    - folderName
+    - fileName
+    - storageObjectId
+    properties:
+      hubName:
+        type: string
+        description: The hub (Autodesk account or BIM 360 account) name to resolve.
+      projectId:
+        type: string
+        description: The project id to publish into (e.g. b.xxxxxxxx-xxxx-...).
+      folderName:
+        type: string
+        description: Name of the subfolder to create under the top folder.
+      fileName:
+        type: string
+        description: Display name for the published file item (e.g. "tower.rvt").
+      storageObjectId:
+        type: string
+        description: >-
+          The storage object URN the file bytes were uploaded to, which the item and
+          its first version point at.
+      folderExtensionType:
+        type: string
+        description: >-
+          The folder extension type for the host product (e.g.
+          "folders:autodesk.bim360:Folder").
+        default: folders:autodesk.bim360:Folder
+      itemExtensionType:
+        type: string
+        description: >-
+          The item extension type for the host product (e.g.
+          "items:autodesk.bim360:File").
+        default: items:autodesk.bim360:File
+      versionExtensionType:
+        type: string
+        description: >-
+          The version extension type for the host product (e.g.
+          "versions:autodesk.bim360:File").
+        default: versions:autodesk.bim360:File
+  steps:
+  - stepId: resolveHub
+    description: >-
+      Find the hub by name. Everything in Data Management hangs off a hub, and its id
+      is required to reach projects.
+    operationId: getHubs
+    parameters:
+    - name: filter[name]
+      in: query
+      value: $inputs.hubName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      hubId: $response.body#/data/0/id
+      hubName: $response.body#/data/0/attributes/name
+      region: $response.body#/data/0/attributes/region
+  - stepId: resolveProject
+    description: >-
+      Resolve the target project within the hub, filtering by the supplied project id
+      so the flow fails loudly rather than writing into the wrong project.
+    operationId: getHubProjects
+    parameters:
+    - name: hub_id
+      in: path
+      value: $steps.resolveHub.outputs.hubId
+    - name: filter[id]
+      in: query
+      value: $inputs.projectId
+    - name: page[limit]
+      in: query
+      value: 200
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      projectId: $response.body#/data/0/id
+      projectName: $response.body#/data/0/attributes/name
+      rootFolderId: $response.body#/data/0/relationships/rootFolder/data/id
+  - stepId: listTopFolders
+    description: >-
+      List the project's top-level folders. These are the roots the host product
+      exposes (Plans, Project Files, and so on) and are the only valid parents for a
+      first subfolder.
+    operationId: getProjectTopFolders
+    parameters:
+    - name: hub_id
+      in: path
+      value: $steps.resolveHub.outputs.hubId
+    - name: project_id
+      in: path
+      value: $steps.resolveProject.outputs.projectId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      topFolderId: $response.body#/data/0/id
+      topFolderName: $response.body#/data/0/attributes/displayName
+      topFolders: $response.body#/data
+  - stepId: createSubFolder
+    description: >-
+      Create the destination subfolder beneath the top folder. Data Management speaks
+      JSON:API, so the parent is expressed as a relationship rather than a path.
+    operationId: createFolder
+    parameters:
+    - name: project_id
+      in: path
+      value: $steps.resolveProject.outputs.projectId
+    requestBody:
+      contentType: application/vnd.api+json
+      payload:
+        jsonapi:
+          version: '1.0'
+        data:
+          type: folders
+          attributes:
+            name: $inputs.folderName
+            extension:
+              type: $inputs.folderExtensionType
+              version: '1.0'
+          relationships:
+            parent:
+              data:
+                type: folders
+                id: $steps.listTopFolders.outputs.topFolderId
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      folderId: $response.body#/data/id
+      folderName: $response.body#/data/attributes/displayName
+  - stepId: createFileItem
+    description: >-
+      Create the item that represents the file in the folder, binding it to the
+      storage object holding the bytes. The included array carries the first version
+      of the item.
+    operationId: createItem
+    parameters:
+    - name: project_id
+      in: path
+      value: $steps.resolveProject.outputs.projectId
+    requestBody:
+      contentType: application/vnd.api+json
+      payload:
+        jsonapi:
+          version: '1.0'
+        data:
+          type: items
+          attributes:
+            displayName: $inputs.fileName
+            extension:
+              type: $inputs.itemExtensionType
+              version: '1.0'
+          relationships:
+            tip:
+              data:
+                type: versions
+                id: '1'
+            parent:
+              data:
+                type: folders
+                id: $steps.createSubFolder.outputs.folderId
+        included:
+        - type: versions
+          id: '1'
+          attributes:
+            name: $inputs.fileName
+            extension:
+              type: $inputs.versionExtensionType
+              version: '1.0'
+          relationships:
+            storage:
+              data:
+                type: objects
+                id: $inputs.storageObjectId
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      itemId: $response.body#/data/id
+      tipVersionId: $response.body#/data/relationships/tip/data/id
+  - stepId: confirmItem
+    description: >-
+      Read the published item back to confirm it landed in the folder and to capture
+      its display name and tip version as recorded by the service.
+    operationId: getItem
+    parameters:
+    - name: project_id
+      in: path
+      value: $steps.resolveProject.outputs.projectId
+    - name: item_id
+      in: path
+      value: $steps.createFileItem.outputs.itemId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      itemId: $response.body#/data/id
+      displayName: $response.body#/data/attributes/displayName
+      createTime: $response.body#/data/attributes/createTime
+      tipVersionId: $response.body#/data/relationships/tip/data/id
+  outputs:
+    folderId: $steps.createSubFolder.outputs.folderId
+    itemId: $steps.confirmItem.outputs.itemId
+    tipVersionId: $steps.confirmItem.outputs.tipVersionId
