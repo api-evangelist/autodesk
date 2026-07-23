@@ -1,0 +1,109 @@
+openapi: 3.1.0
+info:
+  title: Autodesk ACC Account Admin Account Users Authorization API
+  description: The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.
+  version: 1.0.0
+  termsOfService: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  contact:
+    name: Autodesk Platform Services
+    url: https://aps.autodesk.com
+    email: aps.help@autodesk.com
+  license:
+    name: Autodesk API Terms of Service
+    url: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+servers:
+- url: https://developer.api.autodesk.com
+  description: Production
+security:
+- OAuth2ThreeLegged:
+  - account:read
+tags:
+- name: Authorization
+paths:
+  /authentication/v2/authorize:
+    get:
+      operationId: authorize
+      summary: Autodesk Authorize User
+      description: Redirects the user to the Autodesk login page where they grant your application access to their data. This is the first step of the three-legged OAuth flow. After the user grants consent, Autodesk redirects them back to the redirect URI with an authorization code.
+      tags:
+      - Authorization
+      parameters:
+      - name: response_type
+        in: query
+        required: true
+        description: Must be set to `code` for authorization code flow.
+        schema:
+          type: string
+          enum:
+          - code
+      - name: client_id
+        in: query
+        required: true
+        description: The Client ID of your APS application.
+        schema:
+          type: string
+      - name: redirect_uri
+        in: query
+        required: true
+        description: The URI that Autodesk redirects the user to after granting consent. Must match a redirect URI registered with the application.
+        schema:
+          type: string
+          format: uri
+      - name: scope
+        in: query
+        required: true
+        description: Space-separated list of scopes requested. Common scopes include data:read, data:write, data:create, account:read, account:write.
+        schema:
+          type: string
+      - name: state
+        in: query
+        required: false
+        description: An opaque value that the application uses to maintain state between the request and callback. Used to prevent CSRF attacks.
+        schema:
+          type: string
+      - name: nonce
+        in: query
+        required: false
+        description: A random string used to associate a client session with an ID token.
+        schema:
+          type: string
+      - name: prompt
+        in: query
+        required: false
+        description: Controls the authentication experience presented to the user.
+        schema:
+          type: string
+          enum:
+          - login
+      responses:
+        '302':
+          description: Redirects the user to the Autodesk login page.
+  /authentication/v2/logout:
+    get:
+      operationId: logout
+      summary: Autodesk Logout
+      description: Ends the user's Autodesk session and optionally redirects the user to a specified URI.
+      tags:
+      - Authorization
+      parameters:
+      - name: post_logout_redirect_uri
+        in: query
+        required: false
+        description: URI to redirect the user to after logout.
+        schema:
+          type: string
+          format: uri
+      responses:
+        '302':
+          description: Redirects the user after logout.
+components:
+  securitySchemes:
+    OAuth2ThreeLegged:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://developer.api.autodesk.com/authentication/v2/authorize
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            account:read: Read account data
+            account:write: Write account data

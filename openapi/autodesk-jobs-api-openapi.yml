@@ -1,0 +1,379 @@
+openapi: 3.1.0
+info:
+  title: Autodesk ACC Account Admin Account Users Jobs API
+  description: The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.
+  version: 1.0.0
+  termsOfService: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  contact:
+    name: Autodesk Platform Services
+    url: https://aps.autodesk.com
+    email: aps.help@autodesk.com
+  license:
+    name: Autodesk API Terms of Service
+    url: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+servers:
+- url: https://developer.api.autodesk.com
+  description: Production
+security:
+- OAuth2ThreeLegged:
+  - account:read
+tags:
+- name: Jobs
+paths:
+  /fge/v1/jobs:
+    get:
+      operationId: getJobs
+      summary: Autodesk List Jobs
+      description: Returns a list of graph evaluation jobs.
+      tags:
+      - Jobs
+      parameters:
+      - name: filter[status]
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - queued
+          - running
+          - succeeded
+          - failed
+          - cancelled
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successfully retrieved jobs.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobsResponse'
+    post:
+      operationId: createJob
+      summary: Autodesk Create Job
+      description: Creates and queues a new graph evaluation job. Specify the graph to evaluate and input parameters.
+      tags:
+      - Jobs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateJobRequest'
+      responses:
+        '201':
+          description: Job created and queued.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+        '400':
+          description: Bad request.
+  /fge/v1/jobs/{jobId}:
+    get:
+      operationId: getJob
+      summary: Autodesk Get Job
+      description: Returns the status and details of a specific job.
+      tags:
+      - Jobs
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully retrieved job.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+        '404':
+          description: Job not found.
+    delete:
+      operationId: cancelJob
+      summary: Autodesk Cancel Job
+      description: Cancels a queued or running job.
+      tags:
+      - Jobs
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Job cancelled.
+  /fge/v1/jobs/{jobId}/result:
+    get:
+      operationId: getJobResult
+      summary: Autodesk Get Job Result
+      description: Returns the output/result of a completed graph evaluation job.
+      tags:
+      - Jobs
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully retrieved result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobResult'
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Result not found or job not complete.
+  /modelderivative/v2/designdata/job:
+    post:
+      operationId: startJob
+      summary: Autodesk Start Translation Job
+      description: Starts a translation job to convert a source design file into one or more derivative formats. The source file is identified by its URN (Base64-encoded object ID from the Data Management or OSS API).
+      tags:
+      - Jobs
+      parameters:
+      - name: x-ads-force
+        in: header
+        required: false
+        description: Set to true to force re-translation even if the output already exists.
+        schema:
+          type: boolean
+      - name: x-ads-derivative-format
+        in: header
+        required: false
+        description: The derivative format version (v2 for SVF2).
+        schema:
+          type: string
+          enum:
+          - latest
+          - v2
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobPayload'
+      responses:
+        '200':
+          description: Translation job started or already complete.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobResponse'
+        '201':
+          description: Translation job accepted and started.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobResponse'
+        '400':
+          description: Bad request.
+        '401':
+          description: Unauthorized.
+components:
+  schemas:
+    Job:
+      type: object
+      properties:
+        id:
+          type: string
+        graphId:
+          type: string
+        status:
+          type: string
+          enum:
+          - queued
+          - running
+          - succeeded
+          - failed
+          - cancelled
+        progress:
+          type: number
+          description: Progress percentage (0-100).
+        createdAt:
+          type: string
+          format: date-time
+        startedAt:
+          type: string
+          format: date-time
+        completedAt:
+          type: string
+          format: date-time
+        error:
+          type: string
+          description: Error message if job failed.
+        inputs:
+          type: object
+          additionalProperties: true
+          description: Input parameter values.
+    JobPayload:
+      type: object
+      required:
+      - input
+      - output
+      properties:
+        input:
+          type: object
+          required:
+          - urn
+          properties:
+            urn:
+              type: string
+              description: The URL-safe Base64-encoded URN of the source design file.
+            compressedUrn:
+              type: boolean
+              description: Set to true if the URN is a zipped file.
+            rootFilename:
+              type: string
+              description: The root filename within a zipped file.
+        output:
+          type: object
+          required:
+          - formats
+          properties:
+            destination:
+              type: object
+              properties:
+                region:
+                  type: string
+                  description: Region for storing derivatives.
+                  enum:
+                  - us
+                  - emea
+            formats:
+              type: array
+              items:
+                type: object
+                required:
+                - type
+                properties:
+                  type:
+                    type: string
+                    description: Output format type.
+                    enum:
+                    - svf
+                    - svf2
+                    - thumbnail
+                    - stl
+                    - step
+                    - iges
+                    - obj
+                    - ifc
+                    - dwg
+                  views:
+                    type: array
+                    description: Viewable types for SVF/SVF2 output.
+                    items:
+                      type: string
+                      enum:
+                      - 2d
+                      - 3d
+                  advanced:
+                    type: object
+                    description: Advanced output options.
+                    properties:
+                      exportFileStructure:
+                        type: string
+                        enum:
+                        - single
+                        - multiple
+                      modelGuid:
+                        type: string
+                      objectIds:
+                        type: array
+                        items:
+                          type: integer
+    JobsResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Job'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    JobResponse:
+      type: object
+      properties:
+        result:
+          type: string
+          description: Result status of the job submission.
+        urn:
+          type: string
+          description: The URN of the source design.
+        acceptedJobs:
+          type: object
+          properties:
+            output:
+              type: object
+              properties:
+                formats:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+    CreateJobRequest:
+      type: object
+      required:
+      - graphId
+      properties:
+        graphId:
+          type: string
+        inputs:
+          type: object
+          additionalProperties: true
+          description: Input parameter values matching the graph's input port names.
+        callbackUrl:
+          type: string
+          format: uri
+          description: Optional URL to receive completion notification.
+    JobResult:
+      type: object
+      properties:
+        jobId:
+          type: string
+        outputs:
+          type: object
+          additionalProperties: true
+          description: Output values from the graph evaluation.
+        downloadUrl:
+          type: string
+          format: uri
+          description: URL to download binary output if applicable.
+    Pagination:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalResults:
+          type: integer
+  securitySchemes:
+    OAuth2ThreeLegged:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://developer.api.autodesk.com/authentication/v2/authorize
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            account:read: Read account data
+            account:write: Write account data

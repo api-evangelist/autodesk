@@ -1,0 +1,296 @@
+openapi: 3.1.0
+info:
+  title: Autodesk ACC Account Admin Account Users Parameters API
+  description: The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.
+  version: 1.0.0
+  termsOfService: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  contact:
+    name: Autodesk Platform Services
+    url: https://aps.autodesk.com
+    email: aps.help@autodesk.com
+  license:
+    name: Autodesk API Terms of Service
+    url: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+servers:
+- url: https://developer.api.autodesk.com
+  description: Production
+security:
+- OAuth2ThreeLegged:
+  - account:read
+tags:
+- name: Parameters
+paths:
+  /parameters/v1/accounts/{accountId}/collections/{collectionId}/parameters:
+    get:
+      operationId: getParameters
+      summary: Autodesk List Parameters
+      description: Returns parameters within a collection.
+      tags:
+      - Parameters
+      parameters:
+      - name: accountId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: collectionId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: filter[groupId]
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully retrieved parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParametersResponse'
+    post:
+      operationId: createParameter
+      summary: Autodesk Create Parameter
+      description: Creates a new parameter within a collection.
+      tags:
+      - Parameters
+      security:
+      - OAuth2ThreeLegged:
+        - data:write
+      parameters:
+      - name: accountId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: collectionId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateParameterRequest'
+      responses:
+        '201':
+          description: Parameter created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParameterDefinition'
+  /parameters/v1/accounts/{accountId}/collections/{collectionId}/parameters/{parameterId}:
+    get:
+      operationId: getParameter
+      summary: Autodesk Get Parameter
+      description: Returns a specific parameter definition.
+      tags:
+      - Parameters
+      parameters:
+      - name: accountId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: collectionId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: parameterId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully retrieved parameter.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParameterDefinition'
+    patch:
+      operationId: updateParameter
+      summary: Autodesk Update Parameter
+      description: Updates a parameter definition.
+      tags:
+      - Parameters
+      security:
+      - OAuth2ThreeLegged:
+        - data:write
+      parameters:
+      - name: accountId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: collectionId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: parameterId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateParameterRequest'
+      responses:
+        '200':
+          description: Parameter updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParameterDefinition'
+    delete:
+      operationId: deleteParameter
+      summary: Autodesk Delete Parameter
+      description: Deletes a parameter from a collection.
+      tags:
+      - Parameters
+      security:
+      - OAuth2ThreeLegged:
+        - data:write
+      parameters:
+      - name: accountId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: collectionId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: parameterId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Parameter deleted.
+components:
+  schemas:
+    UpdateParameterRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        groupId:
+          type: string
+        categories:
+          type: array
+          items:
+            type: string
+    ParameterDefinition:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        specId:
+          type: string
+          description: The spec type (data type) of the parameter.
+        groupId:
+          type: string
+        isReadOnly:
+          type: boolean
+        isShared:
+          type: boolean
+        isInstance:
+          type: boolean
+          description: Whether the parameter is instance-level or type-level.
+        categories:
+          type: array
+          items:
+            type: string
+        disciplines:
+          type: array
+          items:
+            type: string
+        guid:
+          type: string
+          description: Globally unique parameter identifier.
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    ParametersResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ParameterDefinition'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Pagination:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalResults:
+          type: integer
+    CreateParameterRequest:
+      type: object
+      required:
+      - name
+      - specId
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        specId:
+          type: string
+        groupId:
+          type: string
+        isInstance:
+          type: boolean
+        categories:
+          type: array
+          items:
+            type: string
+        disciplines:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    OAuth2ThreeLegged:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://developer.api.autodesk.com/authentication/v2/authorize
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            account:read: Read account data
+            account:write: Write account data

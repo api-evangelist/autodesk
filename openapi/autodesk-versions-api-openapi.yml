@@ -1,0 +1,265 @@
+openapi: 3.1.0
+info:
+  title: Autodesk ACC Account Admin Account Users Versions API
+  description: The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.
+  version: 1.0.0
+  termsOfService: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  contact:
+    name: Autodesk Platform Services
+    url: https://aps.autodesk.com
+    email: aps.help@autodesk.com
+  license:
+    name: Autodesk API Terms of Service
+    url: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+servers:
+- url: https://developer.api.autodesk.com
+  description: Production
+security:
+- OAuth2ThreeLegged:
+  - account:read
+tags:
+- name: Versions
+paths:
+  /data/v1/projects/{project_id}/items/{item_id}/versions:
+    get:
+      operationId: getItemVersions
+      summary: Autodesk List Item Versions
+      description: Returns all versions of a given item.
+      tags:
+      - Versions
+      parameters:
+      - name: project_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: item_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: page[number]
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: page[limit]
+        in: query
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successfully retrieved versions.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/VersionsResponse'
+  /data/v1/projects/{project_id}/versions:
+    post:
+      operationId: createVersion
+      summary: Autodesk Create Version
+      description: Creates a new version of an existing item. The version references a storage location containing the uploaded file.
+      tags:
+      - Versions
+      security:
+      - OAuth2ThreeLegged:
+        - data:create
+      parameters:
+      - name: project_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/CreateVersionRequest'
+      responses:
+        '201':
+          description: Version created successfully.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/VersionResponse'
+  /data/v1/projects/{project_id}/versions/{version_id}:
+    get:
+      operationId: getVersion
+      summary: Autodesk Get Version
+      description: Returns a specific version of an item.
+      tags:
+      - Versions
+      parameters:
+      - name: project_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: version_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully retrieved version.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/VersionResponse'
+components:
+  schemas:
+    Version:
+      type: object
+      properties:
+        type:
+          type: string
+          example: versions
+        id:
+          type: string
+        attributes:
+          type: object
+          properties:
+            name:
+              type: string
+            displayName:
+              type: string
+            versionNumber:
+              type: integer
+            mimeType:
+              type: string
+            fileType:
+              type: string
+            storageSize:
+              type: integer
+            createTime:
+              type: string
+              format: date-time
+            createUserId:
+              type: string
+            createUserName:
+              type: string
+            lastModifiedTime:
+              type: string
+              format: date-time
+            lastModifiedUserId:
+              type: string
+            lastModifiedUserName:
+              type: string
+            extension:
+              $ref: '#/components/schemas/Extension'
+    JsonApiVersion:
+      type: object
+      properties:
+        version:
+          type: string
+          example: '1.0'
+    VersionsResponse:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Version'
+        links:
+          $ref: '#/components/schemas/PaginationLinks'
+    PaginationLinks:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
+        first:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
+        prev:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
+        next:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
+    CreateVersionRequest:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+              example: versions
+            attributes:
+              type: object
+              properties:
+                name:
+                  type: string
+                extension:
+                  $ref: '#/components/schemas/Extension'
+            relationships:
+              type: object
+              properties:
+                item:
+                  type: object
+                  properties:
+                    data:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: items
+                        id:
+                          type: string
+                storage:
+                  type: object
+                  properties:
+                    data:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: objects
+                        id:
+                          type: string
+    Extension:
+      type: object
+      properties:
+        type:
+          type: string
+        version:
+          type: string
+        data:
+          type: object
+    VersionResponse:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          $ref: '#/components/schemas/Version'
+  securitySchemes:
+    OAuth2ThreeLegged:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://developer.api.autodesk.com/authentication/v2/authorize
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            account:read: Read account data
+            account:write: Write account data

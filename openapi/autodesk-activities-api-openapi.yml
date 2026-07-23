@@ -1,0 +1,411 @@
+openapi: 3.1.0
+info:
+  title: Autodesk ACC Account Admin Account Users Activities API
+  description: The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.
+  version: 1.0.0
+  termsOfService: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  contact:
+    name: Autodesk Platform Services
+    url: https://aps.autodesk.com
+    email: aps.help@autodesk.com
+  license:
+    name: Autodesk API Terms of Service
+    url: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+servers:
+- url: https://developer.api.autodesk.com
+  description: Production
+security:
+- OAuth2ThreeLegged:
+  - account:read
+tags:
+- name: Activities
+paths:
+  /da/us-east/v3/activities:
+    get:
+      operationId: getActivities
+      summary: Autodesk List Activities
+      description: Returns a paginated list of Activities belonging to the caller. Activities define the instructions (script, plugin, parameters) that run on an engine.
+      tags:
+      - Activities
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully retrieved Activities.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PagedActivities'
+    post:
+      operationId: createActivity
+      summary: Autodesk Create Activity
+      description: Creates a new Activity.
+      tags:
+      - Activities
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActivityPayload'
+      responses:
+        '200':
+          description: Activity created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Activity'
+        '409':
+          description: Activity already exists.
+  /da/us-east/v3/activities/{id}:
+    get:
+      operationId: getActivity
+      summary: Autodesk Get Activity
+      description: Returns details of a specific Activity.
+      tags:
+      - Activities
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully retrieved Activity.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Activity'
+    delete:
+      operationId: deleteActivity
+      summary: Autodesk Delete Activity
+      description: Deletes an Activity and all its versions and aliases.
+      tags:
+      - Activities
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Activity deleted.
+  /da/us-east/v3/activities/{id}/versions:
+    get:
+      operationId: getActivityVersions
+      summary: Autodesk List Activity Versions
+      description: Returns all versions of an Activity.
+      tags:
+      - Activities
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully retrieved versions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PagedVersions'
+    post:
+      operationId: createActivityVersion
+      summary: Autodesk Create Activity Version
+      description: Creates a new version of an Activity.
+      tags:
+      - Activities
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActivityPayload'
+      responses:
+        '200':
+          description: New version created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Activity'
+  /da/us-east/v3/activities/{id}/aliases:
+    get:
+      operationId: getActivityAliases
+      summary: Autodesk List Activity Aliases
+      description: Returns all aliases for a specific Activity.
+      tags:
+      - Activities
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully retrieved aliases.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PagedAliases'
+    post:
+      operationId: createActivityAlias
+      summary: Autodesk Create Activity Alias
+      description: Creates an alias for an Activity version.
+      tags:
+      - Activities
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AliasPayload'
+      responses:
+        '200':
+          description: Alias created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Alias'
+  /da/us-east/v3/activities/{id}/aliases/{aliasId}:
+    get:
+      operationId: getActivityAlias
+      summary: Autodesk Get Activity Alias
+      description: Returns details of a specific Activity alias.
+      tags:
+      - Activities
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: aliasId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully retrieved alias.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Alias'
+    patch:
+      operationId: updateActivityAlias
+      summary: Autodesk Update Activity Alias
+      description: Updates an Activity alias to point to a different version.
+      tags:
+      - Activities
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: aliasId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AliasPatch'
+      responses:
+        '200':
+          description: Alias updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Alias'
+    delete:
+      operationId: deleteActivityAlias
+      summary: Autodesk Delete Activity Alias
+      description: Deletes an Activity alias.
+      tags:
+      - Activities
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: aliasId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Alias deleted.
+components:
+  schemas:
+    AliasPayload:
+      type: object
+      required:
+      - id
+      - version
+      properties:
+        id:
+          type: string
+        version:
+          type: integer
+        receiver:
+          type: string
+    Alias:
+      type: object
+      properties:
+        id:
+          type: string
+        version:
+          type: integer
+        receiver:
+          type: string
+    PagedActivities:
+      type: object
+      properties:
+        paginationToken:
+          type: string
+        data:
+          type: array
+          items:
+            type: string
+    PagedVersions:
+      type: object
+      properties:
+        paginationToken:
+          type: string
+        data:
+          type: array
+          items:
+            type: integer
+    PagedAliases:
+      type: object
+      properties:
+        paginationToken:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alias'
+    ActivityPayload:
+      type: object
+      required:
+      - id
+      - engine
+      - commandLine
+      - parameters
+      properties:
+        id:
+          type: string
+        engine:
+          type: string
+        commandLine:
+          type: array
+          items:
+            type: string
+          description: Command line instructions for the engine.
+        description:
+          type: string
+        appbundles:
+          type: array
+          items:
+            type: string
+          description: List of AppBundles to load.
+        parameters:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Parameter'
+        settings:
+          type: object
+          additionalProperties:
+            type: object
+    Activity:
+      type: object
+      properties:
+        id:
+          type: string
+        engine:
+          type: string
+        commandLine:
+          type: array
+          items:
+            type: string
+        description:
+          type: string
+        appbundles:
+          type: array
+          items:
+            type: string
+        parameters:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Parameter'
+        version:
+          type: integer
+    Parameter:
+      type: object
+      properties:
+        zip:
+          type: boolean
+          description: Whether the parameter is a zip file.
+        ondemand:
+          type: boolean
+        verb:
+          type: string
+          description: HTTP verb for accessing the parameter.
+          enum:
+          - get
+          - put
+          - post
+          - patch
+          - read
+        description:
+          type: string
+        required:
+          type: boolean
+        localName:
+          type: string
+          description: Local filename for the parameter.
+    AliasPatch:
+      type: object
+      required:
+      - version
+      properties:
+        version:
+          type: integer
+        receiver:
+          type: string
+  securitySchemes:
+    OAuth2ThreeLegged:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://developer.api.autodesk.com/authentication/v2/authorize
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            account:read: Read account data
+            account:write: Write account data

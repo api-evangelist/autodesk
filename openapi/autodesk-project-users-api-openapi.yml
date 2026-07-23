@@ -1,0 +1,298 @@
+openapi: 3.1.0
+info:
+  title: Autodesk ACC Account Admin Account Users Project Users API
+  description: The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.
+  version: 1.0.0
+  termsOfService: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  contact:
+    name: Autodesk Platform Services
+    url: https://aps.autodesk.com
+    email: aps.help@autodesk.com
+  license:
+    name: Autodesk API Terms of Service
+    url: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+servers:
+- url: https://developer.api.autodesk.com
+  description: Production
+security:
+- OAuth2ThreeLegged:
+  - account:read
+tags:
+- name: Project Users
+paths:
+  /construction/admin/v1/accounts/{accountId}/projects/{projectId}/users:
+    get:
+      operationId: getProjectUsers
+      summary: Autodesk List Project Users
+      description: Returns users assigned to a project.
+      tags:
+      - Project Users
+      parameters:
+      - name: accountId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: filter[email]
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: filter[name]
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successfully retrieved project users.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectUsersResponse'
+    post:
+      operationId: addProjectUser
+      summary: Autodesk Add Project User
+      description: Adds a user to a project with specified roles and products.
+      tags:
+      - Project Users
+      security:
+      - OAuth2ThreeLegged:
+        - account:write
+      parameters:
+      - name: accountId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddProjectUserRequest'
+      responses:
+        '201':
+          description: User added to project.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectUser'
+  /construction/admin/v1/accounts/{accountId}/projects/{projectId}/users/{userId}:
+    patch:
+      operationId: updateProjectUser
+      summary: Autodesk Update Project User
+      description: Updates a user's role or product access in a project.
+      tags:
+      - Project Users
+      security:
+      - OAuth2ThreeLegged:
+        - account:write
+      parameters:
+      - name: accountId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateProjectUserRequest'
+      responses:
+        '200':
+          description: User updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectUser'
+    delete:
+      operationId: removeProjectUser
+      summary: Autodesk Remove Project User
+      description: Removes a user from a project.
+      tags:
+      - Project Users
+      security:
+      - OAuth2ThreeLegged:
+        - account:write
+      parameters:
+      - name: accountId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: User removed from project.
+components:
+  schemas:
+    UpdateProjectUserRequest:
+      type: object
+      properties:
+        products:
+          type: array
+          items:
+            type: object
+            properties:
+              key:
+                type: string
+              access:
+                type: string
+                enum:
+                - administrator
+                - member
+                - none
+        industryRoles:
+          type: array
+          items:
+            type: string
+        companyId:
+          type: string
+    ProjectUsersResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectUser'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    AddProjectUserRequest:
+      type: object
+      required:
+      - email
+      properties:
+        email:
+          type: string
+        products:
+          type: array
+          items:
+            type: object
+            properties:
+              key:
+                type: string
+              access:
+                type: string
+                enum:
+                - administrator
+                - member
+        industryRoles:
+          type: array
+          items:
+            type: string
+        companyId:
+          type: string
+    Pagination:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalResults:
+          type: integer
+    ProjectUser:
+      type: object
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+        name:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        autodeskId:
+          type: string
+        status:
+          type: string
+          enum:
+          - active
+          - inactive
+          - pending
+        accessLevels:
+          type: object
+          properties:
+            accountAdmin:
+              type: boolean
+            projectAdmin:
+              type: boolean
+            executive:
+              type: boolean
+        companyId:
+          type: string
+        companyName:
+          type: string
+        industryRoles:
+          type: array
+          items:
+            type: string
+        products:
+          type: array
+          items:
+            type: object
+            properties:
+              key:
+                type: string
+              access:
+                type: string
+                enum:
+                - administrator
+                - member
+                - none
+        addedOn:
+          type: string
+          format: date-time
+  securitySchemes:
+    OAuth2ThreeLegged:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://developer.api.autodesk.com/authentication/v2/authorize
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            account:read: Read account data
+            account:write: Write account data

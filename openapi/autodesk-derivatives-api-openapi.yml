@@ -1,0 +1,62 @@
+openapi: 3.1.0
+info:
+  title: Autodesk ACC Account Admin Account Users Derivatives API
+  description: The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.
+  version: 1.0.0
+  termsOfService: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  contact:
+    name: Autodesk Platform Services
+    url: https://aps.autodesk.com
+    email: aps.help@autodesk.com
+  license:
+    name: Autodesk API Terms of Service
+    url: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+servers:
+- url: https://developer.api.autodesk.com
+  description: Production
+security:
+- OAuth2ThreeLegged:
+  - account:read
+tags:
+- name: Derivatives
+paths:
+  /modelderivative/v2/designdata/{urn}/manifest/{derivativeUrn}:
+    get:
+      operationId: getDerivativeDownload
+      summary: Autodesk Download Derivative
+      description: Downloads a specific derivative file.
+      tags:
+      - Derivatives
+      parameters:
+      - name: urn
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: derivativeUrn
+        in: path
+        required: true
+        description: URL-encoded URN of the derivative.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully downloaded derivative.
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Derivative not found.
+components:
+  securitySchemes:
+    OAuth2ThreeLegged:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://developer.api.autodesk.com/authentication/v2/authorize
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            account:read: Read account data
+            account:write: Write account data

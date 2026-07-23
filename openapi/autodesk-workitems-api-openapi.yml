@@ -1,0 +1,176 @@
+openapi: 3.1.0
+info:
+  title: Autodesk ACC Account Admin Account Users WorkItems API
+  description: The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.
+  version: 1.0.0
+  termsOfService: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  contact:
+    name: Autodesk Platform Services
+    url: https://aps.autodesk.com
+    email: aps.help@autodesk.com
+  license:
+    name: Autodesk API Terms of Service
+    url: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+servers:
+- url: https://developer.api.autodesk.com
+  description: Production
+security:
+- OAuth2ThreeLegged:
+  - account:read
+tags:
+- name: WorkItems
+paths:
+  /da/us-east/v3/workitems:
+    post:
+      operationId: createWorkItem
+      summary: Autodesk Create WorkItem
+      description: Creates and executes a WorkItem. A WorkItem is an instance of an Activity that processes specific input files and produces output files.
+      tags:
+      - WorkItems
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkItemPayload'
+      responses:
+        '200':
+          description: WorkItem created and queued.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkItemStatus'
+        '400':
+          description: Bad request.
+  /da/us-east/v3/workitems/{id}:
+    get:
+      operationId: getWorkItemStatus
+      summary: Autodesk Get WorkItem Status
+      description: Returns the status of a specific WorkItem.
+      tags:
+      - WorkItems
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully retrieved WorkItem status.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkItemStatus'
+    delete:
+      operationId: deleteWorkItem
+      summary: Autodesk Cancel WorkItem
+      description: Cancels a pending or running WorkItem.
+      tags:
+      - WorkItems
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: WorkItem cancelled.
+components:
+  schemas:
+    WorkItemArgument:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          description: URL to download input or upload output.
+        verb:
+          type: string
+          enum:
+          - get
+          - put
+          - post
+          - patch
+          - read
+        headers:
+          type: object
+          additionalProperties:
+            type: string
+        localName:
+          type: string
+        pathInZip:
+          type: string
+        optional:
+          type: boolean
+    WorkItemStatus:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - pending
+          - inprogress
+          - success
+          - failedDownload
+          - failedInstructions
+          - failedUpload
+          - cancelled
+          - failedLimitProcessingTime
+          - failedLimitDataSize
+        progress:
+          type: string
+        reportUrl:
+          type: string
+          format: uri
+          description: URL to the processing report.
+        stats:
+          type: object
+          properties:
+            timeQueued:
+              type: string
+              format: date-time
+            timeDownloadStarted:
+              type: string
+              format: date-time
+            timeInstructionsStarted:
+              type: string
+              format: date-time
+            timeInstructionsEnded:
+              type: string
+              format: date-time
+            timeUploadEnded:
+              type: string
+              format: date-time
+            bytesDownloaded:
+              type: integer
+            bytesUploaded:
+              type: integer
+        id:
+          type: string
+    WorkItemPayload:
+      type: object
+      required:
+      - activityId
+      properties:
+        activityId:
+          type: string
+          description: Fully qualified Activity ID (e.g., owner.activityname+alias).
+        arguments:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/WorkItemArgument'
+        limitProcessingTimeSec:
+          type: integer
+          description: Processing time limit in seconds.
+  securitySchemes:
+    OAuth2ThreeLegged:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://developer.api.autodesk.com/authentication/v2/authorize
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            account:read: Read account data
+            account:write: Write account data

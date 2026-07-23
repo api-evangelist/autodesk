@@ -1,0 +1,229 @@
+openapi: 3.1.0
+info:
+  title: Autodesk ACC Account Admin Account Users Photoscenes API
+  description: The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.
+  version: 1.0.0
+  termsOfService: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  contact:
+    name: Autodesk Platform Services
+    url: https://aps.autodesk.com
+    email: aps.help@autodesk.com
+  license:
+    name: Autodesk API Terms of Service
+    url: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+servers:
+- url: https://developer.api.autodesk.com
+  description: Production
+security:
+- OAuth2ThreeLegged:
+  - account:read
+tags:
+- name: Photoscenes
+paths:
+  /photo-to-3d/v1/photoscene:
+    post:
+      operationId: createPhotoscene
+      summary: Create Photoscene
+      description: Creates a new photoscene, which is a container for a photogrammetry processing job. Specify the output format, processing type, and GPS settings.
+      tags:
+      - Photoscenes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePhotosceneRequest'
+      responses:
+        '200':
+          description: Photoscene created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PhotosceneResponse'
+        '400':
+          description: Bad request.
+        '401':
+          description: Unauthorized.
+  /photo-to-3d/v1/photoscene/{photosceneid}:
+    get:
+      operationId: getPhotoscene
+      summary: Get Photoscene Properties
+      description: Returns properties and status of a specific photoscene.
+      tags:
+      - Photoscenes
+      parameters:
+      - name: photosceneid
+        in: path
+        required: true
+        description: The unique photoscene identifier.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully retrieved photoscene.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PhotoscenePropertiesResponse'
+        '404':
+          description: Photoscene not found.
+    delete:
+      operationId: deletePhotoscene
+      summary: Delete Photoscene
+      description: Deletes a photoscene and all associated data including uploaded images and generated outputs.
+      tags:
+      - Photoscenes
+      parameters:
+      - name: photosceneid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Photoscene deleted successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  msg:
+                    type: string
+        '404':
+          description: Photoscene not found.
+  /photo-to-3d/v1/photoscene/{photosceneid}/progress:
+    get:
+      operationId: getPhotosceneProgress
+      summary: Get Processing Progress
+      description: Returns the processing progress of a photoscene. Poll this endpoint to track the status of a processing job.
+      tags:
+      - Photoscenes
+      parameters:
+      - name: photosceneid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully retrieved progress.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProgressResponse'
+components:
+  schemas:
+    ProgressResponse:
+      type: object
+      properties:
+        Photoscene:
+          type: object
+          properties:
+            photosceneid:
+              type: string
+            progressmsg:
+              type: string
+              description: Current processing stage description.
+            progress:
+              type: string
+              description: Processing progress percentage.
+    PhotosceneResponse:
+      type: object
+      properties:
+        Photoscene:
+          type: object
+          properties:
+            photosceneid:
+              type: string
+    CreatePhotosceneRequest:
+      type: object
+      required:
+      - scenename
+      - scenetype
+      - format
+      properties:
+        scenename:
+          type: string
+          description: Name for the photoscene.
+        scenetype:
+          type: string
+          description: Processing type.
+          enum:
+          - aerial
+          - object
+        format:
+          type: string
+          description: Output format.
+          enum:
+          - rcm
+          - rcs
+          - obj
+          - ortho
+        gpstype:
+          type: string
+          description: GPS data type.
+          enum:
+          - none
+          - wgs84
+          - nadcon
+        callback:
+          type: string
+          format: uri
+          description: Optional callback URL to receive notification when processing completes.
+    PhotoscenePropertiesResponse:
+      type: object
+      properties:
+        Photoscene:
+          type: object
+          properties:
+            photosceneid:
+              type: string
+            name:
+              type: string
+            status:
+              type: string
+              enum:
+              - Created
+              - Processing
+              - Done
+              - Error
+            progressmsg:
+              type: string
+            scenelink:
+              type: string
+              format: uri
+            filesize:
+              type: integer
+            convertformat:
+              type: string
+            convertStatus:
+              type: string
+            nb3dpoints:
+              type: integer
+            nbfaces:
+              type: integer
+            nbshots:
+              type: integer
+            nbstitchedshots:
+              type: integer
+            files:
+              type: array
+              items:
+                type: object
+                properties:
+                  fileid:
+                    type: string
+                  filename:
+                    type: string
+                  filesize:
+                    type: integer
+  securitySchemes:
+    OAuth2ThreeLegged:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://developer.api.autodesk.com/authentication/v2/authorize
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            account:read: Read account data
+            account:write: Write account data

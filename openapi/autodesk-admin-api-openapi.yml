@@ -1,0 +1,218 @@
+openapi: 3.1.0
+info:
+  title: Autodesk ACC Account Account Users Admin API
+  description: The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.
+  version: 1.0.0
+  termsOfService: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  contact:
+    name: Autodesk Platform Services
+    url: https://aps.autodesk.com
+    email: aps.help@autodesk.com
+  license:
+    name: Autodesk API Terms of Service
+    url: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+servers:
+- url: https://developer.api.autodesk.com
+  description: Production
+security:
+- OAuth2ThreeLegged:
+  - account:read
+tags:
+- name: Admin
+paths:
+  /bim360/admin/v1/projects/{projectId}/users:
+    get:
+      operationId: getBim360ProjectUsers
+      summary: Autodesk List Project Users
+      description: Returns a list of users assigned to a BIM 360 project.
+      tags:
+      - Admin
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successfully retrieved project users.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bim360UsersResponse'
+    post:
+      operationId: addBim360ProjectUser
+      summary: Autodesk Add Project User
+      description: Adds a user to a BIM 360 project.
+      tags:
+      - Admin
+      security:
+      - OAuth2ThreeLegged:
+        - account:write
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddBim360UserRequest'
+      responses:
+        '201':
+          description: User added.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bim360User'
+  /bim360/admin/v1/projects/{projectId}/users/import:
+    post:
+      operationId: importBim360ProjectUsers
+      summary: Autodesk Import Project Users
+      description: Bulk imports users to a BIM 360 project.
+      tags:
+      - Admin
+      security:
+      - OAuth2ThreeLegged:
+        - account:write
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AddBim360UserRequest'
+      responses:
+        '200':
+          description: Users imported.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: integer
+                  failure:
+                    type: integer
+                  success_items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Bim360User'
+components:
+  schemas:
+    Pagination:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalResults:
+          type: integer
+    Bim360User:
+      type: object
+      properties:
+        id:
+          type: string
+        account_id:
+          type: string
+        email:
+          type: string
+        name:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        uid:
+          type: string
+        image_url:
+          type: string
+          format: uri
+        status:
+          type: string
+          enum:
+          - active
+          - inactive
+          - pending
+        company_id:
+          type: string
+        company_name:
+          type: string
+        role:
+          type: string
+        industry_roles:
+          type: array
+          items:
+            type: string
+    AddBim360UserRequest:
+      type: object
+      required:
+      - email
+      properties:
+        email:
+          type: string
+        services:
+          type: object
+          properties:
+            document_management:
+              type: object
+              properties:
+                access_level:
+                  type: string
+                  enum:
+                  - admin
+                  - user
+            project_administration:
+              type: object
+              properties:
+                access_level:
+                  type: string
+                  enum:
+                  - admin
+                  - user
+        company_id:
+          type: string
+        industry_roles:
+          type: array
+          items:
+            type: string
+    Bim360UsersResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bim360User'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+  securitySchemes:
+    OAuth2ThreeLegged:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://developer.api.autodesk.com/authentication/v2/authorize
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            account:read: Read account data
+            account:write: Write account data

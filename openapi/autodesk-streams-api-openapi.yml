@@ -1,0 +1,173 @@
+openapi: 3.1.0
+info:
+  title: Autodesk ACC Account Admin Account Users Streams API
+  description: The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.
+  version: 1.0.0
+  termsOfService: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  contact:
+    name: Autodesk Platform Services
+    url: https://aps.autodesk.com
+    email: aps.help@autodesk.com
+  license:
+    name: Autodesk API Terms of Service
+    url: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+servers:
+- url: https://developer.api.autodesk.com
+  description: Production
+security:
+- OAuth2ThreeLegged:
+  - account:read
+tags:
+- name: Streams
+paths:
+  /tandem/v1/twins/{twinId}/streams:
+    get:
+      operationId: getStreams
+      summary: Autodesk List Streams
+      description: Returns IoT data streams associated with a digital twin for time-series sensor data integration.
+      tags:
+      - Streams
+      parameters:
+      - name: twinId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully retrieved streams.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StreamsResponse'
+  /tandem/v1/timeseries/{streamId}:
+    get:
+      operationId: getTimeseriesData
+      summary: Autodesk Get Timeseries Data
+      description: Returns time-series data for a specific IoT stream.
+      tags:
+      - Streams
+      parameters:
+      - name: streamId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: from
+        in: query
+        required: false
+        description: Start time (ISO 8601 or Unix timestamp).
+        schema:
+          type: string
+      - name: to
+        in: query
+        required: false
+        description: End time (ISO 8601 or Unix timestamp).
+        schema:
+          type: string
+      - name: resolution
+        in: query
+        required: false
+        description: Data resolution.
+        schema:
+          type: string
+          enum:
+          - raw
+          - minute
+          - hour
+          - day
+      responses:
+        '200':
+          description: Successfully retrieved timeseries data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimeseriesResponse'
+    post:
+      operationId: pushTimeseriesData
+      summary: Autodesk Push Timeseries Data
+      description: Pushes new time-series data points to a stream.
+      tags:
+      - Streams
+      security:
+      - OAuth2ThreeLegged:
+        - data:write
+      parameters:
+      - name: streamId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PushTimeseriesRequest'
+      responses:
+        '200':
+          description: Data pushed successfully.
+        '400':
+          description: Bad request.
+components:
+  schemas:
+    StreamsResponse:
+      type: object
+      properties:
+        streams:
+          type: array
+          items:
+            type: object
+            properties:
+              streamId:
+                type: string
+              name:
+                type: string
+              elementKey:
+                type: string
+              propertyId:
+                type: string
+              lastValue: {}
+              lastTimestamp:
+                type: string
+                format: date-time
+    TimeseriesResponse:
+      type: object
+      properties:
+        timestamps:
+          type: array
+          items:
+            type: string
+            format: date-time
+        values:
+          type: array
+          items: {}
+        count:
+          type: integer
+    PushTimeseriesRequest:
+      type: object
+      required:
+      - datapoints
+      properties:
+        datapoints:
+          type: array
+          items:
+            type: object
+            required:
+            - timestamp
+            - value
+            properties:
+              timestamp:
+                type: string
+                format: date-time
+              value: {}
+  securitySchemes:
+    OAuth2ThreeLegged:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://developer.api.autodesk.com/authentication/v2/authorize
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            account:read: Read account data
+            account:write: Write account data

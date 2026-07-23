@@ -1,0 +1,140 @@
+openapi: 3.1.0
+info:
+  title: Autodesk ACC Account Admin Account Users Datasets API
+  description: The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.
+  version: 1.0.0
+  termsOfService: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  contact:
+    name: Autodesk Platform Services
+    url: https://aps.autodesk.com
+    email: aps.help@autodesk.com
+  license:
+    name: Autodesk API Terms of Service
+    url: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+servers:
+- url: https://developer.api.autodesk.com
+  description: Production
+security:
+- OAuth2ThreeLegged:
+  - account:read
+tags:
+- name: Datasets
+paths:
+  /sustainability/v3/datasets:
+    get:
+      operationId: getDatasets
+      summary: Autodesk List Datasets
+      description: Returns a list of available sustainability datasets. Each dataset contains environmental impact data from specific data providers.
+      tags:
+      - Datasets
+      parameters:
+      - name: page[offset]
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: page[limit]
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: filter[type]
+        in: query
+        required: false
+        description: Filter by dataset type.
+        schema:
+          type: string
+          enum:
+          - electricity
+          - material
+          - transportation
+          - construction
+      responses:
+        '200':
+          description: Successfully retrieved datasets.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatasetsResponse'
+        '401':
+          description: Unauthorized.
+  /sustainability/v3/datasets/{datasetId}:
+    get:
+      operationId: getDataset
+      summary: Autodesk Get Dataset
+      description: Returns details of a specific dataset.
+      tags:
+      - Datasets
+      parameters:
+      - name: datasetId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully retrieved dataset.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dataset'
+        '404':
+          description: Dataset not found.
+components:
+  schemas:
+    Dataset:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        type:
+          type: string
+          enum:
+          - electricity
+          - material
+          - transportation
+          - construction
+        provider:
+          type: string
+          description: Data provider name.
+        version:
+          type: string
+        regions:
+          type: array
+          items:
+            type: string
+        lastUpdated:
+          type: string
+          format: date-time
+    Pagination:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalResults:
+          type: integer
+    DatasetsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Dataset'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+  securitySchemes:
+    OAuth2ThreeLegged:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://developer.api.autodesk.com/authentication/v2/authorize
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            account:read: Read account data
+            account:write: Write account data

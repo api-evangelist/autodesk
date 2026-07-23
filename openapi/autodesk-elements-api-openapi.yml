@@ -1,0 +1,203 @@
+openapi: 3.1.0
+info:
+  title: Autodesk ACC Account Admin Account Users Elements API
+  description: The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.
+  version: 1.0.0
+  termsOfService: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  contact:
+    name: Autodesk Platform Services
+    url: https://aps.autodesk.com
+    email: aps.help@autodesk.com
+  license:
+    name: Autodesk API Terms of Service
+    url: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+servers:
+- url: https://developer.api.autodesk.com
+  description: Production
+security:
+- OAuth2ThreeLegged:
+  - account:read
+tags:
+- name: Elements
+paths:
+  /tandem/v1/modeldata/{modelId}/scan:
+    post:
+      operationId: scanElements
+      summary: Autodesk Scan Elements
+      description: Scans and returns elements from a model, optionally filtered by category, family, or property values. Returns element keys and properties.
+      tags:
+      - Elements
+      parameters:
+      - name: modelId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScanRequest'
+      responses:
+        '200':
+          description: Successfully scanned elements.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScanResponse'
+  /tandem/v1/modeldata/{modelId}/props:
+    post:
+      operationId: getElementProperties
+      summary: Autodesk Get Element Properties
+      description: Returns properties for specific elements identified by their keys.
+      tags:
+      - Elements
+      parameters:
+      - name: modelId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PropsRequest'
+      responses:
+        '200':
+          description: Successfully retrieved properties.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropsResponse'
+  /tandem/v1/modeldata/{modelId}/mutate:
+    post:
+      operationId: mutateElements
+      summary: Autodesk Mutate Element Properties
+      description: Creates, updates, or deletes custom property values on elements. Only properties defined in user-created schemas can be mutated.
+      tags:
+      - Elements
+      security:
+      - OAuth2ThreeLegged:
+        - data:write
+      parameters:
+      - name: modelId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MutateRequest'
+      responses:
+        '200':
+          description: Properties mutated successfully.
+        '400':
+          description: Bad request.
+components:
+  schemas:
+    ScanResponse:
+      type: object
+      properties:
+        rows:
+          type: array
+          items:
+            type: array
+            description: Each row is an array of property values.
+            items: {}
+        qualifiedColumns:
+          type: array
+          items:
+            type: object
+            properties:
+              fam:
+                type: string
+              col:
+                type: string
+              category:
+                type: string
+    MutateRequest:
+      type: object
+      required:
+      - mutations
+      properties:
+        mutations:
+          type: array
+          items:
+            type: object
+            required:
+            - key
+            - properties
+            properties:
+              key:
+                type: string
+                description: Element key to mutate.
+              properties:
+                type: object
+                additionalProperties: true
+                description: Property family:column pairs and their new values.
+    PropsResponse:
+      type: object
+      properties:
+        rows:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+    ScanRequest:
+      type: object
+      properties:
+        families:
+          type: array
+          description: Filter by Revit family names.
+          items:
+            type: string
+        categoryId:
+          type: integer
+          description: Filter by category ID.
+        includeHistory:
+          type: boolean
+        columns:
+          type: array
+          description: Property columns to return.
+          items:
+            type: object
+            properties:
+              fam:
+                type: string
+              col:
+                type: string
+    PropsRequest:
+      type: object
+      required:
+      - keys
+      properties:
+        keys:
+          type: array
+          description: Element keys to retrieve properties for.
+          items:
+            type: string
+        columns:
+          type: array
+          items:
+            type: object
+            properties:
+              fam:
+                type: string
+              col:
+                type: string
+  securitySchemes:
+    OAuth2ThreeLegged:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://developer.api.autodesk.com/authentication/v2/authorize
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            account:read: Read account data
+            account:write: Write account data

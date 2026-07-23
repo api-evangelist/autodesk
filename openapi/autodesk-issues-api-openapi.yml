@@ -1,0 +1,503 @@
+openapi: 3.1.0
+info:
+  title: Autodesk ACC Account Admin Account Users Issues API
+  description: The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.
+  version: 1.0.0
+  termsOfService: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  contact:
+    name: Autodesk Platform Services
+    url: https://aps.autodesk.com
+    email: aps.help@autodesk.com
+  license:
+    name: Autodesk API Terms of Service
+    url: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+servers:
+- url: https://developer.api.autodesk.com
+  description: Production
+security:
+- OAuth2ThreeLegged:
+  - account:read
+tags:
+- name: Issues
+paths:
+  /issues/v1/containers/{containerId}/quality-issues:
+    get:
+      operationId: getIssues
+      summary: Autodesk List Issues
+      description: Returns a list of issues within a BIM 360 project container.
+      tags:
+      - Issues
+      parameters:
+      - name: containerId
+        in: path
+        required: true
+        description: The issues container ID for the project.
+        schema:
+          type: string
+      - name: filter[status]
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - open
+          - pending
+          - in_review
+          - closed
+          - void
+      - name: filter[assigned_to]
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: filter[due_date]
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date
+      - name: filter[created_at]
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: filter[target_urn]
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: page[limit]
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: page[offset]
+        in: query
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successfully retrieved issues.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/IssuesResponse'
+    post:
+      operationId: createIssue
+      summary: Autodesk Create Issue
+      description: Creates a new issue in the project.
+      tags:
+      - Issues
+      security:
+      - OAuth2ThreeLegged:
+        - data:write
+      parameters:
+      - name: containerId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/CreateIssueRequest'
+      responses:
+        '201':
+          description: Issue created.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/IssueResponse'
+  /issues/v1/containers/{containerId}/quality-issues/{issueId}:
+    get:
+      operationId: getIssue
+      summary: Autodesk Get Issue
+      description: Returns a specific issue.
+      tags:
+      - Issues
+      parameters:
+      - name: containerId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: issueId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully retrieved issue.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/IssueResponse'
+    patch:
+      operationId: updateIssue
+      summary: Autodesk Update Issue
+      description: Updates an existing issue.
+      tags:
+      - Issues
+      security:
+      - OAuth2ThreeLegged:
+        - data:write
+      parameters:
+      - name: containerId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: issueId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/UpdateIssueRequest'
+      responses:
+        '200':
+          description: Issue updated.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/IssueResponse'
+  /issues/v1/containers/{containerId}/issue-types:
+    get:
+      operationId: getIssueTypes
+      summary: Autodesk List Issue Types
+      description: Returns available issue types and subtypes for the container.
+      tags:
+      - Issues
+      parameters:
+      - name: containerId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully retrieved issue types.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/IssueTypesResponse'
+  /issues/v1/containers/{containerId}/quality-issues/{issueId}/comments:
+    get:
+      operationId: getIssueComments
+      summary: Autodesk List Issue Comments
+      description: Returns comments on a specific issue.
+      tags:
+      - Issues
+      parameters:
+      - name: containerId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: issueId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully retrieved comments.
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/CommentsResponse'
+    post:
+      operationId: createIssueComment
+      summary: Autodesk Create Issue Comment
+      description: Adds a comment to an issue.
+      tags:
+      - Issues
+      security:
+      - OAuth2ThreeLegged:
+        - data:write
+      parameters:
+      - name: containerId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: issueId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/CreateCommentRequest'
+      responses:
+        '201':
+          description: Comment created.
+components:
+  schemas:
+    IssueTypesResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              type:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  title:
+                    type: string
+                  subtypes:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        title:
+                          type: string
+    Issue:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          example: quality_issues
+        attributes:
+          type: object
+          properties:
+            title:
+              type: string
+            description:
+              type: string
+            status:
+              type: string
+              enum:
+              - open
+              - pending
+              - in_review
+              - closed
+              - void
+            assigned_to:
+              type: string
+            assigned_to_type:
+              type: string
+              enum:
+              - user
+              - company
+              - role
+            due_date:
+              type: string
+              format: date
+            priority:
+              type: string
+            location_description:
+              type: string
+            issue_type_id:
+              type: string
+            issue_sub_type_id:
+              type: string
+            root_cause_id:
+              type: string
+            target_urn:
+              type: string
+            target_urn_page:
+              type: string
+            starting_version:
+              type: integer
+            sheet_metadata:
+              type: object
+            pushpin_attributes:
+              type: object
+              properties:
+                type:
+                  type: string
+                location:
+                  type: object
+                  properties:
+                    x:
+                      type: number
+                    y:
+                      type: number
+                    z:
+                      type: number
+                viewer_state:
+                  type: object
+            created_at:
+              type: string
+              format: date-time
+            updated_at:
+              type: string
+              format: date-time
+            created_by:
+              type: string
+            closed_at:
+              type: string
+              format: date-time
+            closed_by:
+              type: string
+            answer:
+              type: string
+            answered_at:
+              type: string
+              format: date-time
+            answered_by:
+              type: string
+            comment_count:
+              type: integer
+            attachment_count:
+              type: integer
+    IssuesResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+        meta:
+          type: object
+          properties:
+            record_count:
+              type: integer
+            page:
+              type: object
+              properties:
+                limit:
+                  type: integer
+                offset:
+                  type: integer
+    CreateCommentRequest:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+              example: comments
+            attributes:
+              type: object
+              required:
+              - body
+              properties:
+                body:
+                  type: string
+    IssueResponse:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Issue'
+    CreateIssueRequest:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+              example: quality_issues
+            attributes:
+              type: object
+              required:
+              - title
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                status:
+                  type: string
+                assigned_to:
+                  type: string
+                assigned_to_type:
+                  type: string
+                due_date:
+                  type: string
+                  format: date
+                priority:
+                  type: string
+                issue_type_id:
+                  type: string
+                issue_sub_type_id:
+                  type: string
+                location_description:
+                  type: string
+                target_urn:
+                  type: string
+    CommentsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              type:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  body:
+                    type: string
+                  created_at:
+                    type: string
+                    format: date-time
+                  created_by:
+                    type: string
+    UpdateIssueRequest:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+              example: quality_issues
+            id:
+              type: string
+            attributes:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                status:
+                  type: string
+                assigned_to:
+                  type: string
+                due_date:
+                  type: string
+                  format: date
+                priority:
+                  type: string
+                answer:
+                  type: string
+  securitySchemes:
+    OAuth2ThreeLegged:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://developer.api.autodesk.com/authentication/v2/authorize
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            account:read: Read account data
+            account:write: Write account data

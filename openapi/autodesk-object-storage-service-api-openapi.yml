@@ -1,0 +1,464 @@
+openapi: 3.1.0
+info:
+  title: Autodesk ACC Account Admin Account Users Object Storage Service API
+  description: The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.
+  version: 1.0.0
+  termsOfService: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  contact:
+    name: Autodesk Platform Services
+    url: https://aps.autodesk.com
+    email: aps.help@autodesk.com
+  license:
+    name: Autodesk API Terms of Service
+    url: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+servers:
+- url: https://developer.api.autodesk.com
+  description: Production
+security:
+- OAuth2ThreeLegged:
+  - account:read
+tags:
+- name: Object Storage Service
+paths:
+  /oss/v2/buckets:
+    get:
+      operationId: getBuckets
+      summary: Autodesk List Buckets
+      description: Returns a list of buckets owned by the application.
+      tags:
+      - Object Storage Service
+      security:
+      - OAuth2TwoLegged:
+        - bucket:read
+      parameters:
+      - name: region
+        in: query
+        required: false
+        description: Region for the bucket (US, EMEA).
+        schema:
+          type: string
+          enum:
+          - US
+          - EMEA
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: startAt
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully retrieved buckets.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BucketsResponse'
+    post:
+      operationId: createBucket
+      summary: Autodesk Create Bucket
+      description: Creates a new OSS bucket.
+      tags:
+      - Object Storage Service
+      security:
+      - OAuth2TwoLegged:
+        - bucket:create
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateBucketRequest'
+      responses:
+        '200':
+          description: Bucket created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bucket'
+        '409':
+          description: Bucket already exists.
+  /oss/v2/buckets/{bucketKey}:
+    get:
+      operationId: getBucketDetails
+      summary: Autodesk Get Bucket Details
+      description: Returns details of a specific bucket.
+      tags:
+      - Object Storage Service
+      security:
+      - OAuth2TwoLegged:
+        - bucket:read
+      parameters:
+      - name: bucketKey
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully retrieved bucket details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bucket'
+    delete:
+      operationId: deleteBucket
+      summary: Autodesk Delete Bucket
+      description: Deletes a bucket. The bucket must be empty.
+      tags:
+      - Object Storage Service
+      security:
+      - OAuth2TwoLegged:
+        - bucket:delete
+      parameters:
+      - name: bucketKey
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Bucket deleted successfully.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Bucket not found.
+  /oss/v2/buckets/{bucketKey}/objects:
+    get:
+      operationId: getObjects
+      summary: Autodesk List Objects
+      description: Returns a list of objects in a bucket.
+      tags:
+      - Object Storage Service
+      security:
+      - OAuth2TwoLegged:
+        - data:read
+      parameters:
+      - name: bucketKey
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: beginsWith
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: startAt
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully retrieved objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectsResponse'
+  /oss/v2/buckets/{bucketKey}/objects/{objectKey}:
+    get:
+      operationId: getObject
+      summary: Autodesk Download Object
+      description: Downloads an object from a bucket.
+      tags:
+      - Object Storage Service
+      security:
+      - OAuth2TwoLegged:
+        - data:read
+      parameters:
+      - name: bucketKey
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: objectKey
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Range
+        in: header
+        required: false
+        description: Byte range for partial downloads.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully downloaded object.
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+    put:
+      operationId: uploadObject
+      summary: Autodesk Upload Object
+      description: Uploads an object to a bucket.
+      tags:
+      - Object Storage Service
+      security:
+      - OAuth2TwoLegged:
+        - data:write
+      parameters:
+      - name: bucketKey
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: objectKey
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Content-Length
+        in: header
+        required: true
+        schema:
+          type: integer
+      - name: Content-Type
+        in: header
+        required: false
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '200':
+          description: Object uploaded successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectDetail'
+    delete:
+      operationId: deleteObject
+      summary: Autodesk Delete Object
+      description: Deletes an object from a bucket.
+      tags:
+      - Object Storage Service
+      security:
+      - OAuth2TwoLegged:
+        - data:write
+      parameters:
+      - name: bucketKey
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: objectKey
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Object deleted successfully.
+        '404':
+          description: Object not found.
+  /oss/v2/buckets/{bucketKey}/objects/{objectKey}/details:
+    get:
+      operationId: getObjectDetails
+      summary: Autodesk Get Object Details
+      description: Returns metadata about a specific object.
+      tags:
+      - Object Storage Service
+      security:
+      - OAuth2TwoLegged:
+        - data:read
+      parameters:
+      - name: bucketKey
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: objectKey
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully retrieved object details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectDetail'
+  /oss/v2/buckets/{bucketKey}/objects/{objectKey}/signed:
+    post:
+      operationId: createSignedUrl
+      summary: Autodesk Create Signed URL
+      description: Creates a signed URL for downloading or uploading an object without requiring an access token.
+      tags:
+      - Object Storage Service
+      security:
+      - OAuth2TwoLegged:
+        - data:write
+      parameters:
+      - name: bucketKey
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: objectKey
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: access
+        in: query
+        required: false
+        description: Access level for the signed URL.
+        schema:
+          type: string
+          enum:
+          - read
+          - write
+          - readwrite
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                minutesExpiration:
+                  type: integer
+                  description: Expiration time in minutes (default 60).
+      responses:
+        '200':
+          description: Signed URL created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignedUrlResponse'
+components:
+  schemas:
+    BucketsResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bucket'
+        next:
+          type: string
+    ObjectDetail:
+      type: object
+      properties:
+        bucketKey:
+          type: string
+        objectKey:
+          type: string
+        objectId:
+          type: string
+          description: URN-encoded object identifier.
+        sha1:
+          type: string
+        size:
+          type: integer
+        contentType:
+          type: string
+        location:
+          type: string
+          format: uri
+    ObjectsResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ObjectDetail'
+        next:
+          type: string
+    CreateBucketRequest:
+      type: object
+      required:
+      - bucketKey
+      - policyKey
+      properties:
+        bucketKey:
+          type: string
+          description: Unique bucket key (3-128 characters, lowercase letters, digits, hyphens, underscores).
+          pattern: ^[-_.a-z0-9]{3,128}$
+        policyKey:
+          type: string
+          description: Retention policy for the bucket.
+          enum:
+          - transient
+          - temporary
+          - persistent
+        allow:
+          type: array
+          items:
+            type: object
+            properties:
+              authId:
+                type: string
+              access:
+                type: string
+                enum:
+                - full
+                - read
+    SignedUrlResponse:
+      type: object
+      properties:
+        signedUrl:
+          type: string
+          format: uri
+        expiration:
+          type: integer
+          description: Expiration time as Unix timestamp.
+    Bucket:
+      type: object
+      properties:
+        bucketKey:
+          type: string
+          description: The unique bucket key.
+        bucketOwner:
+          type: string
+          description: The application client ID that owns the bucket.
+        createdDate:
+          type: string
+          format: date-time
+        permissions:
+          type: array
+          items:
+            type: object
+            properties:
+              authId:
+                type: string
+              access:
+                type: string
+                enum:
+                - full
+                - read
+        policyKey:
+          type: string
+          description: Retention policy.
+          enum:
+          - transient
+          - temporary
+          - persistent
+  securitySchemes:
+    OAuth2ThreeLegged:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://developer.api.autodesk.com/authentication/v2/authorize
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            account:read: Read account data
+            account:write: Write account data

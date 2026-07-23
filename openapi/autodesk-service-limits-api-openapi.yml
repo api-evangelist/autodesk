@@ -1,0 +1,58 @@
+openapi: 3.1.0
+info:
+  title: Autodesk ACC Account Admin Account Users Service Limits API
+  description: The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.
+  version: 1.0.0
+  termsOfService: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  contact:
+    name: Autodesk Platform Services
+    url: https://aps.autodesk.com
+    email: aps.help@autodesk.com
+  license:
+    name: Autodesk API Terms of Service
+    url: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+servers:
+- url: https://developer.api.autodesk.com
+  description: Production
+security:
+- OAuth2ThreeLegged:
+  - account:read
+tags:
+- name: Service Limits
+paths:
+  /da/us-east/v3/servicelimits/me:
+    get:
+      operationId: getServiceLimits
+      summary: Autodesk Get Service Limits
+      description: Returns the service limits for the caller.
+      tags:
+      - Service Limits
+      responses:
+        '200':
+          description: Successfully retrieved service limits.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceLimits'
+components:
+  schemas:
+    ServiceLimits:
+      type: object
+      properties:
+        frontendLimits:
+          type: object
+          properties:
+            limitMonthlyProcessingTimeInHours:
+              type: number
+        backendLimits:
+          type: object
+  securitySchemes:
+    OAuth2ThreeLegged:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://developer.api.autodesk.com/authentication/v2/authorize
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            account:read: Read account data
+            account:write: Write account data

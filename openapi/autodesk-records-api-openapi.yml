@@ -1,0 +1,157 @@
+openapi: 3.1.0
+info:
+  title: Autodesk ACC Account Admin Account Users Records API
+  description: The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.
+  version: 1.0.0
+  termsOfService: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  contact:
+    name: Autodesk Platform Services
+    url: https://aps.autodesk.com
+    email: aps.help@autodesk.com
+  license:
+    name: Autodesk API Terms of Service
+    url: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+servers:
+- url: https://developer.api.autodesk.com
+  description: Production
+security:
+- OAuth2ThreeLegged:
+  - account:read
+tags:
+- name: Records
+paths:
+  /sustainability/v3/datasets/{datasetId}/records:
+    get:
+      operationId: getRecords
+      summary: Autodesk List Records
+      description: Returns environmental impact records from a specific dataset. Records contain emission factors, carbon intensities, and other environmental metrics.
+      tags:
+      - Records
+      parameters:
+      - name: datasetId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: filter[region]
+        in: query
+        required: false
+        description: Filter by region or country code.
+        schema:
+          type: string
+      - name: filter[category]
+        in: query
+        required: false
+        description: Filter by category.
+        schema:
+          type: string
+      - name: filter[year]
+        in: query
+        required: false
+        description: Filter by year.
+        schema:
+          type: integer
+      - name: page[offset]
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: page[limit]
+        in: query
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successfully retrieved records.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecordsResponse'
+  /sustainability/v3/datasets/{datasetId}/records/{recordId}:
+    get:
+      operationId: getRecord
+      summary: Autodesk Get Record
+      description: Returns a specific environmental impact record.
+      tags:
+      - Records
+      parameters:
+      - name: datasetId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: recordId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully retrieved record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Record'
+        '404':
+          description: Record not found.
+components:
+  schemas:
+    Pagination:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalResults:
+          type: integer
+    Record:
+      type: object
+      properties:
+        id:
+          type: string
+        datasetId:
+          type: string
+        name:
+          type: string
+        category:
+          type: string
+        region:
+          type: string
+        year:
+          type: integer
+        unit:
+          type: string
+          description: Unit of measurement.
+        emissionFactor:
+          type: number
+          description: Carbon emission factor value.
+        emissionFactorUnit:
+          type: string
+          description: Unit for the emission factor (e.g., kgCO2e/kWh).
+        gwp:
+          type: number
+          description: Global Warming Potential value.
+        metadata:
+          type: object
+          additionalProperties: true
+    RecordsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Record'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+  securitySchemes:
+    OAuth2ThreeLegged:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://developer.api.autodesk.com/authentication/v2/authorize
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            account:read: Read account data
+            account:write: Write account data
