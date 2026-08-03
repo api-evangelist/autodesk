@@ -1,0 +1,160 @@
+{
+  "info": {
+    "_postman_id": "7cf8e43e-f6de-4fe4-8b61-96f3be460530",
+    "name": "Autodesk ACC Account Admin Account Users Informational API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:36.000Z",
+    "updatedAt": "2026-07-28T01:07:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7cf8e43e-f6de-4fe4-8b61-96f3be460530"
+  },
+  "item": [
+    {
+      "name": "modelderivative",
+      "item": [
+        {
+          "name": "v2",
+          "item": [
+            {
+              "name": "designdata",
+              "item": [
+                {
+                  "name": "formats",
+                  "item": [
+                    {
+                      "name": "Autodesk List Supported Formats",
+                      "id": "a82ee4c9-8992-428c-bab2-14bb7653f82c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/modelderivative/v2/designdata/formats",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "modelderivative",
+                            "v2",
+                            "designdata",
+                            "formats"
+                          ]
+                        },
+                        "description": "Returns a list of supported input and output formats for translation."
+                      },
+                      "response": [
+                        {
+                          "id": "75a128f7-45f3-40d8-8fc7-7183eb87fba7",
+                          "name": "Successfully retrieved supported formats.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/modelderivative/v2/designdata/formats",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "modelderivative",
+                                "v2",
+                                "designdata",
+                                "formats"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"formats\": {\n    \"et4_3\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"commodo_42\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                          "createdAt": "2026-07-28T01:07:36.000Z",
+                          "updatedAt": "2026-07-28T01:07:36.000Z",
+                          "uid": "35240-75a128f7-45f3-40d8-8fc7-7183eb87fba7"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:07:36.000Z",
+                      "updatedAt": "2026-07-28T01:07:36.000Z",
+                      "uid": "35240-a82ee4c9-8992-428c-bab2-14bb7653f82c"
+                    }
+                  ],
+                  "id": "14d5b435-a69e-4336-9670-77ae5ac7e68e",
+                  "createdAt": "2026-07-28T01:07:36.000Z",
+                  "updatedAt": "2026-07-28T01:07:36.000Z",
+                  "uid": "35240-14d5b435-a69e-4336-9670-77ae5ac7e68e"
+                }
+              ],
+              "id": "3d6fed16-d8a6-48f9-88ad-a6870e14d0e2",
+              "createdAt": "2026-07-28T01:07:36.000Z",
+              "updatedAt": "2026-07-28T01:07:36.000Z",
+              "uid": "35240-3d6fed16-d8a6-48f9-88ad-a6870e14d0e2"
+            }
+          ],
+          "id": "c1d53715-10ce-4ded-9927-3e3f5b93027f",
+          "createdAt": "2026-07-28T01:07:36.000Z",
+          "updatedAt": "2026-07-28T01:07:36.000Z",
+          "uid": "35240-c1d53715-10ce-4ded-9927-3e3f5b93027f"
+        }
+      ],
+      "id": "87a640a1-0cf0-4417-ba15-6c289b30cf9f",
+      "createdAt": "2026-07-28T01:07:36.000Z",
+      "updatedAt": "2026-07-28T01:07:36.000Z",
+      "uid": "35240-87a640a1-0cf0-4417-ba15-6c289b30cf9f"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

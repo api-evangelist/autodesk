@@ -1,0 +1,1133 @@
+{
+  "info": {
+    "_postman_id": "471dfe6d-d296-4072-b3b9-d4e155e5ecc1",
+    "name": "Autodesk ACC Account Admin Account Users Hooks API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:24.000Z",
+    "updatedAt": "2026-07-28T01:07:24.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-471dfe6d-d296-4072-b3b9-d4e155e5ecc1"
+  },
+  "item": [
+    {
+      "name": "webhooks",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "systems",
+              "item": [
+                {
+                  "name": "{system}",
+                  "item": [
+                    {
+                      "name": "events",
+                      "item": [
+                        {
+                          "name": "{event}",
+                          "item": [
+                            {
+                              "name": "hooks",
+                              "item": [
+                                {
+                                  "name": "{hook_id}",
+                                  "item": [
+                                    {
+                                      "name": "Autodesk Get Hook",
+                                      "id": "62edd9e3-9148-4c92-bed7-de830d4c8926",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/webhooks/v1/systems/:system/events/:event/hooks/:hook_id",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "webhooks",
+                                            "v1",
+                                            "systems",
+                                            ":system",
+                                            "events",
+                                            ":event",
+                                            "hooks",
+                                            ":hook_id"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "358e428e-b27c-451a-81cb-8157bb56575a",
+                                              "key": "system",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "199e41eb-ffe5-4081-88e1-dedfd8367f3e",
+                                              "key": "event",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "16c98d89-acdf-4717-96b9-45175d54e21f",
+                                              "key": "hook_id",
+                                              "value": "<string>",
+                                              "description": "(Required) The unique hook identifier."
+                                            }
+                                          ]
+                                        },
+                                        "description": "Returns details of a specific webhook subscription."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "0e3eaf49-bbff-4751-852e-8bf913f99ad3",
+                                          "name": "Successfully retrieved hook.",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/webhooks/v1/systems/:system/events/:event/hooks/:hook_id",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "webhooks",
+                                                "v1",
+                                                "systems",
+                                                ":system",
+                                                "events",
+                                                ":event",
+                                                "hooks",
+                                                ":hook_id"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "system"
+                                                },
+                                                {
+                                                  "key": "event"
+                                                },
+                                                {
+                                                  "key": "hook_id"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"hookId\": \"<string>\",\n  \"tenant\": \"<string>\",\n  \"callbackUrl\": \"<uri>\",\n  \"createdBy\": \"<string>\",\n  \"event\": \"<string>\",\n  \"createdDate\": \"<dateTime>\",\n  \"lastUpdatedDate\": \"<dateTime>\",\n  \"system\": \"<string>\",\n  \"creatorType\": \"Application\",\n  \"status\": \"active\",\n  \"autoReactivateHook\": \"<boolean>\",\n  \"scope\": {\n    \"folder\": \"<string>\",\n    \"workflow\": \"<string>\"\n  },\n  \"urn\": \"<string>\",\n  \"filter\": \"<string>\"\n}",
+                                          "createdAt": "2026-07-28T01:07:24.000Z",
+                                          "updatedAt": "2026-07-28T01:07:24.000Z",
+                                          "uid": "35240-0e3eaf49-bbff-4751-852e-8bf913f99ad3"
+                                        },
+                                        {
+                                          "id": "22ddbb75-60d6-41f0-9b12-9010e03c17cc",
+                                          "name": "Hook not found.",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/webhooks/v1/systems/:system/events/:event/hooks/:hook_id",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "webhooks",
+                                                "v1",
+                                                "systems",
+                                                ":system",
+                                                "events",
+                                                ":event",
+                                                "hooks",
+                                                ":hook_id"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "system"
+                                                },
+                                                {
+                                                  "key": "event"
+                                                },
+                                                {
+                                                  "key": "hook_id"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Not Found",
+                                          "code": 404,
+                                          "_postman_previewlanguage": "text",
+                                          "header": [],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": null,
+                                          "createdAt": "2026-07-28T01:07:24.000Z",
+                                          "updatedAt": "2026-07-28T01:07:24.000Z",
+                                          "uid": "35240-22ddbb75-60d6-41f0-9b12-9010e03c17cc"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T01:07:24.000Z",
+                                      "updatedAt": "2026-07-28T01:07:24.000Z",
+                                      "uid": "35240-62edd9e3-9148-4c92-bed7-de830d4c8926"
+                                    },
+                                    {
+                                      "name": "Autodesk Update Hook",
+                                      "id": "02cd46e5-67c0-443a-bd11-d4bdb483f3de",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"status\": \"inactive\",\n  \"filter\": \"<string>\",\n  \"hookAttribute\": {\n    \"aliqua899\": \"cillum Duis est Lorem sit\"\n  },\n  \"hookExpiry\": \"<dateTime>\",\n  \"autoReactivateHook\": \"<boolean>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/webhooks/v1/systems/:system/events/:event/hooks/:hook_id",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "webhooks",
+                                            "v1",
+                                            "systems",
+                                            ":system",
+                                            "events",
+                                            ":event",
+                                            "hooks",
+                                            ":hook_id"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "6cfa94b2-b430-4ae3-96ab-b803d2b7c63b",
+                                              "key": "system",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "f0ee339c-4277-48cc-8757-fdb5360221a7",
+                                              "key": "event",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "9bb95215-d03e-4c0c-a389-71381051405e",
+                                              "key": "hook_id",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            }
+                                          ]
+                                        },
+                                        "description": "Updates properties of an existing webhook subscription."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "5afe7c82-ffb8-47ac-af7e-07f0ae9250d6",
+                                          "name": "Hook updated successfully.",
+                                          "originalRequest": {
+                                            "method": "PATCH",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"status\": \"inactive\",\n  \"filter\": \"<string>\",\n  \"hookAttribute\": {\n    \"aliqua899\": \"cillum Duis est Lorem sit\"\n  },\n  \"hookExpiry\": \"<dateTime>\",\n  \"autoReactivateHook\": \"<boolean>\"\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/webhooks/v1/systems/:system/events/:event/hooks/:hook_id",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "webhooks",
+                                                "v1",
+                                                "systems",
+                                                ":system",
+                                                "events",
+                                                ":event",
+                                                "hooks",
+                                                ":hook_id"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "system"
+                                                },
+                                                {
+                                                  "key": "event"
+                                                },
+                                                {
+                                                  "key": "hook_id"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "text",
+                                          "header": [],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": null,
+                                          "createdAt": "2026-07-28T01:07:24.000Z",
+                                          "updatedAt": "2026-07-28T01:07:24.000Z",
+                                          "uid": "35240-5afe7c82-ffb8-47ac-af7e-07f0ae9250d6"
+                                        },
+                                        {
+                                          "id": "4ee0a1da-0445-4ebc-b3c4-9df3135e58f8",
+                                          "name": "Hook not found.",
+                                          "originalRequest": {
+                                            "method": "PATCH",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"status\": \"inactive\",\n  \"filter\": \"<string>\",\n  \"hookAttribute\": {\n    \"aliqua899\": \"cillum Duis est Lorem sit\"\n  },\n  \"hookExpiry\": \"<dateTime>\",\n  \"autoReactivateHook\": \"<boolean>\"\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/webhooks/v1/systems/:system/events/:event/hooks/:hook_id",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "webhooks",
+                                                "v1",
+                                                "systems",
+                                                ":system",
+                                                "events",
+                                                ":event",
+                                                "hooks",
+                                                ":hook_id"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "system"
+                                                },
+                                                {
+                                                  "key": "event"
+                                                },
+                                                {
+                                                  "key": "hook_id"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Not Found",
+                                          "code": 404,
+                                          "_postman_previewlanguage": "text",
+                                          "header": [],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": null,
+                                          "createdAt": "2026-07-28T01:07:24.000Z",
+                                          "updatedAt": "2026-07-28T01:07:24.000Z",
+                                          "uid": "35240-4ee0a1da-0445-4ebc-b3c4-9df3135e58f8"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T01:07:24.000Z",
+                                      "updatedAt": "2026-07-28T01:07:24.000Z",
+                                      "uid": "35240-02cd46e5-67c0-443a-bd11-d4bdb483f3de"
+                                    },
+                                    {
+                                      "name": "Autodesk Delete Hook",
+                                      "id": "84467cba-65f1-4ed4-a80b-6c32e99c7d3b",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "DELETE",
+                                        "header": [],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/webhooks/v1/systems/:system/events/:event/hooks/:hook_id",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "webhooks",
+                                            "v1",
+                                            "systems",
+                                            ":system",
+                                            "events",
+                                            ":event",
+                                            "hooks",
+                                            ":hook_id"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "17cf8eb3-83f3-4ef3-90d2-c3305d517e0e",
+                                              "key": "system",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "348678b2-92a3-4b83-a250-153e4f78fc46",
+                                              "key": "event",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "a5a2acaf-046d-4c9d-9b48-dbcdbdf01bd3",
+                                              "key": "hook_id",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            }
+                                          ]
+                                        },
+                                        "description": "Deletes a webhook subscription."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "c6d8d66e-7ef0-4d1b-aa84-591875648f3d",
+                                          "name": "Hook deleted successfully.",
+                                          "originalRequest": {
+                                            "method": "DELETE",
+                                            "header": [
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/webhooks/v1/systems/:system/events/:event/hooks/:hook_id",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "webhooks",
+                                                "v1",
+                                                "systems",
+                                                ":system",
+                                                "events",
+                                                ":event",
+                                                "hooks",
+                                                ":hook_id"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "system"
+                                                },
+                                                {
+                                                  "key": "event"
+                                                },
+                                                {
+                                                  "key": "hook_id"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "No Content",
+                                          "code": 204,
+                                          "_postman_previewlanguage": "text",
+                                          "header": [],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": null,
+                                          "createdAt": "2026-07-28T01:07:24.000Z",
+                                          "updatedAt": "2026-07-28T01:07:24.000Z",
+                                          "uid": "35240-c6d8d66e-7ef0-4d1b-aa84-591875648f3d"
+                                        },
+                                        {
+                                          "id": "ea695d0f-9bf4-4041-b7c4-e18e6ac340ac",
+                                          "name": "Hook not found.",
+                                          "originalRequest": {
+                                            "method": "DELETE",
+                                            "header": [
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/webhooks/v1/systems/:system/events/:event/hooks/:hook_id",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "webhooks",
+                                                "v1",
+                                                "systems",
+                                                ":system",
+                                                "events",
+                                                ":event",
+                                                "hooks",
+                                                ":hook_id"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "system"
+                                                },
+                                                {
+                                                  "key": "event"
+                                                },
+                                                {
+                                                  "key": "hook_id"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Not Found",
+                                          "code": 404,
+                                          "_postman_previewlanguage": "text",
+                                          "header": [],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": null,
+                                          "createdAt": "2026-07-28T01:07:24.000Z",
+                                          "updatedAt": "2026-07-28T01:07:24.000Z",
+                                          "uid": "35240-ea695d0f-9bf4-4041-b7c4-e18e6ac340ac"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T01:07:24.000Z",
+                                      "updatedAt": "2026-07-28T01:07:24.000Z",
+                                      "uid": "35240-84467cba-65f1-4ed4-a80b-6c32e99c7d3b"
+                                    }
+                                  ],
+                                  "id": "0890b2b4-863b-47aa-b998-cbeba6133663",
+                                  "createdAt": "2026-07-28T01:07:24.000Z",
+                                  "updatedAt": "2026-07-28T01:07:24.000Z",
+                                  "uid": "35240-0890b2b4-863b-47aa-b998-cbeba6133663"
+                                },
+                                {
+                                  "name": "Autodesk List Hooks for Event",
+                                  "id": "46042539-fc79-4d2c-b25a-5c03dd8ea3b2",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/webhooks/v1/systems/:system/events/:event/hooks?pageState=<string>&status=inactive",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "webhooks",
+                                        "v1",
+                                        "systems",
+                                        ":system",
+                                        "events",
+                                        ":event",
+                                        "hooks"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Pagination state token.",
+                                          "key": "pageState",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Filter by hook status.",
+                                          "key": "status",
+                                          "value": "inactive"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "ce67c9ad-42a7-40a7-b646-f8c9fd231361",
+                                          "key": "system",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "4ecaae53-859a-408d-8653-66a851971e35",
+                                          "key": "event",
+                                          "value": "<string>",
+                                          "description": "(Required) The event type (e.g., dm.version.added, dm.version.deleted, extraction.finished)."
+                                        }
+                                      ]
+                                    },
+                                    "description": "Returns a paginated list of webhook subscriptions for a specific system and event."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "ee11868c-d4e1-498c-8391-d3a802dedede",
+                                      "name": "Successfully retrieved hooks.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/webhooks/v1/systems/:system/events/:event/hooks?pageState=<string>&status=inactive",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "webhooks",
+                                            "v1",
+                                            "systems",
+                                            ":system",
+                                            "events",
+                                            ":event",
+                                            "hooks"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "Pagination state token.",
+                                              "key": "pageState",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "Filter by hook status.",
+                                              "key": "status",
+                                              "value": "inactive"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "system"
+                                            },
+                                            {
+                                              "key": "event"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"links\": {\n    \"next\": \"<string>\"\n  },\n  \"data\": [\n    {\n      \"hookId\": \"<string>\",\n      \"tenant\": \"<string>\",\n      \"callbackUrl\": \"<uri>\",\n      \"createdBy\": \"<string>\",\n      \"event\": \"<string>\",\n      \"createdDate\": \"<dateTime>\",\n      \"lastUpdatedDate\": \"<dateTime>\",\n      \"system\": \"<string>\",\n      \"creatorType\": \"O2User\",\n      \"status\": \"active\",\n      \"autoReactivateHook\": \"<boolean>\",\n      \"scope\": {\n        \"folder\": \"<string>\",\n        \"workflow\": \"<string>\"\n      },\n      \"urn\": \"<string>\",\n      \"filter\": \"<string>\"\n    },\n    {\n      \"hookId\": \"<string>\",\n      \"tenant\": \"<string>\",\n      \"callbackUrl\": \"<uri>\",\n      \"createdBy\": \"<string>\",\n      \"event\": \"<string>\",\n      \"createdDate\": \"<dateTime>\",\n      \"lastUpdatedDate\": \"<dateTime>\",\n      \"system\": \"<string>\",\n      \"creatorType\": \"Application\",\n      \"status\": \"active\",\n      \"autoReactivateHook\": \"<boolean>\",\n      \"scope\": {\n        \"folder\": \"<string>\",\n        \"workflow\": \"<string>\"\n      },\n      \"urn\": \"<string>\",\n      \"filter\": \"<string>\"\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T01:07:24.000Z",
+                                      "updatedAt": "2026-07-28T01:07:24.000Z",
+                                      "uid": "35240-ee11868c-d4e1-498c-8391-d3a802dedede"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:07:24.000Z",
+                                  "updatedAt": "2026-07-28T01:07:24.000Z",
+                                  "uid": "35240-46042539-fc79-4d2c-b25a-5c03dd8ea3b2"
+                                },
+                                {
+                                  "name": "Autodesk Create Hook",
+                                  "id": "617750c9-8ffd-4239-8510-4eeeff87078d",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"callbackUrl\": \"<uri>\",\n  \"scope\": {\n    \"folder\": \"<string>\",\n    \"workflow\": \"<string>\"\n  },\n  \"hookAttribute\": {\n    \"cillumb\": \"ullamco et cupidatat consectetur\",\n    \"nisic9\": false,\n    \"nisi_308\": false,\n    \"ipsuma\": \"eu ullamco irure veli\"\n  },\n  \"filter\": \"<string>\",\n  \"hookExpiry\": \"<dateTime>\",\n  \"autoReactivateHook\": \"<boolean>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/webhooks/v1/systems/:system/events/:event/hooks",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "webhooks",
+                                        "v1",
+                                        "systems",
+                                        ":system",
+                                        "events",
+                                        ":event",
+                                        "hooks"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "36d28301-0cfa-4a18-b4b9-926ce59c95c1",
+                                          "key": "system",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "c27982ea-179a-4033-9f3d-f7914fd5654b",
+                                          "key": "event",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Creates a new webhook subscription for a specific event in a system."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "d4d4b50e-2aa5-41cd-958b-765aa34d1477",
+                                      "name": "Hook created successfully.",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"callbackUrl\": \"<uri>\",\n  \"scope\": {\n    \"folder\": \"<string>\",\n    \"workflow\": \"<string>\"\n  },\n  \"hookAttribute\": {\n    \"cillumb\": \"ullamco et cupidatat consectetur\",\n    \"nisic9\": false,\n    \"nisi_308\": false,\n    \"ipsuma\": \"eu ullamco irure veli\"\n  },\n  \"filter\": \"<string>\",\n  \"hookExpiry\": \"<dateTime>\",\n  \"autoReactivateHook\": \"<boolean>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/webhooks/v1/systems/:system/events/:event/hooks",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "webhooks",
+                                            "v1",
+                                            "systems",
+                                            ":system",
+                                            "events",
+                                            ":event",
+                                            "hooks"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "system"
+                                            },
+                                            {
+                                              "key": "event"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Created",
+                                      "code": 201,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"hookId\": \"<string>\",\n  \"tenant\": \"<string>\",\n  \"callbackUrl\": \"<uri>\",\n  \"createdBy\": \"<string>\",\n  \"event\": \"<string>\",\n  \"createdDate\": \"<dateTime>\",\n  \"lastUpdatedDate\": \"<dateTime>\",\n  \"system\": \"<string>\",\n  \"creatorType\": \"Application\",\n  \"status\": \"active\",\n  \"autoReactivateHook\": \"<boolean>\",\n  \"scope\": {\n    \"folder\": \"<string>\",\n    \"workflow\": \"<string>\"\n  },\n  \"urn\": \"<string>\",\n  \"filter\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:07:24.000Z",
+                                      "updatedAt": "2026-07-28T01:07:24.000Z",
+                                      "uid": "35240-d4d4b50e-2aa5-41cd-958b-765aa34d1477"
+                                    },
+                                    {
+                                      "id": "54d3f8f5-83ac-4bdc-b916-726c9c91ef25",
+                                      "name": "Bad request.",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"callbackUrl\": \"<uri>\",\n  \"scope\": {\n    \"folder\": \"<string>\",\n    \"workflow\": \"<string>\"\n  },\n  \"hookAttribute\": {\n    \"cillumb\": \"ullamco et cupidatat consectetur\",\n    \"nisic9\": false,\n    \"nisi_308\": false,\n    \"ipsuma\": \"eu ullamco irure veli\"\n  },\n  \"filter\": \"<string>\",\n  \"hookExpiry\": \"<dateTime>\",\n  \"autoReactivateHook\": \"<boolean>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/webhooks/v1/systems/:system/events/:event/hooks",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "webhooks",
+                                            "v1",
+                                            "systems",
+                                            ":system",
+                                            "events",
+                                            ":event",
+                                            "hooks"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "system"
+                                            },
+                                            {
+                                              "key": "event"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Bad Request",
+                                      "code": 400,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:07:24.000Z",
+                                      "updatedAt": "2026-07-28T01:07:24.000Z",
+                                      "uid": "35240-54d3f8f5-83ac-4bdc-b916-726c9c91ef25"
+                                    },
+                                    {
+                                      "id": "5322c417-4b6f-4dbd-9ce5-ac663f0ae6e1",
+                                      "name": "Hook already exists for this callback URL and event.",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"callbackUrl\": \"<uri>\",\n  \"scope\": {\n    \"folder\": \"<string>\",\n    \"workflow\": \"<string>\"\n  },\n  \"hookAttribute\": {\n    \"cillumb\": \"ullamco et cupidatat consectetur\",\n    \"nisic9\": false,\n    \"nisi_308\": false,\n    \"ipsuma\": \"eu ullamco irure veli\"\n  },\n  \"filter\": \"<string>\",\n  \"hookExpiry\": \"<dateTime>\",\n  \"autoReactivateHook\": \"<boolean>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/webhooks/v1/systems/:system/events/:event/hooks",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "webhooks",
+                                            "v1",
+                                            "systems",
+                                            ":system",
+                                            "events",
+                                            ":event",
+                                            "hooks"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "system"
+                                            },
+                                            {
+                                              "key": "event"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Conflict",
+                                      "code": 409,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:07:24.000Z",
+                                      "updatedAt": "2026-07-28T01:07:24.000Z",
+                                      "uid": "35240-5322c417-4b6f-4dbd-9ce5-ac663f0ae6e1"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:07:24.000Z",
+                                  "updatedAt": "2026-07-28T01:07:24.000Z",
+                                  "uid": "35240-617750c9-8ffd-4239-8510-4eeeff87078d"
+                                }
+                              ],
+                              "id": "81f3923b-8410-4bb7-bd9f-882a457d98d5",
+                              "createdAt": "2026-07-28T01:07:24.000Z",
+                              "updatedAt": "2026-07-28T01:07:24.000Z",
+                              "uid": "35240-81f3923b-8410-4bb7-bd9f-882a457d98d5"
+                            }
+                          ],
+                          "id": "941251dd-5588-436b-a354-e69977ee57f4",
+                          "createdAt": "2026-07-28T01:07:24.000Z",
+                          "updatedAt": "2026-07-28T01:07:24.000Z",
+                          "uid": "35240-941251dd-5588-436b-a354-e69977ee57f4"
+                        }
+                      ],
+                      "id": "3327897a-e5ec-4465-aa11-66c0c4f8f6ec",
+                      "createdAt": "2026-07-28T01:07:24.000Z",
+                      "updatedAt": "2026-07-28T01:07:24.000Z",
+                      "uid": "35240-3327897a-e5ec-4465-aa11-66c0c4f8f6ec"
+                    }
+                  ],
+                  "id": "e782bcb3-53f0-47ec-9352-d33022535881",
+                  "createdAt": "2026-07-28T01:07:24.000Z",
+                  "updatedAt": "2026-07-28T01:07:24.000Z",
+                  "uid": "35240-e782bcb3-53f0-47ec-9352-d33022535881"
+                }
+              ],
+              "id": "b45b0474-b986-4ca9-a3b8-8be65b1f62d1",
+              "createdAt": "2026-07-28T01:07:24.000Z",
+              "updatedAt": "2026-07-28T01:07:24.000Z",
+              "uid": "35240-b45b0474-b986-4ca9-a3b8-8be65b1f62d1"
+            },
+            {
+              "name": "hooks",
+              "item": [
+                {
+                  "name": "Autodesk List All Hooks",
+                  "id": "d07a8a6e-b71f-4120-8996-64af0e5f25b1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/webhooks/v1/hooks?pageState=<string>&status=inactive",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhooks",
+                        "v1",
+                        "hooks"
+                      ],
+                      "query": [
+                        {
+                          "key": "pageState",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "status",
+                          "value": "inactive"
+                        }
+                      ]
+                    },
+                    "description": "Returns all webhook subscriptions for the calling application across all systems and events."
+                  },
+                  "response": [
+                    {
+                      "id": "d92bef9a-d484-406e-ad7e-96f23a96faaf",
+                      "name": "Successfully retrieved all hooks.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/webhooks/v1/hooks?pageState=<string>&status=inactive",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "webhooks",
+                            "v1",
+                            "hooks"
+                          ],
+                          "query": [
+                            {
+                              "key": "pageState",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "status",
+                              "value": "inactive"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"links\": {\n    \"next\": \"<string>\"\n  },\n  \"data\": [\n    {\n      \"hookId\": \"<string>\",\n      \"tenant\": \"<string>\",\n      \"callbackUrl\": \"<uri>\",\n      \"createdBy\": \"<string>\",\n      \"event\": \"<string>\",\n      \"createdDate\": \"<dateTime>\",\n      \"lastUpdatedDate\": \"<dateTime>\",\n      \"system\": \"<string>\",\n      \"creatorType\": \"O2User\",\n      \"status\": \"active\",\n      \"autoReactivateHook\": \"<boolean>\",\n      \"scope\": {\n        \"folder\": \"<string>\",\n        \"workflow\": \"<string>\"\n      },\n      \"urn\": \"<string>\",\n      \"filter\": \"<string>\"\n    },\n    {\n      \"hookId\": \"<string>\",\n      \"tenant\": \"<string>\",\n      \"callbackUrl\": \"<uri>\",\n      \"createdBy\": \"<string>\",\n      \"event\": \"<string>\",\n      \"createdDate\": \"<dateTime>\",\n      \"lastUpdatedDate\": \"<dateTime>\",\n      \"system\": \"<string>\",\n      \"creatorType\": \"Application\",\n      \"status\": \"active\",\n      \"autoReactivateHook\": \"<boolean>\",\n      \"scope\": {\n        \"folder\": \"<string>\",\n        \"workflow\": \"<string>\"\n      },\n      \"urn\": \"<string>\",\n      \"filter\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:07:24.000Z",
+                      "updatedAt": "2026-07-28T01:07:24.000Z",
+                      "uid": "35240-d92bef9a-d484-406e-ad7e-96f23a96faaf"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:07:24.000Z",
+                  "updatedAt": "2026-07-28T01:07:24.000Z",
+                  "uid": "35240-d07a8a6e-b71f-4120-8996-64af0e5f25b1"
+                }
+              ],
+              "id": "dba18f7f-df11-4a7c-8f7c-9a04eb119157",
+              "createdAt": "2026-07-28T01:07:24.000Z",
+              "updatedAt": "2026-07-28T01:07:24.000Z",
+              "uid": "35240-dba18f7f-df11-4a7c-8f7c-9a04eb119157"
+            }
+          ],
+          "id": "2f1bb113-90ec-482c-9cd2-be221e36cff8",
+          "createdAt": "2026-07-28T01:07:24.000Z",
+          "updatedAt": "2026-07-28T01:07:24.000Z",
+          "uid": "35240-2f1bb113-90ec-482c-9cd2-be221e36cff8"
+        }
+      ],
+      "id": "b94c5800-22e1-4471-9e09-7aeeb3d5e780",
+      "createdAt": "2026-07-28T01:07:24.000Z",
+      "updatedAt": "2026-07-28T01:07:24.000Z",
+      "uid": "35240-b94c5800-22e1-4471-9e09-7aeeb3d5e780"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

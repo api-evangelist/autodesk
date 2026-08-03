@@ -1,0 +1,184 @@
+{
+  "info": {
+    "_postman_id": "10f3efe4-d352-496a-89b7-440c6316a900",
+    "name": "Autodesk ACC Account Admin Account Users Models API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:46.000Z",
+    "updatedAt": "2026-07-28T01:07:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-10f3efe4-d352-496a-89b7-440c6316a900"
+  },
+  "item": [
+    {
+      "name": "tandem",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "twins",
+              "item": [
+                {
+                  "name": "{twinId}",
+                  "item": [
+                    {
+                      "name": "models",
+                      "item": [
+                        {
+                          "name": "Autodesk List Models",
+                          "id": "0f1f5146-eb1f-4f75-967e-590302e5186f",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/tandem/v1/twins/:twinId/models",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "tandem",
+                                "v1",
+                                "twins",
+                                ":twinId",
+                                "models"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "cefed8a7-1ee1-4b25-9040-00aaa2e30718",
+                                  "key": "twinId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Returns a list of BIM models associated with a digital twin facility."
+                          },
+                          "response": [
+                            {
+                              "id": "3fb2f1c2-f4a9-4fdb-83fe-c3f26748a8e2",
+                              "name": "Successfully retrieved models.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/tandem/v1/twins/:twinId/models",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "tandem",
+                                    "v1",
+                                    "twins",
+                                    ":twinId",
+                                    "models"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "twinId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"models\": [\n    {\n      \"modelId\": \"<string>\",\n      \"label\": \"<string>\",\n      \"urn\": \"<string>\",\n      \"status\": \"<string>\",\n      \"lastSyncTime\": \"<dateTime>\"\n    },\n    {\n      \"modelId\": \"<string>\",\n      \"label\": \"<string>\",\n      \"urn\": \"<string>\",\n      \"status\": \"<string>\",\n      \"lastSyncTime\": \"<dateTime>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:07:46.000Z",
+                              "updatedAt": "2026-07-28T01:07:46.000Z",
+                              "uid": "35240-3fb2f1c2-f4a9-4fdb-83fe-c3f26748a8e2"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:07:46.000Z",
+                          "updatedAt": "2026-07-28T01:07:46.000Z",
+                          "uid": "35240-0f1f5146-eb1f-4f75-967e-590302e5186f"
+                        }
+                      ],
+                      "id": "d610d2a8-904c-48aa-b08d-9c27b148e201",
+                      "createdAt": "2026-07-28T01:07:46.000Z",
+                      "updatedAt": "2026-07-28T01:07:46.000Z",
+                      "uid": "35240-d610d2a8-904c-48aa-b08d-9c27b148e201"
+                    }
+                  ],
+                  "id": "67850b6a-042b-4dc8-a4ac-7e9b7992daba",
+                  "createdAt": "2026-07-28T01:07:46.000Z",
+                  "updatedAt": "2026-07-28T01:07:46.000Z",
+                  "uid": "35240-67850b6a-042b-4dc8-a4ac-7e9b7992daba"
+                }
+              ],
+              "id": "78823f20-b6e6-43fd-a1fb-9a815d115433",
+              "createdAt": "2026-07-28T01:07:46.000Z",
+              "updatedAt": "2026-07-28T01:07:46.000Z",
+              "uid": "35240-78823f20-b6e6-43fd-a1fb-9a815d115433"
+            }
+          ],
+          "id": "acfeb349-905f-4a1e-966a-ed477a1b037f",
+          "createdAt": "2026-07-28T01:07:46.000Z",
+          "updatedAt": "2026-07-28T01:07:46.000Z",
+          "uid": "35240-acfeb349-905f-4a1e-966a-ed477a1b037f"
+        }
+      ],
+      "id": "0bd9debc-cf9a-4474-ab61-23f59160da23",
+      "createdAt": "2026-07-28T01:07:46.000Z",
+      "updatedAt": "2026-07-28T01:07:46.000Z",
+      "uid": "35240-0bd9debc-cf9a-4474-ab61-23f59160da23"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

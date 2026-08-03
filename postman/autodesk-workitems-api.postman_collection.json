@@ -1,0 +1,421 @@
+{
+  "info": {
+    "_postman_id": "dec5503e-abc3-46f2-b1eb-09e9f63dbfc1",
+    "name": "Autodesk ACC Account Admin Account Users WorkItems API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:08:39.000Z",
+    "updatedAt": "2026-07-28T01:08:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-dec5503e-abc3-46f2-b1eb-09e9f63dbfc1"
+  },
+  "item": [
+    {
+      "name": "da",
+      "item": [
+        {
+          "name": "us-east",
+          "item": [
+            {
+              "name": "v3",
+              "item": [
+                {
+                  "name": "workitems",
+                  "item": [
+                    {
+                      "name": "{id}",
+                      "item": [
+                        {
+                          "name": "Autodesk Get WorkItem Status",
+                          "id": "3d566da9-81d6-4a6e-b291-31d1d9fa80ae",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/da/us-east/v3/workitems/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "da",
+                                "us-east",
+                                "v3",
+                                "workitems",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "dfe9b848-7c8f-4489-9f13-15f9f9e690b7",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Returns the status of a specific WorkItem."
+                          },
+                          "response": [
+                            {
+                              "id": "589644a9-f669-4af6-800a-fb789f76086c",
+                              "name": "Successfully retrieved WorkItem status.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/da/us-east/v3/workitems/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "da",
+                                    "us-east",
+                                    "v3",
+                                    "workitems",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"cancelled\",\n  \"progress\": \"<string>\",\n  \"reportUrl\": \"<uri>\",\n  \"stats\": {\n    \"timeQueued\": \"<dateTime>\",\n    \"timeDownloadStarted\": \"<dateTime>\",\n    \"timeInstructionsStarted\": \"<dateTime>\",\n    \"timeInstructionsEnded\": \"<dateTime>\",\n    \"timeUploadEnded\": \"<dateTime>\",\n    \"bytesDownloaded\": \"<integer>\",\n    \"bytesUploaded\": \"<integer>\"\n  },\n  \"id\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:08:40.000Z",
+                              "updatedAt": "2026-07-28T01:08:40.000Z",
+                              "uid": "35240-589644a9-f669-4af6-800a-fb789f76086c"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:08:40.000Z",
+                          "updatedAt": "2026-07-28T01:08:40.000Z",
+                          "uid": "35240-3d566da9-81d6-4a6e-b291-31d1d9fa80ae"
+                        },
+                        {
+                          "name": "Autodesk Cancel WorkItem",
+                          "id": "8fd9ebb4-2666-40d3-8b88-3935db7c4ddb",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/da/us-east/v3/workitems/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "da",
+                                "us-east",
+                                "v3",
+                                "workitems",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "f411126e-221e-4dbb-9528-534b629054ad",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Cancels a pending or running WorkItem."
+                          },
+                          "response": [
+                            {
+                              "id": "2f65ab77-eb1e-432c-ba22-9cb19ee7cd2c",
+                              "name": "WorkItem cancelled.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/da/us-east/v3/workitems/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "da",
+                                    "us-east",
+                                    "v3",
+                                    "workitems",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "No Content",
+                              "code": 204,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:08:40.000Z",
+                              "updatedAt": "2026-07-28T01:08:40.000Z",
+                              "uid": "35240-2f65ab77-eb1e-432c-ba22-9cb19ee7cd2c"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:08:40.000Z",
+                          "updatedAt": "2026-07-28T01:08:40.000Z",
+                          "uid": "35240-8fd9ebb4-2666-40d3-8b88-3935db7c4ddb"
+                        }
+                      ],
+                      "id": "314da85c-e6d1-4a1f-8015-b9dc2779a668",
+                      "createdAt": "2026-07-28T01:08:40.000Z",
+                      "updatedAt": "2026-07-28T01:08:40.000Z",
+                      "uid": "35240-314da85c-e6d1-4a1f-8015-b9dc2779a668"
+                    },
+                    {
+                      "name": "Autodesk Create WorkItem",
+                      "id": "77d4bc85-76ce-4a14-abf0-136d44042d25",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"activityId\": \"<string>\",\n  \"arguments\": {\n    \"ullamco_962\": {\n      \"url\": \"<uri>\",\n      \"verb\": \"read\",\n      \"headers\": {\n        \"elit_f4b\": \"<string>\",\n        \"tempor_2ad\": \"<string>\"\n      },\n      \"localName\": \"<string>\",\n      \"pathInZip\": \"<string>\",\n      \"optional\": \"<boolean>\"\n    }\n  },\n  \"limitProcessingTimeSec\": \"<integer>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/da/us-east/v3/workitems",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "da",
+                            "us-east",
+                            "v3",
+                            "workitems"
+                          ]
+                        },
+                        "description": "Creates and executes a WorkItem. A WorkItem is an instance of an Activity that processes specific input files and produces output files."
+                      },
+                      "response": [
+                        {
+                          "id": "eb27b930-5607-48a8-837c-4bcde2ab6e61",
+                          "name": "WorkItem created and queued.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"activityId\": \"<string>\",\n  \"arguments\": {\n    \"ullamco_962\": {\n      \"url\": \"<uri>\",\n      \"verb\": \"read\",\n      \"headers\": {\n        \"elit_f4b\": \"<string>\",\n        \"tempor_2ad\": \"<string>\"\n      },\n      \"localName\": \"<string>\",\n      \"pathInZip\": \"<string>\",\n      \"optional\": \"<boolean>\"\n    }\n  },\n  \"limitProcessingTimeSec\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/da/us-east/v3/workitems",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "da",
+                                "us-east",
+                                "v3",
+                                "workitems"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"cancelled\",\n  \"progress\": \"<string>\",\n  \"reportUrl\": \"<uri>\",\n  \"stats\": {\n    \"timeQueued\": \"<dateTime>\",\n    \"timeDownloadStarted\": \"<dateTime>\",\n    \"timeInstructionsStarted\": \"<dateTime>\",\n    \"timeInstructionsEnded\": \"<dateTime>\",\n    \"timeUploadEnded\": \"<dateTime>\",\n    \"bytesDownloaded\": \"<integer>\",\n    \"bytesUploaded\": \"<integer>\"\n  },\n  \"id\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:08:40.000Z",
+                          "updatedAt": "2026-07-28T01:08:40.000Z",
+                          "uid": "35240-eb27b930-5607-48a8-837c-4bcde2ab6e61"
+                        },
+                        {
+                          "id": "0a26a8cb-41ea-4e1a-b0ff-e563b1fadb9e",
+                          "name": "Bad request.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"activityId\": \"<string>\",\n  \"arguments\": {\n    \"ullamco_962\": {\n      \"url\": \"<uri>\",\n      \"verb\": \"read\",\n      \"headers\": {\n        \"elit_f4b\": \"<string>\",\n        \"tempor_2ad\": \"<string>\"\n      },\n      \"localName\": \"<string>\",\n      \"pathInZip\": \"<string>\",\n      \"optional\": \"<boolean>\"\n    }\n  },\n  \"limitProcessingTimeSec\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/da/us-east/v3/workitems",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "da",
+                                "us-east",
+                                "v3",
+                                "workitems"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:08:40.000Z",
+                          "updatedAt": "2026-07-28T01:08:40.000Z",
+                          "uid": "35240-0a26a8cb-41ea-4e1a-b0ff-e563b1fadb9e"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:08:40.000Z",
+                      "updatedAt": "2026-07-28T01:08:40.000Z",
+                      "uid": "35240-77d4bc85-76ce-4a14-abf0-136d44042d25"
+                    }
+                  ],
+                  "id": "8b0d8ce5-cfd1-4ef2-a81e-64f7f19ad9df",
+                  "createdAt": "2026-07-28T01:08:40.000Z",
+                  "updatedAt": "2026-07-28T01:08:40.000Z",
+                  "uid": "35240-8b0d8ce5-cfd1-4ef2-a81e-64f7f19ad9df"
+                }
+              ],
+              "id": "bcb14bc2-dc6c-4a51-a565-995ed1aa69c3",
+              "createdAt": "2026-07-28T01:08:40.000Z",
+              "updatedAt": "2026-07-28T01:08:40.000Z",
+              "uid": "35240-bcb14bc2-dc6c-4a51-a565-995ed1aa69c3"
+            }
+          ],
+          "id": "9673a333-3564-4538-956d-057d0b36328f",
+          "createdAt": "2026-07-28T01:08:40.000Z",
+          "updatedAt": "2026-07-28T01:08:40.000Z",
+          "uid": "35240-9673a333-3564-4538-956d-057d0b36328f"
+        }
+      ],
+      "id": "a1e76159-0ddb-4331-8949-f7a62aca0c55",
+      "createdAt": "2026-07-28T01:08:40.000Z",
+      "updatedAt": "2026-07-28T01:08:40.000Z",
+      "uid": "35240-a1e76159-0ddb-4331-8949-f7a62aca0c55"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

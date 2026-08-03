@@ -1,0 +1,380 @@
+{
+  "info": {
+    "_postman_id": "45c9ddda-fc32-4654-916c-dfbed0276daa",
+    "name": "Autodesk ACC Account Admin Account Users Companies API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:06:50.000Z",
+    "updatedAt": "2026-07-28T01:06:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-45c9ddda-fc32-4654-916c-dfbed0276daa"
+  },
+  "item": [
+    {
+      "name": "construction",
+      "item": [
+        {
+          "name": "admin",
+          "item": [
+            {
+              "name": "v1",
+              "item": [
+                {
+                  "name": "accounts",
+                  "item": [
+                    {
+                      "name": "{accountId}",
+                      "item": [
+                        {
+                          "name": "companies",
+                          "item": [
+                            {
+                              "name": "Autodesk List Companies",
+                              "id": "988a095c-b69c-41dd-81ac-2e12d79736f4",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/construction/admin/v1/accounts/:accountId/companies?filter[name]=<string>&filter[trade]=<string>&limit=<integer>&offset=<integer>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "construction",
+                                    "admin",
+                                    "v1",
+                                    "accounts",
+                                    ":accountId",
+                                    "companies"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "filter[name]",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "filter[trade]",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "offset",
+                                      "value": "<integer>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "204e1278-bdb6-4bf5-a04b-b985ebfe1f63",
+                                      "key": "accountId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Returns partner companies in the account directory."
+                              },
+                              "response": [
+                                {
+                                  "id": "48554d5a-2e8a-4c50-9337-5b997329a8db",
+                                  "name": "Successfully retrieved companies.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/construction/admin/v1/accounts/:accountId/companies?filter[name]=<string>&filter[trade]=<string>&limit=<integer>&offset=<integer>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "construction",
+                                        "admin",
+                                        "v1",
+                                        "accounts",
+                                        ":accountId",
+                                        "companies"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "filter[name]",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "filter[trade]",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "limit",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "key": "offset",
+                                          "value": "<integer>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "accountId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"results\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"trade\": \"<string>\",\n      \"addressLine1\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"stateOrProvince\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"websiteUrl\": \"<uri>\",\n      \"description\": \"<string>\",\n      \"erp_id\": \"<string>\",\n      \"tax_id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"trade\": \"<string>\",\n      \"addressLine1\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"stateOrProvince\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"websiteUrl\": \"<uri>\",\n      \"description\": \"<string>\",\n      \"erp_id\": \"<string>\",\n      \"tax_id\": \"<string>\"\n    }\n  ],\n  \"pagination\": {\n    \"offset\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"totalResults\": \"<integer>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T01:06:50.000Z",
+                                  "updatedAt": "2026-07-28T01:06:50.000Z",
+                                  "uid": "35240-48554d5a-2e8a-4c50-9337-5b997329a8db"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:06:50.000Z",
+                              "updatedAt": "2026-07-28T01:06:50.000Z",
+                              "uid": "35240-988a095c-b69c-41dd-81ac-2e12d79736f4"
+                            },
+                            {
+                              "name": "Autodesk Create Company",
+                              "id": "eebceed8-91a3-4d71-bc6f-705243b54085",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "auth": {
+                                  "type": "oauth2",
+                                  "oauth2": [
+                                    {
+                                      "key": "scope",
+                                      "value": "account:read account:write",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "accessTokenUrl",
+                                      "value": "https://developer.api.autodesk.com/authentication/v2/token",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "authUrl",
+                                      "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "grant_type",
+                                      "value": "authorization_code",
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"trade\": \"<string>\",\n  \"addressLine1\": \"<string>\",\n  \"city\": \"<string>\",\n  \"stateOrProvince\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"country\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"websiteUrl\": \"<uri>\",\n  \"description\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/construction/admin/v1/accounts/:accountId/companies",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "construction",
+                                    "admin",
+                                    "v1",
+                                    "accounts",
+                                    ":accountId",
+                                    "companies"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "ba4b66b7-0929-4f18-93a7-ebf65feb41e6",
+                                      "key": "accountId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Creates a new partner company in the account directory."
+                              },
+                              "response": [
+                                {
+                                  "id": "2fa954f4-6602-4b93-8423-9d075fba4b0b",
+                                  "name": "Company created.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"name\": \"<string>\",\n  \"trade\": \"<string>\",\n  \"addressLine1\": \"<string>\",\n  \"city\": \"<string>\",\n  \"stateOrProvince\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"country\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"websiteUrl\": \"<uri>\",\n  \"description\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/construction/admin/v1/accounts/:accountId/companies",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "construction",
+                                        "admin",
+                                        "v1",
+                                        "accounts",
+                                        ":accountId",
+                                        "companies"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "accountId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Created",
+                                  "code": 201,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"trade\": \"<string>\",\n  \"addressLine1\": \"<string>\",\n  \"addressLine2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"stateOrProvince\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"country\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"websiteUrl\": \"<uri>\",\n  \"description\": \"<string>\",\n  \"erp_id\": \"<string>\",\n  \"tax_id\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:06:50.000Z",
+                                  "updatedAt": "2026-07-28T01:06:50.000Z",
+                                  "uid": "35240-2fa954f4-6602-4b93-8423-9d075fba4b0b"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:06:50.000Z",
+                              "updatedAt": "2026-07-28T01:06:50.000Z",
+                              "uid": "35240-eebceed8-91a3-4d71-bc6f-705243b54085"
+                            }
+                          ],
+                          "id": "1cd17208-0fd3-4af5-bdc4-44e978156dd7",
+                          "createdAt": "2026-07-28T01:06:50.000Z",
+                          "updatedAt": "2026-07-28T01:06:50.000Z",
+                          "uid": "35240-1cd17208-0fd3-4af5-bdc4-44e978156dd7"
+                        }
+                      ],
+                      "id": "db74d702-848d-4f70-a468-0b6c65f636ac",
+                      "createdAt": "2026-07-28T01:06:50.000Z",
+                      "updatedAt": "2026-07-28T01:06:50.000Z",
+                      "uid": "35240-db74d702-848d-4f70-a468-0b6c65f636ac"
+                    }
+                  ],
+                  "id": "1f9383dc-854c-4d57-9a2c-47e51a8d5988",
+                  "createdAt": "2026-07-28T01:06:50.000Z",
+                  "updatedAt": "2026-07-28T01:06:50.000Z",
+                  "uid": "35240-1f9383dc-854c-4d57-9a2c-47e51a8d5988"
+                }
+              ],
+              "id": "398b452e-219e-4dde-b81a-598551bab886",
+              "createdAt": "2026-07-28T01:06:50.000Z",
+              "updatedAt": "2026-07-28T01:06:50.000Z",
+              "uid": "35240-398b452e-219e-4dde-b81a-598551bab886"
+            }
+          ],
+          "id": "d672fc72-efbb-43dd-bc8f-02dec84140f9",
+          "createdAt": "2026-07-28T01:06:50.000Z",
+          "updatedAt": "2026-07-28T01:06:50.000Z",
+          "uid": "35240-d672fc72-efbb-43dd-bc8f-02dec84140f9"
+        }
+      ],
+      "id": "19cc1bfc-2330-46d0-915a-240b1017c002",
+      "createdAt": "2026-07-28T01:06:50.000Z",
+      "updatedAt": "2026-07-28T01:06:50.000Z",
+      "uid": "35240-19cc1bfc-2330-46d0-915a-240b1017c002"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

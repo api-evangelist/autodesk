@@ -1,0 +1,653 @@
+{
+  "info": {
+    "_postman_id": "b6ca4016-2d7a-401a-bef8-18c354dce553",
+    "name": "Autodesk ACC Account Admin Account Users Photoscenes API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:48.000Z",
+    "updatedAt": "2026-07-28T01:07:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b6ca4016-2d7a-401a-bef8-18c354dce553"
+  },
+  "item": [
+    {
+      "name": "photo-to-3d",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "photoscene",
+              "item": [
+                {
+                  "name": "{photosceneid}",
+                  "item": [
+                    {
+                      "name": "progress",
+                      "item": [
+                        {
+                          "name": "Get Processing Progress",
+                          "id": "e69c7434-6795-4f5b-a565-f2b272f43f68",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/photo-to-3d/v1/photoscene/:photosceneid/progress",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "photo-to-3d",
+                                "v1",
+                                "photoscene",
+                                ":photosceneid",
+                                "progress"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "cc5cc282-a762-4fd6-a736-b465390034d5",
+                                  "key": "photosceneid",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Returns the processing progress of a photoscene. Poll this endpoint to track the status of a processing job."
+                          },
+                          "response": [
+                            {
+                              "id": "9df2f9c8-6fa0-4db2-af97-22ee367b5668",
+                              "name": "Successfully retrieved progress.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/photo-to-3d/v1/photoscene/:photosceneid/progress",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "photo-to-3d",
+                                    "v1",
+                                    "photoscene",
+                                    ":photosceneid",
+                                    "progress"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "photosceneid"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"Photoscene\": {\n    \"photosceneid\": \"<string>\",\n    \"progressmsg\": \"<string>\",\n    \"progress\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:07:49.000Z",
+                              "updatedAt": "2026-07-28T01:07:49.000Z",
+                              "uid": "35240-9df2f9c8-6fa0-4db2-af97-22ee367b5668"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:07:49.000Z",
+                          "updatedAt": "2026-07-28T01:07:49.000Z",
+                          "uid": "35240-e69c7434-6795-4f5b-a565-f2b272f43f68"
+                        }
+                      ],
+                      "id": "03ca0f75-b0ee-492f-b413-77f11eca38dc",
+                      "createdAt": "2026-07-28T01:07:49.000Z",
+                      "updatedAt": "2026-07-28T01:07:49.000Z",
+                      "uid": "35240-03ca0f75-b0ee-492f-b413-77f11eca38dc"
+                    },
+                    {
+                      "name": "Get Photoscene Properties",
+                      "id": "a2b519f4-de28-4613-bccf-88d207eb9319",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/photo-to-3d/v1/photoscene/:photosceneid",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "photo-to-3d",
+                            "v1",
+                            "photoscene",
+                            ":photosceneid"
+                          ],
+                          "variable": [
+                            {
+                              "id": "0f6588d6-ddeb-4dea-a1b4-21813cee84f0",
+                              "key": "photosceneid",
+                              "value": "<string>",
+                              "description": "(Required) The unique photoscene identifier."
+                            }
+                          ]
+                        },
+                        "description": "Returns properties and status of a specific photoscene."
+                      },
+                      "response": [
+                        {
+                          "id": "addb3cf7-ed5e-4b33-9892-c299030f7759",
+                          "name": "Successfully retrieved photoscene.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/photo-to-3d/v1/photoscene/:photosceneid",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "photo-to-3d",
+                                "v1",
+                                "photoscene",
+                                ":photosceneid"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "photosceneid"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Photoscene\": {\n    \"photosceneid\": \"<string>\",\n    \"name\": \"<string>\",\n    \"status\": \"Processing\",\n    \"progressmsg\": \"<string>\",\n    \"scenelink\": \"<uri>\",\n    \"filesize\": \"<integer>\",\n    \"convertformat\": \"<string>\",\n    \"convertStatus\": \"<string>\",\n    \"nb3dpoints\": \"<integer>\",\n    \"nbfaces\": \"<integer>\",\n    \"nbshots\": \"<integer>\",\n    \"nbstitchedshots\": \"<integer>\",\n    \"files\": [\n      {\n        \"fileid\": \"<string>\",\n        \"filename\": \"<string>\",\n        \"filesize\": \"<integer>\"\n      },\n      {\n        \"fileid\": \"<string>\",\n        \"filename\": \"<string>\",\n        \"filesize\": \"<integer>\"\n      }\n    ]\n  }\n}",
+                          "createdAt": "2026-07-28T01:07:49.000Z",
+                          "updatedAt": "2026-07-28T01:07:49.000Z",
+                          "uid": "35240-addb3cf7-ed5e-4b33-9892-c299030f7759"
+                        },
+                        {
+                          "id": "3ce90d85-cf7e-4f98-9775-c9c2eecab2a8",
+                          "name": "Photoscene not found.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/photo-to-3d/v1/photoscene/:photosceneid",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "photo-to-3d",
+                                "v1",
+                                "photoscene",
+                                ":photosceneid"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "photosceneid"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:07:49.000Z",
+                          "updatedAt": "2026-07-28T01:07:49.000Z",
+                          "uid": "35240-3ce90d85-cf7e-4f98-9775-c9c2eecab2a8"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:07:49.000Z",
+                      "updatedAt": "2026-07-28T01:07:49.000Z",
+                      "uid": "35240-a2b519f4-de28-4613-bccf-88d207eb9319"
+                    },
+                    {
+                      "name": "Delete Photoscene",
+                      "id": "af716e66-62db-41c2-b9f4-f271d2308bdf",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/photo-to-3d/v1/photoscene/:photosceneid",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "photo-to-3d",
+                            "v1",
+                            "photoscene",
+                            ":photosceneid"
+                          ],
+                          "variable": [
+                            {
+                              "id": "b49be1c5-b317-4d83-b41a-aaa81ef462ba",
+                              "key": "photosceneid",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Deletes a photoscene and all associated data including uploaded images and generated outputs."
+                      },
+                      "response": [
+                        {
+                          "id": "57001164-2337-43d3-8c50-4be6281e6f0a",
+                          "name": "Photoscene deleted successfully.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/photo-to-3d/v1/photoscene/:photosceneid",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "photo-to-3d",
+                                "v1",
+                                "photoscene",
+                                ":photosceneid"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "photosceneid"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"msg\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:07:49.000Z",
+                          "updatedAt": "2026-07-28T01:07:49.000Z",
+                          "uid": "35240-57001164-2337-43d3-8c50-4be6281e6f0a"
+                        },
+                        {
+                          "id": "464cb49b-dad0-4beb-81c6-895116b4ed0a",
+                          "name": "Photoscene not found.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/photo-to-3d/v1/photoscene/:photosceneid",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "photo-to-3d",
+                                "v1",
+                                "photoscene",
+                                ":photosceneid"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "photosceneid"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:07:49.000Z",
+                          "updatedAt": "2026-07-28T01:07:49.000Z",
+                          "uid": "35240-464cb49b-dad0-4beb-81c6-895116b4ed0a"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:07:49.000Z",
+                      "updatedAt": "2026-07-28T01:07:49.000Z",
+                      "uid": "35240-af716e66-62db-41c2-b9f4-f271d2308bdf"
+                    }
+                  ],
+                  "id": "23542981-0aab-4006-8556-c875edd581bd",
+                  "createdAt": "2026-07-28T01:07:49.000Z",
+                  "updatedAt": "2026-07-28T01:07:49.000Z",
+                  "uid": "35240-23542981-0aab-4006-8556-c875edd581bd"
+                },
+                {
+                  "name": "Create Photoscene",
+                  "id": "efc13da1-d28c-46e9-8cc8-baac28e9392b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"scenename\": \"<string>\",\n  \"scenetype\": \"aerial\",\n  \"format\": \"obj\",\n  \"gpstype\": \"wgs84\",\n  \"callback\": \"<uri>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/photo-to-3d/v1/photoscene",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "photo-to-3d",
+                        "v1",
+                        "photoscene"
+                      ]
+                    },
+                    "description": "Creates a new photoscene, which is a container for a photogrammetry processing job. Specify the output format, processing type, and GPS settings."
+                  },
+                  "response": [
+                    {
+                      "id": "36a209ed-18a0-4579-b017-6d182cbc1d50",
+                      "name": "Photoscene created successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"scenename\": \"<string>\",\n  \"scenetype\": \"aerial\",\n  \"format\": \"obj\",\n  \"gpstype\": \"wgs84\",\n  \"callback\": \"<uri>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/photo-to-3d/v1/photoscene",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "photo-to-3d",
+                            "v1",
+                            "photoscene"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Photoscene\": {\n    \"photosceneid\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:07:49.000Z",
+                      "updatedAt": "2026-07-28T01:07:49.000Z",
+                      "uid": "35240-36a209ed-18a0-4579-b017-6d182cbc1d50"
+                    },
+                    {
+                      "id": "97c44b4b-5877-46f5-a471-5c03d360fc05",
+                      "name": "Bad request.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"scenename\": \"<string>\",\n  \"scenetype\": \"aerial\",\n  \"format\": \"obj\",\n  \"gpstype\": \"wgs84\",\n  \"callback\": \"<uri>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/photo-to-3d/v1/photoscene",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "photo-to-3d",
+                            "v1",
+                            "photoscene"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:07:49.000Z",
+                      "updatedAt": "2026-07-28T01:07:49.000Z",
+                      "uid": "35240-97c44b4b-5877-46f5-a471-5c03d360fc05"
+                    },
+                    {
+                      "id": "fa7e752a-bf0b-4d3b-8f99-d6fd591e41e7",
+                      "name": "Unauthorized.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"scenename\": \"<string>\",\n  \"scenetype\": \"aerial\",\n  \"format\": \"obj\",\n  \"gpstype\": \"wgs84\",\n  \"callback\": \"<uri>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/photo-to-3d/v1/photoscene",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "photo-to-3d",
+                            "v1",
+                            "photoscene"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:07:49.000Z",
+                      "updatedAt": "2026-07-28T01:07:49.000Z",
+                      "uid": "35240-fa7e752a-bf0b-4d3b-8f99-d6fd591e41e7"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:07:49.000Z",
+                  "updatedAt": "2026-07-28T01:07:49.000Z",
+                  "uid": "35240-efc13da1-d28c-46e9-8cc8-baac28e9392b"
+                }
+              ],
+              "id": "ed94a45c-f592-46a2-bfda-0e80967c7d75",
+              "createdAt": "2026-07-28T01:07:49.000Z",
+              "updatedAt": "2026-07-28T01:07:49.000Z",
+              "uid": "35240-ed94a45c-f592-46a2-bfda-0e80967c7d75"
+            }
+          ],
+          "id": "f9a2f397-2eee-453c-834f-a31cd17b8d16",
+          "createdAt": "2026-07-28T01:07:49.000Z",
+          "updatedAt": "2026-07-28T01:07:49.000Z",
+          "uid": "35240-f9a2f397-2eee-453c-834f-a31cd17b8d16"
+        }
+      ],
+      "id": "4fa8ef44-c31b-4ad9-9031-a822c793b820",
+      "createdAt": "2026-07-28T01:07:49.000Z",
+      "updatedAt": "2026-07-28T01:07:49.000Z",
+      "uid": "35240-4fa8ef44-c31b-4ad9-9031-a822c793b820"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

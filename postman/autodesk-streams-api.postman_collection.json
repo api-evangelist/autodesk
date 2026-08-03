@@ -1,0 +1,515 @@
+{
+  "info": {
+    "_postman_id": "6b213fe4-7e37-4aee-997d-ed6fe48d85d0",
+    "name": "Autodesk ACC Account Admin Account Users Streams API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:58.000Z",
+    "updatedAt": "2026-07-28T01:07:58.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6b213fe4-7e37-4aee-997d-ed6fe48d85d0"
+  },
+  "item": [
+    {
+      "name": "tandem",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "twins",
+              "item": [
+                {
+                  "name": "{twinId}",
+                  "item": [
+                    {
+                      "name": "streams",
+                      "item": [
+                        {
+                          "name": "Autodesk List Streams",
+                          "id": "bf79ee46-dcb7-45bf-b5d8-e3e9eb9c52c1",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/tandem/v1/twins/:twinId/streams",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "tandem",
+                                "v1",
+                                "twins",
+                                ":twinId",
+                                "streams"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "1f570265-0f6f-4a01-a4fe-1939fc7c69e0",
+                                  "key": "twinId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Returns IoT data streams associated with a digital twin for time-series sensor data integration."
+                          },
+                          "response": [
+                            {
+                              "id": "97683d5c-9cc6-46aa-b3fd-8274d3934a2b",
+                              "name": "Successfully retrieved streams.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/tandem/v1/twins/:twinId/streams",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "tandem",
+                                    "v1",
+                                    "twins",
+                                    ":twinId",
+                                    "streams"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "twinId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"streams\": [\n    {\n      \"streamId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"elementKey\": \"<string>\",\n      \"propertyId\": \"<string>\",\n      \"lastValue\": {},\n      \"lastTimestamp\": \"<dateTime>\"\n    },\n    {\n      \"streamId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"elementKey\": \"<string>\",\n      \"propertyId\": \"<string>\",\n      \"lastValue\": {},\n      \"lastTimestamp\": \"<dateTime>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:07:58.000Z",
+                              "updatedAt": "2026-07-28T01:07:58.000Z",
+                              "uid": "35240-97683d5c-9cc6-46aa-b3fd-8274d3934a2b"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:07:58.000Z",
+                          "updatedAt": "2026-07-28T01:07:58.000Z",
+                          "uid": "35240-bf79ee46-dcb7-45bf-b5d8-e3e9eb9c52c1"
+                        }
+                      ],
+                      "id": "e2a7c1f4-0886-4384-b08e-17e9c82ab9cb",
+                      "createdAt": "2026-07-28T01:07:58.000Z",
+                      "updatedAt": "2026-07-28T01:07:58.000Z",
+                      "uid": "35240-e2a7c1f4-0886-4384-b08e-17e9c82ab9cb"
+                    }
+                  ],
+                  "id": "1482903c-1275-4f55-bc52-9abd95212a48",
+                  "createdAt": "2026-07-28T01:07:58.000Z",
+                  "updatedAt": "2026-07-28T01:07:58.000Z",
+                  "uid": "35240-1482903c-1275-4f55-bc52-9abd95212a48"
+                }
+              ],
+              "id": "e8ec94d3-e414-448d-b667-4ba408759d90",
+              "createdAt": "2026-07-28T01:07:58.000Z",
+              "updatedAt": "2026-07-28T01:07:58.000Z",
+              "uid": "35240-e8ec94d3-e414-448d-b667-4ba408759d90"
+            },
+            {
+              "name": "timeseries",
+              "item": [
+                {
+                  "name": "{streamId}",
+                  "item": [
+                    {
+                      "name": "Autodesk Get Timeseries Data",
+                      "id": "f3ee7799-1fce-4fb4-8766-d3eb8daf956a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/tandem/v1/timeseries/:streamId?from=<string>&to=<string>&resolution=minute",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "tandem",
+                            "v1",
+                            "timeseries",
+                            ":streamId"
+                          ],
+                          "query": [
+                            {
+                              "description": "Start time (ISO 8601 or Unix timestamp).",
+                              "key": "from",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "End time (ISO 8601 or Unix timestamp).",
+                              "key": "to",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Data resolution.",
+                              "key": "resolution",
+                              "value": "minute"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "716f190c-2b25-4228-9925-1444f7814c7a",
+                              "key": "streamId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Returns time-series data for a specific IoT stream."
+                      },
+                      "response": [
+                        {
+                          "id": "1d8b8465-736c-438d-a945-505f9ba76236",
+                          "name": "Successfully retrieved timeseries data.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/tandem/v1/timeseries/:streamId?from=<string>&to=<string>&resolution=minute",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "tandem",
+                                "v1",
+                                "timeseries",
+                                ":streamId"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Start time (ISO 8601 or Unix timestamp).",
+                                  "key": "from",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "End time (ISO 8601 or Unix timestamp).",
+                                  "key": "to",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Data resolution.",
+                                  "key": "resolution",
+                                  "value": "minute"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "streamId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"timestamps\": [\n    \"<dateTime>\",\n    \"<dateTime>\"\n  ],\n  \"count\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T01:07:58.000Z",
+                          "updatedAt": "2026-07-28T01:07:58.000Z",
+                          "uid": "35240-1d8b8465-736c-438d-a945-505f9ba76236"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:07:58.000Z",
+                      "updatedAt": "2026-07-28T01:07:58.000Z",
+                      "uid": "35240-f3ee7799-1fce-4fb4-8766-d3eb8daf956a"
+                    },
+                    {
+                      "name": "Autodesk Push Timeseries Data",
+                      "id": "fdd27fe8-756f-4365-a2fa-6d8e89065b98",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "oauth2",
+                          "oauth2": [
+                            {
+                              "key": "scope",
+                              "value": "account:read account:write",
+                              "type": "string"
+                            },
+                            {
+                              "key": "accessTokenUrl",
+                              "value": "https://developer.api.autodesk.com/authentication/v2/token",
+                              "type": "string"
+                            },
+                            {
+                              "key": "authUrl",
+                              "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+                              "type": "string"
+                            },
+                            {
+                              "key": "grant_type",
+                              "value": "authorization_code",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"datapoints\": [\n    {\n      \"timestamp\": \"<dateTime>\",\n      \"value\": {}\n    },\n    {\n      \"timestamp\": \"<dateTime>\",\n      \"value\": {}\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/tandem/v1/timeseries/:streamId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "tandem",
+                            "v1",
+                            "timeseries",
+                            ":streamId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "115393e3-60aa-44dc-b7ed-33d39715c223",
+                              "key": "streamId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Pushes new time-series data points to a stream."
+                      },
+                      "response": [
+                        {
+                          "id": "8ddfc7b0-b5f1-4e0d-81eb-2d3834e18e55",
+                          "name": "Data pushed successfully.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"datapoints\": [\n    {\n      \"timestamp\": \"<dateTime>\",\n      \"value\": {}\n    },\n    {\n      \"timestamp\": \"<dateTime>\",\n      \"value\": {}\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/tandem/v1/timeseries/:streamId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "tandem",
+                                "v1",
+                                "timeseries",
+                                ":streamId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "streamId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:07:58.000Z",
+                          "updatedAt": "2026-07-28T01:07:58.000Z",
+                          "uid": "35240-8ddfc7b0-b5f1-4e0d-81eb-2d3834e18e55"
+                        },
+                        {
+                          "id": "bdd00095-7695-41a8-9e01-5a319000c1f8",
+                          "name": "Bad request.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"datapoints\": [\n    {\n      \"timestamp\": \"<dateTime>\",\n      \"value\": {}\n    },\n    {\n      \"timestamp\": \"<dateTime>\",\n      \"value\": {}\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/tandem/v1/timeseries/:streamId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "tandem",
+                                "v1",
+                                "timeseries",
+                                ":streamId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "streamId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:07:58.000Z",
+                          "updatedAt": "2026-07-28T01:07:58.000Z",
+                          "uid": "35240-bdd00095-7695-41a8-9e01-5a319000c1f8"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:07:58.000Z",
+                      "updatedAt": "2026-07-28T01:07:58.000Z",
+                      "uid": "35240-fdd27fe8-756f-4365-a2fa-6d8e89065b98"
+                    }
+                  ],
+                  "id": "e1ae2a9c-d135-4e7b-b98c-d66d1ffb6264",
+                  "createdAt": "2026-07-28T01:07:58.000Z",
+                  "updatedAt": "2026-07-28T01:07:58.000Z",
+                  "uid": "35240-e1ae2a9c-d135-4e7b-b98c-d66d1ffb6264"
+                }
+              ],
+              "id": "cbd380e5-f774-46a8-9f27-80e19919f775",
+              "createdAt": "2026-07-28T01:07:58.000Z",
+              "updatedAt": "2026-07-28T01:07:58.000Z",
+              "uid": "35240-cbd380e5-f774-46a8-9f27-80e19919f775"
+            }
+          ],
+          "id": "2f9c5726-538a-49cc-b78b-a3bb13bd1930",
+          "createdAt": "2026-07-28T01:07:58.000Z",
+          "updatedAt": "2026-07-28T01:07:58.000Z",
+          "uid": "35240-2f9c5726-538a-49cc-b78b-a3bb13bd1930"
+        }
+      ],
+      "id": "20312339-df91-4d8f-b6bf-70e1d9586094",
+      "createdAt": "2026-07-28T01:07:58.000Z",
+      "updatedAt": "2026-07-28T01:07:58.000Z",
+      "uid": "35240-20312339-df91-4d8f-b6bf-70e1d9586094"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

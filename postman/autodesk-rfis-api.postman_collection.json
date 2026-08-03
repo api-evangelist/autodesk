@@ -1,0 +1,223 @@
+{
+  "info": {
+    "_postman_id": "50b54be3-908c-4915-aa4d-126267e12897",
+    "name": "Autodesk ACC Account Admin Account Users RFIs API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:55.000Z",
+    "updatedAt": "2026-07-28T01:07:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-50b54be3-908c-4915-aa4d-126267e12897"
+  },
+  "item": [
+    {
+      "name": "bim360",
+      "item": [
+        {
+          "name": "rfis",
+          "item": [
+            {
+              "name": "v2",
+              "item": [
+                {
+                  "name": "containers",
+                  "item": [
+                    {
+                      "name": "{containerId}",
+                      "item": [
+                        {
+                          "name": "rfis",
+                          "item": [
+                            {
+                              "name": "Autodesk List RFIs",
+                              "id": "e7eedef5-ed67-4242-a3df-95996fe2c815",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/bim360/rfis/v2/containers/:containerId/rfis?filter[status]=<string>&page[limit]=<integer>&page[offset]=<integer>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "bim360",
+                                    "rfis",
+                                    "v2",
+                                    "containers",
+                                    ":containerId",
+                                    "rfis"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "filter[status]",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "page[limit]",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "page[offset]",
+                                      "value": "<integer>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "0c642af4-94c4-49e8-a1b9-cbb481f2f05c",
+                                      "key": "containerId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Returns a list of RFIs in the container."
+                              },
+                              "response": [
+                                {
+                                  "id": "9ebfc579-2467-4840-8503-2922d4c33194",
+                                  "name": "Successfully retrieved RFIs.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/bim360/rfis/v2/containers/:containerId/rfis?filter[status]=<string>&page[limit]=<integer>&page[offset]=<integer>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "bim360",
+                                        "rfis",
+                                        "v2",
+                                        "containers",
+                                        ":containerId",
+                                        "rfis"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "filter[status]",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "page[limit]",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "key": "page[offset]",
+                                          "value": "<integer>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "containerId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"title\": \"<string>\",\n      \"status\": \"<string>\",\n      \"assignedTo\": \"<string>\",\n      \"dueDate\": \"<date>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"title\": \"<string>\",\n      \"status\": \"<string>\",\n      \"assignedTo\": \"<string>\",\n      \"dueDate\": \"<date>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    }\n  ],\n  \"pagination\": {\n    \"offset\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"totalResults\": \"<integer>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T01:07:56.000Z",
+                                  "updatedAt": "2026-07-28T01:07:56.000Z",
+                                  "uid": "35240-9ebfc579-2467-4840-8503-2922d4c33194"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:07:56.000Z",
+                              "updatedAt": "2026-07-28T01:07:56.000Z",
+                              "uid": "35240-e7eedef5-ed67-4242-a3df-95996fe2c815"
+                            }
+                          ],
+                          "id": "483d32d5-d1f6-4115-9776-764a20e7099e",
+                          "createdAt": "2026-07-28T01:07:56.000Z",
+                          "updatedAt": "2026-07-28T01:07:56.000Z",
+                          "uid": "35240-483d32d5-d1f6-4115-9776-764a20e7099e"
+                        }
+                      ],
+                      "id": "a58a1e0f-a202-49c6-8e44-b20774622299",
+                      "createdAt": "2026-07-28T01:07:56.000Z",
+                      "updatedAt": "2026-07-28T01:07:56.000Z",
+                      "uid": "35240-a58a1e0f-a202-49c6-8e44-b20774622299"
+                    }
+                  ],
+                  "id": "133e3b05-71f0-4349-8599-49e7f8c601d9",
+                  "createdAt": "2026-07-28T01:07:56.000Z",
+                  "updatedAt": "2026-07-28T01:07:56.000Z",
+                  "uid": "35240-133e3b05-71f0-4349-8599-49e7f8c601d9"
+                }
+              ],
+              "id": "266013b6-b9d3-4aff-9aa4-805c9f9c2689",
+              "createdAt": "2026-07-28T01:07:56.000Z",
+              "updatedAt": "2026-07-28T01:07:56.000Z",
+              "uid": "35240-266013b6-b9d3-4aff-9aa4-805c9f9c2689"
+            }
+          ],
+          "id": "a3e9feb1-4c93-45ae-8531-22fc8885e521",
+          "createdAt": "2026-07-28T01:07:56.000Z",
+          "updatedAt": "2026-07-28T01:07:56.000Z",
+          "uid": "35240-a3e9feb1-4c93-45ae-8531-22fc8885e521"
+        }
+      ],
+      "id": "8dea0e02-c687-431e-bbe6-b27f68e502b4",
+      "createdAt": "2026-07-28T01:07:56.000Z",
+      "updatedAt": "2026-07-28T01:07:56.000Z",
+      "uid": "35240-8dea0e02-c687-431e-bbe6-b27f68e502b4"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

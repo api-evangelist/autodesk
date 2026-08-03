@@ -1,0 +1,1508 @@
+{
+  "info": {
+    "_postman_id": "c9ca8fc4-454e-4dc4-8cf4-bc9f8ca29471",
+    "name": "Autodesk ACC Account Admin Account Users Projects API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:52.000Z",
+    "updatedAt": "2026-07-28T01:07:53.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c9ca8fc4-454e-4dc4-8cf4-bc9f8ca29471"
+  },
+  "item": [
+    {
+      "name": "construction",
+      "item": [
+        {
+          "name": "admin",
+          "item": [
+            {
+              "name": "v1",
+              "item": [
+                {
+                  "name": "accounts",
+                  "item": [
+                    {
+                      "name": "{accountId}",
+                      "item": [
+                        {
+                          "name": "projects",
+                          "item": [
+                            {
+                              "name": "{projectId}",
+                              "item": [
+                                {
+                                  "name": "Autodesk Get Project",
+                                  "id": "a3209f75-da6a-434e-abf1-c9ad412633ef",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/construction/admin/v1/accounts/:accountId/projects/:projectId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "construction",
+                                        "admin",
+                                        "v1",
+                                        "accounts",
+                                        ":accountId",
+                                        "projects",
+                                        ":projectId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "554b0cc5-29a2-4885-bdb6-e57770878b72",
+                                          "key": "accountId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "97d3b636-a286-4340-b74c-4614c5e0c7d4",
+                                          "key": "projectId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Returns details of a specific project."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "48f4f5c9-2b04-4bd1-87b1-2623fd4788ae",
+                                      "name": "Successfully retrieved project.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/construction/admin/v1/accounts/:accountId/projects/:projectId",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "construction",
+                                            "admin",
+                                            "v1",
+                                            "accounts",
+                                            ":accountId",
+                                            "projects",
+                                            ":projectId"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "accountId"
+                                            },
+                                            {
+                                              "key": "projectId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"status\": \"inactive\",\n  \"type\": \"<string>\",\n  \"platform\": \"bim360\",\n  \"jobNumber\": \"<string>\",\n  \"addressLine1\": \"<string>\",\n  \"addressLine2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"stateOrProvince\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"country\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"constructionType\": \"<string>\",\n  \"deliveryMethod\": \"<string>\",\n  \"contractType\": \"<string>\",\n  \"currentPhase\": \"<string>\",\n  \"value\": \"<number>\",\n  \"currency\": \"<string>\",\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                                      "createdAt": "2026-07-28T01:07:53.000Z",
+                                      "updatedAt": "2026-07-28T01:07:53.000Z",
+                                      "uid": "35240-48f4f5c9-2b04-4bd1-87b1-2623fd4788ae"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:07:53.000Z",
+                                  "updatedAt": "2026-07-28T01:07:53.000Z",
+                                  "uid": "35240-a3209f75-da6a-434e-abf1-c9ad412633ef"
+                                },
+                                {
+                                  "name": "Autodesk Update Project",
+                                  "id": "d47957f9-7ff0-4dd9-acb7-31cb7aa3aa77",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "auth": {
+                                      "type": "oauth2",
+                                      "oauth2": [
+                                        {
+                                          "key": "scope",
+                                          "value": "account:read account:write",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "key": "accessTokenUrl",
+                                          "value": "https://developer.api.autodesk.com/authentication/v2/token",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "key": "authUrl",
+                                          "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "key": "grant_type",
+                                          "value": "authorization_code",
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"inactive\",\n  \"jobNumber\": \"<string>\",\n  \"addressLine1\": \"<string>\",\n  \"city\": \"<string>\",\n  \"stateOrProvince\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"country\": \"<string>\",\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/construction/admin/v1/accounts/:accountId/projects/:projectId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "construction",
+                                        "admin",
+                                        "v1",
+                                        "accounts",
+                                        ":accountId",
+                                        "projects",
+                                        ":projectId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "48ac090a-db78-43f0-ae91-ebad9287b09b",
+                                          "key": "accountId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "ec0772a4-7213-4fce-8367-ff2834e1d750",
+                                          "key": "projectId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Updates project details."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "ec8ac38c-df3a-48bb-b6d5-9293f5a5d89b",
+                                      "name": "Project updated.",
+                                      "originalRequest": {
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"inactive\",\n  \"jobNumber\": \"<string>\",\n  \"addressLine1\": \"<string>\",\n  \"city\": \"<string>\",\n  \"stateOrProvince\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"country\": \"<string>\",\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/construction/admin/v1/accounts/:accountId/projects/:projectId",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "construction",
+                                            "admin",
+                                            "v1",
+                                            "accounts",
+                                            ":accountId",
+                                            "projects",
+                                            ":projectId"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "accountId"
+                                            },
+                                            {
+                                              "key": "projectId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"status\": \"inactive\",\n  \"type\": \"<string>\",\n  \"platform\": \"bim360\",\n  \"jobNumber\": \"<string>\",\n  \"addressLine1\": \"<string>\",\n  \"addressLine2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"stateOrProvince\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"country\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"constructionType\": \"<string>\",\n  \"deliveryMethod\": \"<string>\",\n  \"contractType\": \"<string>\",\n  \"currentPhase\": \"<string>\",\n  \"value\": \"<number>\",\n  \"currency\": \"<string>\",\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                                      "createdAt": "2026-07-28T01:07:53.000Z",
+                                      "updatedAt": "2026-07-28T01:07:53.000Z",
+                                      "uid": "35240-ec8ac38c-df3a-48bb-b6d5-9293f5a5d89b"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:07:53.000Z",
+                                  "updatedAt": "2026-07-28T01:07:53.000Z",
+                                  "uid": "35240-d47957f9-7ff0-4dd9-acb7-31cb7aa3aa77"
+                                }
+                              ],
+                              "id": "3b68d0e4-3cae-4273-bc10-8d3178c19692",
+                              "createdAt": "2026-07-28T01:07:53.000Z",
+                              "updatedAt": "2026-07-28T01:07:53.000Z",
+                              "uid": "35240-3b68d0e4-3cae-4273-bc10-8d3178c19692"
+                            },
+                            {
+                              "name": "Autodesk List Projects",
+                              "id": "7dd475bf-bcd5-4fc2-bf07-eebcc9c9b58b",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/construction/admin/v1/accounts/:accountId/projects?filter[status]=active&filter[name]=<string>&filter[platform]=acc&sort=<string>&limit=<integer>&offset=<integer>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "construction",
+                                    "admin",
+                                    "v1",
+                                    "accounts",
+                                    ":accountId",
+                                    "projects"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "filter[status]",
+                                      "value": "active"
+                                    },
+                                    {
+                                      "key": "filter[name]",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "filter[platform]",
+                                      "value": "acc"
+                                    },
+                                    {
+                                      "description": "Sort field and direction (e.g., name asc, startDate desc).",
+                                      "key": "sort",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "offset",
+                                      "value": "<integer>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "dae1cd5b-9e84-4efd-863e-e6b97da9bb5e",
+                                      "key": "accountId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Returns a paginated list of projects in the specified account."
+                              },
+                              "response": [
+                                {
+                                  "id": "08ec90d0-299b-4482-92b3-55fd19585703",
+                                  "name": "Successfully retrieved projects.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/construction/admin/v1/accounts/:accountId/projects?filter[status]=active&filter[name]=<string>&filter[platform]=acc&sort=<string>&limit=<integer>&offset=<integer>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "construction",
+                                        "admin",
+                                        "v1",
+                                        "accounts",
+                                        ":accountId",
+                                        "projects"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "filter[status]",
+                                          "value": "active"
+                                        },
+                                        {
+                                          "key": "filter[name]",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "filter[platform]",
+                                          "value": "acc"
+                                        },
+                                        {
+                                          "description": "Sort field and direction (e.g., name asc, startDate desc).",
+                                          "key": "sort",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "limit",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "key": "offset",
+                                          "value": "<integer>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "accountId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"results\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"status\": \"archived\",\n      \"type\": \"<string>\",\n      \"platform\": \"bim360\",\n      \"jobNumber\": \"<string>\",\n      \"addressLine1\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"stateOrProvince\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"timezone\": \"<string>\",\n      \"constructionType\": \"<string>\",\n      \"deliveryMethod\": \"<string>\",\n      \"contractType\": \"<string>\",\n      \"currentPhase\": \"<string>\",\n      \"value\": \"<number>\",\n      \"currency\": \"<string>\",\n      \"startDate\": \"<date>\",\n      \"endDate\": \"<date>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"status\": \"active\",\n      \"type\": \"<string>\",\n      \"platform\": \"acc\",\n      \"jobNumber\": \"<string>\",\n      \"addressLine1\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"stateOrProvince\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"timezone\": \"<string>\",\n      \"constructionType\": \"<string>\",\n      \"deliveryMethod\": \"<string>\",\n      \"contractType\": \"<string>\",\n      \"currentPhase\": \"<string>\",\n      \"value\": \"<number>\",\n      \"currency\": \"<string>\",\n      \"startDate\": \"<date>\",\n      \"endDate\": \"<date>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    }\n  ],\n  \"pagination\": {\n    \"offset\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"totalResults\": \"<integer>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T01:07:53.000Z",
+                                  "updatedAt": "2026-07-28T01:07:53.000Z",
+                                  "uid": "35240-08ec90d0-299b-4482-92b3-55fd19585703"
+                                },
+                                {
+                                  "id": "9fa33bc4-f3e5-4d2c-a887-cb7773dc7613",
+                                  "name": "Unauthorized.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/construction/admin/v1/accounts/:accountId/projects?filter[status]=active&filter[name]=<string>&filter[platform]=acc&sort=<string>&limit=<integer>&offset=<integer>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "construction",
+                                        "admin",
+                                        "v1",
+                                        "accounts",
+                                        ":accountId",
+                                        "projects"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "filter[status]",
+                                          "value": "active"
+                                        },
+                                        {
+                                          "key": "filter[name]",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "filter[platform]",
+                                          "value": "acc"
+                                        },
+                                        {
+                                          "description": "Sort field and direction (e.g., name asc, startDate desc).",
+                                          "key": "sort",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "limit",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "key": "offset",
+                                          "value": "<integer>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "accountId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:07:53.000Z",
+                                  "updatedAt": "2026-07-28T01:07:53.000Z",
+                                  "uid": "35240-9fa33bc4-f3e5-4d2c-a887-cb7773dc7613"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:07:53.000Z",
+                              "updatedAt": "2026-07-28T01:07:53.000Z",
+                              "uid": "35240-7dd475bf-bcd5-4fc2-bf07-eebcc9c9b58b"
+                            },
+                            {
+                              "name": "Autodesk Create Project",
+                              "id": "74e0c3af-6539-4b3e-bb48-42e0102a1f6c",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "auth": {
+                                  "type": "oauth2",
+                                  "oauth2": [
+                                    {
+                                      "key": "scope",
+                                      "value": "account:read account:write",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "accessTokenUrl",
+                                      "value": "https://developer.api.autodesk.com/authentication/v2/token",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "authUrl",
+                                      "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "grant_type",
+                                      "value": "authorization_code",
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"status\": \"inactive\",\n  \"jobNumber\": \"<string>\",\n  \"addressLine1\": \"<string>\",\n  \"city\": \"<string>\",\n  \"stateOrProvince\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"country\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"constructionType\": \"<string>\",\n  \"deliveryMethod\": \"<string>\",\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"value\": \"<number>\",\n  \"currency\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/construction/admin/v1/accounts/:accountId/projects",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "construction",
+                                    "admin",
+                                    "v1",
+                                    "accounts",
+                                    ":accountId",
+                                    "projects"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "ab46aff8-2d12-4ca8-97d9-5193d40ccf56",
+                                      "key": "accountId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Creates a new project in the account."
+                              },
+                              "response": [
+                                {
+                                  "id": "ef30c919-da47-4df3-9b18-37362a4cb590",
+                                  "name": "Project created.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"status\": \"inactive\",\n  \"jobNumber\": \"<string>\",\n  \"addressLine1\": \"<string>\",\n  \"city\": \"<string>\",\n  \"stateOrProvince\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"country\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"constructionType\": \"<string>\",\n  \"deliveryMethod\": \"<string>\",\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"value\": \"<number>\",\n  \"currency\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/construction/admin/v1/accounts/:accountId/projects",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "construction",
+                                        "admin",
+                                        "v1",
+                                        "accounts",
+                                        ":accountId",
+                                        "projects"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "accountId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Created",
+                                  "code": 201,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"status\": \"inactive\",\n  \"type\": \"<string>\",\n  \"platform\": \"bim360\",\n  \"jobNumber\": \"<string>\",\n  \"addressLine1\": \"<string>\",\n  \"addressLine2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"stateOrProvince\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"country\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"constructionType\": \"<string>\",\n  \"deliveryMethod\": \"<string>\",\n  \"contractType\": \"<string>\",\n  \"currentPhase\": \"<string>\",\n  \"value\": \"<number>\",\n  \"currency\": \"<string>\",\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                                  "createdAt": "2026-07-28T01:07:53.000Z",
+                                  "updatedAt": "2026-07-28T01:07:53.000Z",
+                                  "uid": "35240-ef30c919-da47-4df3-9b18-37362a4cb590"
+                                },
+                                {
+                                  "id": "17823142-8f00-43f8-8791-20d10d175871",
+                                  "name": "Bad request.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"status\": \"inactive\",\n  \"jobNumber\": \"<string>\",\n  \"addressLine1\": \"<string>\",\n  \"city\": \"<string>\",\n  \"stateOrProvince\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"country\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"constructionType\": \"<string>\",\n  \"deliveryMethod\": \"<string>\",\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"value\": \"<number>\",\n  \"currency\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/construction/admin/v1/accounts/:accountId/projects",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "construction",
+                                        "admin",
+                                        "v1",
+                                        "accounts",
+                                        ":accountId",
+                                        "projects"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "accountId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Bad Request",
+                                  "code": 400,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:07:53.000Z",
+                                  "updatedAt": "2026-07-28T01:07:53.000Z",
+                                  "uid": "35240-17823142-8f00-43f8-8791-20d10d175871"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:07:53.000Z",
+                              "updatedAt": "2026-07-28T01:07:53.000Z",
+                              "uid": "35240-74e0c3af-6539-4b3e-bb48-42e0102a1f6c"
+                            }
+                          ],
+                          "id": "89a192be-a6d8-40cf-be0b-cad2a81795a4",
+                          "createdAt": "2026-07-28T01:07:53.000Z",
+                          "updatedAt": "2026-07-28T01:07:53.000Z",
+                          "uid": "35240-89a192be-a6d8-40cf-be0b-cad2a81795a4"
+                        }
+                      ],
+                      "id": "256defea-909a-451f-9347-24a1e9f34fe8",
+                      "createdAt": "2026-07-28T01:07:53.000Z",
+                      "updatedAt": "2026-07-28T01:07:53.000Z",
+                      "uid": "35240-256defea-909a-451f-9347-24a1e9f34fe8"
+                    }
+                  ],
+                  "id": "be0f73b2-9765-4bc9-acca-c709a131575c",
+                  "createdAt": "2026-07-28T01:07:53.000Z",
+                  "updatedAt": "2026-07-28T01:07:53.000Z",
+                  "uid": "35240-be0f73b2-9765-4bc9-acca-c709a131575c"
+                }
+              ],
+              "id": "98a5b806-44f8-4e55-9be7-05ef4a62ea25",
+              "createdAt": "2026-07-28T01:07:53.000Z",
+              "updatedAt": "2026-07-28T01:07:53.000Z",
+              "uid": "35240-98a5b806-44f8-4e55-9be7-05ef4a62ea25"
+            }
+          ],
+          "id": "2f1b2440-4431-4782-af61-521c0f5a3484",
+          "createdAt": "2026-07-28T01:07:53.000Z",
+          "updatedAt": "2026-07-28T01:07:53.000Z",
+          "uid": "35240-2f1b2440-4431-4782-af61-521c0f5a3484"
+        }
+      ],
+      "id": "99c28f3e-f969-4918-9503-8a6950314565",
+      "createdAt": "2026-07-28T01:07:53.000Z",
+      "updatedAt": "2026-07-28T01:07:53.000Z",
+      "uid": "35240-99c28f3e-f969-4918-9503-8a6950314565"
+    },
+    {
+      "name": "project",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "hubs",
+              "item": [
+                {
+                  "name": "{hub_id}",
+                  "item": [
+                    {
+                      "name": "projects",
+                      "item": [
+                        {
+                          "name": "{project_id}",
+                          "item": [
+                            {
+                              "name": "topFolders",
+                              "item": [
+                                {
+                                  "name": "Autodesk List Top Folders",
+                                  "id": "7dfeb4de-f67c-4f5b-8951-3067bea35a72",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/vnd.api+json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/project/v1/hubs/:hub_id/projects/:project_id/topFolders",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "project",
+                                        "v1",
+                                        "hubs",
+                                        ":hub_id",
+                                        "projects",
+                                        ":project_id",
+                                        "topFolders"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "aebf4849-95a9-4a74-a8da-ed89e0f8f97d",
+                                          "key": "hub_id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "ab7794fb-c617-4642-9e06-95d8ada362f0",
+                                          "key": "project_id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Returns the top-level folders for a project."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "7144d847-dcae-4fd9-a727-c77995b60692",
+                                      "name": "Successfully retrieved top folders.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/vnd.api+json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/project/v1/hubs/:hub_id/projects/:project_id/topFolders",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "project",
+                                            "v1",
+                                            "hubs",
+                                            ":hub_id",
+                                            "projects",
+                                            ":project_id",
+                                            "topFolders"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "hub_id"
+                                            },
+                                            {
+                                              "key": "project_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/vnd.api+json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": [\n    {\n      \"type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"attributes\": {\n        \"name\": \"<string>\",\n        \"displayName\": \"<string>\",\n        \"createTime\": \"<dateTime>\",\n        \"createUserId\": \"<string>\",\n        \"createUserName\": \"<string>\",\n        \"lastModifiedTime\": \"<dateTime>\",\n        \"lastModifiedUserId\": \"<string>\",\n        \"lastModifiedUserName\": \"<string>\",\n        \"objectCount\": \"<integer>\",\n        \"extension\": {\n          \"type\": \"<string>\",\n          \"version\": \"<string>\",\n          \"data\": {}\n        },\n        \"hidden\": \"<boolean>\"\n      }\n    },\n    {\n      \"type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"attributes\": {\n        \"name\": \"<string>\",\n        \"displayName\": \"<string>\",\n        \"createTime\": \"<dateTime>\",\n        \"createUserId\": \"<string>\",\n        \"createUserName\": \"<string>\",\n        \"lastModifiedTime\": \"<dateTime>\",\n        \"lastModifiedUserId\": \"<string>\",\n        \"lastModifiedUserName\": \"<string>\",\n        \"objectCount\": \"<integer>\",\n        \"extension\": {\n          \"type\": \"<string>\",\n          \"version\": \"<string>\",\n          \"data\": {}\n        },\n        \"hidden\": \"<boolean>\"\n      }\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T01:07:53.000Z",
+                                      "updatedAt": "2026-07-28T01:07:53.000Z",
+                                      "uid": "35240-7144d847-dcae-4fd9-a727-c77995b60692"
+                                    },
+                                    {
+                                      "id": "21048a48-a679-4935-8d5d-ac50cab1f26a",
+                                      "name": "Unauthorized.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/project/v1/hubs/:hub_id/projects/:project_id/topFolders",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "project",
+                                            "v1",
+                                            "hubs",
+                                            ":hub_id",
+                                            "projects",
+                                            ":project_id",
+                                            "topFolders"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "hub_id"
+                                            },
+                                            {
+                                              "key": "project_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Unauthorized",
+                                      "code": 401,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:07:53.000Z",
+                                      "updatedAt": "2026-07-28T01:07:53.000Z",
+                                      "uid": "35240-21048a48-a679-4935-8d5d-ac50cab1f26a"
+                                    },
+                                    {
+                                      "id": "d5152031-17d7-4404-a4ee-5796eb418893",
+                                      "name": "Project not found.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/project/v1/hubs/:hub_id/projects/:project_id/topFolders",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "project",
+                                            "v1",
+                                            "hubs",
+                                            ":hub_id",
+                                            "projects",
+                                            ":project_id",
+                                            "topFolders"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "hub_id"
+                                            },
+                                            {
+                                              "key": "project_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Not Found",
+                                      "code": 404,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:07:53.000Z",
+                                      "updatedAt": "2026-07-28T01:07:53.000Z",
+                                      "uid": "35240-d5152031-17d7-4404-a4ee-5796eb418893"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:07:53.000Z",
+                                  "updatedAt": "2026-07-28T01:07:53.000Z",
+                                  "uid": "35240-7dfeb4de-f67c-4f5b-8951-3067bea35a72"
+                                }
+                              ],
+                              "id": "60ae1020-bf0a-4052-976f-10f036896b5c",
+                              "createdAt": "2026-07-28T01:07:53.000Z",
+                              "updatedAt": "2026-07-28T01:07:53.000Z",
+                              "uid": "35240-60ae1020-bf0a-4052-976f-10f036896b5c"
+                            },
+                            {
+                              "name": "Autodesk Get Project",
+                              "id": "06864aeb-56c8-4fed-811b-0ff6a5b9d55f",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/vnd.api+json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/project/v1/hubs/:hub_id/projects/:project_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "project",
+                                    "v1",
+                                    "hubs",
+                                    ":hub_id",
+                                    "projects",
+                                    ":project_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "d922a518-6fc8-4255-ac98-25bafeec3bb3",
+                                      "key": "hub_id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "def49208-7ec9-48bd-89d8-b7ad693eeefd",
+                                      "key": "project_id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Returns a specific project within a hub."
+                              },
+                              "response": [
+                                {
+                                  "id": "808ccd8b-a53f-4787-a2fa-005eb6e3de0d",
+                                  "name": "Successfully retrieved project.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/vnd.api+json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/project/v1/hubs/:hub_id/projects/:project_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "project",
+                                        "v1",
+                                        "hubs",
+                                        ":hub_id",
+                                        "projects",
+                                        ":project_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "hub_id"
+                                        },
+                                        {
+                                          "key": "project_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/vnd.api+json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": {\n    \"type\": \"<string>\",\n    \"id\": \"<string>\",\n    \"attributes\": {\n      \"name\": \"<string>\",\n      \"extension\": {\n        \"type\": \"<string>\",\n        \"version\": \"<string>\",\n        \"data\": {}\n      }\n    },\n    \"relationships\": {\n      \"hub\": {\n        \"data\": {\n          \"type\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      },\n      \"rootFolder\": {\n        \"data\": {\n          \"type\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      },\n      \"topFolders\": {\n        \"links\": {\n          \"related\": {\n            \"href\": \"<uri>\"\n          }\n        }\n      }\n    }\n  }\n}",
+                                  "createdAt": "2026-07-28T01:07:53.000Z",
+                                  "updatedAt": "2026-07-28T01:07:53.000Z",
+                                  "uid": "35240-808ccd8b-a53f-4787-a2fa-005eb6e3de0d"
+                                },
+                                {
+                                  "id": "888f51d2-dd0c-40d8-a8df-c959ed5a47d0",
+                                  "name": "Unauthorized.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/project/v1/hubs/:hub_id/projects/:project_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "project",
+                                        "v1",
+                                        "hubs",
+                                        ":hub_id",
+                                        "projects",
+                                        ":project_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "hub_id"
+                                        },
+                                        {
+                                          "key": "project_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:07:53.000Z",
+                                  "updatedAt": "2026-07-28T01:07:53.000Z",
+                                  "uid": "35240-888f51d2-dd0c-40d8-a8df-c959ed5a47d0"
+                                },
+                                {
+                                  "id": "9977106e-865e-437f-a55d-efdc8f0879fb",
+                                  "name": "Project not found.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/project/v1/hubs/:hub_id/projects/:project_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "project",
+                                        "v1",
+                                        "hubs",
+                                        ":hub_id",
+                                        "projects",
+                                        ":project_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "hub_id"
+                                        },
+                                        {
+                                          "key": "project_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:07:53.000Z",
+                                  "updatedAt": "2026-07-28T01:07:53.000Z",
+                                  "uid": "35240-9977106e-865e-437f-a55d-efdc8f0879fb"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:07:53.000Z",
+                              "updatedAt": "2026-07-28T01:07:53.000Z",
+                              "uid": "35240-06864aeb-56c8-4fed-811b-0ff6a5b9d55f"
+                            }
+                          ],
+                          "id": "9d1a6408-78a1-47b5-8e87-c1c30fa71c14",
+                          "createdAt": "2026-07-28T01:07:53.000Z",
+                          "updatedAt": "2026-07-28T01:07:53.000Z",
+                          "uid": "35240-9d1a6408-78a1-47b5-8e87-c1c30fa71c14"
+                        },
+                        {
+                          "name": "Autodesk List Projects",
+                          "id": "82252f04-e570-4cc0-9af3-bde8d5491e20",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.api+json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/project/v1/hubs/:hub_id/projects?filter[id]=<string>&page[number]=<integer>&page[limit]=<integer>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "project",
+                                "v1",
+                                "hubs",
+                                ":hub_id",
+                                "projects"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Filter by project ID.",
+                                  "key": "filter[id]",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Page number for pagination.",
+                                  "key": "page[number]",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Number of results per page (max 200).",
+                                  "key": "page[limit]",
+                                  "value": "<integer>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "a4c57a5e-1432-4b41-8fbd-e07a87e39a3e",
+                                  "key": "hub_id",
+                                  "value": "<string>",
+                                  "description": "(Required) The unique identifier of the hub."
+                                }
+                              ]
+                            },
+                            "description": "Returns a collection of projects for a given hub."
+                          },
+                          "response": [
+                            {
+                              "id": "d9a657ac-df60-4b7d-b3f0-b0de5625cf5d",
+                              "name": "Successfully retrieved projects.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/vnd.api+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/project/v1/hubs/:hub_id/projects?filter[id]=<string>&page[number]=<integer>&page[limit]=<integer>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "project",
+                                    "v1",
+                                    "hubs",
+                                    ":hub_id",
+                                    "projects"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Filter by project ID.",
+                                      "key": "filter[id]",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Page number for pagination.",
+                                      "key": "page[number]",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "Number of results per page (max 200).",
+                                      "key": "page[limit]",
+                                      "value": "<integer>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "hub_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/vnd.api+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": [\n    {\n      \"type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"attributes\": {\n        \"name\": \"<string>\",\n        \"extension\": {\n          \"type\": \"<string>\",\n          \"version\": \"<string>\",\n          \"data\": {}\n        }\n      },\n      \"relationships\": {\n        \"hub\": {\n          \"data\": {\n            \"type\": \"<string>\",\n            \"id\": \"<string>\"\n          }\n        },\n        \"rootFolder\": {\n          \"data\": {\n            \"type\": \"<string>\",\n            \"id\": \"<string>\"\n          }\n        },\n        \"topFolders\": {\n          \"links\": {\n            \"related\": {\n              \"href\": \"<uri>\"\n            }\n          }\n        }\n      }\n    },\n    {\n      \"type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"attributes\": {\n        \"name\": \"<string>\",\n        \"extension\": {\n          \"type\": \"<string>\",\n          \"version\": \"<string>\",\n          \"data\": {}\n        }\n      },\n      \"relationships\": {\n        \"hub\": {\n          \"data\": {\n            \"type\": \"<string>\",\n            \"id\": \"<string>\"\n          }\n        },\n        \"rootFolder\": {\n          \"data\": {\n            \"type\": \"<string>\",\n            \"id\": \"<string>\"\n          }\n        },\n        \"topFolders\": {\n          \"links\": {\n            \"related\": {\n              \"href\": \"<uri>\"\n            }\n          }\n        }\n      }\n    }\n  ],\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\"\n    },\n    \"first\": {\n      \"href\": \"<uri>\"\n    },\n    \"prev\": {\n      \"href\": \"<uri>\"\n    },\n    \"next\": {\n      \"href\": \"<uri>\"\n    }\n  }\n}",
+                              "createdAt": "2026-07-28T01:07:53.000Z",
+                              "updatedAt": "2026-07-28T01:07:53.000Z",
+                              "uid": "35240-d9a657ac-df60-4b7d-b3f0-b0de5625cf5d"
+                            },
+                            {
+                              "id": "3697c297-0d1c-4f79-a1c9-41b15ad6ce5f",
+                              "name": "Unauthorized.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/project/v1/hubs/:hub_id/projects?filter[id]=<string>&page[number]=<integer>&page[limit]=<integer>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "project",
+                                    "v1",
+                                    "hubs",
+                                    ":hub_id",
+                                    "projects"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Filter by project ID.",
+                                      "key": "filter[id]",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Page number for pagination.",
+                                      "key": "page[number]",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "Number of results per page (max 200).",
+                                      "key": "page[limit]",
+                                      "value": "<integer>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "hub_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:07:53.000Z",
+                              "updatedAt": "2026-07-28T01:07:53.000Z",
+                              "uid": "35240-3697c297-0d1c-4f79-a1c9-41b15ad6ce5f"
+                            },
+                            {
+                              "id": "a528c11e-5618-41a0-bfbf-fef20a9e2f81",
+                              "name": "Forbidden.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/project/v1/hubs/:hub_id/projects?filter[id]=<string>&page[number]=<integer>&page[limit]=<integer>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "project",
+                                    "v1",
+                                    "hubs",
+                                    ":hub_id",
+                                    "projects"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Filter by project ID.",
+                                      "key": "filter[id]",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Page number for pagination.",
+                                      "key": "page[number]",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "Number of results per page (max 200).",
+                                      "key": "page[limit]",
+                                      "value": "<integer>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "hub_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:07:53.000Z",
+                              "updatedAt": "2026-07-28T01:07:53.000Z",
+                              "uid": "35240-a528c11e-5618-41a0-bfbf-fef20a9e2f81"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:07:53.000Z",
+                          "updatedAt": "2026-07-28T01:07:53.000Z",
+                          "uid": "35240-82252f04-e570-4cc0-9af3-bde8d5491e20"
+                        }
+                      ],
+                      "id": "a8bf6d73-1f5a-4f77-8447-87d1de1b5278",
+                      "createdAt": "2026-07-28T01:07:53.000Z",
+                      "updatedAt": "2026-07-28T01:07:53.000Z",
+                      "uid": "35240-a8bf6d73-1f5a-4f77-8447-87d1de1b5278"
+                    }
+                  ],
+                  "id": "0cc87a4c-6d68-4acb-bcb9-1fef2020c6fe",
+                  "createdAt": "2026-07-28T01:07:53.000Z",
+                  "updatedAt": "2026-07-28T01:07:53.000Z",
+                  "uid": "35240-0cc87a4c-6d68-4acb-bcb9-1fef2020c6fe"
+                }
+              ],
+              "id": "dc269d18-6836-49f0-8656-1cd44b2c01c8",
+              "createdAt": "2026-07-28T01:07:53.000Z",
+              "updatedAt": "2026-07-28T01:07:53.000Z",
+              "uid": "35240-dc269d18-6836-49f0-8656-1cd44b2c01c8"
+            }
+          ],
+          "id": "ff13e375-8cca-4ff6-bb25-6fa1a89b7db3",
+          "createdAt": "2026-07-28T01:07:53.000Z",
+          "updatedAt": "2026-07-28T01:07:53.000Z",
+          "uid": "35240-ff13e375-8cca-4ff6-bb25-6fa1a89b7db3"
+        }
+      ],
+      "id": "f58ea321-3e53-4184-a509-f7e3dd906b09",
+      "createdAt": "2026-07-28T01:07:53.000Z",
+      "updatedAt": "2026-07-28T01:07:53.000Z",
+      "uid": "35240-f58ea321-3e53-4184-a509-f7e3dd906b09"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

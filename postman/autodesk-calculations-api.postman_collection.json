@@ -1,0 +1,226 @@
+{
+  "info": {
+    "_postman_id": "daa1e49e-30be-425f-922d-6071d007adac",
+    "name": "Autodesk ACC Account Admin Account Users Calculations API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:06:48.000Z",
+    "updatedAt": "2026-07-28T01:06:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-daa1e49e-30be-425f-922d-6071d007adac"
+  },
+  "item": [
+    {
+      "name": "sustainability",
+      "item": [
+        {
+          "name": "v3",
+          "item": [
+            {
+              "name": "calculation",
+              "item": [
+                {
+                  "name": "Autodesk Calculate Emissions",
+                  "id": "dfb66d4f-290e-419d-bc56-11a881466776",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"datasetId\": \"<string>\",\n  \"recordId\": \"<string>\",\n  \"quantity\": \"<number>\",\n  \"unit\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sustainability/v3/calculation",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sustainability",
+                        "v3",
+                        "calculation"
+                      ]
+                    },
+                    "description": "Calculates carbon emissions based on provided parameters such as energy consumption, material quantities, or transportation distances."
+                  },
+                  "response": [
+                    {
+                      "id": "15cd03ad-81b8-4248-964d-165998a0feb8",
+                      "name": "Calculation completed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"datasetId\": \"<string>\",\n  \"recordId\": \"<string>\",\n  \"quantity\": \"<number>\",\n  \"unit\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sustainability/v3/calculation",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sustainability",
+                            "v3",
+                            "calculation"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"totalEmissions\": \"<number>\",\n  \"unit\": \"<string>\",\n  \"emissionFactor\": \"<number>\",\n  \"quantity\": \"<number>\",\n  \"record\": {\n    \"id\": \"<string>\",\n    \"datasetId\": \"<string>\",\n    \"name\": \"<string>\",\n    \"category\": \"<string>\",\n    \"region\": \"<string>\",\n    \"year\": \"<integer>\",\n    \"unit\": \"<string>\",\n    \"emissionFactor\": \"<number>\",\n    \"emissionFactorUnit\": \"<string>\",\n    \"gwp\": \"<number>\",\n    \"metadata\": {\n      \"voluptate_ca\": 99716904,\n      \"do_da\": 33275390.52825208,\n      \"dolor_42\": -97477110,\n      \"deserunted8\": -85230546.46557999\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T01:06:48.000Z",
+                      "updatedAt": "2026-07-28T01:06:48.000Z",
+                      "uid": "35240-15cd03ad-81b8-4248-964d-165998a0feb8"
+                    },
+                    {
+                      "id": "80cfa497-7c08-4979-9063-282901e2fc0a",
+                      "name": "Bad request.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"datasetId\": \"<string>\",\n  \"recordId\": \"<string>\",\n  \"quantity\": \"<number>\",\n  \"unit\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sustainability/v3/calculation",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sustainability",
+                            "v3",
+                            "calculation"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:06:48.000Z",
+                      "updatedAt": "2026-07-28T01:06:48.000Z",
+                      "uid": "35240-80cfa497-7c08-4979-9063-282901e2fc0a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:06:48.000Z",
+                  "updatedAt": "2026-07-28T01:06:48.000Z",
+                  "uid": "35240-dfb66d4f-290e-419d-bc56-11a881466776"
+                }
+              ],
+              "id": "80c812cf-25dd-4f26-adb4-928aa35291ae",
+              "createdAt": "2026-07-28T01:06:48.000Z",
+              "updatedAt": "2026-07-28T01:06:48.000Z",
+              "uid": "35240-80c812cf-25dd-4f26-adb4-928aa35291ae"
+            }
+          ],
+          "id": "2f6125bd-9509-460b-bc19-bd628baa6d98",
+          "createdAt": "2026-07-28T01:06:48.000Z",
+          "updatedAt": "2026-07-28T01:06:48.000Z",
+          "uid": "35240-2f6125bd-9509-460b-bc19-bd628baa6d98"
+        }
+      ],
+      "id": "01adabee-ea46-48a1-98ef-d7819ea826f8",
+      "createdAt": "2026-07-28T01:06:48.000Z",
+      "updatedAt": "2026-07-28T01:06:48.000Z",
+      "uid": "35240-01adabee-ea46-48a1-98ef-d7819ea826f8"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

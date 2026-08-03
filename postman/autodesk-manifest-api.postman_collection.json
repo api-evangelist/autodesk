@@ -1,0 +1,446 @@
+{
+  "info": {
+    "_postman_id": "2b9d8164-87f6-48c4-b213-d1ab38103092",
+    "name": "Autodesk ACC Account Admin Account Users Manifest API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:41.000Z",
+    "updatedAt": "2026-07-28T01:07:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2b9d8164-87f6-48c4-b213-d1ab38103092"
+  },
+  "item": [
+    {
+      "name": "modelderivative",
+      "item": [
+        {
+          "name": "v2",
+          "item": [
+            {
+              "name": "designdata",
+              "item": [
+                {
+                  "name": "{urn}",
+                  "item": [
+                    {
+                      "name": "manifest",
+                      "item": [
+                        {
+                          "name": "Autodesk Get Manifest",
+                          "id": "5f0902de-e01b-4f1b-ac9f-627420d8f8f8",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/modelderivative/v2/designdata/:urn/manifest",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "modelderivative",
+                                "v2",
+                                "designdata",
+                                ":urn",
+                                "manifest"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "b446f624-5c17-40fb-9228-da46e098093e",
+                                  "key": "urn",
+                                  "value": "<string>",
+                                  "description": "(Required) The Base64 (URL-safe) encoded URN of the source design."
+                                }
+                              ]
+                            },
+                            "description": "Returns information about derivatives that correspond to a specific source design, including derivative URNs, translation status, and available outputs."
+                          },
+                          "response": [
+                            {
+                              "id": "9f47e91d-225f-443c-87e9-d30b055ab59c",
+                              "name": "Successfully retrieved manifest.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/modelderivative/v2/designdata/:urn/manifest",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "modelderivative",
+                                    "v2",
+                                    "designdata",
+                                    ":urn",
+                                    "manifest"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "urn"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"type\": \"<string>\",\n  \"hasThumbnail\": \"false\",\n  \"status\": \"inprogress\",\n  \"progress\": \"<string>\",\n  \"region\": \"<string>\",\n  \"urn\": \"<string>\",\n  \"version\": \"<string>\",\n  \"derivatives\": [\n    {\n      \"name\": \"<string>\",\n      \"hasThumbnail\": \"<string>\",\n      \"status\": \"success\",\n      \"progress\": \"<string>\",\n      \"outputType\": \"<string>\",\n      \"children\": [\n        {\n          \"guid\": \"<string>\",\n          \"type\": \"geometry\",\n          \"role\": \"2d\",\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"progress\": \"<string>\",\n          \"mime\": \"<string>\",\n          \"urn\": \"<string>\",\n          \"children\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/DerivativeChild detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/DerivativeChild detected>\"\n            }\n          ]\n        },\n        {\n          \"guid\": \"<string>\",\n          \"type\": \"view\",\n          \"role\": \"3d\",\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"progress\": \"<string>\",\n          \"mime\": \"<string>\",\n          \"urn\": \"<string>\",\n          \"children\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/DerivativeChild detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/DerivativeChild detected>\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"name\": \"<string>\",\n      \"hasThumbnail\": \"<string>\",\n      \"status\": \"failed\",\n      \"progress\": \"<string>\",\n      \"outputType\": \"<string>\",\n      \"children\": [\n        {\n          \"guid\": \"<string>\",\n          \"type\": \"geometry\",\n          \"role\": \"3d\",\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"progress\": \"<string>\",\n          \"mime\": \"<string>\",\n          \"urn\": \"<string>\",\n          \"children\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/DerivativeChild detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/DerivativeChild detected>\"\n            }\n          ]\n        },\n        {\n          \"guid\": \"<string>\",\n          \"type\": \"geometry\",\n          \"role\": \"graphics\",\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"progress\": \"<string>\",\n          \"mime\": \"<string>\",\n          \"urn\": \"<string>\",\n          \"children\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/DerivativeChild detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/DerivativeChild detected>\"\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:07:41.000Z",
+                              "updatedAt": "2026-07-28T01:07:41.000Z",
+                              "uid": "35240-9f47e91d-225f-443c-87e9-d30b055ab59c"
+                            },
+                            {
+                              "id": "84f96659-613b-4919-96a5-257487940f8c",
+                              "name": "Unauthorized.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/modelderivative/v2/designdata/:urn/manifest",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "modelderivative",
+                                    "v2",
+                                    "designdata",
+                                    ":urn",
+                                    "manifest"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "urn"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:07:41.000Z",
+                              "updatedAt": "2026-07-28T01:07:41.000Z",
+                              "uid": "35240-84f96659-613b-4919-96a5-257487940f8c"
+                            },
+                            {
+                              "id": "0c4a216a-bc86-44ca-a2b7-6cbace5d9e0a",
+                              "name": "Manifest not found.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/modelderivative/v2/designdata/:urn/manifest",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "modelderivative",
+                                    "v2",
+                                    "designdata",
+                                    ":urn",
+                                    "manifest"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "urn"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:07:41.000Z",
+                              "updatedAt": "2026-07-28T01:07:41.000Z",
+                              "uid": "35240-0c4a216a-bc86-44ca-a2b7-6cbace5d9e0a"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:07:41.000Z",
+                          "updatedAt": "2026-07-28T01:07:41.000Z",
+                          "uid": "35240-5f0902de-e01b-4f1b-ac9f-627420d8f8f8"
+                        },
+                        {
+                          "name": "Autodesk Delete Manifest",
+                          "id": "30e90939-b2ec-4424-b5d0-dbdf21ca1ff0",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/modelderivative/v2/designdata/:urn/manifest",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "modelderivative",
+                                "v2",
+                                "designdata",
+                                ":urn",
+                                "manifest"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "fc49d73d-7a8a-4aba-9081-1a8cb22a4426",
+                                  "key": "urn",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Deletes the manifest and all derivatives of a source design. Does not delete the source design itself."
+                          },
+                          "response": [
+                            {
+                              "id": "a85bcd65-3a97-4e6e-afbb-e03bc3b6c3ba",
+                              "name": "Manifest and derivatives deleted.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/modelderivative/v2/designdata/:urn/manifest",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "modelderivative",
+                                    "v2",
+                                    "designdata",
+                                    ":urn",
+                                    "manifest"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "urn"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"result\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:07:41.000Z",
+                              "updatedAt": "2026-07-28T01:07:41.000Z",
+                              "uid": "35240-a85bcd65-3a97-4e6e-afbb-e03bc3b6c3ba"
+                            },
+                            {
+                              "id": "ab980d11-d2cc-488c-b49c-3d1f0ceeb928",
+                              "name": "Unauthorized.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/modelderivative/v2/designdata/:urn/manifest",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "modelderivative",
+                                    "v2",
+                                    "designdata",
+                                    ":urn",
+                                    "manifest"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "urn"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:07:41.000Z",
+                              "updatedAt": "2026-07-28T01:07:41.000Z",
+                              "uid": "35240-ab980d11-d2cc-488c-b49c-3d1f0ceeb928"
+                            },
+                            {
+                              "id": "859e4125-9efe-46ea-bc66-e80d1faa8a29",
+                              "name": "Manifest not found.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/modelderivative/v2/designdata/:urn/manifest",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "modelderivative",
+                                    "v2",
+                                    "designdata",
+                                    ":urn",
+                                    "manifest"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "urn"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:07:41.000Z",
+                              "updatedAt": "2026-07-28T01:07:41.000Z",
+                              "uid": "35240-859e4125-9efe-46ea-bc66-e80d1faa8a29"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:07:41.000Z",
+                          "updatedAt": "2026-07-28T01:07:41.000Z",
+                          "uid": "35240-30e90939-b2ec-4424-b5d0-dbdf21ca1ff0"
+                        }
+                      ],
+                      "id": "a318444c-7a9d-4802-a5c3-316e2bcb526e",
+                      "createdAt": "2026-07-28T01:07:41.000Z",
+                      "updatedAt": "2026-07-28T01:07:41.000Z",
+                      "uid": "35240-a318444c-7a9d-4802-a5c3-316e2bcb526e"
+                    }
+                  ],
+                  "id": "b0842565-87cc-49ca-ad2b-7dd15bd23696",
+                  "createdAt": "2026-07-28T01:07:41.000Z",
+                  "updatedAt": "2026-07-28T01:07:41.000Z",
+                  "uid": "35240-b0842565-87cc-49ca-ad2b-7dd15bd23696"
+                }
+              ],
+              "id": "b5ca96e2-c2de-4639-b5e1-669c6eec4dbc",
+              "createdAt": "2026-07-28T01:07:41.000Z",
+              "updatedAt": "2026-07-28T01:07:41.000Z",
+              "uid": "35240-b5ca96e2-c2de-4639-b5e1-669c6eec4dbc"
+            }
+          ],
+          "id": "b07cd588-7ceb-43bb-a814-ffbad68f5b43",
+          "createdAt": "2026-07-28T01:07:41.000Z",
+          "updatedAt": "2026-07-28T01:07:41.000Z",
+          "uid": "35240-b07cd588-7ceb-43bb-a814-ffbad68f5b43"
+        }
+      ],
+      "id": "3ca89e80-4ed9-4a6a-a8b0-8ffb283bfff0",
+      "createdAt": "2026-07-28T01:07:41.000Z",
+      "updatedAt": "2026-07-28T01:07:41.000Z",
+      "uid": "35240-3ca89e80-4ed9-4a6a-a8b0-8ffb283bfff0"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

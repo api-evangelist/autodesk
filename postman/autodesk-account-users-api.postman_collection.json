@@ -1,0 +1,239 @@
+{
+  "info": {
+    "_postman_id": "aeddff5e-4d02-4ca9-ae05-7ef53dc73147",
+    "name": "Autodesk ACC Account Admin Account Users API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:06:37.000Z",
+    "updatedAt": "2026-07-28T01:06:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-aeddff5e-4d02-4ca9-ae05-7ef53dc73147"
+  },
+  "item": [
+    {
+      "name": "construction",
+      "item": [
+        {
+          "name": "admin",
+          "item": [
+            {
+              "name": "v1",
+              "item": [
+                {
+                  "name": "accounts",
+                  "item": [
+                    {
+                      "name": "{accountId}",
+                      "item": [
+                        {
+                          "name": "users",
+                          "item": [
+                            {
+                              "name": "Autodesk List Account Users",
+                              "id": "ee90fdde-7865-46e1-9beb-b87c8084642a",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/construction/admin/v1/accounts/:accountId/users?filter[email]=<string>&filter[name]=<string>&filter[status]=active&limit=<integer>&offset=<integer>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "construction",
+                                    "admin",
+                                    "v1",
+                                    "accounts",
+                                    ":accountId",
+                                    "users"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "filter[email]",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "filter[name]",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "filter[status]",
+                                      "value": "active"
+                                    },
+                                    {
+                                      "key": "limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "offset",
+                                      "value": "<integer>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "971af96a-6e61-4036-8f43-02c1eea2fc4c",
+                                      "key": "accountId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Returns users in the account directory."
+                              },
+                              "response": [
+                                {
+                                  "id": "4e81dfc6-a803-4809-9e60-f933fa9889bb",
+                                  "name": "Successfully retrieved account users.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/construction/admin/v1/accounts/:accountId/users?filter[email]=<string>&filter[name]=<string>&filter[status]=active&limit=<integer>&offset=<integer>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "construction",
+                                        "admin",
+                                        "v1",
+                                        "accounts",
+                                        ":accountId",
+                                        "users"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "filter[email]",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "filter[name]",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "filter[status]",
+                                          "value": "active"
+                                        },
+                                        {
+                                          "key": "limit",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "key": "offset",
+                                          "value": "<integer>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "accountId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"results\": [\n    {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"autodeskId\": \"<string>\",\n      \"status\": \"<string>\",\n      \"companyId\": \"<string>\",\n      \"companyName\": \"<string>\",\n      \"addedOn\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"autodeskId\": \"<string>\",\n      \"status\": \"<string>\",\n      \"companyId\": \"<string>\",\n      \"companyName\": \"<string>\",\n      \"addedOn\": \"<dateTime>\"\n    }\n  ],\n  \"pagination\": {\n    \"offset\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"totalResults\": \"<integer>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T01:06:37.000Z",
+                                  "updatedAt": "2026-07-28T01:06:37.000Z",
+                                  "uid": "35240-4e81dfc6-a803-4809-9e60-f933fa9889bb"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:06:37.000Z",
+                              "updatedAt": "2026-07-28T01:06:37.000Z",
+                              "uid": "35240-ee90fdde-7865-46e1-9beb-b87c8084642a"
+                            }
+                          ],
+                          "id": "052b5509-8f6d-40c8-93a2-bf598383de32",
+                          "createdAt": "2026-07-28T01:06:37.000Z",
+                          "updatedAt": "2026-07-28T01:06:37.000Z",
+                          "uid": "35240-052b5509-8f6d-40c8-93a2-bf598383de32"
+                        }
+                      ],
+                      "id": "5f6ed94a-bced-41f3-95d6-a890e3cd1829",
+                      "createdAt": "2026-07-28T01:06:37.000Z",
+                      "updatedAt": "2026-07-28T01:06:37.000Z",
+                      "uid": "35240-5f6ed94a-bced-41f3-95d6-a890e3cd1829"
+                    }
+                  ],
+                  "id": "4cf6ea66-d9f1-4a49-8587-a0c264080d59",
+                  "createdAt": "2026-07-28T01:06:37.000Z",
+                  "updatedAt": "2026-07-28T01:06:37.000Z",
+                  "uid": "35240-4cf6ea66-d9f1-4a49-8587-a0c264080d59"
+                }
+              ],
+              "id": "c1aba5a4-65da-40c8-a328-446831507033",
+              "createdAt": "2026-07-28T01:06:37.000Z",
+              "updatedAt": "2026-07-28T01:06:37.000Z",
+              "uid": "35240-c1aba5a4-65da-40c8-a328-446831507033"
+            }
+          ],
+          "id": "ebd5d4a5-0242-4647-8a20-27e47c4082e5",
+          "createdAt": "2026-07-28T01:06:37.000Z",
+          "updatedAt": "2026-07-28T01:06:37.000Z",
+          "uid": "35240-ebd5d4a5-0242-4647-8a20-27e47c4082e5"
+        }
+      ],
+      "id": "6af37169-db56-4953-9a15-df1006680823",
+      "createdAt": "2026-07-28T01:06:37.000Z",
+      "updatedAt": "2026-07-28T01:06:37.000Z",
+      "uid": "35240-6af37169-db56-4953-9a15-df1006680823"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

@@ -1,0 +1,261 @@
+{
+  "info": {
+    "_postman_id": "8b8cd21c-8573-47c0-aecb-09a6b82a5c98",
+    "name": "Autodesk ACC Account Admin Account Users Systems API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:58.000Z",
+    "updatedAt": "2026-07-28T01:07:59.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8b8cd21c-8573-47c0-aecb-09a6b82a5c98"
+  },
+  "item": [
+    {
+      "name": "webhooks",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "systems",
+              "item": [
+                {
+                  "name": "{system}",
+                  "item": [
+                    {
+                      "name": "events",
+                      "item": [
+                        {
+                          "name": "Autodesk List System Events",
+                          "id": "c34de429-58e0-4ce7-bbb8-1c6811c4ae3c",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/webhooks/v1/systems/:system/events",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "webhooks",
+                                "v1",
+                                "systems",
+                                ":system",
+                                "events"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "54aa174c-4b69-40e3-ac38-b3afd9eddcd5",
+                                  "key": "system",
+                                  "value": "<string>",
+                                  "description": "(Required) The system identifier (e.g., data, derivative, adsk.c4r)."
+                                }
+                              ]
+                            },
+                            "description": "Returns a list of events available for a specific system."
+                          },
+                          "response": [
+                            {
+                              "id": "4d6a2f1c-78d8-41e6-86c7-26d3a66d811e",
+                              "name": "Successfully retrieved events.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/webhooks/v1/systems/:system/events",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "webhooks",
+                                    "v1",
+                                    "systems",
+                                    ":system",
+                                    "events"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "system"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"data\": [\n    {\n      \"event\": \"<string>\"\n    },\n    {\n      \"event\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:07:59.000Z",
+                              "updatedAt": "2026-07-28T01:07:59.000Z",
+                              "uid": "35240-4d6a2f1c-78d8-41e6-86c7-26d3a66d811e"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:07:59.000Z",
+                          "updatedAt": "2026-07-28T01:07:59.000Z",
+                          "uid": "35240-c34de429-58e0-4ce7-bbb8-1c6811c4ae3c"
+                        }
+                      ],
+                      "id": "e85151df-c80e-41cf-83cb-9967852235d7",
+                      "createdAt": "2026-07-28T01:07:59.000Z",
+                      "updatedAt": "2026-07-28T01:07:59.000Z",
+                      "uid": "35240-e85151df-c80e-41cf-83cb-9967852235d7"
+                    }
+                  ],
+                  "id": "40bc77a1-0764-4553-b982-dc9cfe2cb60c",
+                  "createdAt": "2026-07-28T01:07:59.000Z",
+                  "updatedAt": "2026-07-28T01:07:59.000Z",
+                  "uid": "35240-40bc77a1-0764-4553-b982-dc9cfe2cb60c"
+                },
+                {
+                  "name": "Autodesk List Event Systems",
+                  "id": "3e347b0e-2709-40a2-b942-1c9020929be4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/webhooks/v1/systems",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhooks",
+                        "v1",
+                        "systems"
+                      ]
+                    },
+                    "description": "Returns a list of available event systems that support webhook subscriptions (e.g., data, derivative, adsk.c4r, adsk.docs)."
+                  },
+                  "response": [
+                    {
+                      "id": "68c46666-181c-4524-8e8e-0ff9b2890352",
+                      "name": "Successfully retrieved systems.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/webhooks/v1/systems",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "webhooks",
+                            "v1",
+                            "systems"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"system\": \"<string>\"\n    },\n    {\n      \"system\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:07:59.000Z",
+                      "updatedAt": "2026-07-28T01:07:59.000Z",
+                      "uid": "35240-68c46666-181c-4524-8e8e-0ff9b2890352"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:07:59.000Z",
+                  "updatedAt": "2026-07-28T01:07:59.000Z",
+                  "uid": "35240-3e347b0e-2709-40a2-b942-1c9020929be4"
+                }
+              ],
+              "id": "dd11fd58-57e3-4a20-9561-40817fb645de",
+              "createdAt": "2026-07-28T01:07:59.000Z",
+              "updatedAt": "2026-07-28T01:07:59.000Z",
+              "uid": "35240-dd11fd58-57e3-4a20-9561-40817fb645de"
+            }
+          ],
+          "id": "a94fe6e1-937b-497c-8d3a-8bac24c40356",
+          "createdAt": "2026-07-28T01:07:59.000Z",
+          "updatedAt": "2026-07-28T01:07:59.000Z",
+          "uid": "35240-a94fe6e1-937b-497c-8d3a-8bac24c40356"
+        }
+      ],
+      "id": "1d3ac111-c352-440a-bc6e-f19bb01dd702",
+      "createdAt": "2026-07-28T01:07:59.000Z",
+      "updatedAt": "2026-07-28T01:07:59.000Z",
+      "uid": "35240-1d3ac111-c352-440a-bc6e-f19bb01dd702"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

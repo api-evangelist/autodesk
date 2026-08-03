@@ -1,0 +1,262 @@
+{
+  "info": {
+    "_postman_id": "1e4f94c8-44b7-4173-99c0-961f76b7b6af",
+    "name": "Autodesk ACC Account Admin Account Users Thumbnails API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:59.000Z",
+    "updatedAt": "2026-07-28T01:07:59.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1e4f94c8-44b7-4173-99c0-961f76b7b6af"
+  },
+  "item": [
+    {
+      "name": "modelderivative",
+      "item": [
+        {
+          "name": "v2",
+          "item": [
+            {
+              "name": "designdata",
+              "item": [
+                {
+                  "name": "{urn}",
+                  "item": [
+                    {
+                      "name": "thumbnail",
+                      "item": [
+                        {
+                          "name": "Autodesk Get Thumbnail",
+                          "id": "7deb79e2-db44-4293-b529-4000ddedb89a",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "image/png"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/modelderivative/v2/designdata/:urn/thumbnail?width=100&height=100",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "modelderivative",
+                                "v2",
+                                "designdata",
+                                ":urn",
+                                "thumbnail"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Width of the thumbnail in pixels (100, 200, or 400).",
+                                  "key": "width",
+                                  "value": "100"
+                                },
+                                {
+                                  "description": "Height of the thumbnail in pixels (100, 200, or 400).",
+                                  "key": "height",
+                                  "value": "100"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "487dcc8c-239d-4e45-a38e-a71283187f12",
+                                  "key": "urn",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Returns a thumbnail image of the source design."
+                          },
+                          "response": [
+                            {
+                              "id": "85323d01-f58d-4985-afff-e6d62720a148",
+                              "name": "Successfully retrieved thumbnail.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "image/png"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/modelderivative/v2/designdata/:urn/thumbnail?width=100&height=100",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "modelderivative",
+                                    "v2",
+                                    "designdata",
+                                    ":urn",
+                                    "thumbnail"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Width of the thumbnail in pixels (100, 200, or 400).",
+                                      "key": "width",
+                                      "value": "100"
+                                    },
+                                    {
+                                      "description": "Height of the thumbnail in pixels (100, 200, or 400).",
+                                      "key": "height",
+                                      "value": "100"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "urn"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "image/png"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "<binary>",
+                              "createdAt": "2026-07-28T01:08:00.000Z",
+                              "updatedAt": "2026-07-28T01:08:00.000Z",
+                              "uid": "35240-85323d01-f58d-4985-afff-e6d62720a148"
+                            },
+                            {
+                              "id": "c1f83bd6-96be-4c33-89bf-1f98ce031828",
+                              "name": "Thumbnail not found.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/modelderivative/v2/designdata/:urn/thumbnail?width=100&height=100",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "modelderivative",
+                                    "v2",
+                                    "designdata",
+                                    ":urn",
+                                    "thumbnail"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Width of the thumbnail in pixels (100, 200, or 400).",
+                                      "key": "width",
+                                      "value": "100"
+                                    },
+                                    {
+                                      "description": "Height of the thumbnail in pixels (100, 200, or 400).",
+                                      "key": "height",
+                                      "value": "100"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "urn"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:08:00.000Z",
+                              "updatedAt": "2026-07-28T01:08:00.000Z",
+                              "uid": "35240-c1f83bd6-96be-4c33-89bf-1f98ce031828"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:08:00.000Z",
+                          "updatedAt": "2026-07-28T01:08:00.000Z",
+                          "uid": "35240-7deb79e2-db44-4293-b529-4000ddedb89a"
+                        }
+                      ],
+                      "id": "b2df4f74-c84f-4756-8f35-aa8d6d594cc2",
+                      "createdAt": "2026-07-28T01:08:00.000Z",
+                      "updatedAt": "2026-07-28T01:08:00.000Z",
+                      "uid": "35240-b2df4f74-c84f-4756-8f35-aa8d6d594cc2"
+                    }
+                  ],
+                  "id": "05a90901-6d95-4c6b-9a10-ca4aa1fb24a5",
+                  "createdAt": "2026-07-28T01:08:00.000Z",
+                  "updatedAt": "2026-07-28T01:08:00.000Z",
+                  "uid": "35240-05a90901-6d95-4c6b-9a10-ca4aa1fb24a5"
+                }
+              ],
+              "id": "11fc25c8-ca35-4489-b514-41d95cc2d8eb",
+              "createdAt": "2026-07-28T01:08:00.000Z",
+              "updatedAt": "2026-07-28T01:08:00.000Z",
+              "uid": "35240-11fc25c8-ca35-4489-b514-41d95cc2d8eb"
+            }
+          ],
+          "id": "2350533d-40af-4a62-96d8-946d6231af9e",
+          "createdAt": "2026-07-28T01:08:00.000Z",
+          "updatedAt": "2026-07-28T01:08:00.000Z",
+          "uid": "35240-2350533d-40af-4a62-96d8-946d6231af9e"
+        }
+      ],
+      "id": "6651be66-cad9-4125-be04-6946e923757e",
+      "createdAt": "2026-07-28T01:08:00.000Z",
+      "updatedAt": "2026-07-28T01:08:00.000Z",
+      "uid": "35240-6651be66-cad9-4125-be04-6946e923757e"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

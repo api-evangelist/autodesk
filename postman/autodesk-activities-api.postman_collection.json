@@ -1,0 +1,1314 @@
+{
+  "info": {
+    "_postman_id": "fa44e509-c476-4d1d-b53f-2b4d45dc835a",
+    "name": "Autodesk ACC Account Admin Account Users Activities API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:06:38.000Z",
+    "updatedAt": "2026-07-28T01:06:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fa44e509-c476-4d1d-b53f-2b4d45dc835a"
+  },
+  "item": [
+    {
+      "name": "da",
+      "item": [
+        {
+          "name": "us-east",
+          "item": [
+            {
+              "name": "v3",
+              "item": [
+                {
+                  "name": "activities",
+                  "item": [
+                    {
+                      "name": "{id}",
+                      "item": [
+                        {
+                          "name": "versions",
+                          "item": [
+                            {
+                              "name": "Autodesk List Activity Versions",
+                              "id": "dcdd8ccb-a852-4200-8a75-9dc2d317dbff",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/da/us-east/v3/activities/:id/versions",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "da",
+                                    "us-east",
+                                    "v3",
+                                    "activities",
+                                    ":id",
+                                    "versions"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "6f84acd3-a2de-4539-8db0-5bd1feab49c9",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Returns all versions of an Activity."
+                              },
+                              "response": [
+                                {
+                                  "id": "54e1dd40-001f-4e93-a36c-29597ec20a2e",
+                                  "name": "Successfully retrieved versions.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/da/us-east/v3/activities/:id/versions",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "da",
+                                        "us-east",
+                                        "v3",
+                                        "activities",
+                                        ":id",
+                                        "versions"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"paginationToken\": \"<string>\",\n  \"data\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                                  "createdAt": "2026-07-28T01:06:38.000Z",
+                                  "updatedAt": "2026-07-28T01:06:38.000Z",
+                                  "uid": "35240-54e1dd40-001f-4e93-a36c-29597ec20a2e"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:06:38.000Z",
+                              "updatedAt": "2026-07-28T01:06:38.000Z",
+                              "uid": "35240-dcdd8ccb-a852-4200-8a75-9dc2d317dbff"
+                            },
+                            {
+                              "name": "Autodesk Create Activity Version",
+                              "id": "ee4d1860-b4e7-4611-8a3a-edde09ef1df6",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"id\": \"<string>\",\n  \"engine\": \"<string>\",\n  \"commandLine\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"parameters\": {\n    \"Excepteurf9\": {\n      \"zip\": \"<boolean>\",\n      \"ondemand\": \"<boolean>\",\n      \"verb\": \"read\",\n      \"description\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"localName\": \"<string>\"\n    },\n    \"adipisicing13f\": {\n      \"zip\": \"<boolean>\",\n      \"ondemand\": \"<boolean>\",\n      \"verb\": \"read\",\n      \"description\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"localName\": \"<string>\"\n    }\n  },\n  \"description\": \"<string>\",\n  \"appbundles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"settings\": {\n    \"Lorem_3_\": {},\n    \"Duis_\": {},\n    \"enim_0\": {}\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/da/us-east/v3/activities/:id/versions",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "da",
+                                    "us-east",
+                                    "v3",
+                                    "activities",
+                                    ":id",
+                                    "versions"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "f4cb8b6e-01b8-4742-a097-27500399781e",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Creates a new version of an Activity."
+                              },
+                              "response": [
+                                {
+                                  "id": "4ac3ed1c-03ab-4514-9f97-bb3ed90ce103",
+                                  "name": "New version created.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"id\": \"<string>\",\n  \"engine\": \"<string>\",\n  \"commandLine\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"parameters\": {\n    \"Excepteurf9\": {\n      \"zip\": \"<boolean>\",\n      \"ondemand\": \"<boolean>\",\n      \"verb\": \"read\",\n      \"description\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"localName\": \"<string>\"\n    },\n    \"adipisicing13f\": {\n      \"zip\": \"<boolean>\",\n      \"ondemand\": \"<boolean>\",\n      \"verb\": \"read\",\n      \"description\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"localName\": \"<string>\"\n    }\n  },\n  \"description\": \"<string>\",\n  \"appbundles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"settings\": {\n    \"Lorem_3_\": {},\n    \"Duis_\": {},\n    \"enim_0\": {}\n  }\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/da/us-east/v3/activities/:id/versions",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "da",
+                                        "us-east",
+                                        "v3",
+                                        "activities",
+                                        ":id",
+                                        "versions"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"id\": \"<string>\",\n  \"engine\": \"<string>\",\n  \"commandLine\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"appbundles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"parameters\": {\n    \"in_f\": {\n      \"zip\": \"<boolean>\",\n      \"ondemand\": \"<boolean>\",\n      \"verb\": \"patch\",\n      \"description\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"localName\": \"<string>\"\n    },\n    \"laboris_4_\": {\n      \"zip\": \"<boolean>\",\n      \"ondemand\": \"<boolean>\",\n      \"verb\": \"post\",\n      \"description\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"localName\": \"<string>\"\n    },\n    \"non_b_a\": {\n      \"zip\": \"<boolean>\",\n      \"ondemand\": \"<boolean>\",\n      \"verb\": \"get\",\n      \"description\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"localName\": \"<string>\"\n    },\n    \"ipsum_9af\": {\n      \"zip\": \"<boolean>\",\n      \"ondemand\": \"<boolean>\",\n      \"verb\": \"put\",\n      \"description\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"localName\": \"<string>\"\n    }\n  },\n  \"version\": \"<integer>\"\n}",
+                                  "createdAt": "2026-07-28T01:06:38.000Z",
+                                  "updatedAt": "2026-07-28T01:06:38.000Z",
+                                  "uid": "35240-4ac3ed1c-03ab-4514-9f97-bb3ed90ce103"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:06:38.000Z",
+                              "updatedAt": "2026-07-28T01:06:38.000Z",
+                              "uid": "35240-ee4d1860-b4e7-4611-8a3a-edde09ef1df6"
+                            }
+                          ],
+                          "id": "20fb8060-5f39-4e1b-a120-865f25db308d",
+                          "createdAt": "2026-07-28T01:06:38.000Z",
+                          "updatedAt": "2026-07-28T01:06:38.000Z",
+                          "uid": "35240-20fb8060-5f39-4e1b-a120-865f25db308d"
+                        },
+                        {
+                          "name": "aliases",
+                          "item": [
+                            {
+                              "name": "{aliasId}",
+                              "item": [
+                                {
+                                  "name": "Autodesk Get Activity Alias",
+                                  "id": "bef97b4d-601f-48f9-beb5-9ed6c60f10fd",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/da/us-east/v3/activities/:id/aliases/:aliasId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "da",
+                                        "us-east",
+                                        "v3",
+                                        "activities",
+                                        ":id",
+                                        "aliases",
+                                        ":aliasId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "e612671a-2475-4322-a93e-efe60c7217f3",
+                                          "key": "id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "ab2b3c5d-539d-4e57-854d-24ca33a69451",
+                                          "key": "aliasId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Returns details of a specific Activity alias."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "3ef20203-a675-4748-a03b-015f572a64e5",
+                                      "name": "Successfully retrieved alias.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/da/us-east/v3/activities/:id/aliases/:aliasId",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "da",
+                                            "us-east",
+                                            "v3",
+                                            "activities",
+                                            ":id",
+                                            "aliases",
+                                            ":aliasId"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "id"
+                                            },
+                                            {
+                                              "key": "aliasId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"id\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"receiver\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:06:38.000Z",
+                                      "updatedAt": "2026-07-28T01:06:38.000Z",
+                                      "uid": "35240-3ef20203-a675-4748-a03b-015f572a64e5"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:06:38.000Z",
+                                  "updatedAt": "2026-07-28T01:06:38.000Z",
+                                  "uid": "35240-bef97b4d-601f-48f9-beb5-9ed6c60f10fd"
+                                },
+                                {
+                                  "name": "Autodesk Update Activity Alias",
+                                  "id": "a3c71f8e-d83e-417b-9def-db1b2e85b33d",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"version\": \"<integer>\",\n  \"receiver\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/da/us-east/v3/activities/:id/aliases/:aliasId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "da",
+                                        "us-east",
+                                        "v3",
+                                        "activities",
+                                        ":id",
+                                        "aliases",
+                                        ":aliasId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "aba32ad5-b07d-4348-b6a3-1c47a1aba746",
+                                          "key": "id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "5c6bb669-d29a-48ac-95d1-c1da036495a2",
+                                          "key": "aliasId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Updates an Activity alias to point to a different version."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "703102ac-e31d-4fb5-b8ee-339e2372571f",
+                                      "name": "Alias updated.",
+                                      "originalRequest": {
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"version\": \"<integer>\",\n  \"receiver\": \"<string>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/da/us-east/v3/activities/:id/aliases/:aliasId",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "da",
+                                            "us-east",
+                                            "v3",
+                                            "activities",
+                                            ":id",
+                                            "aliases",
+                                            ":aliasId"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "id"
+                                            },
+                                            {
+                                              "key": "aliasId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"id\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"receiver\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:06:38.000Z",
+                                      "updatedAt": "2026-07-28T01:06:38.000Z",
+                                      "uid": "35240-703102ac-e31d-4fb5-b8ee-339e2372571f"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:06:38.000Z",
+                                  "updatedAt": "2026-07-28T01:06:38.000Z",
+                                  "uid": "35240-a3c71f8e-d83e-417b-9def-db1b2e85b33d"
+                                },
+                                {
+                                  "name": "Autodesk Delete Activity Alias",
+                                  "id": "03e0d903-205a-472b-a477-102579937931",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "DELETE",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/da/us-east/v3/activities/:id/aliases/:aliasId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "da",
+                                        "us-east",
+                                        "v3",
+                                        "activities",
+                                        ":id",
+                                        "aliases",
+                                        ":aliasId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "0c4959c2-09a3-4205-8d16-e8d998212175",
+                                          "key": "id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "0f8eed93-18bf-4a74-9819-8806eb91040f",
+                                          "key": "aliasId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Deletes an Activity alias."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "d620144a-a288-454c-9aea-434aae25a91a",
+                                      "name": "Alias deleted.",
+                                      "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/da/us-east/v3/activities/:id/aliases/:aliasId",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "da",
+                                            "us-east",
+                                            "v3",
+                                            "activities",
+                                            ":id",
+                                            "aliases",
+                                            ":aliasId"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "id"
+                                            },
+                                            {
+                                              "key": "aliasId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "No Content",
+                                      "code": 204,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:06:38.000Z",
+                                      "updatedAt": "2026-07-28T01:06:38.000Z",
+                                      "uid": "35240-d620144a-a288-454c-9aea-434aae25a91a"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:06:38.000Z",
+                                  "updatedAt": "2026-07-28T01:06:38.000Z",
+                                  "uid": "35240-03e0d903-205a-472b-a477-102579937931"
+                                }
+                              ],
+                              "id": "a139dd19-e387-4069-9513-61af4165ad69",
+                              "createdAt": "2026-07-28T01:06:38.000Z",
+                              "updatedAt": "2026-07-28T01:06:38.000Z",
+                              "uid": "35240-a139dd19-e387-4069-9513-61af4165ad69"
+                            },
+                            {
+                              "name": "Autodesk List Activity Aliases",
+                              "id": "4d8fcb10-5585-4bef-bf8a-74210e7f9445",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/da/us-east/v3/activities/:id/aliases",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "da",
+                                    "us-east",
+                                    "v3",
+                                    "activities",
+                                    ":id",
+                                    "aliases"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "531c5188-8852-4895-a561-0193521b8823",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Returns all aliases for a specific Activity."
+                              },
+                              "response": [
+                                {
+                                  "id": "cb5bc632-38db-4e2d-9079-ebe653d28f67",
+                                  "name": "Successfully retrieved aliases.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/da/us-east/v3/activities/:id/aliases",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "da",
+                                        "us-east",
+                                        "v3",
+                                        "activities",
+                                        ":id",
+                                        "aliases"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"paginationToken\": \"<string>\",\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"version\": \"<integer>\",\n      \"receiver\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"version\": \"<integer>\",\n      \"receiver\": \"<string>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T01:06:38.000Z",
+                                  "updatedAt": "2026-07-28T01:06:38.000Z",
+                                  "uid": "35240-cb5bc632-38db-4e2d-9079-ebe653d28f67"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:06:38.000Z",
+                              "updatedAt": "2026-07-28T01:06:38.000Z",
+                              "uid": "35240-4d8fcb10-5585-4bef-bf8a-74210e7f9445"
+                            },
+                            {
+                              "name": "Autodesk Create Activity Alias",
+                              "id": "259175d2-759f-4047-9808-0965e9eac8e5",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"id\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"receiver\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/da/us-east/v3/activities/:id/aliases",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "da",
+                                    "us-east",
+                                    "v3",
+                                    "activities",
+                                    ":id",
+                                    "aliases"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "72275f02-9a37-4788-b30b-20cc0a2c32da",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Creates an alias for an Activity version."
+                              },
+                              "response": [
+                                {
+                                  "id": "51507bce-513b-4681-878a-f47c21bd5495",
+                                  "name": "Alias created.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"id\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"receiver\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/da/us-east/v3/activities/:id/aliases",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "da",
+                                        "us-east",
+                                        "v3",
+                                        "activities",
+                                        ":id",
+                                        "aliases"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"id\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"receiver\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:06:38.000Z",
+                                  "updatedAt": "2026-07-28T01:06:38.000Z",
+                                  "uid": "35240-51507bce-513b-4681-878a-f47c21bd5495"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:06:38.000Z",
+                              "updatedAt": "2026-07-28T01:06:38.000Z",
+                              "uid": "35240-259175d2-759f-4047-9808-0965e9eac8e5"
+                            }
+                          ],
+                          "id": "10b86302-2db1-40fb-96e2-3e60a58006c1",
+                          "createdAt": "2026-07-28T01:06:38.000Z",
+                          "updatedAt": "2026-07-28T01:06:38.000Z",
+                          "uid": "35240-10b86302-2db1-40fb-96e2-3e60a58006c1"
+                        },
+                        {
+                          "name": "Autodesk Get Activity",
+                          "id": "29a8d7d7-2366-4af7-bbbb-533e956e4d16",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/da/us-east/v3/activities/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "da",
+                                "us-east",
+                                "v3",
+                                "activities",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "4d52e5c6-9462-46b4-91ab-aaf68b3db896",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Returns details of a specific Activity."
+                          },
+                          "response": [
+                            {
+                              "id": "c0889ed6-5f63-4bbb-9e3d-2ac80f2f4d67",
+                              "name": "Successfully retrieved Activity.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/da/us-east/v3/activities/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "da",
+                                    "us-east",
+                                    "v3",
+                                    "activities",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<string>\",\n  \"engine\": \"<string>\",\n  \"commandLine\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"appbundles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"parameters\": {\n    \"in_f\": {\n      \"zip\": \"<boolean>\",\n      \"ondemand\": \"<boolean>\",\n      \"verb\": \"patch\",\n      \"description\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"localName\": \"<string>\"\n    },\n    \"laboris_4_\": {\n      \"zip\": \"<boolean>\",\n      \"ondemand\": \"<boolean>\",\n      \"verb\": \"post\",\n      \"description\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"localName\": \"<string>\"\n    },\n    \"non_b_a\": {\n      \"zip\": \"<boolean>\",\n      \"ondemand\": \"<boolean>\",\n      \"verb\": \"get\",\n      \"description\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"localName\": \"<string>\"\n    },\n    \"ipsum_9af\": {\n      \"zip\": \"<boolean>\",\n      \"ondemand\": \"<boolean>\",\n      \"verb\": \"put\",\n      \"description\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"localName\": \"<string>\"\n    }\n  },\n  \"version\": \"<integer>\"\n}",
+                              "createdAt": "2026-07-28T01:06:38.000Z",
+                              "updatedAt": "2026-07-28T01:06:38.000Z",
+                              "uid": "35240-c0889ed6-5f63-4bbb-9e3d-2ac80f2f4d67"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:06:38.000Z",
+                          "updatedAt": "2026-07-28T01:06:38.000Z",
+                          "uid": "35240-29a8d7d7-2366-4af7-bbbb-533e956e4d16"
+                        },
+                        {
+                          "name": "Autodesk Delete Activity",
+                          "id": "d391bff8-eb23-4dcc-b84f-bf6f80a08647",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/da/us-east/v3/activities/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "da",
+                                "us-east",
+                                "v3",
+                                "activities",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "31e78d42-1b27-44f9-acec-a72fb1273464",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Deletes an Activity and all its versions and aliases."
+                          },
+                          "response": [
+                            {
+                              "id": "24e5d5f0-fcaa-4c9b-8c0b-9eba56ec9a35",
+                              "name": "Activity deleted.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/da/us-east/v3/activities/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "da",
+                                    "us-east",
+                                    "v3",
+                                    "activities",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "No Content",
+                              "code": 204,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:06:38.000Z",
+                              "updatedAt": "2026-07-28T01:06:38.000Z",
+                              "uid": "35240-24e5d5f0-fcaa-4c9b-8c0b-9eba56ec9a35"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:06:38.000Z",
+                          "updatedAt": "2026-07-28T01:06:38.000Z",
+                          "uid": "35240-d391bff8-eb23-4dcc-b84f-bf6f80a08647"
+                        }
+                      ],
+                      "id": "ad7980d3-b384-4a40-865e-b1117af5f72a",
+                      "createdAt": "2026-07-28T01:06:38.000Z",
+                      "updatedAt": "2026-07-28T01:06:38.000Z",
+                      "uid": "35240-ad7980d3-b384-4a40-865e-b1117af5f72a"
+                    },
+                    {
+                      "name": "Autodesk List Activities",
+                      "id": "352b87ca-d4cf-4353-9179-9e6a77344b23",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/da/us-east/v3/activities?page=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "da",
+                            "us-east",
+                            "v3",
+                            "activities"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "description": "Returns a paginated list of Activities belonging to the caller. Activities define the instructions (script, plugin, parameters) that run on an engine."
+                      },
+                      "response": [
+                        {
+                          "id": "4e531bd0-74e5-4356-b77f-a212f5ecd5f2",
+                          "name": "Successfully retrieved Activities.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/da/us-east/v3/activities?page=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "da",
+                                "us-east",
+                                "v3",
+                                "activities"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"paginationToken\": \"<string>\",\n  \"data\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-07-28T01:06:38.000Z",
+                          "updatedAt": "2026-07-28T01:06:38.000Z",
+                          "uid": "35240-4e531bd0-74e5-4356-b77f-a212f5ecd5f2"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:06:38.000Z",
+                      "updatedAt": "2026-07-28T01:06:38.000Z",
+                      "uid": "35240-352b87ca-d4cf-4353-9179-9e6a77344b23"
+                    },
+                    {
+                      "name": "Autodesk Create Activity",
+                      "id": "ad1068f1-b656-418d-927d-2f635563850e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": \"<string>\",\n  \"engine\": \"<string>\",\n  \"commandLine\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"parameters\": {\n    \"Excepteurf9\": {\n      \"zip\": \"<boolean>\",\n      \"ondemand\": \"<boolean>\",\n      \"verb\": \"read\",\n      \"description\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"localName\": \"<string>\"\n    },\n    \"adipisicing13f\": {\n      \"zip\": \"<boolean>\",\n      \"ondemand\": \"<boolean>\",\n      \"verb\": \"read\",\n      \"description\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"localName\": \"<string>\"\n    }\n  },\n  \"description\": \"<string>\",\n  \"appbundles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"settings\": {\n    \"Lorem_3_\": {},\n    \"Duis_\": {},\n    \"enim_0\": {}\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/da/us-east/v3/activities",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "da",
+                            "us-east",
+                            "v3",
+                            "activities"
+                          ]
+                        },
+                        "description": "Creates a new Activity."
+                      },
+                      "response": [
+                        {
+                          "id": "4cb180af-3150-4429-a994-229e5f12b445",
+                          "name": "Activity created.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"id\": \"<string>\",\n  \"engine\": \"<string>\",\n  \"commandLine\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"parameters\": {\n    \"Excepteurf9\": {\n      \"zip\": \"<boolean>\",\n      \"ondemand\": \"<boolean>\",\n      \"verb\": \"read\",\n      \"description\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"localName\": \"<string>\"\n    },\n    \"adipisicing13f\": {\n      \"zip\": \"<boolean>\",\n      \"ondemand\": \"<boolean>\",\n      \"verb\": \"read\",\n      \"description\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"localName\": \"<string>\"\n    }\n  },\n  \"description\": \"<string>\",\n  \"appbundles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"settings\": {\n    \"Lorem_3_\": {},\n    \"Duis_\": {},\n    \"enim_0\": {}\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/da/us-east/v3/activities",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "da",
+                                "us-east",
+                                "v3",
+                                "activities"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"engine\": \"<string>\",\n  \"commandLine\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"appbundles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"parameters\": {\n    \"in_f\": {\n      \"zip\": \"<boolean>\",\n      \"ondemand\": \"<boolean>\",\n      \"verb\": \"patch\",\n      \"description\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"localName\": \"<string>\"\n    },\n    \"laboris_4_\": {\n      \"zip\": \"<boolean>\",\n      \"ondemand\": \"<boolean>\",\n      \"verb\": \"post\",\n      \"description\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"localName\": \"<string>\"\n    },\n    \"non_b_a\": {\n      \"zip\": \"<boolean>\",\n      \"ondemand\": \"<boolean>\",\n      \"verb\": \"get\",\n      \"description\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"localName\": \"<string>\"\n    },\n    \"ipsum_9af\": {\n      \"zip\": \"<boolean>\",\n      \"ondemand\": \"<boolean>\",\n      \"verb\": \"put\",\n      \"description\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"localName\": \"<string>\"\n    }\n  },\n  \"version\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T01:06:38.000Z",
+                          "updatedAt": "2026-07-28T01:06:38.000Z",
+                          "uid": "35240-4cb180af-3150-4429-a994-229e5f12b445"
+                        },
+                        {
+                          "id": "5c5271b9-5c67-4c4c-918e-b83e68c99dad",
+                          "name": "Activity already exists.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"id\": \"<string>\",\n  \"engine\": \"<string>\",\n  \"commandLine\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"parameters\": {\n    \"Excepteurf9\": {\n      \"zip\": \"<boolean>\",\n      \"ondemand\": \"<boolean>\",\n      \"verb\": \"read\",\n      \"description\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"localName\": \"<string>\"\n    },\n    \"adipisicing13f\": {\n      \"zip\": \"<boolean>\",\n      \"ondemand\": \"<boolean>\",\n      \"verb\": \"read\",\n      \"description\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"localName\": \"<string>\"\n    }\n  },\n  \"description\": \"<string>\",\n  \"appbundles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"settings\": {\n    \"Lorem_3_\": {},\n    \"Duis_\": {},\n    \"enim_0\": {}\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/da/us-east/v3/activities",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "da",
+                                "us-east",
+                                "v3",
+                                "activities"
+                              ]
+                            }
+                          },
+                          "status": "Conflict",
+                          "code": 409,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:06:38.000Z",
+                          "updatedAt": "2026-07-28T01:06:38.000Z",
+                          "uid": "35240-5c5271b9-5c67-4c4c-918e-b83e68c99dad"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:06:38.000Z",
+                      "updatedAt": "2026-07-28T01:06:38.000Z",
+                      "uid": "35240-ad1068f1-b656-418d-927d-2f635563850e"
+                    }
+                  ],
+                  "id": "9d291243-6226-4f2f-b047-56b8b983a2eb",
+                  "createdAt": "2026-07-28T01:06:38.000Z",
+                  "updatedAt": "2026-07-28T01:06:38.000Z",
+                  "uid": "35240-9d291243-6226-4f2f-b047-56b8b983a2eb"
+                }
+              ],
+              "id": "3a1a3993-6e93-440c-808a-0d7f52072e78",
+              "createdAt": "2026-07-28T01:06:38.000Z",
+              "updatedAt": "2026-07-28T01:06:38.000Z",
+              "uid": "35240-3a1a3993-6e93-440c-808a-0d7f52072e78"
+            }
+          ],
+          "id": "a8f4c8c7-ca6d-4c48-90f2-c1cb7a164966",
+          "createdAt": "2026-07-28T01:06:38.000Z",
+          "updatedAt": "2026-07-28T01:06:38.000Z",
+          "uid": "35240-a8f4c8c7-ca6d-4c48-90f2-c1cb7a164966"
+        }
+      ],
+      "id": "96c8d514-4eba-426b-b6ac-d1953fa91be6",
+      "createdAt": "2026-07-28T01:06:38.000Z",
+      "updatedAt": "2026-07-28T01:06:38.000Z",
+      "uid": "35240-96c8d514-4eba-426b-b6ac-d1953fa91be6"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

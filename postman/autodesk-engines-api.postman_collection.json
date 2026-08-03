@@ -1,0 +1,362 @@
+{
+  "info": {
+    "_postman_id": "8bcf31f7-75a3-4ed6-a9c8-0da7a081b5ab",
+    "name": "Autodesk ACC Account Admin Account Users Engines API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:01.000Z",
+    "updatedAt": "2026-07-28T01:07:01.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8bcf31f7-75a3-4ed6-a9c8-0da7a081b5ab"
+  },
+  "item": [
+    {
+      "name": "da",
+      "item": [
+        {
+          "name": "us-east",
+          "item": [
+            {
+              "name": "v3",
+              "item": [
+                {
+                  "name": "engines",
+                  "item": [
+                    {
+                      "name": "{id}",
+                      "item": [
+                        {
+                          "name": "Autodesk Get Engine",
+                          "id": "d10b938c-e6a5-4325-baa4-2d50cfb4b3a9",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/da/us-east/v3/engines/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "da",
+                                "us-east",
+                                "v3",
+                                "engines",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "cbdce98c-a4b5-41a2-a665-020055888eb1",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) The fully qualified engine ID (e.g., Autodesk.AutoCAD+24_1)."
+                                }
+                              ]
+                            },
+                            "description": "Returns details about a specific engine."
+                          },
+                          "response": [
+                            {
+                              "id": "c2743fe8-551b-4e2a-89bc-1809f07e5596",
+                              "name": "Successfully retrieved engine.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/da/us-east/v3/engines/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "da",
+                                    "us-east",
+                                    "v3",
+                                    "engines",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"productVersion\": \"<string>\",\n  \"description\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"id\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:07:01.000Z",
+                              "updatedAt": "2026-07-28T01:07:01.000Z",
+                              "uid": "35240-c2743fe8-551b-4e2a-89bc-1809f07e5596"
+                            },
+                            {
+                              "id": "0dda2be3-7c65-426e-8f30-6c380cbe0ad5",
+                              "name": "Engine not found.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/da/us-east/v3/engines/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "da",
+                                    "us-east",
+                                    "v3",
+                                    "engines",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:07:01.000Z",
+                              "updatedAt": "2026-07-28T01:07:01.000Z",
+                              "uid": "35240-0dda2be3-7c65-426e-8f30-6c380cbe0ad5"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:07:01.000Z",
+                          "updatedAt": "2026-07-28T01:07:01.000Z",
+                          "uid": "35240-d10b938c-e6a5-4325-baa4-2d50cfb4b3a9"
+                        }
+                      ],
+                      "id": "ddc51db8-e9f7-45f4-b148-e6cf26313c3b",
+                      "createdAt": "2026-07-28T01:07:01.000Z",
+                      "updatedAt": "2026-07-28T01:07:01.000Z",
+                      "uid": "35240-ddc51db8-e9f7-45f4-b148-e6cf26313c3b"
+                    },
+                    {
+                      "name": "Autodesk List Engines",
+                      "id": "d8d33bf2-da97-4d36-96f9-a99092a80ca0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/da/us-east/v3/engines?page=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "da",
+                            "us-east",
+                            "v3",
+                            "engines"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page token for pagination.",
+                              "key": "page",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "description": "Returns a paginated list of available engines. Engines correspond to Autodesk products that can process design files (AutoCAD, Revit, Inventor, 3ds Max)."
+                      },
+                      "response": [
+                        {
+                          "id": "125db86e-9e4d-468a-aa63-da5395098729",
+                          "name": "Successfully retrieved engines.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/da/us-east/v3/engines?page=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "da",
+                                "us-east",
+                                "v3",
+                                "engines"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Page token for pagination.",
+                                  "key": "page",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"paginationToken\": \"<string>\",\n  \"data\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-07-28T01:07:01.000Z",
+                          "updatedAt": "2026-07-28T01:07:01.000Z",
+                          "uid": "35240-125db86e-9e4d-468a-aa63-da5395098729"
+                        },
+                        {
+                          "id": "517cb6df-c0bf-4854-9d62-0f173362d71b",
+                          "name": "Unauthorized.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/da/us-east/v3/engines?page=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "da",
+                                "us-east",
+                                "v3",
+                                "engines"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Page token for pagination.",
+                                  "key": "page",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:07:01.000Z",
+                          "updatedAt": "2026-07-28T01:07:01.000Z",
+                          "uid": "35240-517cb6df-c0bf-4854-9d62-0f173362d71b"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:07:01.000Z",
+                      "updatedAt": "2026-07-28T01:07:01.000Z",
+                      "uid": "35240-d8d33bf2-da97-4d36-96f9-a99092a80ca0"
+                    }
+                  ],
+                  "id": "46320760-f84e-4c74-b0bc-895d9762be0c",
+                  "createdAt": "2026-07-28T01:07:01.000Z",
+                  "updatedAt": "2026-07-28T01:07:01.000Z",
+                  "uid": "35240-46320760-f84e-4c74-b0bc-895d9762be0c"
+                }
+              ],
+              "id": "03b7bf23-ed3c-4af2-8894-0e844189da88",
+              "createdAt": "2026-07-28T01:07:01.000Z",
+              "updatedAt": "2026-07-28T01:07:01.000Z",
+              "uid": "35240-03b7bf23-ed3c-4af2-8894-0e844189da88"
+            }
+          ],
+          "id": "a9fc0ee8-f399-4a80-b30b-10b6ff73a1cf",
+          "createdAt": "2026-07-28T01:07:01.000Z",
+          "updatedAt": "2026-07-28T01:07:01.000Z",
+          "uid": "35240-a9fc0ee8-f399-4a80-b30b-10b6ff73a1cf"
+        }
+      ],
+      "id": "d26578ad-2350-40a4-abf2-9bddd5aa4052",
+      "createdAt": "2026-07-28T01:07:01.000Z",
+      "updatedAt": "2026-07-28T01:07:01.000Z",
+      "uid": "35240-d26578ad-2350-40a4-abf2-9bddd5aa4052"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

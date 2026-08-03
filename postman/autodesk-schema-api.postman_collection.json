@@ -1,0 +1,184 @@
+{
+  "info": {
+    "_postman_id": "5406ccd2-c7dc-4092-ad06-0cb79fb9c80e",
+    "name": "Autodesk ACC Account Admin Account Users Schema API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:56.000Z",
+    "updatedAt": "2026-07-28T01:07:56.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5406ccd2-c7dc-4092-ad06-0cb79fb9c80e"
+  },
+  "item": [
+    {
+      "name": "tandem",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "twins",
+              "item": [
+                {
+                  "name": "{twinId}",
+                  "item": [
+                    {
+                      "name": "schema",
+                      "item": [
+                        {
+                          "name": "Autodesk Get Twin Schema",
+                          "id": "f07961c2-0408-404e-a996-6abad9f564be",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/tandem/v1/twins/:twinId/schema",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "tandem",
+                                "v1",
+                                "twins",
+                                ":twinId",
+                                "schema"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "e43a6ce3-3820-46da-bee1-4170a24ea2fa",
+                                  "key": "twinId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Returns the schema definition for a digital twin, including built-in and custom property definitions."
+                          },
+                          "response": [
+                            {
+                              "id": "fa7b9555-9966-44a9-b116-3f058b350daa",
+                              "name": "Successfully retrieved schema.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/tandem/v1/twins/:twinId/schema",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "tandem",
+                                    "v1",
+                                    "twins",
+                                    ":twinId",
+                                    "schema"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "twinId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"schemas\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"version\": \"<integer>\",\n      \"attrs\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"category\": \"<string>\",\n          \"dataType\": \"<integer>\",\n          \"flags\": \"<integer>\",\n          \"forgeUnit\": \"<string>\",\n          \"forgeSpec\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"category\": \"<string>\",\n          \"dataType\": \"<integer>\",\n          \"flags\": \"<integer>\",\n          \"forgeUnit\": \"<string>\",\n          \"forgeSpec\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"version\": \"<integer>\",\n      \"attrs\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"category\": \"<string>\",\n          \"dataType\": \"<integer>\",\n          \"flags\": \"<integer>\",\n          \"forgeUnit\": \"<string>\",\n          \"forgeSpec\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"category\": \"<string>\",\n          \"dataType\": \"<integer>\",\n          \"flags\": \"<integer>\",\n          \"forgeUnit\": \"<string>\",\n          \"forgeSpec\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:07:56.000Z",
+                              "updatedAt": "2026-07-28T01:07:56.000Z",
+                              "uid": "35240-fa7b9555-9966-44a9-b116-3f058b350daa"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:07:56.000Z",
+                          "updatedAt": "2026-07-28T01:07:56.000Z",
+                          "uid": "35240-f07961c2-0408-404e-a996-6abad9f564be"
+                        }
+                      ],
+                      "id": "ac5d46e9-d2cd-4123-a19a-c26034de32f8",
+                      "createdAt": "2026-07-28T01:07:56.000Z",
+                      "updatedAt": "2026-07-28T01:07:56.000Z",
+                      "uid": "35240-ac5d46e9-d2cd-4123-a19a-c26034de32f8"
+                    }
+                  ],
+                  "id": "2d3ed529-483a-4cd0-8f33-d3087a5d3cb9",
+                  "createdAt": "2026-07-28T01:07:56.000Z",
+                  "updatedAt": "2026-07-28T01:07:56.000Z",
+                  "uid": "35240-2d3ed529-483a-4cd0-8f33-d3087a5d3cb9"
+                }
+              ],
+              "id": "491d1fc5-7a54-43d9-9662-dad78a395aa3",
+              "createdAt": "2026-07-28T01:07:56.000Z",
+              "updatedAt": "2026-07-28T01:07:56.000Z",
+              "uid": "35240-491d1fc5-7a54-43d9-9662-dad78a395aa3"
+            }
+          ],
+          "id": "9dd1ffaa-dfd3-496e-9876-1a928326bb09",
+          "createdAt": "2026-07-28T01:07:56.000Z",
+          "updatedAt": "2026-07-28T01:07:56.000Z",
+          "uid": "35240-9dd1ffaa-dfd3-496e-9876-1a928326bb09"
+        }
+      ],
+      "id": "7b185195-97ea-4f76-bfc2-d3f4ba0d4b63",
+      "createdAt": "2026-07-28T01:07:56.000Z",
+      "updatedAt": "2026-07-28T01:07:56.000Z",
+      "uid": "35240-7b185195-97ea-4f76-bfc2-d3f4ba0d4b63"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

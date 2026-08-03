@@ -1,0 +1,371 @@
+{
+  "info": {
+    "_postman_id": "184b9d37-f853-44c0-9ff6-b6158ef79fc9",
+    "name": "Autodesk ACC Account Admin Account Users Datasets API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:06:50.000Z",
+    "updatedAt": "2026-07-28T01:06:51.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-184b9d37-f853-44c0-9ff6-b6158ef79fc9"
+  },
+  "item": [
+    {
+      "name": "sustainability",
+      "item": [
+        {
+          "name": "v3",
+          "item": [
+            {
+              "name": "datasets",
+              "item": [
+                {
+                  "name": "{datasetId}",
+                  "item": [
+                    {
+                      "name": "Autodesk Get Dataset",
+                      "id": "9d01ffb0-cce3-48dd-954a-66163008f6b8",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sustainability/v3/datasets/:datasetId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sustainability",
+                            "v3",
+                            "datasets",
+                            ":datasetId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "07acdb2d-a179-4e9e-bd21-5691e8177872",
+                              "key": "datasetId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Returns details of a specific dataset."
+                      },
+                      "response": [
+                        {
+                          "id": "88007ed2-6902-4bda-b4fd-764f9efadb82",
+                          "name": "Successfully retrieved dataset.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sustainability/v3/datasets/:datasetId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sustainability",
+                                "v3",
+                                "datasets",
+                                ":datasetId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "datasetId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"type\": \"construction\",\n  \"provider\": \"<string>\",\n  \"version\": \"<string>\",\n  \"regions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"lastUpdated\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-07-28T01:06:51.000Z",
+                          "updatedAt": "2026-07-28T01:06:51.000Z",
+                          "uid": "35240-88007ed2-6902-4bda-b4fd-764f9efadb82"
+                        },
+                        {
+                          "id": "d23f3b90-a4ed-416d-8e3e-2353c032a97d",
+                          "name": "Dataset not found.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sustainability/v3/datasets/:datasetId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sustainability",
+                                "v3",
+                                "datasets",
+                                ":datasetId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "datasetId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:06:51.000Z",
+                          "updatedAt": "2026-07-28T01:06:51.000Z",
+                          "uid": "35240-d23f3b90-a4ed-416d-8e3e-2353c032a97d"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:06:51.000Z",
+                      "updatedAt": "2026-07-28T01:06:51.000Z",
+                      "uid": "35240-9d01ffb0-cce3-48dd-954a-66163008f6b8"
+                    }
+                  ],
+                  "id": "b0e0a108-5129-4ba9-9b42-2034b47f6c8a",
+                  "createdAt": "2026-07-28T01:06:51.000Z",
+                  "updatedAt": "2026-07-28T01:06:51.000Z",
+                  "uid": "35240-b0e0a108-5129-4ba9-9b42-2034b47f6c8a"
+                },
+                {
+                  "name": "Autodesk List Datasets",
+                  "id": "ad417721-243e-4a4d-9a56-d22b54aa577d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sustainability/v3/datasets?page[offset]=<integer>&page[limit]=<integer>&filter[type]=electricity",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sustainability",
+                        "v3",
+                        "datasets"
+                      ],
+                      "query": [
+                        {
+                          "key": "page[offset]",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "page[limit]",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Filter by dataset type.",
+                          "key": "filter[type]",
+                          "value": "electricity"
+                        }
+                      ]
+                    },
+                    "description": "Returns a list of available sustainability datasets. Each dataset contains environmental impact data from specific data providers."
+                  },
+                  "response": [
+                    {
+                      "id": "96807412-dba2-464b-b945-ed7641f6c85f",
+                      "name": "Successfully retrieved datasets.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sustainability/v3/datasets?page[offset]=<integer>&page[limit]=<integer>&filter[type]=electricity",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sustainability",
+                            "v3",
+                            "datasets"
+                          ],
+                          "query": [
+                            {
+                              "key": "page[offset]",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "page[limit]",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Filter by dataset type.",
+                              "key": "filter[type]",
+                              "value": "electricity"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"type\": \"transportation\",\n      \"provider\": \"<string>\",\n      \"version\": \"<string>\",\n      \"regions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"lastUpdated\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"type\": \"construction\",\n      \"provider\": \"<string>\",\n      \"version\": \"<string>\",\n      \"regions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"lastUpdated\": \"<dateTime>\"\n    }\n  ],\n  \"pagination\": {\n    \"offset\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"totalResults\": \"<integer>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:06:51.000Z",
+                      "updatedAt": "2026-07-28T01:06:51.000Z",
+                      "uid": "35240-96807412-dba2-464b-b945-ed7641f6c85f"
+                    },
+                    {
+                      "id": "60ca37b4-a6b4-4f49-bc0e-1fd10114841f",
+                      "name": "Unauthorized.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sustainability/v3/datasets?page[offset]=<integer>&page[limit]=<integer>&filter[type]=electricity",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sustainability",
+                            "v3",
+                            "datasets"
+                          ],
+                          "query": [
+                            {
+                              "key": "page[offset]",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "page[limit]",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Filter by dataset type.",
+                              "key": "filter[type]",
+                              "value": "electricity"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:06:51.000Z",
+                      "updatedAt": "2026-07-28T01:06:51.000Z",
+                      "uid": "35240-60ca37b4-a6b4-4f49-bc0e-1fd10114841f"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:06:51.000Z",
+                  "updatedAt": "2026-07-28T01:06:51.000Z",
+                  "uid": "35240-ad417721-243e-4a4d-9a56-d22b54aa577d"
+                }
+              ],
+              "id": "bfa377d5-50e7-40f4-949b-abf01027e7e3",
+              "createdAt": "2026-07-28T01:06:51.000Z",
+              "updatedAt": "2026-07-28T01:06:51.000Z",
+              "uid": "35240-bfa377d5-50e7-40f4-949b-abf01027e7e3"
+            }
+          ],
+          "id": "ccb1ea5e-9ceb-4f5f-8e30-c6bc8b89d23e",
+          "createdAt": "2026-07-28T01:06:51.000Z",
+          "updatedAt": "2026-07-28T01:06:51.000Z",
+          "uid": "35240-ccb1ea5e-9ceb-4f5f-8e30-c6bc8b89d23e"
+        }
+      ],
+      "id": "3c2d63a3-78b1-4d38-a41f-21dc40043798",
+      "createdAt": "2026-07-28T01:06:51.000Z",
+      "updatedAt": "2026-07-28T01:06:51.000Z",
+      "uid": "35240-3c2d63a3-78b1-4d38-a41f-21dc40043798"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

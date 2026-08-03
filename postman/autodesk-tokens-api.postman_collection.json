@@ -1,0 +1,240 @@
+{
+  "info": {
+    "_postman_id": "55781957-9f67-415f-8a48-be3b070ba3be",
+    "name": "Autodesk ACC Account Admin Account Users Tokens API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:08:01.000Z",
+    "updatedAt": "2026-07-28T01:08:02.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-55781957-9f67-415f-8a48-be3b070ba3be"
+  },
+  "item": [
+    {
+      "name": "webhooks",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "tokens",
+              "item": [
+                {
+                  "name": "@me",
+                  "item": [
+                    {
+                      "name": "Autodesk Create/Update Webhook Secret Token",
+                      "id": "a11cd8fc-379f-472a-ae12-cf446cc42edd",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"token\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/webhooks/v1/tokens/@me",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "webhooks",
+                            "v1",
+                            "tokens",
+                            "@me"
+                          ]
+                        },
+                        "description": "Creates or updates a secret token used to sign webhook payloads. The token is included in the x-adsk-signature header of callback requests for payload verification."
+                      },
+                      "response": [
+                        {
+                          "id": "70ccf20b-92dc-4f23-9b46-1eea46a31f74",
+                          "name": "Token created/updated.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"token\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/webhooks/v1/tokens/@me",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "webhooks",
+                                "v1",
+                                "tokens",
+                                "@me"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:08:02.000Z",
+                          "updatedAt": "2026-07-28T01:08:02.000Z",
+                          "uid": "35240-70ccf20b-92dc-4f23-9b46-1eea46a31f74"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:08:02.000Z",
+                      "updatedAt": "2026-07-28T01:08:02.000Z",
+                      "uid": "35240-a11cd8fc-379f-472a-ae12-cf446cc42edd"
+                    },
+                    {
+                      "name": "Autodesk Delete Webhook Secret Token",
+                      "id": "5034dab0-799b-4fc9-9cee-f38b193e3101",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/webhooks/v1/tokens/@me",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "webhooks",
+                            "v1",
+                            "tokens",
+                            "@me"
+                          ]
+                        },
+                        "description": "Deletes the webhook secret token."
+                      },
+                      "response": [
+                        {
+                          "id": "5cc71f71-5bde-495e-868e-c3f6b1958f8b",
+                          "name": "Token deleted.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/webhooks/v1/tokens/@me",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "webhooks",
+                                "v1",
+                                "tokens",
+                                "@me"
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:08:02.000Z",
+                          "updatedAt": "2026-07-28T01:08:02.000Z",
+                          "uid": "35240-5cc71f71-5bde-495e-868e-c3f6b1958f8b"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:08:02.000Z",
+                      "updatedAt": "2026-07-28T01:08:02.000Z",
+                      "uid": "35240-5034dab0-799b-4fc9-9cee-f38b193e3101"
+                    }
+                  ],
+                  "id": "918e337e-eb07-4bcd-b63a-8c1c3141415c",
+                  "createdAt": "2026-07-28T01:08:02.000Z",
+                  "updatedAt": "2026-07-28T01:08:02.000Z",
+                  "uid": "35240-918e337e-eb07-4bcd-b63a-8c1c3141415c"
+                }
+              ],
+              "id": "052407a2-1452-44c9-b297-0770dcfb58e1",
+              "createdAt": "2026-07-28T01:08:02.000Z",
+              "updatedAt": "2026-07-28T01:08:02.000Z",
+              "uid": "35240-052407a2-1452-44c9-b297-0770dcfb58e1"
+            }
+          ],
+          "id": "dc5b9292-f4b8-4828-ae38-9c35a3eeac59",
+          "createdAt": "2026-07-28T01:08:02.000Z",
+          "updatedAt": "2026-07-28T01:08:02.000Z",
+          "uid": "35240-dc5b9292-f4b8-4828-ae38-9c35a3eeac59"
+        }
+      ],
+      "id": "e956421f-9773-424f-a53e-20363133c95e",
+      "createdAt": "2026-07-28T01:08:02.000Z",
+      "updatedAt": "2026-07-28T01:08:02.000Z",
+      "uid": "35240-e956421f-9773-424f-a53e-20363133c95e"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

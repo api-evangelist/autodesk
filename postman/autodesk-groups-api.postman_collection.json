@@ -1,0 +1,580 @@
+{
+  "info": {
+    "_postman_id": "b86a8241-4f93-4c8f-90b4-fcd020ae7eee",
+    "name": "Autodesk ACC Account Admin Account Users Groups API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:23.000Z",
+    "updatedAt": "2026-07-28T01:07:23.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b86a8241-4f93-4c8f-90b4-fcd020ae7eee"
+  },
+  "item": [
+    {
+      "name": "parameters",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "accounts",
+              "item": [
+                {
+                  "name": "{accountId}",
+                  "item": [
+                    {
+                      "name": "collections",
+                      "item": [
+                        {
+                          "name": "{collectionId}",
+                          "item": [
+                            {
+                              "name": "groups",
+                              "item": [
+                                {
+                                  "name": "Autodesk List Groups",
+                                  "id": "c83a09a2-c16c-4b56-b84f-9b9bdc9eda06",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/parameters/v1/accounts/:accountId/collections/:collectionId/groups",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "parameters",
+                                        "v1",
+                                        "accounts",
+                                        ":accountId",
+                                        "collections",
+                                        ":collectionId",
+                                        "groups"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "4adbaee6-6218-4b17-bbc6-53590860d04e",
+                                          "key": "accountId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "3b9f0d36-08c5-415f-99b2-5edc8c85b0c7",
+                                          "key": "collectionId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Returns groups within a collection."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "2e7a200c-b0fb-4ae9-adb7-15f00a7138a8",
+                                      "name": "Successfully retrieved groups.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/parameters/v1/accounts/:accountId/collections/:collectionId/groups",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "parameters",
+                                            "v1",
+                                            "accounts",
+                                            ":accountId",
+                                            "collections",
+                                            ":collectionId",
+                                            "groups"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "accountId"
+                                            },
+                                            {
+                                              "key": "collectionId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"results\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\"\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T01:07:23.000Z",
+                                      "updatedAt": "2026-07-28T01:07:23.000Z",
+                                      "uid": "35240-2e7a200c-b0fb-4ae9-adb7-15f00a7138a8"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:07:23.000Z",
+                                  "updatedAt": "2026-07-28T01:07:23.000Z",
+                                  "uid": "35240-c83a09a2-c16c-4b56-b84f-9b9bdc9eda06"
+                                },
+                                {
+                                  "name": "Autodesk Create Group",
+                                  "id": "4526e2b9-19c6-4025-85bb-b3e32bdec137",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "auth": {
+                                      "type": "oauth2",
+                                      "oauth2": [
+                                        {
+                                          "key": "scope",
+                                          "value": "account:read account:write",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "key": "accessTokenUrl",
+                                          "value": "https://developer.api.autodesk.com/authentication/v2/token",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "key": "authUrl",
+                                          "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "key": "grant_type",
+                                          "value": "authorization_code",
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/parameters/v1/accounts/:accountId/collections/:collectionId/groups",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "parameters",
+                                        "v1",
+                                        "accounts",
+                                        ":accountId",
+                                        "collections",
+                                        ":collectionId",
+                                        "groups"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "41a7d57d-5c73-47a5-b716-8bc96894c71f",
+                                          "key": "accountId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "b1f01f84-ff47-4c82-917c-14a773a042da",
+                                          "key": "collectionId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Creates a new parameter group within a collection."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "0f0eafd3-8879-43d7-8bf9-fd8b28d334c1",
+                                      "name": "Group created.",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/parameters/v1/accounts/:accountId/collections/:collectionId/groups",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "parameters",
+                                            "v1",
+                                            "accounts",
+                                            ":accountId",
+                                            "collections",
+                                            ":collectionId",
+                                            "groups"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "accountId"
+                                            },
+                                            {
+                                              "key": "collectionId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Created",
+                                      "code": 201,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:07:23.000Z",
+                                      "updatedAt": "2026-07-28T01:07:23.000Z",
+                                      "uid": "35240-0f0eafd3-8879-43d7-8bf9-fd8b28d334c1"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:07:23.000Z",
+                                  "updatedAt": "2026-07-28T01:07:23.000Z",
+                                  "uid": "35240-4526e2b9-19c6-4025-85bb-b3e32bdec137"
+                                }
+                              ],
+                              "id": "12aecebf-f63c-4e98-a695-05d903ff1a91",
+                              "createdAt": "2026-07-28T01:07:23.000Z",
+                              "updatedAt": "2026-07-28T01:07:23.000Z",
+                              "uid": "35240-12aecebf-f63c-4e98-a695-05d903ff1a91"
+                            }
+                          ],
+                          "id": "7192de69-f621-4c58-9299-6799bdd580c3",
+                          "createdAt": "2026-07-28T01:07:23.000Z",
+                          "updatedAt": "2026-07-28T01:07:23.000Z",
+                          "uid": "35240-7192de69-f621-4c58-9299-6799bdd580c3"
+                        }
+                      ],
+                      "id": "cd6dc3b2-dabe-4b92-b72f-74b06760114d",
+                      "createdAt": "2026-07-28T01:07:23.000Z",
+                      "updatedAt": "2026-07-28T01:07:23.000Z",
+                      "uid": "35240-cd6dc3b2-dabe-4b92-b72f-74b06760114d"
+                    }
+                  ],
+                  "id": "4e2d549b-a771-4af8-b01f-3181960de5a5",
+                  "createdAt": "2026-07-28T01:07:23.000Z",
+                  "updatedAt": "2026-07-28T01:07:23.000Z",
+                  "uid": "35240-4e2d549b-a771-4af8-b01f-3181960de5a5"
+                }
+              ],
+              "id": "75c704bc-a652-48ea-ac5b-029e75bd2c37",
+              "createdAt": "2026-07-28T01:07:23.000Z",
+              "updatedAt": "2026-07-28T01:07:23.000Z",
+              "uid": "35240-75c704bc-a652-48ea-ac5b-029e75bd2c37"
+            }
+          ],
+          "id": "4f9ad10d-9d13-4365-9ab2-da159a7738b7",
+          "createdAt": "2026-07-28T01:07:23.000Z",
+          "updatedAt": "2026-07-28T01:07:23.000Z",
+          "uid": "35240-4f9ad10d-9d13-4365-9ab2-da159a7738b7"
+        }
+      ],
+      "id": "bb4ef53d-1538-4dd1-b4c2-bac0481f1594",
+      "createdAt": "2026-07-28T01:07:23.000Z",
+      "updatedAt": "2026-07-28T01:07:23.000Z",
+      "uid": "35240-bb4ef53d-1538-4dd1-b4c2-bac0481f1594"
+    },
+    {
+      "name": "tandem",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "groups",
+              "item": [
+                {
+                  "name": "{groupId}",
+                  "item": [
+                    {
+                      "name": "Autodesk Get Group",
+                      "id": "6efefcac-8ba3-42e1-8606-197663ae2473",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/tandem/v1/groups/:groupId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "tandem",
+                            "v1",
+                            "groups",
+                            ":groupId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "19375291-092a-4203-9bbf-17b14fe1b573",
+                              "key": "groupId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Returns details of a specific group."
+                      },
+                      "response": [
+                        {
+                          "id": "b4c9544f-323f-46fb-9f25-a920b255b23d",
+                          "name": "Successfully retrieved group.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/tandem/v1/groups/:groupId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "tandem",
+                                "v1",
+                                "groups",
+                                ":groupId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "groupId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"twins\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-07-28T01:07:23.000Z",
+                          "updatedAt": "2026-07-28T01:07:23.000Z",
+                          "uid": "35240-b4c9544f-323f-46fb-9f25-a920b255b23d"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:07:23.000Z",
+                      "updatedAt": "2026-07-28T01:07:23.000Z",
+                      "uid": "35240-6efefcac-8ba3-42e1-8606-197663ae2473"
+                    }
+                  ],
+                  "id": "dea97c55-63fe-4676-9c13-a95deffa9653",
+                  "createdAt": "2026-07-28T01:07:23.000Z",
+                  "updatedAt": "2026-07-28T01:07:23.000Z",
+                  "uid": "35240-dea97c55-63fe-4676-9c13-a95deffa9653"
+                },
+                {
+                  "name": "Autodesk List Groups",
+                  "id": "48b9b6e5-2bb8-43e1-a0c4-f1dacc9b29ed",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/tandem/v1/groups",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tandem",
+                        "v1",
+                        "groups"
+                      ]
+                    },
+                    "description": "Returns a list of facility groups (teams) that the authenticated user has access to."
+                  },
+                  "response": [
+                    {
+                      "id": "43956ffc-e773-47d9-8b89-0c117d20a83f",
+                      "name": "Successfully retrieved groups.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/tandem/v1/groups",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "tandem",
+                            "v1",
+                            "groups"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"groups\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"twins\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"twins\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:07:23.000Z",
+                      "updatedAt": "2026-07-28T01:07:23.000Z",
+                      "uid": "35240-43956ffc-e773-47d9-8b89-0c117d20a83f"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:07:23.000Z",
+                  "updatedAt": "2026-07-28T01:07:23.000Z",
+                  "uid": "35240-48b9b6e5-2bb8-43e1-a0c4-f1dacc9b29ed"
+                }
+              ],
+              "id": "cc6c74e2-8a72-4a81-bc2a-02b16595b5a0",
+              "createdAt": "2026-07-28T01:07:23.000Z",
+              "updatedAt": "2026-07-28T01:07:23.000Z",
+              "uid": "35240-cc6c74e2-8a72-4a81-bc2a-02b16595b5a0"
+            }
+          ],
+          "id": "84e6f380-0318-48af-b72f-058fd42b2a14",
+          "createdAt": "2026-07-28T01:07:23.000Z",
+          "updatedAt": "2026-07-28T01:07:23.000Z",
+          "uid": "35240-84e6f380-0318-48af-b72f-058fd42b2a14"
+        }
+      ],
+      "id": "230e403d-d9f5-456b-87b9-10d918e74e84",
+      "createdAt": "2026-07-28T01:07:23.000Z",
+      "updatedAt": "2026-07-28T01:07:23.000Z",
+      "uid": "35240-230e403d-d9f5-456b-87b9-10d918e74e84"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

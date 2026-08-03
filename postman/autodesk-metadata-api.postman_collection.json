@@ -1,0 +1,1182 @@
+{
+  "info": {
+    "_postman_id": "1080667c-31cd-494b-935c-c2d404642b20",
+    "name": "Autodesk ACC Account Admin Account Users Metadata API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:42.000Z",
+    "updatedAt": "2026-07-28T01:07:42.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1080667c-31cd-494b-935c-c2d404642b20"
+  },
+  "item": [
+    {
+      "name": "modelderivative",
+      "item": [
+        {
+          "name": "v2",
+          "item": [
+            {
+              "name": "designdata",
+              "item": [
+                {
+                  "name": "{urn}",
+                  "item": [
+                    {
+                      "name": "metadata",
+                      "item": [
+                        {
+                          "name": "{guid}",
+                          "item": [
+                            {
+                              "name": "properties",
+                              "item": [
+                                {
+                                  "name": "Autodesk Get All Properties",
+                                  "id": "482bbe5c-86d8-40f7-a789-e740d8a39ac7",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/modelderivative/v2/designdata/:urn/metadata/:guid/properties?forceget=<boolean>&objectid=<integer>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "modelderivative",
+                                        "v2",
+                                        "designdata",
+                                        ":urn",
+                                        "metadata",
+                                        ":guid",
+                                        "properties"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "forceget",
+                                          "value": "<boolean>"
+                                        },
+                                        {
+                                          "description": "Filter properties by a specific object ID.",
+                                          "key": "objectid",
+                                          "value": "<integer>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "1e50e9d1-a88d-41a5-b1ff-b05f3b7e26a2",
+                                          "key": "urn",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "739697c5-17af-4361-815f-7cc3aa180a80",
+                                          "key": "guid",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Returns the properties of all objects in a specific viewable. For large models, use the forceget parameter to ensure all data is returned."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "02a87e46-b245-4d8e-95d3-36f50e338c6c",
+                                      "name": "Successfully retrieved properties.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/modelderivative/v2/designdata/:urn/metadata/:guid/properties?forceget=<boolean>&objectid=<integer>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "modelderivative",
+                                            "v2",
+                                            "designdata",
+                                            ":urn",
+                                            "metadata",
+                                            ":guid",
+                                            "properties"
+                                          ],
+                                          "query": [
+                                            {
+                                              "key": "forceget",
+                                              "value": "<boolean>"
+                                            },
+                                            {
+                                              "description": "Filter properties by a specific object ID.",
+                                              "key": "objectid",
+                                              "value": "<integer>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "urn"
+                                            },
+                                            {
+                                              "key": "guid"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"data\": {\n    \"type\": \"<string>\",\n    \"collection\": [\n      {\n        \"objectid\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"externalId\": \"<string>\",\n        \"properties\": {\n          \"laboris_1f6\": true,\n          \"eiusmod_bb\": \"eu dolor irure sunt\",\n          \"veniam_5_2\": -14208444\n        }\n      },\n      {\n        \"objectid\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"externalId\": \"<string>\",\n        \"properties\": {\n          \"cupidatat_12\": \"in veniam deserunt mollit\",\n          \"id_c5\": 31154061.995934337\n        }\n      }\n    ]\n  }\n}",
+                                      "createdAt": "2026-07-28T01:07:42.000Z",
+                                      "updatedAt": "2026-07-28T01:07:42.000Z",
+                                      "uid": "35240-02a87e46-b245-4d8e-95d3-36f50e338c6c"
+                                    },
+                                    {
+                                      "id": "94d670b8-855b-44c3-aad1-8b6748001609",
+                                      "name": "Properties are being generated. Retry later.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/modelderivative/v2/designdata/:urn/metadata/:guid/properties?forceget=<boolean>&objectid=<integer>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "modelderivative",
+                                            "v2",
+                                            "designdata",
+                                            ":urn",
+                                            "metadata",
+                                            ":guid",
+                                            "properties"
+                                          ],
+                                          "query": [
+                                            {
+                                              "key": "forceget",
+                                              "value": "<boolean>"
+                                            },
+                                            {
+                                              "description": "Filter properties by a specific object ID.",
+                                              "key": "objectid",
+                                              "value": "<integer>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "urn"
+                                            },
+                                            {
+                                              "key": "guid"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Accepted",
+                                      "code": 202,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:07:42.000Z",
+                                      "updatedAt": "2026-07-28T01:07:42.000Z",
+                                      "uid": "35240-94d670b8-855b-44c3-aad1-8b6748001609"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:07:42.000Z",
+                                  "updatedAt": "2026-07-28T01:07:42.000Z",
+                                  "uid": "35240-482bbe5c-86d8-40f7-a789-e740d8a39ac7"
+                                }
+                              ],
+                              "id": "15e3b808-33ba-458b-8e22-bd612a4fe28b",
+                              "createdAt": "2026-07-28T01:07:42.000Z",
+                              "updatedAt": "2026-07-28T01:07:42.000Z",
+                              "uid": "35240-15e3b808-33ba-458b-8e22-bd612a4fe28b"
+                            },
+                            {
+                              "name": "properties:query",
+                              "item": [
+                                {
+                                  "name": "Autodesk Query Properties",
+                                  "id": "13fe626c-7095-43e1-997f-21d1ee491b0e",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"query\": {\n    \"$prefix\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$contains\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"pagination\": {\n    \"offset\": \"<integer>\",\n    \"limit\": \"<integer>\"\n  }\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/modelderivative/v2/designdata/:urn/metadata/:guid/properties:query",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "modelderivative",
+                                        "v2",
+                                        "designdata",
+                                        ":urn",
+                                        "metadata",
+                                        ":guid",
+                                        "properties:query"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "876b4078-a362-4ac6-8dfc-d219804319d9",
+                                          "key": "urn",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "94f657b8-1471-4a11-bec8-5dadd0a9aa44",
+                                          "key": "guid",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Returns a filtered set of properties for a viewable based on specified criteria. Supports pagination for large result sets."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "f587f29c-3779-48ba-8874-fdf7dc589d4a",
+                                      "name": "Successfully queried properties.",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"query\": {\n    \"$prefix\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$contains\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"pagination\": {\n    \"offset\": \"<integer>\",\n    \"limit\": \"<integer>\"\n  }\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/modelderivative/v2/designdata/:urn/metadata/:guid/properties:query",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "modelderivative",
+                                            "v2",
+                                            "designdata",
+                                            ":urn",
+                                            "metadata",
+                                            ":guid",
+                                            "properties:query"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "urn"
+                                            },
+                                            {
+                                              "key": "guid"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"data\": {\n    \"type\": \"<string>\",\n    \"collection\": [\n      {\n        \"objectid\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"externalId\": \"<string>\",\n        \"properties\": {\n          \"laboris_1f6\": true,\n          \"eiusmod_bb\": \"eu dolor irure sunt\",\n          \"veniam_5_2\": -14208444\n        }\n      },\n      {\n        \"objectid\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"externalId\": \"<string>\",\n        \"properties\": {\n          \"cupidatat_12\": \"in veniam deserunt mollit\",\n          \"id_c5\": 31154061.995934337\n        }\n      }\n    ]\n  }\n}",
+                                      "createdAt": "2026-07-28T01:07:42.000Z",
+                                      "updatedAt": "2026-07-28T01:07:42.000Z",
+                                      "uid": "35240-f587f29c-3779-48ba-8874-fdf7dc589d4a"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:07:42.000Z",
+                                  "updatedAt": "2026-07-28T01:07:42.000Z",
+                                  "uid": "35240-13fe626c-7095-43e1-997f-21d1ee491b0e"
+                                }
+                              ],
+                              "id": "7326d07b-42e8-4cdc-9dd5-8741a9667a66",
+                              "createdAt": "2026-07-28T01:07:42.000Z",
+                              "updatedAt": "2026-07-28T01:07:42.000Z",
+                              "uid": "35240-7326d07b-42e8-4cdc-9dd5-8741a9667a66"
+                            },
+                            {
+                              "name": "Autodesk Get Object Tree",
+                              "id": "d5de622f-ee02-44fc-b141-dfda5ab42f12",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/modelderivative/v2/designdata/:urn/metadata/:guid?forceget=<boolean>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "modelderivative",
+                                    "v2",
+                                    "designdata",
+                                    ":urn",
+                                    "metadata",
+                                    ":guid"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Set to true to force fetching the full tree instead of using pagination.",
+                                      "key": "forceget",
+                                      "value": "<boolean>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "b4b67c78-8537-4f93-ab92-1ba2cb044874",
+                                      "key": "urn",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "ceb4b5b5-283b-413b-b042-c1f99e5dc1b8",
+                                      "key": "guid",
+                                      "value": "<string>",
+                                      "description": "(Required) The GUID of the viewable."
+                                    }
+                                  ]
+                                },
+                                "description": "Returns the object hierarchy tree for a specific viewable within the source design."
+                              },
+                              "response": [
+                                {
+                                  "id": "208aaa28-cfbc-4364-a0f0-81877c0c3215",
+                                  "name": "Successfully retrieved object tree.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/modelderivative/v2/designdata/:urn/metadata/:guid?forceget=<boolean>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "modelderivative",
+                                        "v2",
+                                        "designdata",
+                                        ":urn",
+                                        "metadata",
+                                        ":guid"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Set to true to force fetching the full tree instead of using pagination.",
+                                          "key": "forceget",
+                                          "value": "<boolean>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "urn"
+                                        },
+                                        {
+                                          "key": "guid"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"data\": {\n    \"type\": \"<string>\",\n    \"objects\": [\n      {\n        \"objectid\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"objects\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/ObjectNode detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/ObjectNode detected>\"\n          }\n        ]\n      },\n      {\n        \"objectid\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"objects\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/ObjectNode detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/ObjectNode detected>\"\n          }\n        ]\n      }\n    ]\n  }\n}",
+                                  "createdAt": "2026-07-28T01:07:42.000Z",
+                                  "updatedAt": "2026-07-28T01:07:42.000Z",
+                                  "uid": "35240-208aaa28-cfbc-4364-a0f0-81877c0c3215"
+                                },
+                                {
+                                  "id": "daf4eac8-00b9-4543-8716-f649df9739b4",
+                                  "name": "Object tree is being generated. Retry later.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/modelderivative/v2/designdata/:urn/metadata/:guid?forceget=<boolean>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "modelderivative",
+                                        "v2",
+                                        "designdata",
+                                        ":urn",
+                                        "metadata",
+                                        ":guid"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Set to true to force fetching the full tree instead of using pagination.",
+                                          "key": "forceget",
+                                          "value": "<boolean>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "urn"
+                                        },
+                                        {
+                                          "key": "guid"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Accepted",
+                                  "code": 202,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:07:42.000Z",
+                                  "updatedAt": "2026-07-28T01:07:42.000Z",
+                                  "uid": "35240-daf4eac8-00b9-4543-8716-f649df9739b4"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:07:42.000Z",
+                              "updatedAt": "2026-07-28T01:07:42.000Z",
+                              "uid": "35240-d5de622f-ee02-44fc-b141-dfda5ab42f12"
+                            }
+                          ],
+                          "id": "43da7583-3ddd-4740-b195-02213b600f15",
+                          "createdAt": "2026-07-28T01:07:42.000Z",
+                          "updatedAt": "2026-07-28T01:07:42.000Z",
+                          "uid": "35240-43da7583-3ddd-4740-b195-02213b600f15"
+                        },
+                        {
+                          "name": "Autodesk Get Metadata",
+                          "id": "5ed6b265-e14f-4cfe-90a7-35dc026daf51",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/modelderivative/v2/designdata/:urn/metadata",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "modelderivative",
+                                "v2",
+                                "designdata",
+                                ":urn",
+                                "metadata"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "4eb7e637-98da-422c-bf1a-247d44dd36b0",
+                                  "key": "urn",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Returns a list of model views (viewables) available for the source design. Each viewable has a GUID that can be used to query its object tree and properties."
+                          },
+                          "response": [
+                            {
+                              "id": "3c1ed624-865c-4b91-8a50-8a28e9afcf8c",
+                              "name": "Successfully retrieved metadata.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/modelderivative/v2/designdata/:urn/metadata",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "modelderivative",
+                                    "v2",
+                                    "designdata",
+                                    ":urn",
+                                    "metadata"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "urn"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"data\": {\n    \"type\": \"<string>\",\n    \"metadata\": [\n      {\n        \"name\": \"<string>\",\n        \"guid\": \"<string>\",\n        \"role\": \"2d\",\n        \"isMasterView\": \"<boolean>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"guid\": \"<string>\",\n        \"role\": \"3d\",\n        \"isMasterView\": \"<boolean>\"\n      }\n    ]\n  }\n}",
+                              "createdAt": "2026-07-28T01:07:42.000Z",
+                              "updatedAt": "2026-07-28T01:07:42.000Z",
+                              "uid": "35240-3c1ed624-865c-4b91-8a50-8a28e9afcf8c"
+                            },
+                            {
+                              "id": "3afbe3a7-2226-49e1-aae1-8ca1d05cb7bc",
+                              "name": "Unauthorized.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/modelderivative/v2/designdata/:urn/metadata",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "modelderivative",
+                                    "v2",
+                                    "designdata",
+                                    ":urn",
+                                    "metadata"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "urn"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:07:42.000Z",
+                              "updatedAt": "2026-07-28T01:07:42.000Z",
+                              "uid": "35240-3afbe3a7-2226-49e1-aae1-8ca1d05cb7bc"
+                            },
+                            {
+                              "id": "8a00baa2-1048-4543-9046-ac78e263f12b",
+                              "name": "Metadata not found.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/modelderivative/v2/designdata/:urn/metadata",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "modelderivative",
+                                    "v2",
+                                    "designdata",
+                                    ":urn",
+                                    "metadata"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "urn"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:07:42.000Z",
+                              "updatedAt": "2026-07-28T01:07:42.000Z",
+                              "uid": "35240-8a00baa2-1048-4543-9046-ac78e263f12b"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:07:42.000Z",
+                          "updatedAt": "2026-07-28T01:07:42.000Z",
+                          "uid": "35240-5ed6b265-e14f-4cfe-90a7-35dc026daf51"
+                        }
+                      ],
+                      "id": "85262cef-6c38-4d74-aff4-c84412a2bacf",
+                      "createdAt": "2026-07-28T01:07:42.000Z",
+                      "updatedAt": "2026-07-28T01:07:42.000Z",
+                      "uid": "35240-85262cef-6c38-4d74-aff4-c84412a2bacf"
+                    }
+                  ],
+                  "id": "b6a6eef0-ab34-4521-849c-a188cf8f757c",
+                  "createdAt": "2026-07-28T01:07:42.000Z",
+                  "updatedAt": "2026-07-28T01:07:42.000Z",
+                  "uid": "35240-b6a6eef0-ab34-4521-849c-a188cf8f757c"
+                }
+              ],
+              "id": "be3e2b96-3c37-4612-8301-83f6292b4673",
+              "createdAt": "2026-07-28T01:07:42.000Z",
+              "updatedAt": "2026-07-28T01:07:42.000Z",
+              "uid": "35240-be3e2b96-3c37-4612-8301-83f6292b4673"
+            }
+          ],
+          "id": "577fcae7-9cd7-4089-9d89-6f5936b315f2",
+          "createdAt": "2026-07-28T01:07:42.000Z",
+          "updatedAt": "2026-07-28T01:07:42.000Z",
+          "uid": "35240-577fcae7-9cd7-4089-9d89-6f5936b315f2"
+        }
+      ],
+      "id": "c09e9378-401a-4a5e-90a4-f02edac3027b",
+      "createdAt": "2026-07-28T01:07:42.000Z",
+      "updatedAt": "2026-07-28T01:07:42.000Z",
+      "uid": "35240-c09e9378-401a-4a5e-90a4-f02edac3027b"
+    },
+    {
+      "name": "parameters",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "metadata",
+              "item": [
+                {
+                  "name": "specs",
+                  "item": [
+                    {
+                      "name": "Autodesk List Specs",
+                      "id": "7bb9c67b-da2b-43ec-9121-6eab73197860",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/parameters/v1/metadata/specs",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "parameters",
+                            "v1",
+                            "metadata",
+                            "specs"
+                          ]
+                        },
+                        "description": "Returns available spec types (data types) for parameter definitions (e.g., text, number, integer, length, area, volume, angle)."
+                      },
+                      "response": [
+                        {
+                          "id": "f17a9d45-8762-439d-a523-352d064ff142",
+                          "name": "Successfully retrieved specs.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/parameters/v1/metadata/specs",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "parameters",
+                                "v1",
+                                "metadata",
+                                "specs"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"results\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"isBuiltIn\": \"<boolean>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"isBuiltIn\": \"<boolean>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:07:42.000Z",
+                          "updatedAt": "2026-07-28T01:07:42.000Z",
+                          "uid": "35240-f17a9d45-8762-439d-a523-352d064ff142"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:07:42.000Z",
+                      "updatedAt": "2026-07-28T01:07:42.000Z",
+                      "uid": "35240-7bb9c67b-da2b-43ec-9121-6eab73197860"
+                    }
+                  ],
+                  "id": "33e5bc60-d3e1-4b15-a371-939ad73bb522",
+                  "createdAt": "2026-07-28T01:07:42.000Z",
+                  "updatedAt": "2026-07-28T01:07:42.000Z",
+                  "uid": "35240-33e5bc60-d3e1-4b15-a371-939ad73bb522"
+                },
+                {
+                  "name": "categories",
+                  "item": [
+                    {
+                      "name": "Autodesk List Categories",
+                      "id": "3f8f161e-2920-48f4-bfd3-6ba0f3ddf337",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/parameters/v1/metadata/categories",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "parameters",
+                            "v1",
+                            "metadata",
+                            "categories"
+                          ]
+                        },
+                        "description": "Returns available Revit categories for parameter binding."
+                      },
+                      "response": [
+                        {
+                          "id": "3862f8d2-bae0-490a-bc4a-4d6c05f9241e",
+                          "name": "Successfully retrieved categories.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/parameters/v1/metadata/categories",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "parameters",
+                                "v1",
+                                "metadata",
+                                "categories"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"results\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:07:42.000Z",
+                          "updatedAt": "2026-07-28T01:07:42.000Z",
+                          "uid": "35240-3862f8d2-bae0-490a-bc4a-4d6c05f9241e"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:07:42.000Z",
+                      "updatedAt": "2026-07-28T01:07:42.000Z",
+                      "uid": "35240-3f8f161e-2920-48f4-bfd3-6ba0f3ddf337"
+                    }
+                  ],
+                  "id": "e1879819-83e1-4128-b343-ac244ab90300",
+                  "createdAt": "2026-07-28T01:07:42.000Z",
+                  "updatedAt": "2026-07-28T01:07:42.000Z",
+                  "uid": "35240-e1879819-83e1-4128-b343-ac244ab90300"
+                },
+                {
+                  "name": "disciplines",
+                  "item": [
+                    {
+                      "name": "Autodesk List Disciplines",
+                      "id": "e6a16eb1-3b9e-4ea3-806a-c55cce8e220a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/parameters/v1/metadata/disciplines",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "parameters",
+                            "v1",
+                            "metadata",
+                            "disciplines"
+                          ]
+                        },
+                        "description": "Returns available disciplines for parameter classification."
+                      },
+                      "response": [
+                        {
+                          "id": "9fde3709-1a9e-4f63-834f-432652d72bdb",
+                          "name": "Successfully retrieved disciplines.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/parameters/v1/metadata/disciplines",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "parameters",
+                                "v1",
+                                "metadata",
+                                "disciplines"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"results\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:07:42.000Z",
+                          "updatedAt": "2026-07-28T01:07:42.000Z",
+                          "uid": "35240-9fde3709-1a9e-4f63-834f-432652d72bdb"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:07:42.000Z",
+                      "updatedAt": "2026-07-28T01:07:42.000Z",
+                      "uid": "35240-e6a16eb1-3b9e-4ea3-806a-c55cce8e220a"
+                    }
+                  ],
+                  "id": "6c7dfbfa-2b4d-4454-9a39-b7eff56dd328",
+                  "createdAt": "2026-07-28T01:07:42.000Z",
+                  "updatedAt": "2026-07-28T01:07:42.000Z",
+                  "uid": "35240-6c7dfbfa-2b4d-4454-9a39-b7eff56dd328"
+                },
+                {
+                  "name": "units",
+                  "item": [
+                    {
+                      "name": "Autodesk List Units",
+                      "id": "c1a9e9d0-4d5e-4ffd-a670-3fcbcecad2a5",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/parameters/v1/metadata/units?filter[specId]=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "parameters",
+                            "v1",
+                            "metadata",
+                            "units"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter units by spec ID.",
+                              "key": "filter[specId]",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "description": "Returns available unit types for parameter definitions."
+                      },
+                      "response": [
+                        {
+                          "id": "0385d33b-6405-49bb-90db-fa59ff5dcb2e",
+                          "name": "Successfully retrieved units.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/parameters/v1/metadata/units?filter[specId]=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "parameters",
+                                "v1",
+                                "metadata",
+                                "units"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Filter units by spec ID.",
+                                  "key": "filter[specId]",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"results\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"specId\": \"<string>\",\n      \"symbol\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"specId\": \"<string>\",\n      \"symbol\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:07:42.000Z",
+                          "updatedAt": "2026-07-28T01:07:42.000Z",
+                          "uid": "35240-0385d33b-6405-49bb-90db-fa59ff5dcb2e"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:07:42.000Z",
+                      "updatedAt": "2026-07-28T01:07:42.000Z",
+                      "uid": "35240-c1a9e9d0-4d5e-4ffd-a670-3fcbcecad2a5"
+                    }
+                  ],
+                  "id": "473cd06c-c785-42ff-8f20-98a36777e82f",
+                  "createdAt": "2026-07-28T01:07:42.000Z",
+                  "updatedAt": "2026-07-28T01:07:42.000Z",
+                  "uid": "35240-473cd06c-c785-42ff-8f20-98a36777e82f"
+                }
+              ],
+              "id": "4258b20e-4ff4-4299-866b-85c6cc09e5a6",
+              "createdAt": "2026-07-28T01:07:42.000Z",
+              "updatedAt": "2026-07-28T01:07:42.000Z",
+              "uid": "35240-4258b20e-4ff4-4299-866b-85c6cc09e5a6"
+            }
+          ],
+          "id": "97e5173a-23aa-4291-a09f-da802b74a278",
+          "createdAt": "2026-07-28T01:07:42.000Z",
+          "updatedAt": "2026-07-28T01:07:42.000Z",
+          "uid": "35240-97e5173a-23aa-4291-a09f-da802b74a278"
+        }
+      ],
+      "id": "8202d07b-64db-4da2-983e-49f65748ce13",
+      "createdAt": "2026-07-28T01:07:42.000Z",
+      "updatedAt": "2026-07-28T01:07:42.000Z",
+      "uid": "35240-8202d07b-64db-4da2-983e-49f65748ce13"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

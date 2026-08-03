@@ -1,0 +1,524 @@
+{
+  "info": {
+    "_postman_id": "2b3b85bf-8c0a-4280-9da3-97efff306b42",
+    "name": "Autodesk ACC Account Account Users Admin API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:06:39.000Z",
+    "updatedAt": "2026-07-28T01:06:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2b3b85bf-8c0a-4280-9da3-97efff306b42"
+  },
+  "item": [
+    {
+      "name": "bim360",
+      "item": [
+        {
+          "name": "admin",
+          "item": [
+            {
+              "name": "v1",
+              "item": [
+                {
+                  "name": "projects",
+                  "item": [
+                    {
+                      "name": "{projectId}",
+                      "item": [
+                        {
+                          "name": "users",
+                          "item": [
+                            {
+                              "name": "import",
+                              "item": [
+                                {
+                                  "name": "Autodesk Import Project Users",
+                                  "id": "7e7c683c-9510-4808-99bd-5d407c759017",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "auth": {
+                                      "type": "oauth2",
+                                      "oauth2": [
+                                        {
+                                          "key": "scope",
+                                          "value": "account:read account:write",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "key": "accessTokenUrl",
+                                          "value": "https://developer.api.autodesk.com/authentication/v2/token",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "key": "authUrl",
+                                          "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "key": "grant_type",
+                                          "value": "authorization_code",
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "[\n  {\n    \"email\": \"<string>\",\n    \"services\": {\n      \"document_management\": {\n        \"access_level\": \"user\"\n      },\n      \"project_administration\": {\n        \"access_level\": \"admin\"\n      }\n    },\n    \"company_id\": \"<string>\",\n    \"industry_roles\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  {\n    \"email\": \"<string>\",\n    \"services\": {\n      \"document_management\": {\n        \"access_level\": \"admin\"\n      },\n      \"project_administration\": {\n        \"access_level\": \"admin\"\n      }\n    },\n    \"company_id\": \"<string>\",\n    \"industry_roles\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n]",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/bim360/admin/v1/projects/:projectId/users/import",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "bim360",
+                                        "admin",
+                                        "v1",
+                                        "projects",
+                                        ":projectId",
+                                        "users",
+                                        "import"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "b4fee7ae-2b07-49e1-95bb-8aa7162e05e9",
+                                          "key": "projectId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Bulk imports users to a BIM 360 project."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "9296d48b-9230-4750-92e8-25fcbaa0092b",
+                                      "name": "Users imported.",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "[\n  {\n    \"email\": \"<string>\",\n    \"services\": {\n      \"document_management\": {\n        \"access_level\": \"user\"\n      },\n      \"project_administration\": {\n        \"access_level\": \"admin\"\n      }\n    },\n    \"company_id\": \"<string>\",\n    \"industry_roles\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  {\n    \"email\": \"<string>\",\n    \"services\": {\n      \"document_management\": {\n        \"access_level\": \"admin\"\n      },\n      \"project_administration\": {\n        \"access_level\": \"admin\"\n      }\n    },\n    \"company_id\": \"<string>\",\n    \"industry_roles\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n]",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/bim360/admin/v1/projects/:projectId/users/import",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "bim360",
+                                            "admin",
+                                            "v1",
+                                            "projects",
+                                            ":projectId",
+                                            "users",
+                                            "import"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "projectId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"success\": \"<integer>\",\n  \"failure\": \"<integer>\",\n  \"success_items\": [\n    {\n      \"id\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"uid\": \"<string>\",\n      \"image_url\": \"<uri>\",\n      \"status\": \"active\",\n      \"company_id\": \"<string>\",\n      \"company_name\": \"<string>\",\n      \"role\": \"<string>\",\n      \"industry_roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"uid\": \"<string>\",\n      \"image_url\": \"<uri>\",\n      \"status\": \"active\",\n      \"company_id\": \"<string>\",\n      \"company_name\": \"<string>\",\n      \"role\": \"<string>\",\n      \"industry_roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T01:06:39.000Z",
+                                      "updatedAt": "2026-07-28T01:06:39.000Z",
+                                      "uid": "35240-9296d48b-9230-4750-92e8-25fcbaa0092b"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:06:39.000Z",
+                                  "updatedAt": "2026-07-28T01:06:39.000Z",
+                                  "uid": "35240-7e7c683c-9510-4808-99bd-5d407c759017"
+                                }
+                              ],
+                              "id": "12905b81-c844-488e-bc79-2aa6a47bcdc1",
+                              "createdAt": "2026-07-28T01:06:39.000Z",
+                              "updatedAt": "2026-07-28T01:06:39.000Z",
+                              "uid": "35240-12905b81-c844-488e-bc79-2aa6a47bcdc1"
+                            },
+                            {
+                              "name": "Autodesk List Project Users",
+                              "id": "b22599a4-b9ac-48c5-b2c2-e35f5bcfc3e2",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/bim360/admin/v1/projects/:projectId/users?limit=<integer>&offset=<integer>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "bim360",
+                                    "admin",
+                                    "v1",
+                                    "projects",
+                                    ":projectId",
+                                    "users"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "offset",
+                                      "value": "<integer>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "c5e84feb-538e-4410-9682-2455c2d55bae",
+                                      "key": "projectId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Returns a list of users assigned to a BIM 360 project."
+                              },
+                              "response": [
+                                {
+                                  "id": "cba29f4b-1504-4085-89b5-b296cf17b864",
+                                  "name": "Successfully retrieved project users.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/bim360/admin/v1/projects/:projectId/users?limit=<integer>&offset=<integer>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "bim360",
+                                        "admin",
+                                        "v1",
+                                        "projects",
+                                        ":projectId",
+                                        "users"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "limit",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "key": "offset",
+                                          "value": "<integer>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"results\": [\n    {\n      \"id\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"uid\": \"<string>\",\n      \"image_url\": \"<uri>\",\n      \"status\": \"active\",\n      \"company_id\": \"<string>\",\n      \"company_name\": \"<string>\",\n      \"role\": \"<string>\",\n      \"industry_roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"email\": \"<string>\",\n      \"name\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"uid\": \"<string>\",\n      \"image_url\": \"<uri>\",\n      \"status\": \"active\",\n      \"company_id\": \"<string>\",\n      \"company_name\": \"<string>\",\n      \"role\": \"<string>\",\n      \"industry_roles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"pagination\": {\n    \"offset\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"totalResults\": \"<integer>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T01:06:39.000Z",
+                                  "updatedAt": "2026-07-28T01:06:39.000Z",
+                                  "uid": "35240-cba29f4b-1504-4085-89b5-b296cf17b864"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:06:39.000Z",
+                              "updatedAt": "2026-07-28T01:06:39.000Z",
+                              "uid": "35240-b22599a4-b9ac-48c5-b2c2-e35f5bcfc3e2"
+                            },
+                            {
+                              "name": "Autodesk Add Project User",
+                              "id": "ee61d42c-4123-4fff-bdd4-a69261c2692f",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "auth": {
+                                  "type": "oauth2",
+                                  "oauth2": [
+                                    {
+                                      "key": "scope",
+                                      "value": "account:read account:write",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "accessTokenUrl",
+                                      "value": "https://developer.api.autodesk.com/authentication/v2/token",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "authUrl",
+                                      "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "grant_type",
+                                      "value": "authorization_code",
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"email\": \"<string>\",\n  \"services\": {\n    \"document_management\": {\n      \"access_level\": \"user\"\n    },\n    \"project_administration\": {\n      \"access_level\": \"admin\"\n    }\n  },\n  \"company_id\": \"<string>\",\n  \"industry_roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/bim360/admin/v1/projects/:projectId/users",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "bim360",
+                                    "admin",
+                                    "v1",
+                                    "projects",
+                                    ":projectId",
+                                    "users"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "b1c7edf9-f60b-4122-b680-e2601619407e",
+                                      "key": "projectId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Adds a user to a BIM 360 project."
+                              },
+                              "response": [
+                                {
+                                  "id": "90da06ce-4b6d-48c8-98a8-7b89f8dae4ad",
+                                  "name": "User added.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"email\": \"<string>\",\n  \"services\": {\n    \"document_management\": {\n      \"access_level\": \"user\"\n    },\n    \"project_administration\": {\n      \"access_level\": \"admin\"\n    }\n  },\n  \"company_id\": \"<string>\",\n  \"industry_roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/bim360/admin/v1/projects/:projectId/users",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "bim360",
+                                        "admin",
+                                        "v1",
+                                        "projects",
+                                        ":projectId",
+                                        "users"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Created",
+                                  "code": 201,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"id\": \"<string>\",\n  \"account_id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"uid\": \"<string>\",\n  \"image_url\": \"<uri>\",\n  \"status\": \"pending\",\n  \"company_id\": \"<string>\",\n  \"company_name\": \"<string>\",\n  \"role\": \"<string>\",\n  \"industry_roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "createdAt": "2026-07-28T01:06:39.000Z",
+                                  "updatedAt": "2026-07-28T01:06:39.000Z",
+                                  "uid": "35240-90da06ce-4b6d-48c8-98a8-7b89f8dae4ad"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:06:39.000Z",
+                              "updatedAt": "2026-07-28T01:06:39.000Z",
+                              "uid": "35240-ee61d42c-4123-4fff-bdd4-a69261c2692f"
+                            }
+                          ],
+                          "id": "8f788b76-eff0-4663-9d17-6bc0c0861914",
+                          "createdAt": "2026-07-28T01:06:39.000Z",
+                          "updatedAt": "2026-07-28T01:06:39.000Z",
+                          "uid": "35240-8f788b76-eff0-4663-9d17-6bc0c0861914"
+                        }
+                      ],
+                      "id": "20d68455-4ae3-4cf6-b045-ae106eaf0c61",
+                      "createdAt": "2026-07-28T01:06:39.000Z",
+                      "updatedAt": "2026-07-28T01:06:39.000Z",
+                      "uid": "35240-20d68455-4ae3-4cf6-b045-ae106eaf0c61"
+                    }
+                  ],
+                  "id": "414fed13-08c1-4bf6-820b-c86f74c03b55",
+                  "createdAt": "2026-07-28T01:06:39.000Z",
+                  "updatedAt": "2026-07-28T01:06:39.000Z",
+                  "uid": "35240-414fed13-08c1-4bf6-820b-c86f74c03b55"
+                }
+              ],
+              "id": "f05562df-3103-4906-af5f-dd88d45ef346",
+              "createdAt": "2026-07-28T01:06:39.000Z",
+              "updatedAt": "2026-07-28T01:06:39.000Z",
+              "uid": "35240-f05562df-3103-4906-af5f-dd88d45ef346"
+            }
+          ],
+          "id": "7848ddf3-7e18-4107-bebd-738ac97c9e23",
+          "createdAt": "2026-07-28T01:06:39.000Z",
+          "updatedAt": "2026-07-28T01:06:39.000Z",
+          "uid": "35240-7848ddf3-7e18-4107-bebd-738ac97c9e23"
+        }
+      ],
+      "id": "e0a95780-2152-47bd-a0f2-24399d81ccff",
+      "createdAt": "2026-07-28T01:06:39.000Z",
+      "updatedAt": "2026-07-28T01:06:39.000Z",
+      "uid": "35240-e0a95780-2152-47bd-a0f2-24399d81ccff"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

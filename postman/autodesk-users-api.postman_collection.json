@@ -1,0 +1,230 @@
+{
+  "info": {
+    "_postman_id": "a56d03d7-6390-4221-b7e9-b6405c7c75c8",
+    "name": "Autodesk ACC Account Admin Account Users API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:08:03.000Z",
+    "updatedAt": "2026-07-28T01:08:04.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a56d03d7-6390-4221-b7e9-b6405c7c75c8"
+  },
+  "item": [
+    {
+      "name": "userprofile",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "users",
+              "item": [
+                {
+                  "name": "@me",
+                  "item": [
+                    {
+                      "name": "Autodesk Get User Profile",
+                      "id": "bed8d142-e572-47d9-9e12-1e1ad5b3ec6a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "oauth2",
+                          "oauth2": [
+                            {
+                              "key": "scope",
+                              "value": "account:read account:write",
+                              "type": "string"
+                            },
+                            {
+                              "key": "accessTokenUrl",
+                              "value": "https://developer.api.autodesk.com/authentication/v2/token",
+                              "type": "string"
+                            },
+                            {
+                              "key": "authUrl",
+                              "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+                              "type": "string"
+                            },
+                            {
+                              "key": "grant_type",
+                              "value": "authorization_code",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/userprofile/v1/users/@me",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "userprofile",
+                            "v1",
+                            "users",
+                            "@me"
+                          ]
+                        },
+                        "description": "Returns the profile information of the authenticated user."
+                      },
+                      "response": [
+                        {
+                          "id": "c9d3c23a-385b-4d01-ba32-329634b5bef9",
+                          "name": "Successfully retrieved user profile.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/userprofile/v1/users/@me",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "userprofile",
+                                "v1",
+                                "users",
+                                "@me"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"userId\": \"<string>\",\n  \"userName\": \"<string>\",\n  \"emailId\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"emailVerified\": \"<boolean>\",\n  \"2FaEnabled\": \"<boolean>\",\n  \"profileImages\": {\n    \"sizeX20\": \"<string>\",\n    \"sizeX40\": \"<string>\",\n    \"sizeX50\": \"<string>\",\n    \"sizeX58\": \"<string>\",\n    \"sizeX80\": \"<string>\",\n    \"sizeX120\": \"<string>\",\n    \"sizeX160\": \"<string>\",\n    \"sizeX176\": \"<string>\",\n    \"sizeX240\": \"<string>\",\n    \"sizeX360\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T01:08:04.000Z",
+                          "updatedAt": "2026-07-28T01:08:04.000Z",
+                          "uid": "35240-c9d3c23a-385b-4d01-ba32-329634b5bef9"
+                        },
+                        {
+                          "id": "7c5aff8f-9267-4c3a-a242-d9b07e1214b9",
+                          "name": "Unauthorized.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/userprofile/v1/users/@me",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "userprofile",
+                                "v1",
+                                "users",
+                                "@me"
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"developerMessage\": \"<string>\",\n  \"userMessage\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"more info\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:08:04.000Z",
+                          "updatedAt": "2026-07-28T01:08:04.000Z",
+                          "uid": "35240-7c5aff8f-9267-4c3a-a242-d9b07e1214b9"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:08:04.000Z",
+                      "updatedAt": "2026-07-28T01:08:04.000Z",
+                      "uid": "35240-bed8d142-e572-47d9-9e12-1e1ad5b3ec6a"
+                    }
+                  ],
+                  "id": "436632b7-fd41-4399-8007-e4830bc31dc8",
+                  "createdAt": "2026-07-28T01:08:04.000Z",
+                  "updatedAt": "2026-07-28T01:08:04.000Z",
+                  "uid": "35240-436632b7-fd41-4399-8007-e4830bc31dc8"
+                }
+              ],
+              "id": "9e77ad1b-09eb-43df-a0dc-6b535ba8b299",
+              "createdAt": "2026-07-28T01:08:04.000Z",
+              "updatedAt": "2026-07-28T01:08:04.000Z",
+              "uid": "35240-9e77ad1b-09eb-43df-a0dc-6b535ba8b299"
+            }
+          ],
+          "id": "ab083096-55af-48b7-b378-36900e8479d1",
+          "createdAt": "2026-07-28T01:08:04.000Z",
+          "updatedAt": "2026-07-28T01:08:04.000Z",
+          "uid": "35240-ab083096-55af-48b7-b378-36900e8479d1"
+        }
+      ],
+      "id": "403ab88e-4478-4a40-85bf-f49cbd846112",
+      "createdAt": "2026-07-28T01:08:04.000Z",
+      "updatedAt": "2026-07-28T01:08:04.000Z",
+      "uid": "35240-403ab88e-4478-4a40-85bf-f49cbd846112"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

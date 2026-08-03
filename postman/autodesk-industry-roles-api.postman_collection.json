@@ -1,0 +1,195 @@
+{
+  "info": {
+    "_postman_id": "fe27bd0e-324d-4708-ae7b-c30041cee591",
+    "name": "Autodesk ACC Account Admin Account Users Industry Roles API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:29.000Z",
+    "updatedAt": "2026-07-28T01:07:29.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fe27bd0e-324d-4708-ae7b-c30041cee591"
+  },
+  "item": [
+    {
+      "name": "construction",
+      "item": [
+        {
+          "name": "admin",
+          "item": [
+            {
+              "name": "v1",
+              "item": [
+                {
+                  "name": "projects",
+                  "item": [
+                    {
+                      "name": "{projectId}",
+                      "item": [
+                        {
+                          "name": "industryRoles",
+                          "item": [
+                            {
+                              "name": "Autodesk List Industry Roles",
+                              "id": "25ce9537-e55e-4662-8b7c-0ac6ab7c0c39",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/construction/admin/v1/projects/:projectId/industryRoles",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "construction",
+                                    "admin",
+                                    "v1",
+                                    "projects",
+                                    ":projectId",
+                                    "industryRoles"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "f959d5bc-6b6a-41a4-a9fe-de572c1e20ca",
+                                      "key": "projectId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Returns the industry roles available for a project."
+                              },
+                              "response": [
+                                {
+                                  "id": "3672234b-807b-44f6-80c8-f5b65103f05a",
+                                  "name": "Successfully retrieved roles.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/construction/admin/v1/projects/:projectId/industryRoles",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "construction",
+                                        "admin",
+                                        "v1",
+                                        "projects",
+                                        ":projectId",
+                                        "industryRoles"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"results\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"projectId\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"projectId\": \"<string>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T01:07:29.000Z",
+                                  "updatedAt": "2026-07-28T01:07:29.000Z",
+                                  "uid": "35240-3672234b-807b-44f6-80c8-f5b65103f05a"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:07:29.000Z",
+                              "updatedAt": "2026-07-28T01:07:29.000Z",
+                              "uid": "35240-25ce9537-e55e-4662-8b7c-0ac6ab7c0c39"
+                            }
+                          ],
+                          "id": "e928451c-5193-4135-8d97-81e9a20a367f",
+                          "createdAt": "2026-07-28T01:07:29.000Z",
+                          "updatedAt": "2026-07-28T01:07:29.000Z",
+                          "uid": "35240-e928451c-5193-4135-8d97-81e9a20a367f"
+                        }
+                      ],
+                      "id": "52fb35c9-8d23-42d7-9f72-5af6a75f8f0c",
+                      "createdAt": "2026-07-28T01:07:29.000Z",
+                      "updatedAt": "2026-07-28T01:07:29.000Z",
+                      "uid": "35240-52fb35c9-8d23-42d7-9f72-5af6a75f8f0c"
+                    }
+                  ],
+                  "id": "89ccdc5d-306b-48a9-8191-ca7053ad71f3",
+                  "createdAt": "2026-07-28T01:07:29.000Z",
+                  "updatedAt": "2026-07-28T01:07:29.000Z",
+                  "uid": "35240-89ccdc5d-306b-48a9-8191-ca7053ad71f3"
+                }
+              ],
+              "id": "223e87bf-ed7c-4193-a183-b8c97ccbfcc9",
+              "createdAt": "2026-07-28T01:07:29.000Z",
+              "updatedAt": "2026-07-28T01:07:29.000Z",
+              "uid": "35240-223e87bf-ed7c-4193-a183-b8c97ccbfcc9"
+            }
+          ],
+          "id": "698cb3ca-978c-4761-8f34-cc57b0c43e26",
+          "createdAt": "2026-07-28T01:07:29.000Z",
+          "updatedAt": "2026-07-28T01:07:29.000Z",
+          "uid": "35240-698cb3ca-978c-4761-8f34-cc57b0c43e26"
+        }
+      ],
+      "id": "91196684-53ea-42ee-a763-cde7f80d8fbb",
+      "createdAt": "2026-07-28T01:07:29.000Z",
+      "updatedAt": "2026-07-28T01:07:29.000Z",
+      "uid": "35240-91196684-53ea-42ee-a763-cde7f80d8fbb"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

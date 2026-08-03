@@ -1,0 +1,1022 @@
+{
+  "info": {
+    "_postman_id": "7d11bf34-7fc4-4deb-90da-7fc0c0f21ff1",
+    "name": "Autodesk ACC Account Admin Account Users Folders API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:04.000Z",
+    "updatedAt": "2026-07-28T01:07:04.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7d11bf34-7fc4-4deb-90da-7fc0c0f21ff1"
+  },
+  "item": [
+    {
+      "name": "data",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "projects",
+              "item": [
+                {
+                  "name": "{project_id}",
+                  "item": [
+                    {
+                      "name": "folders",
+                      "item": [
+                        {
+                          "name": "{folder_id}",
+                          "item": [
+                            {
+                              "name": "contents",
+                              "item": [
+                                {
+                                  "name": "Autodesk List Folder Contents",
+                                  "id": "4c33c489-a1ee-4d1d-b67d-80f8155783ea",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/vnd.api+json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/data/v1/projects/:project_id/folders/:folder_id/contents?filter[type]=folders&filter[id]=<string>&filter[extension.type]=<string>&page[number]=<integer>&page[limit]=<integer>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "data",
+                                        "v1",
+                                        "projects",
+                                        ":project_id",
+                                        "folders",
+                                        ":folder_id",
+                                        "contents"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Filter by resource type (items, folders).",
+                                          "key": "filter[type]",
+                                          "value": "folders"
+                                        },
+                                        {
+                                          "key": "filter[id]",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "filter[extension.type]",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "page[number]",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "key": "page[limit]",
+                                          "value": "<integer>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "2d1527a4-911e-4f53-b730-ccb250143bd2",
+                                          "key": "project_id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "b85f9c2c-768d-4388-9a5e-900842c71067",
+                                          "key": "folder_id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Returns a collection of items and folders within a folder."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "f1611b8d-da90-4f62-bd37-34027e4e40d0",
+                                      "name": "Successfully retrieved folder contents.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/vnd.api+json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/data/v1/projects/:project_id/folders/:folder_id/contents?filter[type]=folders&filter[id]=<string>&filter[extension.type]=<string>&page[number]=<integer>&page[limit]=<integer>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "data",
+                                            "v1",
+                                            "projects",
+                                            ":project_id",
+                                            "folders",
+                                            ":folder_id",
+                                            "contents"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "Filter by resource type (items, folders).",
+                                              "key": "filter[type]",
+                                              "value": "folders"
+                                            },
+                                            {
+                                              "key": "filter[id]",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "key": "filter[extension.type]",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "key": "page[number]",
+                                              "value": "<integer>"
+                                            },
+                                            {
+                                              "key": "page[limit]",
+                                              "value": "<integer>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project_id"
+                                            },
+                                            {
+                                              "key": "folder_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/vnd.api+json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": [\n    {\n      \"type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"attributes\": {\n        \"name\": \"<string>\",\n        \"displayName\": \"<string>\",\n        \"createTime\": \"<dateTime>\",\n        \"createUserId\": \"<string>\",\n        \"createUserName\": \"<string>\",\n        \"lastModifiedTime\": \"<dateTime>\",\n        \"lastModifiedUserId\": \"<string>\",\n        \"lastModifiedUserName\": \"<string>\",\n        \"objectCount\": \"<integer>\",\n        \"extension\": {\n          \"type\": \"<string>\",\n          \"version\": \"<string>\",\n          \"data\": {}\n        },\n        \"hidden\": \"<boolean>\"\n      }\n    },\n    {\n      \"type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"attributes\": {\n        \"name\": \"<string>\",\n        \"displayName\": \"<string>\",\n        \"createTime\": \"<dateTime>\",\n        \"createUserId\": \"<string>\",\n        \"createUserName\": \"<string>\",\n        \"lastModifiedTime\": \"<dateTime>\",\n        \"lastModifiedUserId\": \"<string>\",\n        \"lastModifiedUserName\": \"<string>\",\n        \"objectCount\": \"<integer>\",\n        \"extension\": {\n          \"type\": \"<string>\",\n          \"version\": \"<string>\",\n          \"data\": {}\n        },\n        \"hidden\": \"<boolean>\"\n      }\n    }\n  ],\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\"\n    },\n    \"first\": {\n      \"href\": \"<uri>\"\n    },\n    \"prev\": {\n      \"href\": \"<uri>\"\n    },\n    \"next\": {\n      \"href\": \"<uri>\"\n    }\n  }\n}",
+                                      "createdAt": "2026-07-28T01:07:05.000Z",
+                                      "updatedAt": "2026-07-28T01:07:05.000Z",
+                                      "uid": "35240-f1611b8d-da90-4f62-bd37-34027e4e40d0"
+                                    },
+                                    {
+                                      "id": "b42e33df-fe84-473c-b2d2-acdf1156d938",
+                                      "name": "Unauthorized.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/data/v1/projects/:project_id/folders/:folder_id/contents?filter[type]=folders&filter[id]=<string>&filter[extension.type]=<string>&page[number]=<integer>&page[limit]=<integer>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "data",
+                                            "v1",
+                                            "projects",
+                                            ":project_id",
+                                            "folders",
+                                            ":folder_id",
+                                            "contents"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "Filter by resource type (items, folders).",
+                                              "key": "filter[type]",
+                                              "value": "folders"
+                                            },
+                                            {
+                                              "key": "filter[id]",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "key": "filter[extension.type]",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "key": "page[number]",
+                                              "value": "<integer>"
+                                            },
+                                            {
+                                              "key": "page[limit]",
+                                              "value": "<integer>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project_id"
+                                            },
+                                            {
+                                              "key": "folder_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Unauthorized",
+                                      "code": 401,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:07:05.000Z",
+                                      "updatedAt": "2026-07-28T01:07:05.000Z",
+                                      "uid": "35240-b42e33df-fe84-473c-b2d2-acdf1156d938"
+                                    },
+                                    {
+                                      "id": "007dffe9-bb99-4561-bc9a-a1dc024024ea",
+                                      "name": "Folder not found.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/data/v1/projects/:project_id/folders/:folder_id/contents?filter[type]=folders&filter[id]=<string>&filter[extension.type]=<string>&page[number]=<integer>&page[limit]=<integer>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "data",
+                                            "v1",
+                                            "projects",
+                                            ":project_id",
+                                            "folders",
+                                            ":folder_id",
+                                            "contents"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "Filter by resource type (items, folders).",
+                                              "key": "filter[type]",
+                                              "value": "folders"
+                                            },
+                                            {
+                                              "key": "filter[id]",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "key": "filter[extension.type]",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "key": "page[number]",
+                                              "value": "<integer>"
+                                            },
+                                            {
+                                              "key": "page[limit]",
+                                              "value": "<integer>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project_id"
+                                            },
+                                            {
+                                              "key": "folder_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Not Found",
+                                      "code": 404,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:07:05.000Z",
+                                      "updatedAt": "2026-07-28T01:07:05.000Z",
+                                      "uid": "35240-007dffe9-bb99-4561-bc9a-a1dc024024ea"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:07:05.000Z",
+                                  "updatedAt": "2026-07-28T01:07:05.000Z",
+                                  "uid": "35240-4c33c489-a1ee-4d1d-b67d-80f8155783ea"
+                                }
+                              ],
+                              "id": "812363d4-1c2a-4f38-bb1c-7f5cfbb6d2c1",
+                              "createdAt": "2026-07-28T01:07:05.000Z",
+                              "updatedAt": "2026-07-28T01:07:05.000Z",
+                              "uid": "35240-812363d4-1c2a-4f38-bb1c-7f5cfbb6d2c1"
+                            },
+                            {
+                              "name": "search",
+                              "item": [
+                                {
+                                  "name": "Autodesk Search Folder",
+                                  "id": "a1788869-c73e-40a4-affd-c1339aaca7b8",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "auth": {
+                                      "type": "oauth2",
+                                      "oauth2": [
+                                        {
+                                          "key": "scope",
+                                          "value": "account:read account:write",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "key": "accessTokenUrl",
+                                          "value": "https://developer.api.autodesk.com/authentication/v2/token",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "key": "authUrl",
+                                          "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "key": "grant_type",
+                                          "value": "authorization_code",
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/vnd.api+json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/data/v1/projects/:project_id/folders/:folder_id/search?filter[displayName]=<string>&filter[fileType]=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "data",
+                                        "v1",
+                                        "projects",
+                                        ":project_id",
+                                        "folders",
+                                        ":folder_id",
+                                        "search"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Filter by display name.",
+                                          "key": "filter[displayName]",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Filter by file type extension.",
+                                          "key": "filter[fileType]",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "154e1eb3-bca7-4875-ae79-ac781727ac7f",
+                                          "key": "project_id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "f2fdd93e-85be-4e88-aea6-ae10dc0d69dd",
+                                          "key": "folder_id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Searches for items within a folder hierarchy."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "a4f95c99-dfff-43c8-8b22-ddbd83e09fb6",
+                                      "name": "Successfully searched folder.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/vnd.api+json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/data/v1/projects/:project_id/folders/:folder_id/search?filter[displayName]=<string>&filter[fileType]=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "data",
+                                            "v1",
+                                            "projects",
+                                            ":project_id",
+                                            "folders",
+                                            ":folder_id",
+                                            "search"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "Filter by display name.",
+                                              "key": "filter[displayName]",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "Filter by file type extension.",
+                                              "key": "filter[fileType]",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project_id"
+                                            },
+                                            {
+                                              "key": "folder_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/vnd.api+json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": [\n    {\n      \"type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"attributes\": {\n        \"name\": \"<string>\",\n        \"displayName\": \"<string>\",\n        \"createTime\": \"<dateTime>\",\n        \"createUserId\": \"<string>\",\n        \"createUserName\": \"<string>\",\n        \"lastModifiedTime\": \"<dateTime>\",\n        \"lastModifiedUserId\": \"<string>\",\n        \"lastModifiedUserName\": \"<string>\",\n        \"objectCount\": \"<integer>\",\n        \"extension\": {\n          \"type\": \"<string>\",\n          \"version\": \"<string>\",\n          \"data\": {}\n        },\n        \"hidden\": \"<boolean>\"\n      }\n    },\n    {\n      \"type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"attributes\": {\n        \"name\": \"<string>\",\n        \"displayName\": \"<string>\",\n        \"createTime\": \"<dateTime>\",\n        \"createUserId\": \"<string>\",\n        \"createUserName\": \"<string>\",\n        \"lastModifiedTime\": \"<dateTime>\",\n        \"lastModifiedUserId\": \"<string>\",\n        \"lastModifiedUserName\": \"<string>\",\n        \"objectCount\": \"<integer>\",\n        \"extension\": {\n          \"type\": \"<string>\",\n          \"version\": \"<string>\",\n          \"data\": {}\n        },\n        \"hidden\": \"<boolean>\"\n      }\n    }\n  ],\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\"\n    },\n    \"first\": {\n      \"href\": \"<uri>\"\n    },\n    \"prev\": {\n      \"href\": \"<uri>\"\n    },\n    \"next\": {\n      \"href\": \"<uri>\"\n    }\n  }\n}",
+                                      "createdAt": "2026-07-28T01:07:05.000Z",
+                                      "updatedAt": "2026-07-28T01:07:05.000Z",
+                                      "uid": "35240-a4f95c99-dfff-43c8-8b22-ddbd83e09fb6"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:07:05.000Z",
+                                  "updatedAt": "2026-07-28T01:07:05.000Z",
+                                  "uid": "35240-a1788869-c73e-40a4-affd-c1339aaca7b8"
+                                }
+                              ],
+                              "id": "9a24b187-4875-4e12-89de-9a027fa91299",
+                              "createdAt": "2026-07-28T01:07:05.000Z",
+                              "updatedAt": "2026-07-28T01:07:05.000Z",
+                              "uid": "35240-9a24b187-4875-4e12-89de-9a027fa91299"
+                            },
+                            {
+                              "name": "Autodesk Get Folder",
+                              "id": "706a971e-f450-42a5-87a9-eea44f64b733",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/vnd.api+json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/data/v1/projects/:project_id/folders/:folder_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "data",
+                                    "v1",
+                                    "projects",
+                                    ":project_id",
+                                    "folders",
+                                    ":folder_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "138b6989-9fc0-4d7d-8450-1a80c24da6dd",
+                                      "key": "project_id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "e2aca7e4-89bd-4794-90d2-c7ba78a3c6f8",
+                                      "key": "folder_id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Returns a specific folder."
+                              },
+                              "response": [
+                                {
+                                  "id": "05ff9dfd-3217-4aaa-9957-40f2476053e1",
+                                  "name": "Successfully retrieved folder.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/vnd.api+json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/data/v1/projects/:project_id/folders/:folder_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "data",
+                                        "v1",
+                                        "projects",
+                                        ":project_id",
+                                        "folders",
+                                        ":folder_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project_id"
+                                        },
+                                        {
+                                          "key": "folder_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/vnd.api+json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": {\n    \"type\": \"<string>\",\n    \"id\": \"<string>\",\n    \"attributes\": {\n      \"name\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"createTime\": \"<dateTime>\",\n      \"createUserId\": \"<string>\",\n      \"createUserName\": \"<string>\",\n      \"lastModifiedTime\": \"<dateTime>\",\n      \"lastModifiedUserId\": \"<string>\",\n      \"lastModifiedUserName\": \"<string>\",\n      \"objectCount\": \"<integer>\",\n      \"extension\": {\n        \"type\": \"<string>\",\n        \"version\": \"<string>\",\n        \"data\": {}\n      },\n      \"hidden\": \"<boolean>\"\n    }\n  }\n}",
+                                  "createdAt": "2026-07-28T01:07:05.000Z",
+                                  "updatedAt": "2026-07-28T01:07:05.000Z",
+                                  "uid": "35240-05ff9dfd-3217-4aaa-9957-40f2476053e1"
+                                },
+                                {
+                                  "id": "62c22f19-4f79-4873-8a5a-ad9f2450b1c6",
+                                  "name": "Unauthorized.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/data/v1/projects/:project_id/folders/:folder_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "data",
+                                        "v1",
+                                        "projects",
+                                        ":project_id",
+                                        "folders",
+                                        ":folder_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project_id"
+                                        },
+                                        {
+                                          "key": "folder_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:07:05.000Z",
+                                  "updatedAt": "2026-07-28T01:07:05.000Z",
+                                  "uid": "35240-62c22f19-4f79-4873-8a5a-ad9f2450b1c6"
+                                },
+                                {
+                                  "id": "01a9e61f-0c1b-4c96-9c16-092b8bd92f3f",
+                                  "name": "Folder not found.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/data/v1/projects/:project_id/folders/:folder_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "data",
+                                        "v1",
+                                        "projects",
+                                        ":project_id",
+                                        "folders",
+                                        ":folder_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project_id"
+                                        },
+                                        {
+                                          "key": "folder_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:07:05.000Z",
+                                  "updatedAt": "2026-07-28T01:07:05.000Z",
+                                  "uid": "35240-01a9e61f-0c1b-4c96-9c16-092b8bd92f3f"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:07:05.000Z",
+                              "updatedAt": "2026-07-28T01:07:05.000Z",
+                              "uid": "35240-706a971e-f450-42a5-87a9-eea44f64b733"
+                            }
+                          ],
+                          "id": "67c1dc1d-a493-4649-983e-39d0244d4034",
+                          "createdAt": "2026-07-28T01:07:05.000Z",
+                          "updatedAt": "2026-07-28T01:07:05.000Z",
+                          "uid": "35240-67c1dc1d-a493-4649-983e-39d0244d4034"
+                        },
+                        {
+                          "name": "Autodesk Create Folder",
+                          "id": "1b0f1dab-8053-4f2b-ba59-a7f71aad5739",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "oauth2",
+                              "oauth2": [
+                                {
+                                  "key": "scope",
+                                  "value": "account:read account:write",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "accessTokenUrl",
+                                  "value": "https://developer.api.autodesk.com/authentication/v2/token",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "authUrl",
+                                  "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "grant_type",
+                                  "value": "authorization_code",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/vnd.api+json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.api+json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": {\n    \"type\": \"<string>\",\n    \"attributes\": {\n      \"name\": \"<string>\",\n      \"extension\": {\n        \"type\": \"<string>\",\n        \"version\": \"<string>\",\n        \"data\": {}\n      }\n    },\n    \"relationships\": {\n      \"parent\": {\n        \"data\": {\n          \"type\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/data/v1/projects/:project_id/folders",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "data",
+                                "v1",
+                                "projects",
+                                ":project_id",
+                                "folders"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "f19ab881-ef12-480c-8c64-600d4110fe0f",
+                                  "key": "project_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Creates a new folder in the specified project."
+                          },
+                          "response": [
+                            {
+                              "id": "12255ab0-310e-4c5b-924e-2e372d542e74",
+                              "name": "Folder created successfully.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/vnd.api+json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/vnd.api+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": {\n    \"type\": \"<string>\",\n    \"attributes\": {\n      \"name\": \"<string>\",\n      \"extension\": {\n        \"type\": \"<string>\",\n        \"version\": \"<string>\",\n        \"data\": {}\n      }\n    },\n    \"relationships\": {\n      \"parent\": {\n        \"data\": {\n          \"type\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/data/v1/projects/:project_id/folders",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "data",
+                                    "v1",
+                                    "projects",
+                                    ":project_id",
+                                    "folders"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Created",
+                              "code": 201,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/vnd.api+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": {\n    \"type\": \"<string>\",\n    \"id\": \"<string>\",\n    \"attributes\": {\n      \"name\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"createTime\": \"<dateTime>\",\n      \"createUserId\": \"<string>\",\n      \"createUserName\": \"<string>\",\n      \"lastModifiedTime\": \"<dateTime>\",\n      \"lastModifiedUserId\": \"<string>\",\n      \"lastModifiedUserName\": \"<string>\",\n      \"objectCount\": \"<integer>\",\n      \"extension\": {\n        \"type\": \"<string>\",\n        \"version\": \"<string>\",\n        \"data\": {}\n      },\n      \"hidden\": \"<boolean>\"\n    }\n  }\n}",
+                              "createdAt": "2026-07-28T01:07:05.000Z",
+                              "updatedAt": "2026-07-28T01:07:05.000Z",
+                              "uid": "35240-12255ab0-310e-4c5b-924e-2e372d542e74"
+                            },
+                            {
+                              "id": "a056b909-3e7e-49c5-ac41-3a8232fbacef",
+                              "name": "Bad request.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/vnd.api+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": {\n    \"type\": \"<string>\",\n    \"attributes\": {\n      \"name\": \"<string>\",\n      \"extension\": {\n        \"type\": \"<string>\",\n        \"version\": \"<string>\",\n        \"data\": {}\n      }\n    },\n    \"relationships\": {\n      \"parent\": {\n        \"data\": {\n          \"type\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/data/v1/projects/:project_id/folders",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "data",
+                                    "v1",
+                                    "projects",
+                                    ":project_id",
+                                    "folders"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:07:05.000Z",
+                              "updatedAt": "2026-07-28T01:07:05.000Z",
+                              "uid": "35240-a056b909-3e7e-49c5-ac41-3a8232fbacef"
+                            },
+                            {
+                              "id": "c97c6e88-05da-4518-91eb-a8c2f687246b",
+                              "name": "Forbidden.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/vnd.api+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": {\n    \"type\": \"<string>\",\n    \"attributes\": {\n      \"name\": \"<string>\",\n      \"extension\": {\n        \"type\": \"<string>\",\n        \"version\": \"<string>\",\n        \"data\": {}\n      }\n    },\n    \"relationships\": {\n      \"parent\": {\n        \"data\": {\n          \"type\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/data/v1/projects/:project_id/folders",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "data",
+                                    "v1",
+                                    "projects",
+                                    ":project_id",
+                                    "folders"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:07:05.000Z",
+                              "updatedAt": "2026-07-28T01:07:05.000Z",
+                              "uid": "35240-c97c6e88-05da-4518-91eb-a8c2f687246b"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:07:05.000Z",
+                          "updatedAt": "2026-07-28T01:07:05.000Z",
+                          "uid": "35240-1b0f1dab-8053-4f2b-ba59-a7f71aad5739"
+                        }
+                      ],
+                      "id": "3a8230c9-322f-4403-a998-7e0d043aa103",
+                      "createdAt": "2026-07-28T01:07:05.000Z",
+                      "updatedAt": "2026-07-28T01:07:05.000Z",
+                      "uid": "35240-3a8230c9-322f-4403-a998-7e0d043aa103"
+                    }
+                  ],
+                  "id": "75a94898-9dad-40fd-b059-ecb0e682e5b9",
+                  "createdAt": "2026-07-28T01:07:05.000Z",
+                  "updatedAt": "2026-07-28T01:07:05.000Z",
+                  "uid": "35240-75a94898-9dad-40fd-b059-ecb0e682e5b9"
+                }
+              ],
+              "id": "5b15ffb1-c563-402e-8ce6-5fc7ef8f5089",
+              "createdAt": "2026-07-28T01:07:05.000Z",
+              "updatedAt": "2026-07-28T01:07:05.000Z",
+              "uid": "35240-5b15ffb1-c563-402e-8ce6-5fc7ef8f5089"
+            }
+          ],
+          "id": "9ce81762-02ea-4c7b-8872-5031589f5b07",
+          "createdAt": "2026-07-28T01:07:05.000Z",
+          "updatedAt": "2026-07-28T01:07:05.000Z",
+          "uid": "35240-9ce81762-02ea-4c7b-8872-5031589f5b07"
+        }
+      ],
+      "id": "7fba3762-88e0-4821-ab47-e1f3a48f1d74",
+      "createdAt": "2026-07-28T01:07:05.000Z",
+      "updatedAt": "2026-07-28T01:07:05.000Z",
+      "uid": "35240-7fba3762-88e0-4821-ab47-e1f3a48f1d74"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

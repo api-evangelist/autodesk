@@ -1,0 +1,171 @@
+{
+  "info": {
+    "_postman_id": "bdb86aee-77bc-47cc-a9ca-9829adae43b3",
+    "name": "Autodesk ACC Account Admin Account Users Service Limits API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:57.000Z",
+    "updatedAt": "2026-07-28T01:07:57.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-bdb86aee-77bc-47cc-a9ca-9829adae43b3"
+  },
+  "item": [
+    {
+      "name": "da",
+      "item": [
+        {
+          "name": "us-east",
+          "item": [
+            {
+              "name": "v3",
+              "item": [
+                {
+                  "name": "servicelimits",
+                  "item": [
+                    {
+                      "name": "me",
+                      "item": [
+                        {
+                          "name": "Autodesk Get Service Limits",
+                          "id": "e593be5f-f704-415d-b713-0935324d74b8",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/da/us-east/v3/servicelimits/me",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "da",
+                                "us-east",
+                                "v3",
+                                "servicelimits",
+                                "me"
+                              ]
+                            },
+                            "description": "Returns the service limits for the caller."
+                          },
+                          "response": [
+                            {
+                              "id": "c047dcaa-d84a-4453-bdf9-496b1ccb8008",
+                              "name": "Successfully retrieved service limits.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/da/us-east/v3/servicelimits/me",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "da",
+                                    "us-east",
+                                    "v3",
+                                    "servicelimits",
+                                    "me"
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"frontendLimits\": {\n    \"limitMonthlyProcessingTimeInHours\": \"<number>\"\n  },\n  \"backendLimits\": {}\n}",
+                              "createdAt": "2026-07-28T01:07:57.000Z",
+                              "updatedAt": "2026-07-28T01:07:57.000Z",
+                              "uid": "35240-c047dcaa-d84a-4453-bdf9-496b1ccb8008"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:07:57.000Z",
+                          "updatedAt": "2026-07-28T01:07:57.000Z",
+                          "uid": "35240-e593be5f-f704-415d-b713-0935324d74b8"
+                        }
+                      ],
+                      "id": "6cb30dd8-5679-4232-86e2-ed69fc483d29",
+                      "createdAt": "2026-07-28T01:07:57.000Z",
+                      "updatedAt": "2026-07-28T01:07:57.000Z",
+                      "uid": "35240-6cb30dd8-5679-4232-86e2-ed69fc483d29"
+                    }
+                  ],
+                  "id": "1e0afeb9-4631-43b2-8d60-56abe8eb4127",
+                  "createdAt": "2026-07-28T01:07:57.000Z",
+                  "updatedAt": "2026-07-28T01:07:57.000Z",
+                  "uid": "35240-1e0afeb9-4631-43b2-8d60-56abe8eb4127"
+                }
+              ],
+              "id": "2e40631d-e851-4739-b729-66db3c00199e",
+              "createdAt": "2026-07-28T01:07:57.000Z",
+              "updatedAt": "2026-07-28T01:07:57.000Z",
+              "uid": "35240-2e40631d-e851-4739-b729-66db3c00199e"
+            }
+          ],
+          "id": "b325c3bf-e35c-4787-86ec-314c2f62ee92",
+          "createdAt": "2026-07-28T01:07:57.000Z",
+          "updatedAt": "2026-07-28T01:07:57.000Z",
+          "uid": "35240-b325c3bf-e35c-4787-86ec-314c2f62ee92"
+        }
+      ],
+      "id": "a2f988b8-cfe5-4504-84ee-94f4e795dc60",
+      "createdAt": "2026-07-28T01:07:57.000Z",
+      "updatedAt": "2026-07-28T01:07:57.000Z",
+      "uid": "35240-a2f988b8-cfe5-4504-84ee-94f4e795dc60"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

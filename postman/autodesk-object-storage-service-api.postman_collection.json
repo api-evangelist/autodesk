@@ -1,0 +1,1391 @@
+{
+  "info": {
+    "_postman_id": "e5096e80-004e-461e-a286-2f3de4528f79",
+    "name": "Autodesk ACC Account Admin Account Users Object Storage Service API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:47.000Z",
+    "updatedAt": "2026-07-28T01:07:47.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e5096e80-004e-461e-a286-2f3de4528f79"
+  },
+  "item": [
+    {
+      "name": "oss",
+      "item": [
+        {
+          "name": "v2",
+          "item": [
+            {
+              "name": "buckets",
+              "item": [
+                {
+                  "name": "{bucketKey}",
+                  "item": [
+                    {
+                      "name": "objects",
+                      "item": [
+                        {
+                          "name": "{objectKey}",
+                          "item": [
+                            {
+                              "name": "details",
+                              "item": [
+                                {
+                                  "name": "Autodesk Get Object Details",
+                                  "id": "08ff24bc-9853-4043-ab19-3e11f709d0d7",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/oss/v2/buckets/:bucketKey/objects/:objectKey/details",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "oss",
+                                        "v2",
+                                        "buckets",
+                                        ":bucketKey",
+                                        "objects",
+                                        ":objectKey",
+                                        "details"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "82759493-aec5-42f7-a8ec-6c74db74cb7e",
+                                          "key": "bucketKey",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "0ac064d4-7a1e-441b-ac1b-70d0e55c34ad",
+                                          "key": "objectKey",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Returns metadata about a specific object."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "66af92f4-7b53-459d-b6a6-d1c2305b5a29",
+                                      "name": "Successfully retrieved object details.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/oss/v2/buckets/:bucketKey/objects/:objectKey/details",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "oss",
+                                            "v2",
+                                            "buckets",
+                                            ":bucketKey",
+                                            "objects",
+                                            ":objectKey",
+                                            "details"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "bucketKey"
+                                            },
+                                            {
+                                              "key": "objectKey"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"bucketKey\": \"<string>\",\n  \"objectKey\": \"<string>\",\n  \"objectId\": \"<string>\",\n  \"sha1\": \"<string>\",\n  \"size\": \"<integer>\",\n  \"contentType\": \"<string>\",\n  \"location\": \"<uri>\"\n}",
+                                      "createdAt": "2026-07-28T01:07:47.000Z",
+                                      "updatedAt": "2026-07-28T01:07:47.000Z",
+                                      "uid": "35240-66af92f4-7b53-459d-b6a6-d1c2305b5a29"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:07:47.000Z",
+                                  "updatedAt": "2026-07-28T01:07:47.000Z",
+                                  "uid": "35240-08ff24bc-9853-4043-ab19-3e11f709d0d7"
+                                }
+                              ],
+                              "id": "29033157-4033-4e05-bbf3-6df88e7c9049",
+                              "createdAt": "2026-07-28T01:07:47.000Z",
+                              "updatedAt": "2026-07-28T01:07:47.000Z",
+                              "uid": "35240-29033157-4033-4e05-bbf3-6df88e7c9049"
+                            },
+                            {
+                              "name": "signed",
+                              "item": [
+                                {
+                                  "name": "Autodesk Create Signed URL",
+                                  "id": "1503c4c1-02a6-4aec-a12a-a8ac2ae9b5aa",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"minutesExpiration\": \"<integer>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/oss/v2/buckets/:bucketKey/objects/:objectKey/signed?access=read",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "oss",
+                                        "v2",
+                                        "buckets",
+                                        ":bucketKey",
+                                        "objects",
+                                        ":objectKey",
+                                        "signed"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Access level for the signed URL.",
+                                          "key": "access",
+                                          "value": "read"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "03b24f1b-efcf-47ce-b611-8a0d9b7378cf",
+                                          "key": "bucketKey",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "e8e8e9a1-5732-4b10-b11c-276a65debbb3",
+                                          "key": "objectKey",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Creates a signed URL for downloading or uploading an object without requiring an access token."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "6f7eed9e-b247-46c6-84e1-7f0a9312f356",
+                                      "name": "Signed URL created successfully.",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"minutesExpiration\": \"<integer>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/oss/v2/buckets/:bucketKey/objects/:objectKey/signed?access=read",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "oss",
+                                            "v2",
+                                            "buckets",
+                                            ":bucketKey",
+                                            "objects",
+                                            ":objectKey",
+                                            "signed"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "Access level for the signed URL.",
+                                              "key": "access",
+                                              "value": "read"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "bucketKey"
+                                            },
+                                            {
+                                              "key": "objectKey"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"signedUrl\": \"<uri>\",\n  \"expiration\": \"<integer>\"\n}",
+                                      "createdAt": "2026-07-28T01:07:47.000Z",
+                                      "updatedAt": "2026-07-28T01:07:47.000Z",
+                                      "uid": "35240-6f7eed9e-b247-46c6-84e1-7f0a9312f356"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:07:47.000Z",
+                                  "updatedAt": "2026-07-28T01:07:47.000Z",
+                                  "uid": "35240-1503c4c1-02a6-4aec-a12a-a8ac2ae9b5aa"
+                                }
+                              ],
+                              "id": "668ab9d4-5358-4c16-934b-68a5b88c2cbd",
+                              "createdAt": "2026-07-28T01:07:47.000Z",
+                              "updatedAt": "2026-07-28T01:07:47.000Z",
+                              "uid": "35240-668ab9d4-5358-4c16-934b-68a5b88c2cbd"
+                            },
+                            {
+                              "name": "Autodesk Download Object",
+                              "id": "3031b4af-152d-493e-a394-be38ba8d8858",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Byte range for partial downloads.",
+                                    "key": "Range",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/octet-stream"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/oss/v2/buckets/:bucketKey/objects/:objectKey",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "oss",
+                                    "v2",
+                                    "buckets",
+                                    ":bucketKey",
+                                    "objects",
+                                    ":objectKey"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "0c215b89-95ab-4f97-a973-4abfa49a55fc",
+                                      "key": "bucketKey",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "fda0194c-5a9e-4100-b012-d5c41d4524a8",
+                                      "key": "objectKey",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Downloads an object from a bucket."
+                              },
+                              "response": [
+                                {
+                                  "id": "1d57f126-7c3e-4354-b35e-cf90afc3b18c",
+                                  "name": "Successfully downloaded object.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Byte range for partial downloads.",
+                                        "key": "Range",
+                                        "value": "<string>"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/octet-stream"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/oss/v2/buckets/:bucketKey/objects/:objectKey",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "oss",
+                                        "v2",
+                                        "buckets",
+                                        ":bucketKey",
+                                        "objects",
+                                        ":objectKey"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "bucketKey"
+                                        },
+                                        {
+                                          "key": "objectKey"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/octet-stream"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "<binary>",
+                                  "createdAt": "2026-07-28T01:07:47.000Z",
+                                  "updatedAt": "2026-07-28T01:07:47.000Z",
+                                  "uid": "35240-1d57f126-7c3e-4354-b35e-cf90afc3b18c"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:07:47.000Z",
+                              "updatedAt": "2026-07-28T01:07:47.000Z",
+                              "uid": "35240-3031b4af-152d-493e-a394-be38ba8d8858"
+                            },
+                            {
+                              "name": "Autodesk Upload Object",
+                              "id": "2b4eb805-6976-4d90-8563-9fb117f0e34b",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "description": "(Required) ",
+                                    "key": "Content-Length",
+                                    "value": "<integer>"
+                                  },
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/octet-stream"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "<binary>"
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/oss/v2/buckets/:bucketKey/objects/:objectKey",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "oss",
+                                    "v2",
+                                    "buckets",
+                                    ":bucketKey",
+                                    "objects",
+                                    ":objectKey"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "4655c05d-b682-4433-a760-61f83fb244e1",
+                                      "key": "bucketKey",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "2a2a09ec-0833-4860-bf8f-baefc7f02598",
+                                      "key": "objectKey",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Uploads an object to a bucket."
+                              },
+                              "response": [
+                                {
+                                  "id": "5af2e000-e2a9-4893-b164-bea8b652f546",
+                                  "name": "Object uploaded successfully.",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "description": "(Required) ",
+                                        "key": "Content-Length",
+                                        "value": "<integer>"
+                                      },
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/octet-stream"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "<binary>"
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/oss/v2/buckets/:bucketKey/objects/:objectKey",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "oss",
+                                        "v2",
+                                        "buckets",
+                                        ":bucketKey",
+                                        "objects",
+                                        ":objectKey"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "bucketKey"
+                                        },
+                                        {
+                                          "key": "objectKey"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"bucketKey\": \"<string>\",\n  \"objectKey\": \"<string>\",\n  \"objectId\": \"<string>\",\n  \"sha1\": \"<string>\",\n  \"size\": \"<integer>\",\n  \"contentType\": \"<string>\",\n  \"location\": \"<uri>\"\n}",
+                                  "createdAt": "2026-07-28T01:07:47.000Z",
+                                  "updatedAt": "2026-07-28T01:07:47.000Z",
+                                  "uid": "35240-5af2e000-e2a9-4893-b164-bea8b652f546"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:07:47.000Z",
+                              "updatedAt": "2026-07-28T01:07:47.000Z",
+                              "uid": "35240-2b4eb805-6976-4d90-8563-9fb117f0e34b"
+                            },
+                            {
+                              "name": "Autodesk Delete Object",
+                              "id": "c20f34b6-1e12-4940-95ef-0323e0d7cc29",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/oss/v2/buckets/:bucketKey/objects/:objectKey",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "oss",
+                                    "v2",
+                                    "buckets",
+                                    ":bucketKey",
+                                    "objects",
+                                    ":objectKey"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "b02ad4f0-ffbc-4fe4-8d38-27e49890aaee",
+                                      "key": "bucketKey",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "74ac767b-f10b-43c5-8958-6d75e7f45d17",
+                                      "key": "objectKey",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Deletes an object from a bucket."
+                              },
+                              "response": [
+                                {
+                                  "id": "5d8184a5-7fea-4554-acc7-215ca4033826",
+                                  "name": "Object deleted successfully.",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/oss/v2/buckets/:bucketKey/objects/:objectKey",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "oss",
+                                        "v2",
+                                        "buckets",
+                                        ":bucketKey",
+                                        "objects",
+                                        ":objectKey"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "bucketKey"
+                                        },
+                                        {
+                                          "key": "objectKey"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:07:47.000Z",
+                                  "updatedAt": "2026-07-28T01:07:47.000Z",
+                                  "uid": "35240-5d8184a5-7fea-4554-acc7-215ca4033826"
+                                },
+                                {
+                                  "id": "421c3f76-09b0-4488-a320-e02d1db4876a",
+                                  "name": "Object not found.",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/oss/v2/buckets/:bucketKey/objects/:objectKey",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "oss",
+                                        "v2",
+                                        "buckets",
+                                        ":bucketKey",
+                                        "objects",
+                                        ":objectKey"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "bucketKey"
+                                        },
+                                        {
+                                          "key": "objectKey"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:07:47.000Z",
+                                  "updatedAt": "2026-07-28T01:07:47.000Z",
+                                  "uid": "35240-421c3f76-09b0-4488-a320-e02d1db4876a"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:07:47.000Z",
+                              "updatedAt": "2026-07-28T01:07:47.000Z",
+                              "uid": "35240-c20f34b6-1e12-4940-95ef-0323e0d7cc29"
+                            }
+                          ],
+                          "id": "e4261fdc-5a3c-4144-9aef-c6286d995c66",
+                          "createdAt": "2026-07-28T01:07:47.000Z",
+                          "updatedAt": "2026-07-28T01:07:47.000Z",
+                          "uid": "35240-e4261fdc-5a3c-4144-9aef-c6286d995c66"
+                        },
+                        {
+                          "name": "Autodesk List Objects",
+                          "id": "2d7b412c-fe13-4c63-9c2d-86dc7490b1c9",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/oss/v2/buckets/:bucketKey/objects?limit=<integer>&beginsWith=<string>&startAt=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "oss",
+                                "v2",
+                                "buckets",
+                                ":bucketKey",
+                                "objects"
+                              ],
+                              "query": [
+                                {
+                                  "key": "limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "key": "beginsWith",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "startAt",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "42d712ee-89c5-4a8e-a9e8-ed4ce537a7d6",
+                                  "key": "bucketKey",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Returns a list of objects in a bucket."
+                          },
+                          "response": [
+                            {
+                              "id": "689fb354-33e1-4c2e-891f-3c13da87340c",
+                              "name": "Successfully retrieved objects.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/oss/v2/buckets/:bucketKey/objects?limit=<integer>&beginsWith=<string>&startAt=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "oss",
+                                    "v2",
+                                    "buckets",
+                                    ":bucketKey",
+                                    "objects"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "beginsWith",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "startAt",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "bucketKey"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"items\": [\n    {\n      \"bucketKey\": \"<string>\",\n      \"objectKey\": \"<string>\",\n      \"objectId\": \"<string>\",\n      \"sha1\": \"<string>\",\n      \"size\": \"<integer>\",\n      \"contentType\": \"<string>\",\n      \"location\": \"<uri>\"\n    },\n    {\n      \"bucketKey\": \"<string>\",\n      \"objectKey\": \"<string>\",\n      \"objectId\": \"<string>\",\n      \"sha1\": \"<string>\",\n      \"size\": \"<integer>\",\n      \"contentType\": \"<string>\",\n      \"location\": \"<uri>\"\n    }\n  ],\n  \"next\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:07:47.000Z",
+                              "updatedAt": "2026-07-28T01:07:47.000Z",
+                              "uid": "35240-689fb354-33e1-4c2e-891f-3c13da87340c"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:07:47.000Z",
+                          "updatedAt": "2026-07-28T01:07:47.000Z",
+                          "uid": "35240-2d7b412c-fe13-4c63-9c2d-86dc7490b1c9"
+                        }
+                      ],
+                      "id": "1f08494a-e4c4-4142-ae60-601e0d99100e",
+                      "createdAt": "2026-07-28T01:07:47.000Z",
+                      "updatedAt": "2026-07-28T01:07:47.000Z",
+                      "uid": "35240-1f08494a-e4c4-4142-ae60-601e0d99100e"
+                    },
+                    {
+                      "name": "Autodesk Get Bucket Details",
+                      "id": "f72ec7e5-ac00-4acf-8bc8-2422fcda2b9e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/oss/v2/buckets/:bucketKey",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "oss",
+                            "v2",
+                            "buckets",
+                            ":bucketKey"
+                          ],
+                          "variable": [
+                            {
+                              "id": "bb5899ae-e166-4e42-8fe9-a63ed811c924",
+                              "key": "bucketKey",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Returns details of a specific bucket."
+                      },
+                      "response": [
+                        {
+                          "id": "5caa3990-5eda-4653-8004-d632e4689793",
+                          "name": "Successfully retrieved bucket details.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/oss/v2/buckets/:bucketKey",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "oss",
+                                "v2",
+                                "buckets",
+                                ":bucketKey"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "bucketKey"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"bucketKey\": \"<string>\",\n  \"bucketOwner\": \"<string>\",\n  \"createdDate\": \"<dateTime>\",\n  \"permissions\": [\n    {\n      \"authId\": \"<string>\",\n      \"access\": \"read\"\n    },\n    {\n      \"authId\": \"<string>\",\n      \"access\": \"read\"\n    }\n  ],\n  \"policyKey\": \"transient\"\n}",
+                          "createdAt": "2026-07-28T01:07:47.000Z",
+                          "updatedAt": "2026-07-28T01:07:47.000Z",
+                          "uid": "35240-5caa3990-5eda-4653-8004-d632e4689793"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:07:47.000Z",
+                      "updatedAt": "2026-07-28T01:07:47.000Z",
+                      "uid": "35240-f72ec7e5-ac00-4acf-8bc8-2422fcda2b9e"
+                    },
+                    {
+                      "name": "Autodesk Delete Bucket",
+                      "id": "73c5b6de-48b0-4fb3-bf39-b4b8b692472e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/oss/v2/buckets/:bucketKey",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "oss",
+                            "v2",
+                            "buckets",
+                            ":bucketKey"
+                          ],
+                          "variable": [
+                            {
+                              "id": "863523aa-e017-45e2-a728-92380dd1c4a3",
+                              "key": "bucketKey",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Deletes a bucket. The bucket must be empty."
+                      },
+                      "response": [
+                        {
+                          "id": "57947d30-befb-493e-85b5-881fae2c3eac",
+                          "name": "Bucket deleted successfully.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/oss/v2/buckets/:bucketKey",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "oss",
+                                "v2",
+                                "buckets",
+                                ":bucketKey"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "bucketKey"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:07:47.000Z",
+                          "updatedAt": "2026-07-28T01:07:47.000Z",
+                          "uid": "35240-57947d30-befb-493e-85b5-881fae2c3eac"
+                        },
+                        {
+                          "id": "839d9501-0e84-4ecb-b066-3e4d1b451558",
+                          "name": "Forbidden.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/oss/v2/buckets/:bucketKey",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "oss",
+                                "v2",
+                                "buckets",
+                                ":bucketKey"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "bucketKey"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:07:47.000Z",
+                          "updatedAt": "2026-07-28T01:07:47.000Z",
+                          "uid": "35240-839d9501-0e84-4ecb-b066-3e4d1b451558"
+                        },
+                        {
+                          "id": "8db6101f-49df-4783-bbb9-6b442f3009ba",
+                          "name": "Bucket not found.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/oss/v2/buckets/:bucketKey",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "oss",
+                                "v2",
+                                "buckets",
+                                ":bucketKey"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "bucketKey"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:07:47.000Z",
+                          "updatedAt": "2026-07-28T01:07:47.000Z",
+                          "uid": "35240-8db6101f-49df-4783-bbb9-6b442f3009ba"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:07:47.000Z",
+                      "updatedAt": "2026-07-28T01:07:47.000Z",
+                      "uid": "35240-73c5b6de-48b0-4fb3-bf39-b4b8b692472e"
+                    }
+                  ],
+                  "id": "c82333ec-ad2f-4a80-bf1a-3f799e49bb36",
+                  "createdAt": "2026-07-28T01:07:47.000Z",
+                  "updatedAt": "2026-07-28T01:07:47.000Z",
+                  "uid": "35240-c82333ec-ad2f-4a80-bf1a-3f799e49bb36"
+                },
+                {
+                  "name": "Autodesk List Buckets",
+                  "id": "da649d0f-6226-468d-afad-fec66d9dd9d5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/oss/v2/buckets?region=US&limit=<integer>&startAt=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "oss",
+                        "v2",
+                        "buckets"
+                      ],
+                      "query": [
+                        {
+                          "description": "Region for the bucket (US, EMEA).",
+                          "key": "region",
+                          "value": "US"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "startAt",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Returns a list of buckets owned by the application."
+                  },
+                  "response": [
+                    {
+                      "id": "1d28fd70-f84f-4b68-9d92-beaed879f330",
+                      "name": "Successfully retrieved buckets.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/oss/v2/buckets?region=US&limit=<integer>&startAt=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "oss",
+                            "v2",
+                            "buckets"
+                          ],
+                          "query": [
+                            {
+                              "description": "Region for the bucket (US, EMEA).",
+                              "key": "region",
+                              "value": "US"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "startAt",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"items\": [\n    {\n      \"bucketKey\": \"<string>\",\n      \"bucketOwner\": \"<string>\",\n      \"createdDate\": \"<dateTime>\",\n      \"permissions\": [\n        {\n          \"authId\": \"<string>\",\n          \"access\": \"read\"\n        },\n        {\n          \"authId\": \"<string>\",\n          \"access\": \"full\"\n        }\n      ],\n      \"policyKey\": \"transient\"\n    },\n    {\n      \"bucketKey\": \"<string>\",\n      \"bucketOwner\": \"<string>\",\n      \"createdDate\": \"<dateTime>\",\n      \"permissions\": [\n        {\n          \"authId\": \"<string>\",\n          \"access\": \"read\"\n        },\n        {\n          \"authId\": \"<string>\",\n          \"access\": \"full\"\n        }\n      ],\n      \"policyKey\": \"temporary\"\n    }\n  ],\n  \"next\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:07:47.000Z",
+                      "updatedAt": "2026-07-28T01:07:47.000Z",
+                      "uid": "35240-1d28fd70-f84f-4b68-9d92-beaed879f330"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:07:47.000Z",
+                  "updatedAt": "2026-07-28T01:07:47.000Z",
+                  "uid": "35240-da649d0f-6226-468d-afad-fec66d9dd9d5"
+                },
+                {
+                  "name": "Autodesk Create Bucket",
+                  "id": "2e3fcf8b-fdc0-4cca-b52b-930994919386",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"bucketKey\": \"yyhm-1ptm5me5uaw-p5x0d3g8lg91duzzxpqsdr-elhsv8wvorlhyryrorw288kpc_r0xolj2_4xvv836gh\",\n  \"policyKey\": \"temporary\",\n  \"allow\": [\n    {\n      \"authId\": \"<string>\",\n      \"access\": \"read\"\n    },\n    {\n      \"authId\": \"<string>\",\n      \"access\": \"full\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/oss/v2/buckets",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "oss",
+                        "v2",
+                        "buckets"
+                      ]
+                    },
+                    "description": "Creates a new OSS bucket."
+                  },
+                  "response": [
+                    {
+                      "id": "0cfb2c8e-902b-46de-b2a6-3f9446746523",
+                      "name": "Bucket created successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"bucketKey\": \"yyhm-1ptm5me5uaw-p5x0d3g8lg91duzzxpqsdr-elhsv8wvorlhyryrorw288kpc_r0xolj2_4xvv836gh\",\n  \"policyKey\": \"temporary\",\n  \"allow\": [\n    {\n      \"authId\": \"<string>\",\n      \"access\": \"read\"\n    },\n    {\n      \"authId\": \"<string>\",\n      \"access\": \"full\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/oss/v2/buckets",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "oss",
+                            "v2",
+                            "buckets"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"bucketKey\": \"<string>\",\n  \"bucketOwner\": \"<string>\",\n  \"createdDate\": \"<dateTime>\",\n  \"permissions\": [\n    {\n      \"authId\": \"<string>\",\n      \"access\": \"read\"\n    },\n    {\n      \"authId\": \"<string>\",\n      \"access\": \"read\"\n    }\n  ],\n  \"policyKey\": \"transient\"\n}",
+                      "createdAt": "2026-07-28T01:07:47.000Z",
+                      "updatedAt": "2026-07-28T01:07:47.000Z",
+                      "uid": "35240-0cfb2c8e-902b-46de-b2a6-3f9446746523"
+                    },
+                    {
+                      "id": "ddc23251-9a59-433f-8de3-341e5e5bdde4",
+                      "name": "Bucket already exists.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"bucketKey\": \"yyhm-1ptm5me5uaw-p5x0d3g8lg91duzzxpqsdr-elhsv8wvorlhyryrorw288kpc_r0xolj2_4xvv836gh\",\n  \"policyKey\": \"temporary\",\n  \"allow\": [\n    {\n      \"authId\": \"<string>\",\n      \"access\": \"read\"\n    },\n    {\n      \"authId\": \"<string>\",\n      \"access\": \"full\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/oss/v2/buckets",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "oss",
+                            "v2",
+                            "buckets"
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:07:47.000Z",
+                      "updatedAt": "2026-07-28T01:07:47.000Z",
+                      "uid": "35240-ddc23251-9a59-433f-8de3-341e5e5bdde4"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:07:47.000Z",
+                  "updatedAt": "2026-07-28T01:07:47.000Z",
+                  "uid": "35240-2e3fcf8b-fdc0-4cca-b52b-930994919386"
+                }
+              ],
+              "id": "25c1d013-b239-4a5f-8ae8-ed1507c339e9",
+              "createdAt": "2026-07-28T01:07:47.000Z",
+              "updatedAt": "2026-07-28T01:07:47.000Z",
+              "uid": "35240-25c1d013-b239-4a5f-8ae8-ed1507c339e9"
+            }
+          ],
+          "id": "c869c050-5e43-49f6-8eb0-f5ab8e3b9d9b",
+          "createdAt": "2026-07-28T01:07:47.000Z",
+          "updatedAt": "2026-07-28T01:07:47.000Z",
+          "uid": "35240-c869c050-5e43-49f6-8eb0-f5ab8e3b9d9b"
+        }
+      ],
+      "id": "d8f3024f-f23b-4db4-88aa-ab3edd4de09a",
+      "createdAt": "2026-07-28T01:07:47.000Z",
+      "updatedAt": "2026-07-28T01:07:47.000Z",
+      "uid": "35240-d8f3024f-f23b-4db4-88aa-ab3edd4de09a"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

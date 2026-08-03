@@ -1,0 +1,577 @@
+{
+  "info": {
+    "_postman_id": "3f3ee9ff-d93f-4151-80eb-b4c93d6282ea",
+    "name": "Autodesk ACC Account Admin Account Users Graphs API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:22.000Z",
+    "updatedAt": "2026-07-28T01:07:22.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3f3ee9ff-d93f-4151-80eb-b4c93d6282ea"
+  },
+  "item": [
+    {
+      "name": "fge",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "graphs",
+              "item": [
+                {
+                  "name": "{graphId}",
+                  "item": [
+                    {
+                      "name": "Autodesk Get Graph",
+                      "id": "c8e24bdb-49b4-402c-aa06-a5edcadbaac0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/fge/v1/graphs/:graphId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fge",
+                            "v1",
+                            "graphs",
+                            ":graphId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "9684caf0-7267-458c-bd46-3c8751b9d866",
+                              "key": "graphId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Returns details of a specific graph."
+                      },
+                      "response": [
+                        {
+                          "id": "12937138-b5df-4430-bc9b-7c6f6942ba66",
+                          "name": "Successfully retrieved graph.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/fge/v1/graphs/:graphId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "fge",
+                                "v1",
+                                "graphs",
+                                ":graphId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "graphId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"fileSize\": \"<integer>\",\n  \"inputs\": [\n    {\n      \"name\": \"<string>\",\n      \"type\": \"<string>\",\n      \"defaultValue\": {}\n    },\n    {\n      \"name\": \"<string>\",\n      \"type\": \"<string>\",\n      \"defaultValue\": {}\n    }\n  ],\n  \"outputs\": [\n    {\n      \"name\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:07:22.000Z",
+                          "updatedAt": "2026-07-28T01:07:22.000Z",
+                          "uid": "35240-12937138-b5df-4430-bc9b-7c6f6942ba66"
+                        },
+                        {
+                          "id": "93f44ca6-efe4-4038-88e7-286d0af2c60c",
+                          "name": "Graph not found.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/fge/v1/graphs/:graphId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "fge",
+                                "v1",
+                                "graphs",
+                                ":graphId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "graphId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:07:22.000Z",
+                          "updatedAt": "2026-07-28T01:07:22.000Z",
+                          "uid": "35240-93f44ca6-efe4-4038-88e7-286d0af2c60c"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:07:22.000Z",
+                      "updatedAt": "2026-07-28T01:07:22.000Z",
+                      "uid": "35240-c8e24bdb-49b4-402c-aa06-a5edcadbaac0"
+                    },
+                    {
+                      "name": "Autodesk Delete Graph",
+                      "id": "2bd10acb-1421-4563-8fed-0bc6738b339a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/fge/v1/graphs/:graphId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fge",
+                            "v1",
+                            "graphs",
+                            ":graphId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "aa94307f-b069-402d-a80a-da77c954a9b9",
+                              "key": "graphId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Deletes an uploaded graph."
+                      },
+                      "response": [
+                        {
+                          "id": "8be34d07-7ef3-45be-8dc9-825c2dd05ffa",
+                          "name": "Graph deleted.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/fge/v1/graphs/:graphId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "fge",
+                                "v1",
+                                "graphs",
+                                ":graphId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "graphId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:07:22.000Z",
+                          "updatedAt": "2026-07-28T01:07:22.000Z",
+                          "uid": "35240-8be34d07-7ef3-45be-8dc9-825c2dd05ffa"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:07:22.000Z",
+                      "updatedAt": "2026-07-28T01:07:22.000Z",
+                      "uid": "35240-2bd10acb-1421-4563-8fed-0bc6738b339a"
+                    }
+                  ],
+                  "id": "424b3e86-cfb1-48f7-9a02-e54cdea35dfa",
+                  "createdAt": "2026-07-28T01:07:22.000Z",
+                  "updatedAt": "2026-07-28T01:07:22.000Z",
+                  "uid": "35240-424b3e86-cfb1-48f7-9a02-e54cdea35dfa"
+                },
+                {
+                  "name": "Autodesk List Graphs",
+                  "id": "91bae6a2-0957-491f-8ecd-3bd368d1c76f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/fge/v1/graphs?limit=<integer>&offset=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fge",
+                        "v1",
+                        "graphs"
+                      ],
+                      "query": [
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "Returns a list of uploaded Bifrost graphs available for evaluation."
+                  },
+                  "response": [
+                    {
+                      "id": "14ce2249-b02e-4691-aa57-2875f890e3d2",
+                      "name": "Successfully retrieved graphs.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/fge/v1/graphs?limit=<integer>&offset=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fge",
+                            "v1",
+                            "graphs"
+                          ],
+                          "query": [
+                            {
+                              "key": "limit",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "offset",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"results\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"fileSize\": \"<integer>\",\n      \"inputs\": [\n        {\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"defaultValue\": {}\n        },\n        {\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"defaultValue\": {}\n        }\n      ],\n      \"outputs\": [\n        {\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"fileSize\": \"<integer>\",\n      \"inputs\": [\n        {\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"defaultValue\": {}\n        },\n        {\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"defaultValue\": {}\n        }\n      ],\n      \"outputs\": [\n        {\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"pagination\": {\n    \"offset\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"totalResults\": \"<integer>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:07:22.000Z",
+                      "updatedAt": "2026-07-28T01:07:22.000Z",
+                      "uid": "35240-14ce2249-b02e-4691-aa57-2875f890e3d2"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:07:22.000Z",
+                  "updatedAt": "2026-07-28T01:07:22.000Z",
+                  "uid": "35240-91bae6a2-0957-491f-8ecd-3bd368d1c76f"
+                },
+                {
+                  "name": "Autodesk Upload Graph",
+                  "id": "df68cfa6-fa29-474e-9fe9-ae1a9f397135",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) The Bifrost graph file (.bif).",
+                          "key": "file",
+                          "type": "file",
+                          "value": null
+                        },
+                        {
+                          "description": "Display name for the graph.",
+                          "key": "name",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "description",
+                          "value": "<string>",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/fge/v1/graphs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fge",
+                        "v1",
+                        "graphs"
+                      ]
+                    },
+                    "description": "Uploads a Bifrost graph file (.bif) for cloud evaluation."
+                  },
+                  "response": [
+                    {
+                      "id": "884bc59d-3723-4765-8a9c-46df14da2404",
+                      "name": "Graph uploaded.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) The Bifrost graph file (.bif).",
+                              "key": "file",
+                              "type": "file"
+                            },
+                            {
+                              "description": "Display name for the graph.",
+                              "key": "name",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "key": "description",
+                              "value": "<string>",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/fge/v1/graphs",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fge",
+                            "v1",
+                            "graphs"
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"fileSize\": \"<integer>\",\n  \"inputs\": [\n    {\n      \"name\": \"<string>\",\n      \"type\": \"<string>\",\n      \"defaultValue\": {}\n    },\n    {\n      \"name\": \"<string>\",\n      \"type\": \"<string>\",\n      \"defaultValue\": {}\n    }\n  ],\n  \"outputs\": [\n    {\n      \"name\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:07:22.000Z",
+                      "updatedAt": "2026-07-28T01:07:22.000Z",
+                      "uid": "35240-884bc59d-3723-4765-8a9c-46df14da2404"
+                    },
+                    {
+                      "id": "d383ffe7-f16d-4e49-8efc-55402e32795c",
+                      "name": "Bad request - invalid graph file.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) The Bifrost graph file (.bif).",
+                              "key": "file",
+                              "type": "file"
+                            },
+                            {
+                              "description": "Display name for the graph.",
+                              "key": "name",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "key": "description",
+                              "value": "<string>",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/fge/v1/graphs",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fge",
+                            "v1",
+                            "graphs"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:07:22.000Z",
+                      "updatedAt": "2026-07-28T01:07:22.000Z",
+                      "uid": "35240-d383ffe7-f16d-4e49-8efc-55402e32795c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:07:22.000Z",
+                  "updatedAt": "2026-07-28T01:07:22.000Z",
+                  "uid": "35240-df68cfa6-fa29-474e-9fe9-ae1a9f397135"
+                }
+              ],
+              "id": "1530b8bb-0d42-4a81-abe3-53798689a6f4",
+              "createdAt": "2026-07-28T01:07:22.000Z",
+              "updatedAt": "2026-07-28T01:07:22.000Z",
+              "uid": "35240-1530b8bb-0d42-4a81-abe3-53798689a6f4"
+            }
+          ],
+          "id": "cf8ff3ba-586f-4aa7-8114-c13f613eae7e",
+          "createdAt": "2026-07-28T01:07:22.000Z",
+          "updatedAt": "2026-07-28T01:07:22.000Z",
+          "uid": "35240-cf8ff3ba-586f-4aa7-8114-c13f613eae7e"
+        }
+      ],
+      "id": "09c97497-90a1-4ef8-b20b-72332be1f00b",
+      "createdAt": "2026-07-28T01:07:22.000Z",
+      "updatedAt": "2026-07-28T01:07:22.000Z",
+      "uid": "35240-09c97497-90a1-4ef8-b20b-72332be1f00b"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

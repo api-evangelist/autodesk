@@ -1,0 +1,830 @@
+{
+  "info": {
+    "_postman_id": "1ea2b60f-3775-4ec2-a9e3-ad702d14d0c5",
+    "name": "Autodesk ACC Account Admin Account Users Parameters API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:48.000Z",
+    "updatedAt": "2026-07-28T01:07:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1ea2b60f-3775-4ec2-a9e3-ad702d14d0c5"
+  },
+  "item": [
+    {
+      "name": "parameters",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "accounts",
+              "item": [
+                {
+                  "name": "{accountId}",
+                  "item": [
+                    {
+                      "name": "collections",
+                      "item": [
+                        {
+                          "name": "{collectionId}",
+                          "item": [
+                            {
+                              "name": "parameters",
+                              "item": [
+                                {
+                                  "name": "{parameterId}",
+                                  "item": [
+                                    {
+                                      "name": "Autodesk Get Parameter",
+                                      "id": "20e908e3-2953-4454-be0c-af6711398ddd",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/parameters/v1/accounts/:accountId/collections/:collectionId/parameters/:parameterId",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "parameters",
+                                            "v1",
+                                            "accounts",
+                                            ":accountId",
+                                            "collections",
+                                            ":collectionId",
+                                            "parameters",
+                                            ":parameterId"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "c29e53db-b90b-4346-94a0-b4ff6fa298bd",
+                                              "key": "accountId",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "020dc20a-028a-4652-9e7c-517a67d9449a",
+                                              "key": "collectionId",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "7dfca914-b694-4cd1-81d2-783c06f6b29d",
+                                              "key": "parameterId",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            }
+                                          ]
+                                        },
+                                        "description": "Returns a specific parameter definition."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "01b99dad-2ccf-44b2-8725-77d86e92e729",
+                                          "name": "Successfully retrieved parameter.",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/parameters/v1/accounts/:accountId/collections/:collectionId/parameters/:parameterId",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "parameters",
+                                                "v1",
+                                                "accounts",
+                                                ":accountId",
+                                                "collections",
+                                                ":collectionId",
+                                                "parameters",
+                                                ":parameterId"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "accountId"
+                                                },
+                                                {
+                                                  "key": "collectionId"
+                                                },
+                                                {
+                                                  "key": "parameterId"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"specId\": \"<string>\",\n  \"groupId\": \"<string>\",\n  \"isReadOnly\": \"<boolean>\",\n  \"isShared\": \"<boolean>\",\n  \"isInstance\": \"<boolean>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"disciplines\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"guid\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                                          "createdAt": "2026-07-28T01:07:48.000Z",
+                                          "updatedAt": "2026-07-28T01:07:48.000Z",
+                                          "uid": "35240-01b99dad-2ccf-44b2-8725-77d86e92e729"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T01:07:48.000Z",
+                                      "updatedAt": "2026-07-28T01:07:48.000Z",
+                                      "uid": "35240-20e908e3-2953-4454-be0c-af6711398ddd"
+                                    },
+                                    {
+                                      "name": "Autodesk Update Parameter",
+                                      "id": "61a9ea19-75bd-4023-9145-5d2f865db367",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "auth": {
+                                          "type": "oauth2",
+                                          "oauth2": [
+                                            {
+                                              "key": "scope",
+                                              "value": "account:read account:write",
+                                              "type": "string"
+                                            },
+                                            {
+                                              "key": "accessTokenUrl",
+                                              "value": "https://developer.api.autodesk.com/authentication/v2/token",
+                                              "type": "string"
+                                            },
+                                            {
+                                              "key": "authUrl",
+                                              "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+                                              "type": "string"
+                                            },
+                                            {
+                                              "key": "grant_type",
+                                              "value": "authorization_code",
+                                              "type": "string"
+                                            }
+                                          ]
+                                        },
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"groupId\": \"<string>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/parameters/v1/accounts/:accountId/collections/:collectionId/parameters/:parameterId",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "parameters",
+                                            "v1",
+                                            "accounts",
+                                            ":accountId",
+                                            "collections",
+                                            ":collectionId",
+                                            "parameters",
+                                            ":parameterId"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "f576c09b-9c72-4302-ac28-f46feddf1eeb",
+                                              "key": "accountId",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "074d651c-c2eb-46f8-9a4c-d898cbd8db67",
+                                              "key": "collectionId",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "05c2c304-a844-4b7a-9795-4fe184e26b6b",
+                                              "key": "parameterId",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            }
+                                          ]
+                                        },
+                                        "description": "Updates a parameter definition."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "aadc3f32-7402-4cd0-ad32-0026b0fb7da3",
+                                          "name": "Parameter updated.",
+                                          "originalRequest": {
+                                            "method": "PATCH",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"groupId\": \"<string>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/parameters/v1/accounts/:accountId/collections/:collectionId/parameters/:parameterId",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "parameters",
+                                                "v1",
+                                                "accounts",
+                                                ":accountId",
+                                                "collections",
+                                                ":collectionId",
+                                                "parameters",
+                                                ":parameterId"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "accountId"
+                                                },
+                                                {
+                                                  "key": "collectionId"
+                                                },
+                                                {
+                                                  "key": "parameterId"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"specId\": \"<string>\",\n  \"groupId\": \"<string>\",\n  \"isReadOnly\": \"<boolean>\",\n  \"isShared\": \"<boolean>\",\n  \"isInstance\": \"<boolean>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"disciplines\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"guid\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                                          "createdAt": "2026-07-28T01:07:48.000Z",
+                                          "updatedAt": "2026-07-28T01:07:48.000Z",
+                                          "uid": "35240-aadc3f32-7402-4cd0-ad32-0026b0fb7da3"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T01:07:48.000Z",
+                                      "updatedAt": "2026-07-28T01:07:48.000Z",
+                                      "uid": "35240-61a9ea19-75bd-4023-9145-5d2f865db367"
+                                    },
+                                    {
+                                      "name": "Autodesk Delete Parameter",
+                                      "id": "44fb98e1-3cc4-4f7a-96b8-44536bff7d5d",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "auth": {
+                                          "type": "oauth2",
+                                          "oauth2": [
+                                            {
+                                              "key": "scope",
+                                              "value": "account:read account:write",
+                                              "type": "string"
+                                            },
+                                            {
+                                              "key": "accessTokenUrl",
+                                              "value": "https://developer.api.autodesk.com/authentication/v2/token",
+                                              "type": "string"
+                                            },
+                                            {
+                                              "key": "authUrl",
+                                              "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+                                              "type": "string"
+                                            },
+                                            {
+                                              "key": "grant_type",
+                                              "value": "authorization_code",
+                                              "type": "string"
+                                            }
+                                          ]
+                                        },
+                                        "method": "DELETE",
+                                        "header": [],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/parameters/v1/accounts/:accountId/collections/:collectionId/parameters/:parameterId",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "parameters",
+                                            "v1",
+                                            "accounts",
+                                            ":accountId",
+                                            "collections",
+                                            ":collectionId",
+                                            "parameters",
+                                            ":parameterId"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "01912067-50e3-4d17-89d6-276c3a600a14",
+                                              "key": "accountId",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "0640c48a-1da8-49cc-ac5f-5d14fc2ce54a",
+                                              "key": "collectionId",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "d3ed55ad-58c6-4544-861d-b34842e03b3d",
+                                              "key": "parameterId",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            }
+                                          ]
+                                        },
+                                        "description": "Deletes a parameter from a collection."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "ce3fc194-f39c-4103-932a-087ca8e71727",
+                                          "name": "Parameter deleted.",
+                                          "originalRequest": {
+                                            "method": "DELETE",
+                                            "header": [
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/parameters/v1/accounts/:accountId/collections/:collectionId/parameters/:parameterId",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "parameters",
+                                                "v1",
+                                                "accounts",
+                                                ":accountId",
+                                                "collections",
+                                                ":collectionId",
+                                                "parameters",
+                                                ":parameterId"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "accountId"
+                                                },
+                                                {
+                                                  "key": "collectionId"
+                                                },
+                                                {
+                                                  "key": "parameterId"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "No Content",
+                                          "code": 204,
+                                          "_postman_previewlanguage": "text",
+                                          "header": [],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": null,
+                                          "createdAt": "2026-07-28T01:07:48.000Z",
+                                          "updatedAt": "2026-07-28T01:07:48.000Z",
+                                          "uid": "35240-ce3fc194-f39c-4103-932a-087ca8e71727"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T01:07:48.000Z",
+                                      "updatedAt": "2026-07-28T01:07:48.000Z",
+                                      "uid": "35240-44fb98e1-3cc4-4f7a-96b8-44536bff7d5d"
+                                    }
+                                  ],
+                                  "id": "0208de75-bdb8-4aeb-9f68-8a554199079b",
+                                  "createdAt": "2026-07-28T01:07:48.000Z",
+                                  "updatedAt": "2026-07-28T01:07:48.000Z",
+                                  "uid": "35240-0208de75-bdb8-4aeb-9f68-8a554199079b"
+                                },
+                                {
+                                  "name": "Autodesk List Parameters",
+                                  "id": "0a494d5a-67fc-4101-a0d6-5c3758ad81b6",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/parameters/v1/accounts/:accountId/collections/:collectionId/parameters?offset=<integer>&limit=<integer>&filter[groupId]=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "parameters",
+                                        "v1",
+                                        "accounts",
+                                        ":accountId",
+                                        "collections",
+                                        ":collectionId",
+                                        "parameters"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "offset",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "key": "limit",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "key": "filter[groupId]",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "880d521d-2521-45e8-ae5d-a793aebde314",
+                                          "key": "accountId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "45da63b0-9aa5-4f31-9b6a-38ddb0d7f02a",
+                                          "key": "collectionId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Returns parameters within a collection."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "25c81536-590c-4a70-9aec-07e2518a20a4",
+                                      "name": "Successfully retrieved parameters.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/parameters/v1/accounts/:accountId/collections/:collectionId/parameters?offset=<integer>&limit=<integer>&filter[groupId]=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "parameters",
+                                            "v1",
+                                            "accounts",
+                                            ":accountId",
+                                            "collections",
+                                            ":collectionId",
+                                            "parameters"
+                                          ],
+                                          "query": [
+                                            {
+                                              "key": "offset",
+                                              "value": "<integer>"
+                                            },
+                                            {
+                                              "key": "limit",
+                                              "value": "<integer>"
+                                            },
+                                            {
+                                              "key": "filter[groupId]",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "accountId"
+                                            },
+                                            {
+                                              "key": "collectionId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"results\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"specId\": \"<string>\",\n      \"groupId\": \"<string>\",\n      \"isReadOnly\": \"<boolean>\",\n      \"isShared\": \"<boolean>\",\n      \"isInstance\": \"<boolean>\",\n      \"categories\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"disciplines\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"guid\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"specId\": \"<string>\",\n      \"groupId\": \"<string>\",\n      \"isReadOnly\": \"<boolean>\",\n      \"isShared\": \"<boolean>\",\n      \"isInstance\": \"<boolean>\",\n      \"categories\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"disciplines\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"guid\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    }\n  ],\n  \"pagination\": {\n    \"offset\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"totalResults\": \"<integer>\"\n  }\n}",
+                                      "createdAt": "2026-07-28T01:07:48.000Z",
+                                      "updatedAt": "2026-07-28T01:07:48.000Z",
+                                      "uid": "35240-25c81536-590c-4a70-9aec-07e2518a20a4"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:07:48.000Z",
+                                  "updatedAt": "2026-07-28T01:07:48.000Z",
+                                  "uid": "35240-0a494d5a-67fc-4101-a0d6-5c3758ad81b6"
+                                },
+                                {
+                                  "name": "Autodesk Create Parameter",
+                                  "id": "ab31134a-9b59-4968-bacf-a22b8d9f932b",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "auth": {
+                                      "type": "oauth2",
+                                      "oauth2": [
+                                        {
+                                          "key": "scope",
+                                          "value": "account:read account:write",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "key": "accessTokenUrl",
+                                          "value": "https://developer.api.autodesk.com/authentication/v2/token",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "key": "authUrl",
+                                          "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "key": "grant_type",
+                                          "value": "authorization_code",
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"name\": \"<string>\",\n  \"specId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"groupId\": \"<string>\",\n  \"isInstance\": \"<boolean>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"disciplines\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/parameters/v1/accounts/:accountId/collections/:collectionId/parameters",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "parameters",
+                                        "v1",
+                                        "accounts",
+                                        ":accountId",
+                                        "collections",
+                                        ":collectionId",
+                                        "parameters"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "b249681a-388b-448c-9a44-c4efb491d5e5",
+                                          "key": "accountId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "dd96fdb4-7367-4148-9914-99a34bc47273",
+                                          "key": "collectionId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Creates a new parameter within a collection."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "2f8f1e20-deff-4fc0-a64f-0c0aa164489b",
+                                      "name": "Parameter created.",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"name\": \"<string>\",\n  \"specId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"groupId\": \"<string>\",\n  \"isInstance\": \"<boolean>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"disciplines\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/parameters/v1/accounts/:accountId/collections/:collectionId/parameters",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "parameters",
+                                            "v1",
+                                            "accounts",
+                                            ":accountId",
+                                            "collections",
+                                            ":collectionId",
+                                            "parameters"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "accountId"
+                                            },
+                                            {
+                                              "key": "collectionId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Created",
+                                      "code": 201,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"specId\": \"<string>\",\n  \"groupId\": \"<string>\",\n  \"isReadOnly\": \"<boolean>\",\n  \"isShared\": \"<boolean>\",\n  \"isInstance\": \"<boolean>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"disciplines\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"guid\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                                      "createdAt": "2026-07-28T01:07:48.000Z",
+                                      "updatedAt": "2026-07-28T01:07:48.000Z",
+                                      "uid": "35240-2f8f1e20-deff-4fc0-a64f-0c0aa164489b"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:07:48.000Z",
+                                  "updatedAt": "2026-07-28T01:07:48.000Z",
+                                  "uid": "35240-ab31134a-9b59-4968-bacf-a22b8d9f932b"
+                                }
+                              ],
+                              "id": "490d0d1c-e475-4fa1-9042-a4b43dcb71e1",
+                              "createdAt": "2026-07-28T01:07:48.000Z",
+                              "updatedAt": "2026-07-28T01:07:48.000Z",
+                              "uid": "35240-490d0d1c-e475-4fa1-9042-a4b43dcb71e1"
+                            }
+                          ],
+                          "id": "24325ff7-0f01-4f80-ae9c-a72fc4bfae20",
+                          "createdAt": "2026-07-28T01:07:48.000Z",
+                          "updatedAt": "2026-07-28T01:07:48.000Z",
+                          "uid": "35240-24325ff7-0f01-4f80-ae9c-a72fc4bfae20"
+                        }
+                      ],
+                      "id": "06e681ff-8385-410d-8f4b-14e087d1cc10",
+                      "createdAt": "2026-07-28T01:07:48.000Z",
+                      "updatedAt": "2026-07-28T01:07:48.000Z",
+                      "uid": "35240-06e681ff-8385-410d-8f4b-14e087d1cc10"
+                    }
+                  ],
+                  "id": "3c82d5cc-f466-4a67-8ca3-39ae2f62b675",
+                  "createdAt": "2026-07-28T01:07:48.000Z",
+                  "updatedAt": "2026-07-28T01:07:48.000Z",
+                  "uid": "35240-3c82d5cc-f466-4a67-8ca3-39ae2f62b675"
+                }
+              ],
+              "id": "c02d258d-1a20-4bb2-875e-660c19d67b90",
+              "createdAt": "2026-07-28T01:07:48.000Z",
+              "updatedAt": "2026-07-28T01:07:48.000Z",
+              "uid": "35240-c02d258d-1a20-4bb2-875e-660c19d67b90"
+            }
+          ],
+          "id": "412cf5bf-cfc9-4e13-b273-18e2d3b7d556",
+          "createdAt": "2026-07-28T01:07:48.000Z",
+          "updatedAt": "2026-07-28T01:07:48.000Z",
+          "uid": "35240-412cf5bf-cfc9-4e13-b273-18e2d3b7d556"
+        }
+      ],
+      "id": "549028b9-4589-42af-b85d-d2aff6e28454",
+      "createdAt": "2026-07-28T01:07:48.000Z",
+      "updatedAt": "2026-07-28T01:07:48.000Z",
+      "uid": "35240-549028b9-4589-42af-b85d-d2aff6e28454"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

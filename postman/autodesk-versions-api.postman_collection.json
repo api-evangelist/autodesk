@@ -1,0 +1,505 @@
+{
+  "info": {
+    "_postman_id": "c63c781e-5569-43bf-b0ae-b37ad5156743",
+    "name": "Autodesk ACC Account Admin Account Users Versions API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:08:06.000Z",
+    "updatedAt": "2026-07-28T01:08:06.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c63c781e-5569-43bf-b0ae-b37ad5156743"
+  },
+  "item": [
+    {
+      "name": "data",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "projects",
+              "item": [
+                {
+                  "name": "{project_id}",
+                  "item": [
+                    {
+                      "name": "items",
+                      "item": [
+                        {
+                          "name": "{item_id}",
+                          "item": [
+                            {
+                              "name": "versions",
+                              "item": [
+                                {
+                                  "name": "Autodesk List Item Versions",
+                                  "id": "76b1563a-93ba-460d-aa2f-4483747dbea6",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/vnd.api+json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/data/v1/projects/:project_id/items/:item_id/versions?page[number]=<integer>&page[limit]=<integer>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "data",
+                                        "v1",
+                                        "projects",
+                                        ":project_id",
+                                        "items",
+                                        ":item_id",
+                                        "versions"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "page[number]",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "key": "page[limit]",
+                                          "value": "<integer>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "c9e994f4-f740-4f73-ab9c-5f61b73cef8d",
+                                          "key": "project_id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "5dfe83b3-653d-47b5-83ec-281888c8dbff",
+                                          "key": "item_id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Returns all versions of a given item."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "77eba481-08f7-43ac-a9b4-7fd67206a97e",
+                                      "name": "Successfully retrieved versions.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/vnd.api+json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/data/v1/projects/:project_id/items/:item_id/versions?page[number]=<integer>&page[limit]=<integer>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "data",
+                                            "v1",
+                                            "projects",
+                                            ":project_id",
+                                            "items",
+                                            ":item_id",
+                                            "versions"
+                                          ],
+                                          "query": [
+                                            {
+                                              "key": "page[number]",
+                                              "value": "<integer>"
+                                            },
+                                            {
+                                              "key": "page[limit]",
+                                              "value": "<integer>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project_id"
+                                            },
+                                            {
+                                              "key": "item_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/vnd.api+json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": [\n    {\n      \"type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"attributes\": {\n        \"name\": \"<string>\",\n        \"displayName\": \"<string>\",\n        \"versionNumber\": \"<integer>\",\n        \"mimeType\": \"<string>\",\n        \"fileType\": \"<string>\",\n        \"storageSize\": \"<integer>\",\n        \"createTime\": \"<dateTime>\",\n        \"createUserId\": \"<string>\",\n        \"createUserName\": \"<string>\",\n        \"lastModifiedTime\": \"<dateTime>\",\n        \"lastModifiedUserId\": \"<string>\",\n        \"lastModifiedUserName\": \"<string>\",\n        \"extension\": {\n          \"type\": \"<string>\",\n          \"version\": \"<string>\",\n          \"data\": {}\n        }\n      }\n    },\n    {\n      \"type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"attributes\": {\n        \"name\": \"<string>\",\n        \"displayName\": \"<string>\",\n        \"versionNumber\": \"<integer>\",\n        \"mimeType\": \"<string>\",\n        \"fileType\": \"<string>\",\n        \"storageSize\": \"<integer>\",\n        \"createTime\": \"<dateTime>\",\n        \"createUserId\": \"<string>\",\n        \"createUserName\": \"<string>\",\n        \"lastModifiedTime\": \"<dateTime>\",\n        \"lastModifiedUserId\": \"<string>\",\n        \"lastModifiedUserName\": \"<string>\",\n        \"extension\": {\n          \"type\": \"<string>\",\n          \"version\": \"<string>\",\n          \"data\": {}\n        }\n      }\n    }\n  ],\n  \"links\": {\n    \"self\": {\n      \"href\": \"<uri>\"\n    },\n    \"first\": {\n      \"href\": \"<uri>\"\n    },\n    \"prev\": {\n      \"href\": \"<uri>\"\n    },\n    \"next\": {\n      \"href\": \"<uri>\"\n    }\n  }\n}",
+                                      "createdAt": "2026-07-28T01:08:06.000Z",
+                                      "updatedAt": "2026-07-28T01:08:06.000Z",
+                                      "uid": "35240-77eba481-08f7-43ac-a9b4-7fd67206a97e"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:08:06.000Z",
+                                  "updatedAt": "2026-07-28T01:08:06.000Z",
+                                  "uid": "35240-76b1563a-93ba-460d-aa2f-4483747dbea6"
+                                }
+                              ],
+                              "id": "95a28a1a-5f50-425f-90cd-6fb60b7611a7",
+                              "createdAt": "2026-07-28T01:08:06.000Z",
+                              "updatedAt": "2026-07-28T01:08:06.000Z",
+                              "uid": "35240-95a28a1a-5f50-425f-90cd-6fb60b7611a7"
+                            }
+                          ],
+                          "id": "436aeba1-e502-4eec-877f-c6853307ae07",
+                          "createdAt": "2026-07-28T01:08:06.000Z",
+                          "updatedAt": "2026-07-28T01:08:06.000Z",
+                          "uid": "35240-436aeba1-e502-4eec-877f-c6853307ae07"
+                        }
+                      ],
+                      "id": "c4ac1099-0e45-4afb-9554-afc0334b19c8",
+                      "createdAt": "2026-07-28T01:08:06.000Z",
+                      "updatedAt": "2026-07-28T01:08:06.000Z",
+                      "uid": "35240-c4ac1099-0e45-4afb-9554-afc0334b19c8"
+                    },
+                    {
+                      "name": "versions",
+                      "item": [
+                        {
+                          "name": "{version_id}",
+                          "item": [
+                            {
+                              "name": "Autodesk Get Version",
+                              "id": "908f55d2-97d0-4684-b9a2-5c87c3efd4d6",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/vnd.api+json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/data/v1/projects/:project_id/versions/:version_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "data",
+                                    "v1",
+                                    "projects",
+                                    ":project_id",
+                                    "versions",
+                                    ":version_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "f2f8e28b-174b-4c69-bbfb-ea80788f38ba",
+                                      "key": "project_id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "eacd5902-27cf-4160-ab0a-578a41eb4bd3",
+                                      "key": "version_id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Returns a specific version of an item."
+                              },
+                              "response": [
+                                {
+                                  "id": "acf55290-ee51-460a-a4de-5970d0c5d5c4",
+                                  "name": "Successfully retrieved version.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/vnd.api+json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/data/v1/projects/:project_id/versions/:version_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "data",
+                                        "v1",
+                                        "projects",
+                                        ":project_id",
+                                        "versions",
+                                        ":version_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project_id"
+                                        },
+                                        {
+                                          "key": "version_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/vnd.api+json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": {\n    \"type\": \"<string>\",\n    \"id\": \"<string>\",\n    \"attributes\": {\n      \"name\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"versionNumber\": \"<integer>\",\n      \"mimeType\": \"<string>\",\n      \"fileType\": \"<string>\",\n      \"storageSize\": \"<integer>\",\n      \"createTime\": \"<dateTime>\",\n      \"createUserId\": \"<string>\",\n      \"createUserName\": \"<string>\",\n      \"lastModifiedTime\": \"<dateTime>\",\n      \"lastModifiedUserId\": \"<string>\",\n      \"lastModifiedUserName\": \"<string>\",\n      \"extension\": {\n        \"type\": \"<string>\",\n        \"version\": \"<string>\",\n        \"data\": {}\n      }\n    }\n  }\n}",
+                                  "createdAt": "2026-07-28T01:08:06.000Z",
+                                  "updatedAt": "2026-07-28T01:08:06.000Z",
+                                  "uid": "35240-acf55290-ee51-460a-a4de-5970d0c5d5c4"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:08:06.000Z",
+                              "updatedAt": "2026-07-28T01:08:06.000Z",
+                              "uid": "35240-908f55d2-97d0-4684-b9a2-5c87c3efd4d6"
+                            }
+                          ],
+                          "id": "b18b6023-fded-43f8-83a1-695bb56b5522",
+                          "createdAt": "2026-07-28T01:08:06.000Z",
+                          "updatedAt": "2026-07-28T01:08:06.000Z",
+                          "uid": "35240-b18b6023-fded-43f8-83a1-695bb56b5522"
+                        },
+                        {
+                          "name": "Autodesk Create Version",
+                          "id": "940fcaff-5970-441e-b0af-1f6c169cf917",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "oauth2",
+                              "oauth2": [
+                                {
+                                  "key": "scope",
+                                  "value": "account:read account:write",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "accessTokenUrl",
+                                  "value": "https://developer.api.autodesk.com/authentication/v2/token",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "authUrl",
+                                  "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "grant_type",
+                                  "value": "authorization_code",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/vnd.api+json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.api+json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": {\n    \"type\": \"<string>\",\n    \"attributes\": {\n      \"name\": \"<string>\",\n      \"extension\": {\n        \"type\": \"<string>\",\n        \"version\": \"<string>\",\n        \"data\": {}\n      }\n    },\n    \"relationships\": {\n      \"item\": {\n        \"data\": {\n          \"type\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      },\n      \"storage\": {\n        \"data\": {\n          \"type\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/data/v1/projects/:project_id/versions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "data",
+                                "v1",
+                                "projects",
+                                ":project_id",
+                                "versions"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "f9cf91aa-42d2-4400-b7c3-a3254ad4570f",
+                                  "key": "project_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Creates a new version of an existing item. The version references a storage location containing the uploaded file."
+                          },
+                          "response": [
+                            {
+                              "id": "1ed01872-0d47-4ca3-b00d-5a80acc4603d",
+                              "name": "Version created successfully.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/vnd.api+json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/vnd.api+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": {\n    \"type\": \"<string>\",\n    \"attributes\": {\n      \"name\": \"<string>\",\n      \"extension\": {\n        \"type\": \"<string>\",\n        \"version\": \"<string>\",\n        \"data\": {}\n      }\n    },\n    \"relationships\": {\n      \"item\": {\n        \"data\": {\n          \"type\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      },\n      \"storage\": {\n        \"data\": {\n          \"type\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/data/v1/projects/:project_id/versions",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "data",
+                                    "v1",
+                                    "projects",
+                                    ":project_id",
+                                    "versions"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Created",
+                              "code": 201,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/vnd.api+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": {\n    \"type\": \"<string>\",\n    \"id\": \"<string>\",\n    \"attributes\": {\n      \"name\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"versionNumber\": \"<integer>\",\n      \"mimeType\": \"<string>\",\n      \"fileType\": \"<string>\",\n      \"storageSize\": \"<integer>\",\n      \"createTime\": \"<dateTime>\",\n      \"createUserId\": \"<string>\",\n      \"createUserName\": \"<string>\",\n      \"lastModifiedTime\": \"<dateTime>\",\n      \"lastModifiedUserId\": \"<string>\",\n      \"lastModifiedUserName\": \"<string>\",\n      \"extension\": {\n        \"type\": \"<string>\",\n        \"version\": \"<string>\",\n        \"data\": {}\n      }\n    }\n  }\n}",
+                              "createdAt": "2026-07-28T01:08:06.000Z",
+                              "updatedAt": "2026-07-28T01:08:06.000Z",
+                              "uid": "35240-1ed01872-0d47-4ca3-b00d-5a80acc4603d"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:08:06.000Z",
+                          "updatedAt": "2026-07-28T01:08:06.000Z",
+                          "uid": "35240-940fcaff-5970-441e-b0af-1f6c169cf917"
+                        }
+                      ],
+                      "id": "24774acc-7d86-47f9-8e80-49fdff0d2e71",
+                      "createdAt": "2026-07-28T01:08:06.000Z",
+                      "updatedAt": "2026-07-28T01:08:06.000Z",
+                      "uid": "35240-24774acc-7d86-47f9-8e80-49fdff0d2e71"
+                    }
+                  ],
+                  "id": "1bbfcefa-b758-4269-b053-111e88454041",
+                  "createdAt": "2026-07-28T01:08:06.000Z",
+                  "updatedAt": "2026-07-28T01:08:06.000Z",
+                  "uid": "35240-1bbfcefa-b758-4269-b053-111e88454041"
+                }
+              ],
+              "id": "98079263-f0ed-47ec-a776-e15d74f6ac23",
+              "createdAt": "2026-07-28T01:08:06.000Z",
+              "updatedAt": "2026-07-28T01:08:06.000Z",
+              "uid": "35240-98079263-f0ed-47ec-a776-e15d74f6ac23"
+            }
+          ],
+          "id": "fb6ad4e0-fbaa-4d1f-8d37-4796b35d10a8",
+          "createdAt": "2026-07-28T01:08:06.000Z",
+          "updatedAt": "2026-07-28T01:08:06.000Z",
+          "uid": "35240-fb6ad4e0-fbaa-4d1f-8d37-4796b35d10a8"
+        }
+      ],
+      "id": "f94e7166-ed05-4780-8232-b1dc9876e20f",
+      "createdAt": "2026-07-28T01:08:06.000Z",
+      "updatedAt": "2026-07-28T01:08:06.000Z",
+      "uid": "35240-f94e7166-ed05-4780-8232-b1dc9876e20f"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

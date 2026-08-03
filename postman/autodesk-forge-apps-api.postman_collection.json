@@ -1,0 +1,385 @@
+{
+  "info": {
+    "_postman_id": "af82af5e-bb6f-44c3-93ff-c3c7717f8b55",
+    "name": "Autodesk ACC Account Admin Account Users Forge Apps API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:05.000Z",
+    "updatedAt": "2026-07-28T01:07:05.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-af82af5e-bb6f-44c3-93ff-c3c7717f8b55"
+  },
+  "item": [
+    {
+      "name": "da",
+      "item": [
+        {
+          "name": "us-east",
+          "item": [
+            {
+              "name": "v3",
+              "item": [
+                {
+                  "name": "forgeapps",
+                  "item": [
+                    {
+                      "name": "me",
+                      "item": [
+                        {
+                          "name": "Autodesk Get Nickname",
+                          "id": "8435349e-1783-457a-a6ca-351a818ccd7a",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/da/us-east/v3/forgeapps/me",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "da",
+                                "us-east",
+                                "v3",
+                                "forgeapps",
+                                "me"
+                              ]
+                            },
+                            "description": "Returns the nickname for the caller's Forge app."
+                          },
+                          "response": [
+                            {
+                              "id": "310b595b-f648-44c9-8d23-0cf1904a4c74",
+                              "name": "Successfully retrieved nickname.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/da/us-east/v3/forgeapps/me",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "da",
+                                    "us-east",
+                                    "v3",
+                                    "forgeapps",
+                                    "me"
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "<string>",
+                              "createdAt": "2026-07-28T01:07:06.000Z",
+                              "updatedAt": "2026-07-28T01:07:06.000Z",
+                              "uid": "35240-310b595b-f648-44c9-8d23-0cf1904a4c74"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:07:06.000Z",
+                          "updatedAt": "2026-07-28T01:07:06.000Z",
+                          "uid": "35240-8435349e-1783-457a-a6ca-351a818ccd7a"
+                        },
+                        {
+                          "name": "Autodesk Delete Nickname",
+                          "id": "853958a9-d927-4859-a5d8-38390724b121",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/da/us-east/v3/forgeapps/me",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "da",
+                                "us-east",
+                                "v3",
+                                "forgeapps",
+                                "me"
+                              ]
+                            },
+                            "description": "Removes the nickname for the caller's Forge app, also removing all AppBundles and Activities."
+                          },
+                          "response": [
+                            {
+                              "id": "4525dd97-318a-4098-8b44-9affeec096de",
+                              "name": "Nickname removed.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/da/us-east/v3/forgeapps/me",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "da",
+                                    "us-east",
+                                    "v3",
+                                    "forgeapps",
+                                    "me"
+                                  ]
+                                }
+                              },
+                              "status": "No Content",
+                              "code": 204,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:07:06.000Z",
+                              "updatedAt": "2026-07-28T01:07:06.000Z",
+                              "uid": "35240-4525dd97-318a-4098-8b44-9affeec096de"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:07:06.000Z",
+                          "updatedAt": "2026-07-28T01:07:06.000Z",
+                          "uid": "35240-853958a9-d927-4859-a5d8-38390724b121"
+                        },
+                        {
+                          "name": "Autodesk Create/Update Nickname",
+                          "id": "7e4c1315-12ca-4d76-9ac5-94c523e320b1",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nickname\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/da/us-east/v3/forgeapps/me",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "da",
+                                "us-east",
+                                "v3",
+                                "forgeapps",
+                                "me"
+                              ]
+                            },
+                            "description": "Creates or updates the nickname for the caller's Forge app."
+                          },
+                          "response": [
+                            {
+                              "id": "80be1ec6-48b0-4291-a2cc-11f5b5d26911",
+                              "name": "Nickname created/updated.",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"nickname\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/da/us-east/v3/forgeapps/me",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "da",
+                                    "us-east",
+                                    "v3",
+                                    "forgeapps",
+                                    "me"
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:07:06.000Z",
+                              "updatedAt": "2026-07-28T01:07:06.000Z",
+                              "uid": "35240-80be1ec6-48b0-4291-a2cc-11f5b5d26911"
+                            },
+                            {
+                              "id": "b75e11e8-b6e4-4e39-a15a-71b11374238f",
+                              "name": "Nickname already taken.",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"nickname\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/da/us-east/v3/forgeapps/me",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "da",
+                                    "us-east",
+                                    "v3",
+                                    "forgeapps",
+                                    "me"
+                                  ]
+                                }
+                              },
+                              "status": "Conflict",
+                              "code": 409,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:07:06.000Z",
+                              "updatedAt": "2026-07-28T01:07:06.000Z",
+                              "uid": "35240-b75e11e8-b6e4-4e39-a15a-71b11374238f"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:07:06.000Z",
+                          "updatedAt": "2026-07-28T01:07:06.000Z",
+                          "uid": "35240-7e4c1315-12ca-4d76-9ac5-94c523e320b1"
+                        }
+                      ],
+                      "id": "88d03b32-6b3c-47ba-8413-1065a52ac51b",
+                      "createdAt": "2026-07-28T01:07:06.000Z",
+                      "updatedAt": "2026-07-28T01:07:06.000Z",
+                      "uid": "35240-88d03b32-6b3c-47ba-8413-1065a52ac51b"
+                    }
+                  ],
+                  "id": "34af5123-2d01-4796-bb1d-6eb520eac235",
+                  "createdAt": "2026-07-28T01:07:06.000Z",
+                  "updatedAt": "2026-07-28T01:07:06.000Z",
+                  "uid": "35240-34af5123-2d01-4796-bb1d-6eb520eac235"
+                }
+              ],
+              "id": "2433d5ed-73dd-4763-a3ca-7afb8d543f0e",
+              "createdAt": "2026-07-28T01:07:06.000Z",
+              "updatedAt": "2026-07-28T01:07:06.000Z",
+              "uid": "35240-2433d5ed-73dd-4763-a3ca-7afb8d543f0e"
+            }
+          ],
+          "id": "00aeae40-91d5-4c84-9fcc-704de427f5f4",
+          "createdAt": "2026-07-28T01:07:06.000Z",
+          "updatedAt": "2026-07-28T01:07:06.000Z",
+          "uid": "35240-00aeae40-91d5-4c84-9fcc-704de427f5f4"
+        }
+      ],
+      "id": "8a0489e8-83b7-4546-a375-3aa81af9b00a",
+      "createdAt": "2026-07-28T01:07:06.000Z",
+      "updatedAt": "2026-07-28T01:07:06.000Z",
+      "uid": "35240-8a0489e8-83b7-4546-a375-3aa81af9b00a"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

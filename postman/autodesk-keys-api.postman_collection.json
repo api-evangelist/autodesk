@@ -1,0 +1,149 @@
+{
+  "info": {
+    "_postman_id": "b06d97a1-1bd7-4606-8bfa-e856aed41678",
+    "name": "Autodesk ACC Account Admin Account Users Keys API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:40.000Z",
+    "updatedAt": "2026-07-28T01:07:40.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b06d97a1-1bd7-4606-8bfa-e856aed41678"
+  },
+  "item": [
+    {
+      "name": "authentication",
+      "item": [
+        {
+          "name": "v2",
+          "item": [
+            {
+              "name": "keys",
+              "item": [
+                {
+                  "name": "Autodesk Get JWKS",
+                  "id": "c2083d40-6f5e-47e4-9de5-91f1990059f3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/authentication/v2/keys",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "authentication",
+                        "v2",
+                        "keys"
+                      ]
+                    },
+                    "description": "Returns the JSON Web Key Set (JWKS) containing the public keys used to verify JSON Web Tokens (JWTs) issued by the Autodesk authentication service."
+                  },
+                  "response": [
+                    {
+                      "id": "0538e115-b825-452d-baaa-6e131068d46e",
+                      "name": "Successfully retrieved JWKS.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/authentication/v2/keys",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "authentication",
+                            "v2",
+                            "keys"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"keys\": [\n    {\n      \"kty\": \"<string>\",\n      \"kid\": \"<string>\",\n      \"use\": \"<string>\",\n      \"n\": \"<string>\",\n      \"e\": \"<string>\",\n      \"alg\": \"<string>\"\n    },\n    {\n      \"kty\": \"<string>\",\n      \"kid\": \"<string>\",\n      \"use\": \"<string>\",\n      \"n\": \"<string>\",\n      \"e\": \"<string>\",\n      \"alg\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:07:40.000Z",
+                      "updatedAt": "2026-07-28T01:07:40.000Z",
+                      "uid": "35240-0538e115-b825-452d-baaa-6e131068d46e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:07:40.000Z",
+                  "updatedAt": "2026-07-28T01:07:40.000Z",
+                  "uid": "35240-c2083d40-6f5e-47e4-9de5-91f1990059f3"
+                }
+              ],
+              "id": "73c6b2b5-12a9-4e32-820c-31f6b0eb73a8",
+              "createdAt": "2026-07-28T01:07:40.000Z",
+              "updatedAt": "2026-07-28T01:07:40.000Z",
+              "uid": "35240-73c6b2b5-12a9-4e32-820c-31f6b0eb73a8"
+            }
+          ],
+          "id": "ace2d356-cce4-43e2-951b-2f8892248f2c",
+          "createdAt": "2026-07-28T01:07:40.000Z",
+          "updatedAt": "2026-07-28T01:07:40.000Z",
+          "uid": "35240-ace2d356-cce4-43e2-951b-2f8892248f2c"
+        }
+      ],
+      "id": "01089372-810c-467d-a06c-9e4406add9ac",
+      "createdAt": "2026-07-28T01:07:40.000Z",
+      "updatedAt": "2026-07-28T01:07:40.000Z",
+      "uid": "35240-01089372-810c-467d-a06c-9e4406add9ac"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

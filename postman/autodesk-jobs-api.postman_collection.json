@@ -1,0 +1,1048 @@
+{
+  "info": {
+    "_postman_id": "f2065905-1d5c-4ca5-9c52-8e287bb769bb",
+    "name": "Autodesk ACC Account Admin Account Users Jobs API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:39.000Z",
+    "updatedAt": "2026-07-28T01:07:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f2065905-1d5c-4ca5-9c52-8e287bb769bb"
+  },
+  "item": [
+    {
+      "name": "fge",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "jobs",
+              "item": [
+                {
+                  "name": "{jobId}",
+                  "item": [
+                    {
+                      "name": "result",
+                      "item": [
+                        {
+                          "name": "Autodesk Get Job Result",
+                          "id": "e117d10e-1c93-4faa-960c-610250c9f30b",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/fge/v1/jobs/:jobId/result",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "fge",
+                                "v1",
+                                "jobs",
+                                ":jobId",
+                                "result"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "294c830b-8203-48e9-b627-2ae2410ca3b3",
+                                  "key": "jobId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Returns the output/result of a completed graph evaluation job."
+                          },
+                          "response": [
+                            {
+                              "id": "9dd91441-00e0-4bed-804b-b512813f255e",
+                              "name": "Successfully retrieved result.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/fge/v1/jobs/:jobId/result",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "fge",
+                                    "v1",
+                                    "jobs",
+                                    ":jobId",
+                                    "result"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "jobId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"jobId\": \"<string>\",\n  \"outputs\": {\n    \"est6_\": 83479767.72292146,\n    \"exercitatione2\": \"proident in mollit\"\n  },\n  \"downloadUrl\": \"<uri>\"\n}",
+                              "createdAt": "2026-07-28T01:07:39.000Z",
+                              "updatedAt": "2026-07-28T01:07:39.000Z",
+                              "uid": "35240-9dd91441-00e0-4bed-804b-b512813f255e"
+                            },
+                            {
+                              "id": "6715c25b-fe7f-4d4c-9255-0ade029f7c55",
+                              "name": "Result not found or job not complete.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/fge/v1/jobs/:jobId/result",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "fge",
+                                    "v1",
+                                    "jobs",
+                                    ":jobId",
+                                    "result"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "jobId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:07:39.000Z",
+                              "updatedAt": "2026-07-28T01:07:39.000Z",
+                              "uid": "35240-6715c25b-fe7f-4d4c-9255-0ade029f7c55"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:07:39.000Z",
+                          "updatedAt": "2026-07-28T01:07:39.000Z",
+                          "uid": "35240-e117d10e-1c93-4faa-960c-610250c9f30b"
+                        }
+                      ],
+                      "id": "67231f5b-79ec-4ab1-bc3f-4d5db6ac031f",
+                      "createdAt": "2026-07-28T01:07:39.000Z",
+                      "updatedAt": "2026-07-28T01:07:39.000Z",
+                      "uid": "35240-67231f5b-79ec-4ab1-bc3f-4d5db6ac031f"
+                    },
+                    {
+                      "name": "Autodesk Get Job",
+                      "id": "2e13a8bd-782d-4976-a486-52dd8ce23cdc",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/fge/v1/jobs/:jobId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fge",
+                            "v1",
+                            "jobs",
+                            ":jobId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "97e6f991-c4e0-458d-9302-2d4210b81a37",
+                              "key": "jobId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Returns the status and details of a specific job."
+                      },
+                      "response": [
+                        {
+                          "id": "53e0ab5f-4130-42bd-80e3-e8ae8fc1b4b9",
+                          "name": "Successfully retrieved job.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/fge/v1/jobs/:jobId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "fge",
+                                "v1",
+                                "jobs",
+                                ":jobId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "jobId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"graphId\": \"<string>\",\n  \"status\": \"running\",\n  \"progress\": \"<number>\",\n  \"createdAt\": \"<dateTime>\",\n  \"startedAt\": \"<dateTime>\",\n  \"completedAt\": \"<dateTime>\",\n  \"error\": \"<string>\",\n  \"inputs\": {\n    \"doloreb1\": -40348622.92413073,\n    \"velit1e7\": -1029334,\n    \"ipsum_b0\": -72011537\n  }\n}",
+                          "createdAt": "2026-07-28T01:07:39.000Z",
+                          "updatedAt": "2026-07-28T01:07:39.000Z",
+                          "uid": "35240-53e0ab5f-4130-42bd-80e3-e8ae8fc1b4b9"
+                        },
+                        {
+                          "id": "bb209865-5d85-4a81-8813-c24ca67583b3",
+                          "name": "Job not found.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/fge/v1/jobs/:jobId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "fge",
+                                "v1",
+                                "jobs",
+                                ":jobId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "jobId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:07:39.000Z",
+                          "updatedAt": "2026-07-28T01:07:39.000Z",
+                          "uid": "35240-bb209865-5d85-4a81-8813-c24ca67583b3"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:07:39.000Z",
+                      "updatedAt": "2026-07-28T01:07:39.000Z",
+                      "uid": "35240-2e13a8bd-782d-4976-a486-52dd8ce23cdc"
+                    },
+                    {
+                      "name": "Autodesk Cancel Job",
+                      "id": "0644705d-8f87-4e36-b763-b33a364158f0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/fge/v1/jobs/:jobId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fge",
+                            "v1",
+                            "jobs",
+                            ":jobId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "5fd4af1d-bdd4-44f0-a7b5-2ca3c0df13f6",
+                              "key": "jobId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Cancels a queued or running job."
+                      },
+                      "response": [
+                        {
+                          "id": "08c7d318-8cad-4c9f-94b3-b4547d50677c",
+                          "name": "Job cancelled.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/fge/v1/jobs/:jobId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "fge",
+                                "v1",
+                                "jobs",
+                                ":jobId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "jobId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:07:39.000Z",
+                          "updatedAt": "2026-07-28T01:07:39.000Z",
+                          "uid": "35240-08c7d318-8cad-4c9f-94b3-b4547d50677c"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:07:39.000Z",
+                      "updatedAt": "2026-07-28T01:07:39.000Z",
+                      "uid": "35240-0644705d-8f87-4e36-b763-b33a364158f0"
+                    }
+                  ],
+                  "id": "634574c4-d639-4cc0-a595-cc85c617d961",
+                  "createdAt": "2026-07-28T01:07:39.000Z",
+                  "updatedAt": "2026-07-28T01:07:39.000Z",
+                  "uid": "35240-634574c4-d639-4cc0-a595-cc85c617d961"
+                },
+                {
+                  "name": "Autodesk List Jobs",
+                  "id": "23a2a90e-5d28-434f-8e40-5b629ba50b34",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/fge/v1/jobs?filter[status]=running&limit=<integer>&offset=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fge",
+                        "v1",
+                        "jobs"
+                      ],
+                      "query": [
+                        {
+                          "key": "filter[status]",
+                          "value": "running"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "Returns a list of graph evaluation jobs."
+                  },
+                  "response": [
+                    {
+                      "id": "9a52c8bb-9b98-4d41-8b4f-20493dadd222",
+                      "name": "Successfully retrieved jobs.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/fge/v1/jobs?filter[status]=running&limit=<integer>&offset=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fge",
+                            "v1",
+                            "jobs"
+                          ],
+                          "query": [
+                            {
+                              "key": "filter[status]",
+                              "value": "running"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "offset",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"results\": [\n    {\n      \"id\": \"<string>\",\n      \"graphId\": \"<string>\",\n      \"status\": \"succeeded\",\n      \"progress\": \"<number>\",\n      \"createdAt\": \"<dateTime>\",\n      \"startedAt\": \"<dateTime>\",\n      \"completedAt\": \"<dateTime>\",\n      \"error\": \"<string>\",\n      \"inputs\": {\n        \"Lorem_e6\": -17957174.085541755,\n        \"amet_8\": \"ut\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"graphId\": \"<string>\",\n      \"status\": \"succeeded\",\n      \"progress\": \"<number>\",\n      \"createdAt\": \"<dateTime>\",\n      \"startedAt\": \"<dateTime>\",\n      \"completedAt\": \"<dateTime>\",\n      \"error\": \"<string>\",\n      \"inputs\": {\n        \"nisi0\": 58057723\n      }\n    }\n  ],\n  \"pagination\": {\n    \"offset\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"totalResults\": \"<integer>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:07:39.000Z",
+                      "updatedAt": "2026-07-28T01:07:39.000Z",
+                      "uid": "35240-9a52c8bb-9b98-4d41-8b4f-20493dadd222"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:07:39.000Z",
+                  "updatedAt": "2026-07-28T01:07:39.000Z",
+                  "uid": "35240-23a2a90e-5d28-434f-8e40-5b629ba50b34"
+                },
+                {
+                  "name": "Autodesk Create Job",
+                  "id": "d91b112f-3cbc-4a1c-be27-b15b2867f232",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"graphId\": \"<string>\",\n  \"inputs\": {\n    \"aliquip_c2\": false,\n    \"occaecat1e9\": true,\n    \"ut_0\": 89263761\n  },\n  \"callbackUrl\": \"<uri>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/fge/v1/jobs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fge",
+                        "v1",
+                        "jobs"
+                      ]
+                    },
+                    "description": "Creates and queues a new graph evaluation job. Specify the graph to evaluate and input parameters."
+                  },
+                  "response": [
+                    {
+                      "id": "e39eae0c-3795-44a8-868b-83624ea7ab96",
+                      "name": "Job created and queued.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"graphId\": \"<string>\",\n  \"inputs\": {\n    \"aliquip_c2\": false,\n    \"occaecat1e9\": true,\n    \"ut_0\": 89263761\n  },\n  \"callbackUrl\": \"<uri>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/fge/v1/jobs",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fge",
+                            "v1",
+                            "jobs"
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"graphId\": \"<string>\",\n  \"status\": \"running\",\n  \"progress\": \"<number>\",\n  \"createdAt\": \"<dateTime>\",\n  \"startedAt\": \"<dateTime>\",\n  \"completedAt\": \"<dateTime>\",\n  \"error\": \"<string>\",\n  \"inputs\": {\n    \"doloreb1\": -40348622.92413073,\n    \"velit1e7\": -1029334,\n    \"ipsum_b0\": -72011537\n  }\n}",
+                      "createdAt": "2026-07-28T01:07:39.000Z",
+                      "updatedAt": "2026-07-28T01:07:39.000Z",
+                      "uid": "35240-e39eae0c-3795-44a8-868b-83624ea7ab96"
+                    },
+                    {
+                      "id": "73f63bdd-163a-4d8f-935d-d46adf458656",
+                      "name": "Bad request.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"graphId\": \"<string>\",\n  \"inputs\": {\n    \"aliquip_c2\": false,\n    \"occaecat1e9\": true,\n    \"ut_0\": 89263761\n  },\n  \"callbackUrl\": \"<uri>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/fge/v1/jobs",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fge",
+                            "v1",
+                            "jobs"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:07:39.000Z",
+                      "updatedAt": "2026-07-28T01:07:39.000Z",
+                      "uid": "35240-73f63bdd-163a-4d8f-935d-d46adf458656"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:07:39.000Z",
+                  "updatedAt": "2026-07-28T01:07:39.000Z",
+                  "uid": "35240-d91b112f-3cbc-4a1c-be27-b15b2867f232"
+                }
+              ],
+              "id": "0a5c99e3-074d-4690-86e2-bcbec0180a2b",
+              "createdAt": "2026-07-28T01:07:39.000Z",
+              "updatedAt": "2026-07-28T01:07:39.000Z",
+              "uid": "35240-0a5c99e3-074d-4690-86e2-bcbec0180a2b"
+            }
+          ],
+          "id": "af14b7ac-439c-43ad-898b-6e17dbe0e1f8",
+          "createdAt": "2026-07-28T01:07:39.000Z",
+          "updatedAt": "2026-07-28T01:07:39.000Z",
+          "uid": "35240-af14b7ac-439c-43ad-898b-6e17dbe0e1f8"
+        }
+      ],
+      "id": "6c55ee50-1ac2-4d4c-9637-2e04499b1e1a",
+      "createdAt": "2026-07-28T01:07:39.000Z",
+      "updatedAt": "2026-07-28T01:07:39.000Z",
+      "uid": "35240-6c55ee50-1ac2-4d4c-9637-2e04499b1e1a"
+    },
+    {
+      "name": "modelderivative",
+      "item": [
+        {
+          "name": "v2",
+          "item": [
+            {
+              "name": "designdata",
+              "item": [
+                {
+                  "name": "job",
+                  "item": [
+                    {
+                      "name": "Autodesk Start Translation Job",
+                      "id": "bbc93034-e286-481a-8e9d-4e0b3c24b579",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Set to true to force re-translation even if the output already exists.",
+                            "key": "x-ads-force",
+                            "value": "<boolean>"
+                          },
+                          {
+                            "description": "The derivative format version (v2 for SVF2).",
+                            "key": "x-ads-derivative-format",
+                            "value": "v2"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"input\": {\n    \"urn\": \"<string>\",\n    \"compressedUrn\": \"<boolean>\",\n    \"rootFilename\": \"<string>\"\n  },\n  \"output\": {\n    \"formats\": [\n      {\n        \"type\": \"step\",\n        \"views\": [\n          \"2d\",\n          \"2d\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"multiple\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      },\n      {\n        \"type\": \"step\",\n        \"views\": [\n          \"3d\",\n          \"3d\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"multiple\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      }\n    ],\n    \"destination\": {\n      \"region\": \"emea\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/modelderivative/v2/designdata/job",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "modelderivative",
+                            "v2",
+                            "designdata",
+                            "job"
+                          ]
+                        },
+                        "description": "Starts a translation job to convert a source design file into one or more derivative formats. The source file is identified by its URN (Base64-encoded object ID from the Data Management or OSS API)."
+                      },
+                      "response": [
+                        {
+                          "id": "137d5850-51d1-4980-95f4-3ec881bde6cb",
+                          "name": "Translation job started or already complete.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Set to true to force re-translation even if the output already exists.",
+                                "key": "x-ads-force",
+                                "value": "<boolean>"
+                              },
+                              {
+                                "description": "The derivative format version (v2 for SVF2).",
+                                "key": "x-ads-derivative-format",
+                                "value": "v2"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"input\": {\n    \"urn\": \"<string>\",\n    \"compressedUrn\": \"<boolean>\",\n    \"rootFilename\": \"<string>\"\n  },\n  \"output\": {\n    \"formats\": [\n      {\n        \"type\": \"step\",\n        \"views\": [\n          \"2d\",\n          \"2d\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"multiple\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      },\n      {\n        \"type\": \"step\",\n        \"views\": [\n          \"3d\",\n          \"3d\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"multiple\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      }\n    ],\n    \"destination\": {\n      \"region\": \"emea\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/modelderivative/v2/designdata/job",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "modelderivative",
+                                "v2",
+                                "designdata",
+                                "job"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": \"<string>\",\n  \"urn\": \"<string>\",\n  \"acceptedJobs\": {\n    \"output\": {\n      \"formats\": [\n        {\n          \"type\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\"\n        }\n      ]\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T01:07:39.000Z",
+                          "updatedAt": "2026-07-28T01:07:39.000Z",
+                          "uid": "35240-137d5850-51d1-4980-95f4-3ec881bde6cb"
+                        },
+                        {
+                          "id": "f4ca612b-cdce-4d24-8c68-74690b37836b",
+                          "name": "Translation job accepted and started.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Set to true to force re-translation even if the output already exists.",
+                                "key": "x-ads-force",
+                                "value": "<boolean>"
+                              },
+                              {
+                                "description": "The derivative format version (v2 for SVF2).",
+                                "key": "x-ads-derivative-format",
+                                "value": "v2"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"input\": {\n    \"urn\": \"<string>\",\n    \"compressedUrn\": \"<boolean>\",\n    \"rootFilename\": \"<string>\"\n  },\n  \"output\": {\n    \"formats\": [\n      {\n        \"type\": \"step\",\n        \"views\": [\n          \"2d\",\n          \"2d\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"multiple\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      },\n      {\n        \"type\": \"step\",\n        \"views\": [\n          \"3d\",\n          \"3d\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"multiple\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      }\n    ],\n    \"destination\": {\n      \"region\": \"emea\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/modelderivative/v2/designdata/job",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "modelderivative",
+                                "v2",
+                                "designdata",
+                                "job"
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": \"<string>\",\n  \"urn\": \"<string>\",\n  \"acceptedJobs\": {\n    \"output\": {\n      \"formats\": [\n        {\n          \"type\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\"\n        }\n      ]\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T01:07:39.000Z",
+                          "updatedAt": "2026-07-28T01:07:39.000Z",
+                          "uid": "35240-f4ca612b-cdce-4d24-8c68-74690b37836b"
+                        },
+                        {
+                          "id": "febc8b55-9eca-42c6-90e3-d867bcea6cfe",
+                          "name": "Bad request.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Set to true to force re-translation even if the output already exists.",
+                                "key": "x-ads-force",
+                                "value": "<boolean>"
+                              },
+                              {
+                                "description": "The derivative format version (v2 for SVF2).",
+                                "key": "x-ads-derivative-format",
+                                "value": "v2"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"input\": {\n    \"urn\": \"<string>\",\n    \"compressedUrn\": \"<boolean>\",\n    \"rootFilename\": \"<string>\"\n  },\n  \"output\": {\n    \"formats\": [\n      {\n        \"type\": \"step\",\n        \"views\": [\n          \"2d\",\n          \"2d\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"multiple\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      },\n      {\n        \"type\": \"step\",\n        \"views\": [\n          \"3d\",\n          \"3d\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"multiple\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      }\n    ],\n    \"destination\": {\n      \"region\": \"emea\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/modelderivative/v2/designdata/job",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "modelderivative",
+                                "v2",
+                                "designdata",
+                                "job"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:07:39.000Z",
+                          "updatedAt": "2026-07-28T01:07:39.000Z",
+                          "uid": "35240-febc8b55-9eca-42c6-90e3-d867bcea6cfe"
+                        },
+                        {
+                          "id": "08b80389-ebd9-49f2-b4e7-6cdcd485f136",
+                          "name": "Unauthorized.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Set to true to force re-translation even if the output already exists.",
+                                "key": "x-ads-force",
+                                "value": "<boolean>"
+                              },
+                              {
+                                "description": "The derivative format version (v2 for SVF2).",
+                                "key": "x-ads-derivative-format",
+                                "value": "v2"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"input\": {\n    \"urn\": \"<string>\",\n    \"compressedUrn\": \"<boolean>\",\n    \"rootFilename\": \"<string>\"\n  },\n  \"output\": {\n    \"formats\": [\n      {\n        \"type\": \"step\",\n        \"views\": [\n          \"2d\",\n          \"2d\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"multiple\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      },\n      {\n        \"type\": \"step\",\n        \"views\": [\n          \"3d\",\n          \"3d\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"multiple\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      }\n    ],\n    \"destination\": {\n      \"region\": \"emea\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/modelderivative/v2/designdata/job",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "modelderivative",
+                                "v2",
+                                "designdata",
+                                "job"
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:07:39.000Z",
+                          "updatedAt": "2026-07-28T01:07:39.000Z",
+                          "uid": "35240-08b80389-ebd9-49f2-b4e7-6cdcd485f136"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:07:39.000Z",
+                      "updatedAt": "2026-07-28T01:07:39.000Z",
+                      "uid": "35240-bbc93034-e286-481a-8e9d-4e0b3c24b579"
+                    }
+                  ],
+                  "id": "1209ba31-70a2-4277-8475-68f135a6fdc7",
+                  "createdAt": "2026-07-28T01:07:39.000Z",
+                  "updatedAt": "2026-07-28T01:07:39.000Z",
+                  "uid": "35240-1209ba31-70a2-4277-8475-68f135a6fdc7"
+                }
+              ],
+              "id": "50ce079a-a366-46bd-b378-d93fb65fc51d",
+              "createdAt": "2026-07-28T01:07:39.000Z",
+              "updatedAt": "2026-07-28T01:07:39.000Z",
+              "uid": "35240-50ce079a-a366-46bd-b378-d93fb65fc51d"
+            }
+          ],
+          "id": "cbd0ddf0-f577-41d7-9f94-78a36567be06",
+          "createdAt": "2026-07-28T01:07:39.000Z",
+          "updatedAt": "2026-07-28T01:07:39.000Z",
+          "uid": "35240-cbd0ddf0-f577-41d7-9f94-78a36567be06"
+        }
+      ],
+      "id": "04b7c80c-ad01-4395-b0bf-80d6acd3eba5",
+      "createdAt": "2026-07-28T01:07:39.000Z",
+      "updatedAt": "2026-07-28T01:07:39.000Z",
+      "uid": "35240-04b7c80c-ad01-4395-b0bf-80d6acd3eba5"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

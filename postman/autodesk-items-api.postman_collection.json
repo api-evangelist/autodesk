@@ -1,0 +1,713 @@
+{
+  "info": {
+    "_postman_id": "afc77e90-073f-4bcf-937c-5b2e302ae846",
+    "name": "Autodesk ACC Account Admin Account Users Items API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:38.000Z",
+    "updatedAt": "2026-07-28T01:07:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-afc77e90-073f-4bcf-937c-5b2e302ae846"
+  },
+  "item": [
+    {
+      "name": "data",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "projects",
+              "item": [
+                {
+                  "name": "{project_id}",
+                  "item": [
+                    {
+                      "name": "items",
+                      "item": [
+                        {
+                          "name": "{item_id}",
+                          "item": [
+                            {
+                              "name": "Autodesk Get Item",
+                              "id": "622a1e52-6354-43ae-9b48-6ccae268a12a",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/vnd.api+json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/data/v1/projects/:project_id/items/:item_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "data",
+                                    "v1",
+                                    "projects",
+                                    ":project_id",
+                                    "items",
+                                    ":item_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "76f2b8f4-4a6f-440d-80df-c67f4aafa3ea",
+                                      "key": "project_id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "a9c43111-3436-478c-a2e2-ac15709432eb",
+                                      "key": "item_id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Returns a specific item within a project."
+                              },
+                              "response": [
+                                {
+                                  "id": "355d698a-e545-450f-8f71-0816694d8bde",
+                                  "name": "Successfully retrieved item.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/vnd.api+json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/data/v1/projects/:project_id/items/:item_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "data",
+                                        "v1",
+                                        "projects",
+                                        ":project_id",
+                                        "items",
+                                        ":item_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project_id"
+                                        },
+                                        {
+                                          "key": "item_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/vnd.api+json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": {\n    \"type\": \"<string>\",\n    \"id\": \"<string>\",\n    \"attributes\": {\n      \"displayName\": \"<string>\",\n      \"createTime\": \"<dateTime>\",\n      \"createUserId\": \"<string>\",\n      \"createUserName\": \"<string>\",\n      \"lastModifiedTime\": \"<dateTime>\",\n      \"lastModifiedUserId\": \"<string>\",\n      \"lastModifiedUserName\": \"<string>\",\n      \"hidden\": \"<boolean>\",\n      \"reserved\": \"<boolean>\",\n      \"extension\": {\n        \"type\": \"<string>\",\n        \"version\": \"<string>\",\n        \"data\": {}\n      }\n    },\n    \"relationships\": {\n      \"tip\": {\n        \"data\": {\n          \"type\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      },\n      \"versions\": {\n        \"links\": {\n          \"related\": {\n            \"href\": \"<uri>\"\n          }\n        }\n      }\n    }\n  }\n}",
+                                  "createdAt": "2026-07-28T01:07:38.000Z",
+                                  "updatedAt": "2026-07-28T01:07:38.000Z",
+                                  "uid": "35240-355d698a-e545-450f-8f71-0816694d8bde"
+                                },
+                                {
+                                  "id": "6f2f91c8-c0d7-46ad-8b77-e6ffd46b40fe",
+                                  "name": "Unauthorized.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/data/v1/projects/:project_id/items/:item_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "data",
+                                        "v1",
+                                        "projects",
+                                        ":project_id",
+                                        "items",
+                                        ":item_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project_id"
+                                        },
+                                        {
+                                          "key": "item_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:07:38.000Z",
+                                  "updatedAt": "2026-07-28T01:07:38.000Z",
+                                  "uid": "35240-6f2f91c8-c0d7-46ad-8b77-e6ffd46b40fe"
+                                },
+                                {
+                                  "id": "85f860cf-de34-4e61-b68b-fd250087e1b8",
+                                  "name": "Item not found.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/data/v1/projects/:project_id/items/:item_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "data",
+                                        "v1",
+                                        "projects",
+                                        ":project_id",
+                                        "items",
+                                        ":item_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project_id"
+                                        },
+                                        {
+                                          "key": "item_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:07:38.000Z",
+                                  "updatedAt": "2026-07-28T01:07:38.000Z",
+                                  "uid": "35240-85f860cf-de34-4e61-b68b-fd250087e1b8"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:07:38.000Z",
+                              "updatedAt": "2026-07-28T01:07:38.000Z",
+                              "uid": "35240-622a1e52-6354-43ae-9b48-6ccae268a12a"
+                            },
+                            {
+                              "name": "Autodesk Update Item",
+                              "id": "fd1f9633-2291-46c6-9820-ba60e6c0fd9d",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "auth": {
+                                  "type": "oauth2",
+                                  "oauth2": [
+                                    {
+                                      "key": "scope",
+                                      "value": "account:read account:write",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "accessTokenUrl",
+                                      "value": "https://developer.api.autodesk.com/authentication/v2/token",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "authUrl",
+                                      "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "grant_type",
+                                      "value": "authorization_code",
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/vnd.api+json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/vnd.api+json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": {\n    \"type\": \"<string>\",\n    \"id\": \"<string>\",\n    \"attributes\": {\n      \"displayName\": \"<string>\"\n    }\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/data/v1/projects/:project_id/items/:item_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "data",
+                                    "v1",
+                                    "projects",
+                                    ":project_id",
+                                    "items",
+                                    ":item_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "5d8e50b3-07a2-495f-bc6a-4e1bceb515db",
+                                      "key": "project_id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "be7866b3-e238-4c47-b62b-f13aa37bc5a7",
+                                      "key": "item_id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Updates the display name or other properties of an item."
+                              },
+                              "response": [
+                                {
+                                  "id": "ec475d79-f3be-435d-8abd-83cf2030ad19",
+                                  "name": "Item updated successfully.",
+                                  "originalRequest": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/vnd.api+json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/vnd.api+json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": {\n    \"type\": \"<string>\",\n    \"id\": \"<string>\",\n    \"attributes\": {\n      \"displayName\": \"<string>\"\n    }\n  }\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/data/v1/projects/:project_id/items/:item_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "data",
+                                        "v1",
+                                        "projects",
+                                        ":project_id",
+                                        "items",
+                                        ":item_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project_id"
+                                        },
+                                        {
+                                          "key": "item_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/vnd.api+json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": {\n    \"type\": \"<string>\",\n    \"id\": \"<string>\",\n    \"attributes\": {\n      \"displayName\": \"<string>\",\n      \"createTime\": \"<dateTime>\",\n      \"createUserId\": \"<string>\",\n      \"createUserName\": \"<string>\",\n      \"lastModifiedTime\": \"<dateTime>\",\n      \"lastModifiedUserId\": \"<string>\",\n      \"lastModifiedUserName\": \"<string>\",\n      \"hidden\": \"<boolean>\",\n      \"reserved\": \"<boolean>\",\n      \"extension\": {\n        \"type\": \"<string>\",\n        \"version\": \"<string>\",\n        \"data\": {}\n      }\n    },\n    \"relationships\": {\n      \"tip\": {\n        \"data\": {\n          \"type\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      },\n      \"versions\": {\n        \"links\": {\n          \"related\": {\n            \"href\": \"<uri>\"\n          }\n        }\n      }\n    }\n  }\n}",
+                                  "createdAt": "2026-07-28T01:07:38.000Z",
+                                  "updatedAt": "2026-07-28T01:07:38.000Z",
+                                  "uid": "35240-ec475d79-f3be-435d-8abd-83cf2030ad19"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:07:38.000Z",
+                              "updatedAt": "2026-07-28T01:07:38.000Z",
+                              "uid": "35240-fd1f9633-2291-46c6-9820-ba60e6c0fd9d"
+                            }
+                          ],
+                          "id": "37b84079-ae68-44a7-9c4b-9cd9a7e5de3e",
+                          "createdAt": "2026-07-28T01:07:38.000Z",
+                          "updatedAt": "2026-07-28T01:07:38.000Z",
+                          "uid": "35240-37b84079-ae68-44a7-9c4b-9cd9a7e5de3e"
+                        },
+                        {
+                          "name": "Autodesk Create Item",
+                          "id": "4106922c-4572-4ae7-aecb-660966d7f843",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "oauth2",
+                              "oauth2": [
+                                {
+                                  "key": "scope",
+                                  "value": "account:read account:write",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "accessTokenUrl",
+                                  "value": "https://developer.api.autodesk.com/authentication/v2/token",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "authUrl",
+                                  "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "grant_type",
+                                  "value": "authorization_code",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/vnd.api+json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.api+json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": {\n    \"type\": \"<string>\",\n    \"attributes\": {\n      \"displayName\": \"<string>\",\n      \"extension\": {\n        \"type\": \"<string>\",\n        \"version\": \"<string>\",\n        \"data\": {}\n      }\n    },\n    \"relationships\": {\n      \"tip\": {\n        \"data\": {\n          \"type\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      },\n      \"parent\": {\n        \"data\": {\n          \"type\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/data/v1/projects/:project_id/items",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "data",
+                                "v1",
+                                "projects",
+                                ":project_id",
+                                "items"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "0d6d628a-586f-4f03-9252-5e818b2b0af0",
+                                  "key": "project_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Creates a new item in the specified project. The item references a storage location containing the uploaded file."
+                          },
+                          "response": [
+                            {
+                              "id": "6095e402-31c2-4995-9972-dff13c996745",
+                              "name": "Item created successfully.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/vnd.api+json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/vnd.api+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": {\n    \"type\": \"<string>\",\n    \"attributes\": {\n      \"displayName\": \"<string>\",\n      \"extension\": {\n        \"type\": \"<string>\",\n        \"version\": \"<string>\",\n        \"data\": {}\n      }\n    },\n    \"relationships\": {\n      \"tip\": {\n        \"data\": {\n          \"type\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      },\n      \"parent\": {\n        \"data\": {\n          \"type\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/data/v1/projects/:project_id/items",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "data",
+                                    "v1",
+                                    "projects",
+                                    ":project_id",
+                                    "items"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Created",
+                              "code": 201,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/vnd.api+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": {\n    \"type\": \"<string>\",\n    \"id\": \"<string>\",\n    \"attributes\": {\n      \"displayName\": \"<string>\",\n      \"createTime\": \"<dateTime>\",\n      \"createUserId\": \"<string>\",\n      \"createUserName\": \"<string>\",\n      \"lastModifiedTime\": \"<dateTime>\",\n      \"lastModifiedUserId\": \"<string>\",\n      \"lastModifiedUserName\": \"<string>\",\n      \"hidden\": \"<boolean>\",\n      \"reserved\": \"<boolean>\",\n      \"extension\": {\n        \"type\": \"<string>\",\n        \"version\": \"<string>\",\n        \"data\": {}\n      }\n    },\n    \"relationships\": {\n      \"tip\": {\n        \"data\": {\n          \"type\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      },\n      \"versions\": {\n        \"links\": {\n          \"related\": {\n            \"href\": \"<uri>\"\n          }\n        }\n      }\n    }\n  }\n}",
+                              "createdAt": "2026-07-28T01:07:38.000Z",
+                              "updatedAt": "2026-07-28T01:07:38.000Z",
+                              "uid": "35240-6095e402-31c2-4995-9972-dff13c996745"
+                            },
+                            {
+                              "id": "8cca6d7d-35c6-48d2-a771-2305f43babef",
+                              "name": "Bad request.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/vnd.api+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": {\n    \"type\": \"<string>\",\n    \"attributes\": {\n      \"displayName\": \"<string>\",\n      \"extension\": {\n        \"type\": \"<string>\",\n        \"version\": \"<string>\",\n        \"data\": {}\n      }\n    },\n    \"relationships\": {\n      \"tip\": {\n        \"data\": {\n          \"type\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      },\n      \"parent\": {\n        \"data\": {\n          \"type\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/data/v1/projects/:project_id/items",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "data",
+                                    "v1",
+                                    "projects",
+                                    ":project_id",
+                                    "items"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:07:38.000Z",
+                              "updatedAt": "2026-07-28T01:07:38.000Z",
+                              "uid": "35240-8cca6d7d-35c6-48d2-a771-2305f43babef"
+                            },
+                            {
+                              "id": "de767738-ef2a-4fc2-84f0-0315c161b7b0",
+                              "name": "Forbidden.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/vnd.api+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": {\n    \"type\": \"<string>\",\n    \"attributes\": {\n      \"displayName\": \"<string>\",\n      \"extension\": {\n        \"type\": \"<string>\",\n        \"version\": \"<string>\",\n        \"data\": {}\n      }\n    },\n    \"relationships\": {\n      \"tip\": {\n        \"data\": {\n          \"type\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      },\n      \"parent\": {\n        \"data\": {\n          \"type\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/data/v1/projects/:project_id/items",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "data",
+                                    "v1",
+                                    "projects",
+                                    ":project_id",
+                                    "items"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:07:38.000Z",
+                              "updatedAt": "2026-07-28T01:07:38.000Z",
+                              "uid": "35240-de767738-ef2a-4fc2-84f0-0315c161b7b0"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:07:38.000Z",
+                          "updatedAt": "2026-07-28T01:07:38.000Z",
+                          "uid": "35240-4106922c-4572-4ae7-aecb-660966d7f843"
+                        }
+                      ],
+                      "id": "a309a0df-626a-4787-923e-64e3366d788b",
+                      "createdAt": "2026-07-28T01:07:38.000Z",
+                      "updatedAt": "2026-07-28T01:07:38.000Z",
+                      "uid": "35240-a309a0df-626a-4787-923e-64e3366d788b"
+                    }
+                  ],
+                  "id": "33ab696e-a419-4f22-9188-a24f31f878a5",
+                  "createdAt": "2026-07-28T01:07:38.000Z",
+                  "updatedAt": "2026-07-28T01:07:38.000Z",
+                  "uid": "35240-33ab696e-a419-4f22-9188-a24f31f878a5"
+                }
+              ],
+              "id": "b50c4aca-12fe-48a7-8b87-7b98307696b3",
+              "createdAt": "2026-07-28T01:07:38.000Z",
+              "updatedAt": "2026-07-28T01:07:38.000Z",
+              "uid": "35240-b50c4aca-12fe-48a7-8b87-7b98307696b3"
+            }
+          ],
+          "id": "85ba2ed4-3b56-48c6-9f2c-47c51bb2068a",
+          "createdAt": "2026-07-28T01:07:38.000Z",
+          "updatedAt": "2026-07-28T01:07:38.000Z",
+          "uid": "35240-85ba2ed4-3b56-48c6-9f2c-47c51bb2068a"
+        }
+      ],
+      "id": "c4697f85-a61d-4905-b2f3-60f83886b744",
+      "createdAt": "2026-07-28T01:07:38.000Z",
+      "updatedAt": "2026-07-28T01:07:38.000Z",
+      "uid": "35240-c4697f85-a61d-4905-b2f3-60f83886b744"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

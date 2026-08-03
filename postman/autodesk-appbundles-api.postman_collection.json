@@ -1,0 +1,1472 @@
+{
+  "info": {
+    "_postman_id": "30e2b33e-fff5-45b6-813b-ebc93a791242",
+    "name": "Autodesk ACC Account Admin Account Users AppBundles API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:06:40.000Z",
+    "updatedAt": "2026-07-28T01:06:40.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-30e2b33e-fff5-45b6-813b-ebc93a791242"
+  },
+  "item": [
+    {
+      "name": "da",
+      "item": [
+        {
+          "name": "us-east",
+          "item": [
+            {
+              "name": "v3",
+              "item": [
+                {
+                  "name": "appbundles",
+                  "item": [
+                    {
+                      "name": "{id}",
+                      "item": [
+                        {
+                          "name": "versions",
+                          "item": [
+                            {
+                              "name": "Autodesk List AppBundle Versions",
+                              "id": "6a95bb68-67a2-42d5-b62f-55dca70bfe24",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/da/us-east/v3/appbundles/:id/versions?page=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "da",
+                                    "us-east",
+                                    "v3",
+                                    "appbundles",
+                                    ":id",
+                                    "versions"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "8582393b-ef13-4780-b991-dec600a94339",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Returns all versions of a specific AppBundle."
+                              },
+                              "response": [
+                                {
+                                  "id": "4a48baa0-9687-4db9-a912-34570508264b",
+                                  "name": "Successfully retrieved AppBundle versions.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/da/us-east/v3/appbundles/:id/versions?page=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "da",
+                                        "us-east",
+                                        "v3",
+                                        "appbundles",
+                                        ":id",
+                                        "versions"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "page",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"paginationToken\": \"<string>\",\n  \"data\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                                  "createdAt": "2026-07-28T01:06:40.000Z",
+                                  "updatedAt": "2026-07-28T01:06:40.000Z",
+                                  "uid": "35240-4a48baa0-9687-4db9-a912-34570508264b"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:06:40.000Z",
+                              "updatedAt": "2026-07-28T01:06:40.000Z",
+                              "uid": "35240-6a95bb68-67a2-42d5-b62f-55dca70bfe24"
+                            },
+                            {
+                              "name": "Autodesk Create AppBundle Version",
+                              "id": "7794737a-009e-47e8-9b3d-534dd3bc9149",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"id\": \"<string>\",\n  \"engine\": \"<string>\",\n  \"description\": \"<string>\",\n  \"appbundles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/da/us-east/v3/appbundles/:id/versions",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "da",
+                                    "us-east",
+                                    "v3",
+                                    "appbundles",
+                                    ":id",
+                                    "versions"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "dd4fa008-5086-483b-80dd-7279f8069158",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Creates a new version of an existing AppBundle."
+                              },
+                              "response": [
+                                {
+                                  "id": "4b6331c4-ad13-4549-80db-9ceb24552faa",
+                                  "name": "New version created.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"id\": \"<string>\",\n  \"engine\": \"<string>\",\n  \"description\": \"<string>\",\n  \"appbundles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/da/us-east/v3/appbundles/:id/versions",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "da",
+                                        "us-east",
+                                        "v3",
+                                        "appbundles",
+                                        ":id",
+                                        "versions"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"uploadParameters\": {\n    \"endpointURL\": \"<uri>\",\n    \"formData\": {\n      \"aliquip_b\": \"<string>\"\n    }\n  },\n  \"id\": \"<string>\",\n  \"engine\": \"<string>\",\n  \"description\": \"<string>\",\n  \"version\": \"<integer>\"\n}",
+                                  "createdAt": "2026-07-28T01:06:40.000Z",
+                                  "updatedAt": "2026-07-28T01:06:40.000Z",
+                                  "uid": "35240-4b6331c4-ad13-4549-80db-9ceb24552faa"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:06:40.000Z",
+                              "updatedAt": "2026-07-28T01:06:40.000Z",
+                              "uid": "35240-7794737a-009e-47e8-9b3d-534dd3bc9149"
+                            }
+                          ],
+                          "id": "55ca22ab-1a1b-4f72-bc18-bb97d07dea87",
+                          "createdAt": "2026-07-28T01:06:40.000Z",
+                          "updatedAt": "2026-07-28T01:06:40.000Z",
+                          "uid": "35240-55ca22ab-1a1b-4f72-bc18-bb97d07dea87"
+                        },
+                        {
+                          "name": "aliases",
+                          "item": [
+                            {
+                              "name": "{aliasId}",
+                              "item": [
+                                {
+                                  "name": "Autodesk Get AppBundle Alias",
+                                  "id": "1504522e-78c9-4ec1-84ed-afa8e76e4d8e",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/da/us-east/v3/appbundles/:id/aliases/:aliasId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "da",
+                                        "us-east",
+                                        "v3",
+                                        "appbundles",
+                                        ":id",
+                                        "aliases",
+                                        ":aliasId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "b2d30e6f-c072-472f-b501-7b98c9cf4202",
+                                          "key": "id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "030c0c30-5688-4a5d-a7d0-2416059bffd5",
+                                          "key": "aliasId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Returns details of a specific AppBundle alias."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "2ca86c5f-5eab-4035-a2f3-af911fb68dd6",
+                                      "name": "Successfully retrieved alias.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/da/us-east/v3/appbundles/:id/aliases/:aliasId",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "da",
+                                            "us-east",
+                                            "v3",
+                                            "appbundles",
+                                            ":id",
+                                            "aliases",
+                                            ":aliasId"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "id"
+                                            },
+                                            {
+                                              "key": "aliasId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"id\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"receiver\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:06:40.000Z",
+                                      "updatedAt": "2026-07-28T01:06:40.000Z",
+                                      "uid": "35240-2ca86c5f-5eab-4035-a2f3-af911fb68dd6"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:06:40.000Z",
+                                  "updatedAt": "2026-07-28T01:06:40.000Z",
+                                  "uid": "35240-1504522e-78c9-4ec1-84ed-afa8e76e4d8e"
+                                },
+                                {
+                                  "name": "Autodesk Update AppBundle Alias",
+                                  "id": "4197e23a-7eb1-4cfb-a1ab-d6969a5c70f3",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"version\": \"<integer>\",\n  \"receiver\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/da/us-east/v3/appbundles/:id/aliases/:aliasId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "da",
+                                        "us-east",
+                                        "v3",
+                                        "appbundles",
+                                        ":id",
+                                        "aliases",
+                                        ":aliasId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "981d7a67-e320-495f-a4d5-ce505432b1b6",
+                                          "key": "id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "6b58d450-9d93-4577-af9b-5b4a8289a747",
+                                          "key": "aliasId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Updates an alias to point to a different version."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "3fdd969a-571f-4df5-8c2d-6c094443852d",
+                                      "name": "Alias updated.",
+                                      "originalRequest": {
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"version\": \"<integer>\",\n  \"receiver\": \"<string>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/da/us-east/v3/appbundles/:id/aliases/:aliasId",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "da",
+                                            "us-east",
+                                            "v3",
+                                            "appbundles",
+                                            ":id",
+                                            "aliases",
+                                            ":aliasId"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "id"
+                                            },
+                                            {
+                                              "key": "aliasId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"id\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"receiver\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:06:40.000Z",
+                                      "updatedAt": "2026-07-28T01:06:40.000Z",
+                                      "uid": "35240-3fdd969a-571f-4df5-8c2d-6c094443852d"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:06:40.000Z",
+                                  "updatedAt": "2026-07-28T01:06:40.000Z",
+                                  "uid": "35240-4197e23a-7eb1-4cfb-a1ab-d6969a5c70f3"
+                                },
+                                {
+                                  "name": "Autodesk Delete AppBundle Alias",
+                                  "id": "30dd4b55-c3ae-4f2d-ad8e-e4fc1f19e585",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "DELETE",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/da/us-east/v3/appbundles/:id/aliases/:aliasId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "da",
+                                        "us-east",
+                                        "v3",
+                                        "appbundles",
+                                        ":id",
+                                        "aliases",
+                                        ":aliasId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "3520b9cb-7a43-40e9-a706-4d8da5d07e43",
+                                          "key": "id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "b84bdefb-7443-41b1-83b7-866d4b93a57d",
+                                          "key": "aliasId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Deletes an AppBundle alias."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "6737be71-a695-4f8b-a9d5-182fdd7f9200",
+                                      "name": "Alias deleted.",
+                                      "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/da/us-east/v3/appbundles/:id/aliases/:aliasId",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "da",
+                                            "us-east",
+                                            "v3",
+                                            "appbundles",
+                                            ":id",
+                                            "aliases",
+                                            ":aliasId"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "id"
+                                            },
+                                            {
+                                              "key": "aliasId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "No Content",
+                                      "code": 204,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:06:40.000Z",
+                                      "updatedAt": "2026-07-28T01:06:40.000Z",
+                                      "uid": "35240-6737be71-a695-4f8b-a9d5-182fdd7f9200"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:06:40.000Z",
+                                  "updatedAt": "2026-07-28T01:06:40.000Z",
+                                  "uid": "35240-30dd4b55-c3ae-4f2d-ad8e-e4fc1f19e585"
+                                }
+                              ],
+                              "id": "d58873a5-00e7-4dc8-8242-34d189e4d188",
+                              "createdAt": "2026-07-28T01:06:40.000Z",
+                              "updatedAt": "2026-07-28T01:06:40.000Z",
+                              "uid": "35240-d58873a5-00e7-4dc8-8242-34d189e4d188"
+                            },
+                            {
+                              "name": "Autodesk List AppBundle Aliases",
+                              "id": "0ba18d26-c273-4d28-9efc-500586bd370c",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/da/us-east/v3/appbundles/:id/aliases?page=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "da",
+                                    "us-east",
+                                    "v3",
+                                    "appbundles",
+                                    ":id",
+                                    "aliases"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "a2174a5f-dfd9-43de-812e-c7b09f972092",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Returns all aliases for a specific AppBundle."
+                              },
+                              "response": [
+                                {
+                                  "id": "7554aeb1-633b-4ee9-9b0a-b53bdf648e96",
+                                  "name": "Successfully retrieved aliases.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/da/us-east/v3/appbundles/:id/aliases?page=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "da",
+                                        "us-east",
+                                        "v3",
+                                        "appbundles",
+                                        ":id",
+                                        "aliases"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "page",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"paginationToken\": \"<string>\",\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"version\": \"<integer>\",\n      \"receiver\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"version\": \"<integer>\",\n      \"receiver\": \"<string>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T01:06:40.000Z",
+                                  "updatedAt": "2026-07-28T01:06:40.000Z",
+                                  "uid": "35240-7554aeb1-633b-4ee9-9b0a-b53bdf648e96"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:06:40.000Z",
+                              "updatedAt": "2026-07-28T01:06:40.000Z",
+                              "uid": "35240-0ba18d26-c273-4d28-9efc-500586bd370c"
+                            },
+                            {
+                              "name": "Autodesk Create AppBundle Alias",
+                              "id": "d981d855-4e51-4570-a59a-847d70bbc9b3",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"id\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"receiver\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/da/us-east/v3/appbundles/:id/aliases",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "da",
+                                    "us-east",
+                                    "v3",
+                                    "appbundles",
+                                    ":id",
+                                    "aliases"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "89012696-52b8-403b-86c9-f6466af6439d",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Creates an alias that points to a specific AppBundle version."
+                              },
+                              "response": [
+                                {
+                                  "id": "957c3d92-0064-4886-b701-042955c19210",
+                                  "name": "Alias created successfully.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"id\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"receiver\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/da/us-east/v3/appbundles/:id/aliases",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "da",
+                                        "us-east",
+                                        "v3",
+                                        "appbundles",
+                                        ":id",
+                                        "aliases"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"id\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"receiver\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:06:40.000Z",
+                                  "updatedAt": "2026-07-28T01:06:40.000Z",
+                                  "uid": "35240-957c3d92-0064-4886-b701-042955c19210"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:06:40.000Z",
+                              "updatedAt": "2026-07-28T01:06:40.000Z",
+                              "uid": "35240-d981d855-4e51-4570-a59a-847d70bbc9b3"
+                            }
+                          ],
+                          "id": "055e64e5-6df5-4b45-8e17-353de1ec34e8",
+                          "createdAt": "2026-07-28T01:06:40.000Z",
+                          "updatedAt": "2026-07-28T01:06:40.000Z",
+                          "uid": "35240-055e64e5-6df5-4b45-8e17-353de1ec34e8"
+                        },
+                        {
+                          "name": "Autodesk Get AppBundle",
+                          "id": "8247bdd8-6d7c-4168-964b-43e523d40a2f",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/da/us-east/v3/appbundles/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "da",
+                                "us-east",
+                                "v3",
+                                "appbundles",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "4763c6e7-ee04-4f29-b076-5e7ab5c49dc1",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Returns details of a specific AppBundle."
+                          },
+                          "response": [
+                            {
+                              "id": "ddf15ece-d80a-4c1a-b91f-06bf4042f09b",
+                              "name": "Successfully retrieved AppBundle.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/da/us-east/v3/appbundles/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "da",
+                                    "us-east",
+                                    "v3",
+                                    "appbundles",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"uploadParameters\": {\n    \"endpointURL\": \"<uri>\",\n    \"formData\": {\n      \"aliquip_b\": \"<string>\"\n    }\n  },\n  \"id\": \"<string>\",\n  \"engine\": \"<string>\",\n  \"description\": \"<string>\",\n  \"version\": \"<integer>\"\n}",
+                              "createdAt": "2026-07-28T01:06:40.000Z",
+                              "updatedAt": "2026-07-28T01:06:40.000Z",
+                              "uid": "35240-ddf15ece-d80a-4c1a-b91f-06bf4042f09b"
+                            },
+                            {
+                              "id": "02cd0a0c-dc3b-4ae7-80a6-684483a8e54f",
+                              "name": "AppBundle not found.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/da/us-east/v3/appbundles/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "da",
+                                    "us-east",
+                                    "v3",
+                                    "appbundles",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:06:40.000Z",
+                              "updatedAt": "2026-07-28T01:06:40.000Z",
+                              "uid": "35240-02cd0a0c-dc3b-4ae7-80a6-684483a8e54f"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:06:40.000Z",
+                          "updatedAt": "2026-07-28T01:06:40.000Z",
+                          "uid": "35240-8247bdd8-6d7c-4168-964b-43e523d40a2f"
+                        },
+                        {
+                          "name": "Autodesk Delete AppBundle",
+                          "id": "f96ef658-ff99-4c61-b4b2-5796574ebb33",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/da/us-east/v3/appbundles/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "da",
+                                "us-east",
+                                "v3",
+                                "appbundles",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "0bf0dd81-1184-43ee-9220-10d5f3f5360d",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Deletes an AppBundle and all its versions and aliases."
+                          },
+                          "response": [
+                            {
+                              "id": "d8458222-7bad-46e3-9bd2-2de1677a4a68",
+                              "name": "AppBundle deleted successfully.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/da/us-east/v3/appbundles/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "da",
+                                    "us-east",
+                                    "v3",
+                                    "appbundles",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "No Content",
+                              "code": 204,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:06:40.000Z",
+                              "updatedAt": "2026-07-28T01:06:40.000Z",
+                              "uid": "35240-d8458222-7bad-46e3-9bd2-2de1677a4a68"
+                            },
+                            {
+                              "id": "1f4227dd-4b1b-4800-9b71-280b1564e333",
+                              "name": "AppBundle not found.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/da/us-east/v3/appbundles/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "da",
+                                    "us-east",
+                                    "v3",
+                                    "appbundles",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:06:40.000Z",
+                              "updatedAt": "2026-07-28T01:06:40.000Z",
+                              "uid": "35240-1f4227dd-4b1b-4800-9b71-280b1564e333"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:06:40.000Z",
+                          "updatedAt": "2026-07-28T01:06:40.000Z",
+                          "uid": "35240-f96ef658-ff99-4c61-b4b2-5796574ebb33"
+                        }
+                      ],
+                      "id": "c01891cb-e375-4a52-a72f-2f6bcd849f77",
+                      "createdAt": "2026-07-28T01:06:40.000Z",
+                      "updatedAt": "2026-07-28T01:06:40.000Z",
+                      "uid": "35240-c01891cb-e375-4a52-a72f-2f6bcd849f77"
+                    },
+                    {
+                      "name": "Autodesk List AppBundles",
+                      "id": "7d5bedac-a756-4ed4-8d51-bb099dd6cbdf",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/da/us-east/v3/appbundles?page=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "da",
+                            "us-east",
+                            "v3",
+                            "appbundles"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "description": "Returns a paginated list of AppBundles belonging to the caller. AppBundles contain custom code (plugins, scripts, add-ins) that run on the cloud engine."
+                      },
+                      "response": [
+                        {
+                          "id": "affac097-2de5-4b3e-b379-ffe17f784eea",
+                          "name": "Successfully retrieved AppBundles.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/da/us-east/v3/appbundles?page=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "da",
+                                "us-east",
+                                "v3",
+                                "appbundles"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"paginationToken\": \"<string>\",\n  \"data\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-07-28T01:06:40.000Z",
+                          "updatedAt": "2026-07-28T01:06:40.000Z",
+                          "uid": "35240-affac097-2de5-4b3e-b379-ffe17f784eea"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:06:40.000Z",
+                      "updatedAt": "2026-07-28T01:06:40.000Z",
+                      "uid": "35240-7d5bedac-a756-4ed4-8d51-bb099dd6cbdf"
+                    },
+                    {
+                      "name": "Autodesk Create AppBundle",
+                      "id": "e05616a0-e332-4d6e-aa94-7d07a977b988",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": \"<string>\",\n  \"engine\": \"<string>\",\n  \"description\": \"<string>\",\n  \"appbundles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/da/us-east/v3/appbundles",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "da",
+                            "us-east",
+                            "v3",
+                            "appbundles"
+                          ]
+                        },
+                        "description": "Creates a new AppBundle."
+                      },
+                      "response": [
+                        {
+                          "id": "b173f048-ee25-4db0-a0ea-874be4f14cd3",
+                          "name": "AppBundle created successfully.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"id\": \"<string>\",\n  \"engine\": \"<string>\",\n  \"description\": \"<string>\",\n  \"appbundles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/da/us-east/v3/appbundles",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "da",
+                                "us-east",
+                                "v3",
+                                "appbundles"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"uploadParameters\": {\n    \"endpointURL\": \"<uri>\",\n    \"formData\": {\n      \"aliquip_b\": \"<string>\"\n    }\n  },\n  \"id\": \"<string>\",\n  \"engine\": \"<string>\",\n  \"description\": \"<string>\",\n  \"version\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T01:06:40.000Z",
+                          "updatedAt": "2026-07-28T01:06:40.000Z",
+                          "uid": "35240-b173f048-ee25-4db0-a0ea-874be4f14cd3"
+                        },
+                        {
+                          "id": "c912dd97-d43f-4c66-be5e-bed43149f310",
+                          "name": "Bad request.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"id\": \"<string>\",\n  \"engine\": \"<string>\",\n  \"description\": \"<string>\",\n  \"appbundles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/da/us-east/v3/appbundles",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "da",
+                                "us-east",
+                                "v3",
+                                "appbundles"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:06:40.000Z",
+                          "updatedAt": "2026-07-28T01:06:40.000Z",
+                          "uid": "35240-c912dd97-d43f-4c66-be5e-bed43149f310"
+                        },
+                        {
+                          "id": "4849b12b-3e86-4f4c-bd0a-21ea3d58891a",
+                          "name": "AppBundle already exists.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"id\": \"<string>\",\n  \"engine\": \"<string>\",\n  \"description\": \"<string>\",\n  \"appbundles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/da/us-east/v3/appbundles",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "da",
+                                "us-east",
+                                "v3",
+                                "appbundles"
+                              ]
+                            }
+                          },
+                          "status": "Conflict",
+                          "code": 409,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:06:40.000Z",
+                          "updatedAt": "2026-07-28T01:06:40.000Z",
+                          "uid": "35240-4849b12b-3e86-4f4c-bd0a-21ea3d58891a"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:06:40.000Z",
+                      "updatedAt": "2026-07-28T01:06:40.000Z",
+                      "uid": "35240-e05616a0-e332-4d6e-aa94-7d07a977b988"
+                    }
+                  ],
+                  "id": "2e1a55ed-19af-45b0-9fdf-083bdde2f0d3",
+                  "createdAt": "2026-07-28T01:06:40.000Z",
+                  "updatedAt": "2026-07-28T01:06:40.000Z",
+                  "uid": "35240-2e1a55ed-19af-45b0-9fdf-083bdde2f0d3"
+                }
+              ],
+              "id": "da53700f-9063-45eb-acd0-00372f5e1efa",
+              "createdAt": "2026-07-28T01:06:40.000Z",
+              "updatedAt": "2026-07-28T01:06:40.000Z",
+              "uid": "35240-da53700f-9063-45eb-acd0-00372f5e1efa"
+            }
+          ],
+          "id": "1e4ca450-06ed-495e-b5d0-b38791c2c820",
+          "createdAt": "2026-07-28T01:06:40.000Z",
+          "updatedAt": "2026-07-28T01:06:40.000Z",
+          "uid": "35240-1e4ca450-06ed-495e-b5d0-b38791c2c820"
+        }
+      ],
+      "id": "a9fd6b72-56e6-4e59-b41d-c0bca6750819",
+      "createdAt": "2026-07-28T01:06:40.000Z",
+      "updatedAt": "2026-07-28T01:06:40.000Z",
+      "uid": "35240-a9fd6b72-56e6-4e59-b41d-c0bca6750819"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

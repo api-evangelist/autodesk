@@ -1,0 +1,214 @@
+{
+  "info": {
+    "_postman_id": "6f39bdc3-8e77-4e3d-b42f-df1e9524d465",
+    "name": "Autodesk ACC Account Admin Account Users Processing API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:49.000Z",
+    "updatedAt": "2026-07-28T01:07:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6f39bdc3-8e77-4e3d-b42f-df1e9524d465"
+  },
+  "item": [
+    {
+      "name": "photo-to-3d",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "photoscene",
+              "item": [
+                {
+                  "name": "{photosceneid}",
+                  "item": [
+                    {
+                      "name": "Process Photoscene",
+                      "id": "afff092f-82fd-4233-8d7a-cbb231ac696e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/photo-to-3d/v1/photoscene/:photosceneid",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "photo-to-3d",
+                            "v1",
+                            "photoscene",
+                            ":photosceneid"
+                          ],
+                          "variable": [
+                            {
+                              "id": "a75e1dd0-90b1-4c7e-9bea-010b1c1ab83c",
+                              "key": "photosceneid",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Starts the photogrammetry processing for a photoscene. Must have uploaded at least 3 photos before processing."
+                      },
+                      "response": [
+                        {
+                          "id": "86aae407-568b-488c-a315-7e3ce7c07240",
+                          "name": "Processing started.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/photo-to-3d/v1/photoscene/:photosceneid",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "photo-to-3d",
+                                "v1",
+                                "photoscene",
+                                ":photosceneid"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "photosceneid"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"msg\": \"<string>\",\n  \"Photoscene\": {\n    \"photosceneid\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T01:07:50.000Z",
+                          "updatedAt": "2026-07-28T01:07:50.000Z",
+                          "uid": "35240-86aae407-568b-488c-a315-7e3ce7c07240"
+                        },
+                        {
+                          "id": "6a076501-da26-41f1-b263-b60237ef73ef",
+                          "name": "Bad request - insufficient photos.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/photo-to-3d/v1/photoscene/:photosceneid",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "photo-to-3d",
+                                "v1",
+                                "photoscene",
+                                ":photosceneid"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "photosceneid"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:07:50.000Z",
+                          "updatedAt": "2026-07-28T01:07:50.000Z",
+                          "uid": "35240-6a076501-da26-41f1-b263-b60237ef73ef"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:07:50.000Z",
+                      "updatedAt": "2026-07-28T01:07:50.000Z",
+                      "uid": "35240-afff092f-82fd-4233-8d7a-cbb231ac696e"
+                    }
+                  ],
+                  "id": "6e4162d5-d55f-458e-85e2-fa216bff0275",
+                  "createdAt": "2026-07-28T01:07:50.000Z",
+                  "updatedAt": "2026-07-28T01:07:50.000Z",
+                  "uid": "35240-6e4162d5-d55f-458e-85e2-fa216bff0275"
+                }
+              ],
+              "id": "b57e83b0-c5b4-4004-8dae-52438f5e22a7",
+              "createdAt": "2026-07-28T01:07:50.000Z",
+              "updatedAt": "2026-07-28T01:07:50.000Z",
+              "uid": "35240-b57e83b0-c5b4-4004-8dae-52438f5e22a7"
+            }
+          ],
+          "id": "9d6e1be1-61d0-4702-8d7c-383cee3611b8",
+          "createdAt": "2026-07-28T01:07:50.000Z",
+          "updatedAt": "2026-07-28T01:07:50.000Z",
+          "uid": "35240-9d6e1be1-61d0-4702-8d7c-383cee3611b8"
+        }
+      ],
+      "id": "e9f9e0d8-3ce3-4451-9bce-b0805c34f8ba",
+      "createdAt": "2026-07-28T01:07:50.000Z",
+      "updatedAt": "2026-07-28T01:07:50.000Z",
+      "uid": "35240-e9f9e0d8-3ce3-4451-9bce-b0805c34f8ba"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

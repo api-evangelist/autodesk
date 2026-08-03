@@ -1,0 +1,542 @@
+{
+  "info": {
+    "_postman_id": "731342ec-1fb2-4055-b6bf-4f1f1f4bde77",
+    "name": "Autodesk ACC Account Admin Account Users Elements API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:06:59.000Z",
+    "updatedAt": "2026-07-28T01:06:59.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-731342ec-1fb2-4055-b6bf-4f1f1f4bde77"
+  },
+  "item": [
+    {
+      "name": "tandem",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "modeldata",
+              "item": [
+                {
+                  "name": "{modelId}",
+                  "item": [
+                    {
+                      "name": "scan",
+                      "item": [
+                        {
+                          "name": "Autodesk Scan Elements",
+                          "id": "236f84ab-224c-45f2-9f73-846171fc4df2",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"families\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"categoryId\": \"<integer>\",\n  \"includeHistory\": \"<boolean>\",\n  \"columns\": [\n    {\n      \"fam\": \"<string>\",\n      \"col\": \"<string>\"\n    },\n    {\n      \"fam\": \"<string>\",\n      \"col\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/tandem/v1/modeldata/:modelId/scan",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "tandem",
+                                "v1",
+                                "modeldata",
+                                ":modelId",
+                                "scan"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "4f619910-5cad-411a-9a41-d956e2caf3b5",
+                                  "key": "modelId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Scans and returns elements from a model, optionally filtered by category, family, or property values. Returns element keys and properties."
+                          },
+                          "response": [
+                            {
+                              "id": "c76cf2f2-b99d-4b5b-a6b5-5173cf7925ce",
+                              "name": "Successfully scanned elements.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"families\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"categoryId\": \"<integer>\",\n  \"includeHistory\": \"<boolean>\",\n  \"columns\": [\n    {\n      \"fam\": \"<string>\",\n      \"col\": \"<string>\"\n    },\n    {\n      \"fam\": \"<string>\",\n      \"col\": \"<string>\"\n    }\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/tandem/v1/modeldata/:modelId/scan",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "tandem",
+                                    "v1",
+                                    "modeldata",
+                                    ":modelId",
+                                    "scan"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "modelId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"rows\": [\n    [],\n    []\n  ],\n  \"qualifiedColumns\": [\n    {\n      \"fam\": \"<string>\",\n      \"col\": \"<string>\",\n      \"category\": \"<string>\"\n    },\n    {\n      \"fam\": \"<string>\",\n      \"col\": \"<string>\",\n      \"category\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:07:00.000Z",
+                              "updatedAt": "2026-07-28T01:07:00.000Z",
+                              "uid": "35240-c76cf2f2-b99d-4b5b-a6b5-5173cf7925ce"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:07:00.000Z",
+                          "updatedAt": "2026-07-28T01:07:00.000Z",
+                          "uid": "35240-236f84ab-224c-45f2-9f73-846171fc4df2"
+                        }
+                      ],
+                      "id": "f59f7a5b-ee3f-4e5c-913e-9c634ceeb488",
+                      "createdAt": "2026-07-28T01:07:00.000Z",
+                      "updatedAt": "2026-07-28T01:07:00.000Z",
+                      "uid": "35240-f59f7a5b-ee3f-4e5c-913e-9c634ceeb488"
+                    },
+                    {
+                      "name": "props",
+                      "item": [
+                        {
+                          "name": "Autodesk Get Element Properties",
+                          "id": "0d80db82-4385-4d62-9978-8b953b6ad75f",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"columns\": [\n    {\n      \"fam\": \"<string>\",\n      \"col\": \"<string>\"\n    },\n    {\n      \"fam\": \"<string>\",\n      \"col\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/tandem/v1/modeldata/:modelId/props",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "tandem",
+                                "v1",
+                                "modeldata",
+                                ":modelId",
+                                "props"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "067c089c-1dc3-422d-8431-84aa7ad3afdc",
+                                  "key": "modelId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Returns properties for specific elements identified by their keys."
+                          },
+                          "response": [
+                            {
+                              "id": "3d0a1b3f-4017-44db-8e64-0faf65e816df",
+                              "name": "Successfully retrieved properties.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"columns\": [\n    {\n      \"fam\": \"<string>\",\n      \"col\": \"<string>\"\n    },\n    {\n      \"fam\": \"<string>\",\n      \"col\": \"<string>\"\n    }\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/tandem/v1/modeldata/:modelId/props",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "tandem",
+                                    "v1",
+                                    "modeldata",
+                                    ":modelId",
+                                    "props"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "modelId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"rows\": [\n    {\n      \"esse_87\": true,\n      \"fugiat__9\": false,\n      \"reprehenderit108\": -77573384\n    },\n    {\n      \"pariatur9\": true\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:07:00.000Z",
+                              "updatedAt": "2026-07-28T01:07:00.000Z",
+                              "uid": "35240-3d0a1b3f-4017-44db-8e64-0faf65e816df"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:07:00.000Z",
+                          "updatedAt": "2026-07-28T01:07:00.000Z",
+                          "uid": "35240-0d80db82-4385-4d62-9978-8b953b6ad75f"
+                        }
+                      ],
+                      "id": "c10d7b52-4e00-4dab-92b2-a27d78f1e242",
+                      "createdAt": "2026-07-28T01:07:00.000Z",
+                      "updatedAt": "2026-07-28T01:07:00.000Z",
+                      "uid": "35240-c10d7b52-4e00-4dab-92b2-a27d78f1e242"
+                    },
+                    {
+                      "name": "mutate",
+                      "item": [
+                        {
+                          "name": "Autodesk Mutate Element Properties",
+                          "id": "7da7246c-d8de-49f1-a60c-57aae5d7c788",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "oauth2",
+                              "oauth2": [
+                                {
+                                  "key": "scope",
+                                  "value": "account:read account:write",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "accessTokenUrl",
+                                  "value": "https://developer.api.autodesk.com/authentication/v2/token",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "authUrl",
+                                  "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "grant_type",
+                                  "value": "authorization_code",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"mutations\": [\n    {\n      \"key\": \"<string>\",\n      \"properties\": {\n        \"do_bd0\": 12519704,\n        \"aliqua6\": false\n      }\n    },\n    {\n      \"key\": \"<string>\",\n      \"properties\": {\n        \"est_5a4\": \"eu dolore\"\n      }\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/tandem/v1/modeldata/:modelId/mutate",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "tandem",
+                                "v1",
+                                "modeldata",
+                                ":modelId",
+                                "mutate"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "8081106f-c416-4842-82da-3ac06d71a742",
+                                  "key": "modelId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Creates, updates, or deletes custom property values on elements. Only properties defined in user-created schemas can be mutated."
+                          },
+                          "response": [
+                            {
+                              "id": "3caf1d36-7ec0-45da-b058-8afddf36dd57",
+                              "name": "Properties mutated successfully.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"mutations\": [\n    {\n      \"key\": \"<string>\",\n      \"properties\": {\n        \"do_bd0\": 12519704,\n        \"aliqua6\": false\n      }\n    },\n    {\n      \"key\": \"<string>\",\n      \"properties\": {\n        \"est_5a4\": \"eu dolore\"\n      }\n    }\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/tandem/v1/modeldata/:modelId/mutate",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "tandem",
+                                    "v1",
+                                    "modeldata",
+                                    ":modelId",
+                                    "mutate"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "modelId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:07:00.000Z",
+                              "updatedAt": "2026-07-28T01:07:00.000Z",
+                              "uid": "35240-3caf1d36-7ec0-45da-b058-8afddf36dd57"
+                            },
+                            {
+                              "id": "15129c88-f452-4fc9-8149-d4517f874b04",
+                              "name": "Bad request.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"mutations\": [\n    {\n      \"key\": \"<string>\",\n      \"properties\": {\n        \"do_bd0\": 12519704,\n        \"aliqua6\": false\n      }\n    },\n    {\n      \"key\": \"<string>\",\n      \"properties\": {\n        \"est_5a4\": \"eu dolore\"\n      }\n    }\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/tandem/v1/modeldata/:modelId/mutate",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "tandem",
+                                    "v1",
+                                    "modeldata",
+                                    ":modelId",
+                                    "mutate"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "modelId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:07:00.000Z",
+                              "updatedAt": "2026-07-28T01:07:00.000Z",
+                              "uid": "35240-15129c88-f452-4fc9-8149-d4517f874b04"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:07:00.000Z",
+                          "updatedAt": "2026-07-28T01:07:00.000Z",
+                          "uid": "35240-7da7246c-d8de-49f1-a60c-57aae5d7c788"
+                        }
+                      ],
+                      "id": "acb47f00-4327-4d28-9068-72db04e70d12",
+                      "createdAt": "2026-07-28T01:07:00.000Z",
+                      "updatedAt": "2026-07-28T01:07:00.000Z",
+                      "uid": "35240-acb47f00-4327-4d28-9068-72db04e70d12"
+                    }
+                  ],
+                  "id": "7f1d5025-fc73-4081-b47b-a05577580ff0",
+                  "createdAt": "2026-07-28T01:07:00.000Z",
+                  "updatedAt": "2026-07-28T01:07:00.000Z",
+                  "uid": "35240-7f1d5025-fc73-4081-b47b-a05577580ff0"
+                }
+              ],
+              "id": "4452c975-09f9-4862-8423-c4a157050342",
+              "createdAt": "2026-07-28T01:07:00.000Z",
+              "updatedAt": "2026-07-28T01:07:00.000Z",
+              "uid": "35240-4452c975-09f9-4862-8423-c4a157050342"
+            }
+          ],
+          "id": "df1c9cae-53b0-4e50-b0d7-ca48559388c6",
+          "createdAt": "2026-07-28T01:07:00.000Z",
+          "updatedAt": "2026-07-28T01:07:00.000Z",
+          "uid": "35240-df1c9cae-53b0-4e50-b0d7-ca48559388c6"
+        }
+      ],
+      "id": "7689bf49-6055-4305-afc4-6d61e895f472",
+      "createdAt": "2026-07-28T01:07:00.000Z",
+      "updatedAt": "2026-07-28T01:07:00.000Z",
+      "uid": "35240-7689bf49-6055-4305-afc4-6d61e895f472"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}

@@ -1,0 +1,250 @@
+{
+  "info": {
+    "_postman_id": "e29fa9f5-3582-441c-8dd8-26c082cc9279",
+    "name": "Autodesk ACC Account Admin Account Users Derivatives API",
+    "description": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:06:52.000Z",
+    "updatedAt": "2026-07-28T01:06:52.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e29fa9f5-3582-441c-8dd8-26c082cc9279"
+  },
+  "item": [
+    {
+      "name": "modelderivative",
+      "item": [
+        {
+          "name": "v2",
+          "item": [
+            {
+              "name": "designdata",
+              "item": [
+                {
+                  "name": "{urn}",
+                  "item": [
+                    {
+                      "name": "manifest",
+                      "item": [
+                        {
+                          "name": "{derivativeUrn}",
+                          "item": [
+                            {
+                              "name": "Autodesk Download Derivative",
+                              "id": "3767fb96-10c9-404c-a3cc-77d32545a13c",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/octet-stream"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/modelderivative/v2/designdata/:urn/manifest/:derivativeUrn",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "modelderivative",
+                                    "v2",
+                                    "designdata",
+                                    ":urn",
+                                    "manifest",
+                                    ":derivativeUrn"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "609636a6-44e8-44e7-86e9-57c5b58000a9",
+                                      "key": "urn",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "ac64ee85-e527-4e54-b104-f8d036f8560f",
+                                      "key": "derivativeUrn",
+                                      "value": "<string>",
+                                      "description": "(Required) URL-encoded URN of the derivative."
+                                    }
+                                  ]
+                                },
+                                "description": "Downloads a specific derivative file."
+                              },
+                              "response": [
+                                {
+                                  "id": "7997b305-afca-468f-b616-e07532d6e932",
+                                  "name": "Successfully downloaded derivative.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/octet-stream"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/modelderivative/v2/designdata/:urn/manifest/:derivativeUrn",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "modelderivative",
+                                        "v2",
+                                        "designdata",
+                                        ":urn",
+                                        "manifest",
+                                        ":derivativeUrn"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "urn"
+                                        },
+                                        {
+                                          "key": "derivativeUrn"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/octet-stream"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "<binary>",
+                                  "createdAt": "2026-07-28T01:06:52.000Z",
+                                  "updatedAt": "2026-07-28T01:06:52.000Z",
+                                  "uid": "35240-7997b305-afca-468f-b616-e07532d6e932"
+                                },
+                                {
+                                  "id": "ba93ec69-3531-4d53-8035-227ab81f8161",
+                                  "name": "Derivative not found.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/modelderivative/v2/designdata/:urn/manifest/:derivativeUrn",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "modelderivative",
+                                        "v2",
+                                        "designdata",
+                                        ":urn",
+                                        "manifest",
+                                        ":derivativeUrn"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "urn"
+                                        },
+                                        {
+                                          "key": "derivativeUrn"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:06:52.000Z",
+                                  "updatedAt": "2026-07-28T01:06:52.000Z",
+                                  "uid": "35240-ba93ec69-3531-4d53-8035-227ab81f8161"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:06:52.000Z",
+                              "updatedAt": "2026-07-28T01:06:52.000Z",
+                              "uid": "35240-3767fb96-10c9-404c-a3cc-77d32545a13c"
+                            }
+                          ],
+                          "id": "2a820cbe-a078-42ca-8afa-7691e2e4a514",
+                          "createdAt": "2026-07-28T01:06:52.000Z",
+                          "updatedAt": "2026-07-28T01:06:52.000Z",
+                          "uid": "35240-2a820cbe-a078-42ca-8afa-7691e2e4a514"
+                        }
+                      ],
+                      "id": "fda25813-628d-4602-ad79-dabd0b3991ec",
+                      "createdAt": "2026-07-28T01:06:52.000Z",
+                      "updatedAt": "2026-07-28T01:06:52.000Z",
+                      "uid": "35240-fda25813-628d-4602-ad79-dabd0b3991ec"
+                    }
+                  ],
+                  "id": "e383d20f-ec30-41eb-9211-6ede23e78d20",
+                  "createdAt": "2026-07-28T01:06:52.000Z",
+                  "updatedAt": "2026-07-28T01:06:52.000Z",
+                  "uid": "35240-e383d20f-ec30-41eb-9211-6ede23e78d20"
+                }
+              ],
+              "id": "d861af0d-3534-4044-92d7-1e0e9d01a67e",
+              "createdAt": "2026-07-28T01:06:52.000Z",
+              "updatedAt": "2026-07-28T01:06:52.000Z",
+              "uid": "35240-d861af0d-3534-4044-92d7-1e0e9d01a67e"
+            }
+          ],
+          "id": "29011736-5e4f-4e9c-a23c-23ef739107d4",
+          "createdAt": "2026-07-28T01:06:52.000Z",
+          "updatedAt": "2026-07-28T01:06:52.000Z",
+          "uid": "35240-29011736-5e4f-4e9c-a23c-23ef739107d4"
+        }
+      ],
+      "id": "d75ad0d4-4ea6-4290-ba29-019b208ac74d",
+      "createdAt": "2026-07-28T01:06:52.000Z",
+      "updatedAt": "2026-07-28T01:06:52.000Z",
+      "uid": "35240-d75ad0d4-4ea6-4290-ba29-019b208ac74d"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://developer.api.autodesk.com"
+    }
+  ]
+}
