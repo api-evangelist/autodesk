@@ -1,0 +1,382 @@
+{
+  "item": [
+    {
+      "id": "845141ea-e332-4168-90d0-b4b05ca7bc1b",
+      "name": "Records",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "87fb559f-97c7-4563-aeaf-24bbdc6ddbbc",
+          "name": "Autodesk List Records",
+          "request": {
+            "name": "Autodesk List Records",
+            "description": {
+              "content": "Returns environmental impact records from a specific dataset. Records contain emission factors, carbon intensities, and other environmental metrics.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sustainability",
+                "v3",
+                "datasets",
+                ":datasetId",
+                "records"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter[region]",
+                  "value": "<string>",
+                  "description": "Filter by region or country code."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[category]",
+                  "value": "<string>",
+                  "description": "Filter by category."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[year]",
+                  "value": "<integer>",
+                  "description": "Filter by year."
+                },
+                {
+                  "disabled": false,
+                  "key": "page[offset]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "datasetId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "117177f4-cd51-4844-8ccf-2519e5b4429d",
+              "name": "Successfully retrieved records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sustainability",
+                    "v3",
+                    "datasets",
+                    ":datasetId",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[region]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[category]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[year]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"datasetId\": \"string\",\n      \"name\": \"string\",\n      \"category\": \"string\",\n      \"region\": \"string\",\n      \"year\": 7585,\n      \"unit\": \"string\",\n      \"emissionFactor\": 4347.617673881159,\n      \"emissionFactorUnit\": \"string\",\n      \"gwp\": 8201.976482625822,\n      \"metadata\": {\n        \"key_0\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"datasetId\": \"string\",\n      \"name\": \"string\",\n      \"category\": \"string\",\n      \"region\": \"string\",\n      \"year\": 7385,\n      \"unit\": \"string\",\n      \"emissionFactor\": 2802.3899826397524,\n      \"emissionFactorUnit\": \"string\",\n      \"gwp\": 860.7288700502024,\n      \"metadata\": {\n        \"key_0\": 8618.24437409999,\n        \"key_1\": \"string\",\n        \"key_2\": false\n      }\n    }\n  ],\n  \"pagination\": {\n    \"offset\": 7611,\n    \"limit\": 9463,\n    \"totalResults\": 9159\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a0e54051-4ad7-4d3f-b46e-ca52ef14a482",
+          "name": "Autodesk Get Record",
+          "request": {
+            "name": "Autodesk Get Record",
+            "description": {
+              "content": "Returns a specific environmental impact record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sustainability",
+                "v3",
+                "datasets",
+                ":datasetId",
+                "records",
+                ":recordId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "datasetId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "recordId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fdab9c3f-507a-42b4-b413-12649eae7061",
+              "name": "Successfully retrieved record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sustainability",
+                    "v3",
+                    "datasets",
+                    ":datasetId",
+                    "records",
+                    ":recordId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recordId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"datasetId\": \"string\",\n  \"name\": \"string\",\n  \"category\": \"string\",\n  \"region\": \"string\",\n  \"year\": 7688,\n  \"unit\": \"string\",\n  \"emissionFactor\": 6633.697424326865,\n  \"emissionFactorUnit\": \"string\",\n  \"gwp\": 7919.954151422042,\n  \"metadata\": {\n    \"key_0\": true,\n    \"key_1\": 3375.9573789576725,\n    \"key_2\": 4316.680965823486,\n    \"key_3\": 3985\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8cb076e8-690c-4261-87a9-5d93b3ca7d74",
+              "name": "Record not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sustainability",
+                    "v3",
+                    "datasets",
+                    ":datasetId",
+                    "records",
+                    ":recordId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recordId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developer.api.autodesk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f764fd52-5d7f-4689-a20e-8987612b7862",
+    "name": "Autodesk ACC Account Admin Account Users Records API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Autodesk ACC Account Admin Account Users Processing API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://developer.api.autodesk.com/authentication/v2/authorize",
+      "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Processing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Process Photoscene",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/photo-to-3d/v1/photoscene/:photosceneid",
+            "params": [
+              {
+                "name": "photosceneid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Starts the photogrammetry processing for a photoscene. Must have uploaded at least 3 photos before processing."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

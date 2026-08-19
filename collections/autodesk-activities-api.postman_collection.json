@@ -1,0 +1,1326 @@
+{
+  "item": [
+    {
+      "id": "e29ee11f-cefe-4b24-aa56-27f6c9feb971",
+      "name": "Activities",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1567d667-2a98-403a-9422-24d2ae96140e",
+          "name": "Autodesk List Activities",
+          "request": {
+            "name": "Autodesk List Activities",
+            "description": {
+              "content": "Returns a paginated list of Activities belonging to the caller. Activities define the instructions (script, plugin, parameters) that run on an engine.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "da",
+                "us-east",
+                "v3",
+                "activities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4f3259e3-1970-401d-9283-59124a042027",
+              "name": "Successfully retrieved Activities.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "da",
+                    "us-east",
+                    "v3",
+                    "activities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"paginationToken\": \"string\",\n  \"data\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a06a948d-661e-4af1-999a-ea5a258eee3a",
+          "name": "Autodesk Create Activity",
+          "request": {
+            "name": "Autodesk Create Activity",
+            "description": {
+              "content": "Creates a new Activity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "da",
+                "us-east",
+                "v3",
+                "activities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"engine\": \"<string>\",\n  \"commandLine\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"parameters\": {\n    \"key_0\": {\n      \"zip\": \"<boolean>\",\n      \"ondemand\": \"<boolean>\",\n      \"verb\": \"<string>\",\n      \"description\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"localName\": \"<string>\"\n    },\n    \"key_1\": {\n      \"zip\": \"<boolean>\",\n      \"ondemand\": \"<boolean>\",\n      \"verb\": \"<string>\",\n      \"description\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"localName\": \"<string>\"\n    }\n  },\n  \"description\": \"<string>\",\n  \"appbundles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"settings\": {\n    \"key_0\": \"<object>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cd47cf8b-c854-48d9-8df5-581598489eb4",
+              "name": "Activity created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "da",
+                    "us-east",
+                    "v3",
+                    "activities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"engine\": \"<string>\",\n  \"commandLine\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"parameters\": {\n    \"key_0\": {\n      \"zip\": true,\n      \"ondemand\": true,\n      \"verb\": \"post\",\n      \"description\": \"string\",\n      \"required\": false,\n      \"localName\": \"string\"\n    }\n  },\n  \"description\": \"<string>\",\n  \"appbundles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"settings\": {\n    \"key_0\": \"<object>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"engine\": \"string\",\n  \"commandLine\": [\n    \"string\",\n    \"string\"\n  ],\n  \"description\": \"string\",\n  \"appbundles\": [\n    \"string\",\n    \"string\"\n  ],\n  \"parameters\": {\n    \"key_0\": {\n      \"zip\": false,\n      \"ondemand\": false,\n      \"verb\": \"get\",\n      \"description\": \"string\",\n      \"required\": false,\n      \"localName\": \"string\"\n    },\n    \"key_1\": {\n      \"zip\": false,\n      \"ondemand\": false,\n      \"verb\": \"patch\",\n      \"description\": \"string\",\n      \"required\": true,\n      \"localName\": \"string\"\n    },\n    \"key_2\": {\n      \"zip\": false,\n      \"ondemand\": true,\n      \"verb\": \"post\",\n      \"description\": \"string\",\n      \"required\": false,\n      \"localName\": \"string\"\n    }\n  },\n  \"version\": 2557\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0328832f-1b7e-4d3a-b530-bee2c3f7e368",
+              "name": "Activity already exists.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "da",
+                    "us-east",
+                    "v3",
+                    "activities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"engine\": \"<string>\",\n  \"commandLine\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"parameters\": {\n    \"key_0\": {\n      \"zip\": true,\n      \"ondemand\": true,\n      \"verb\": \"post\",\n      \"description\": \"string\",\n      \"required\": false,\n      \"localName\": \"string\"\n    }\n  },\n  \"description\": \"<string>\",\n  \"appbundles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"settings\": {\n    \"key_0\": \"<object>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "58c1aa23-393a-4b79-b21c-c65df1682bd8",
+          "name": "Autodesk Get Activity",
+          "request": {
+            "name": "Autodesk Get Activity",
+            "description": {
+              "content": "Returns details of a specific Activity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "da",
+                "us-east",
+                "v3",
+                "activities",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "272ed580-075d-4dab-8c63-124b2fbf14df",
+              "name": "Successfully retrieved Activity.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "da",
+                    "us-east",
+                    "v3",
+                    "activities",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"engine\": \"string\",\n  \"commandLine\": [\n    \"string\",\n    \"string\"\n  ],\n  \"description\": \"string\",\n  \"appbundles\": [\n    \"string\",\n    \"string\"\n  ],\n  \"parameters\": {\n    \"key_0\": {\n      \"zip\": false,\n      \"ondemand\": false,\n      \"verb\": \"get\",\n      \"description\": \"string\",\n      \"required\": false,\n      \"localName\": \"string\"\n    },\n    \"key_1\": {\n      \"zip\": false,\n      \"ondemand\": false,\n      \"verb\": \"patch\",\n      \"description\": \"string\",\n      \"required\": true,\n      \"localName\": \"string\"\n    },\n    \"key_2\": {\n      \"zip\": false,\n      \"ondemand\": true,\n      \"verb\": \"post\",\n      \"description\": \"string\",\n      \"required\": false,\n      \"localName\": \"string\"\n    }\n  },\n  \"version\": 2557\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8202eaf6-2667-46d7-83be-b4c3ad4a048d",
+          "name": "Autodesk Delete Activity",
+          "request": {
+            "name": "Autodesk Delete Activity",
+            "description": {
+              "content": "Deletes an Activity and all its versions and aliases.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "da",
+                "us-east",
+                "v3",
+                "activities",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "87f44c9c-1392-4c8f-b134-d18083b0a6c8",
+              "name": "Activity deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "da",
+                    "us-east",
+                    "v3",
+                    "activities",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e806e7f3-c6ed-4998-b93b-d758e33bf555",
+          "name": "Autodesk List Activity Versions",
+          "request": {
+            "name": "Autodesk List Activity Versions",
+            "description": {
+              "content": "Returns all versions of an Activity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "da",
+                "us-east",
+                "v3",
+                "activities",
+                ":id",
+                "versions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7a61ab87-f459-4d77-ba79-89dfd3b11909",
+              "name": "Successfully retrieved versions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "da",
+                    "us-east",
+                    "v3",
+                    "activities",
+                    ":id",
+                    "versions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"paginationToken\": \"string\",\n  \"data\": [\n    2163,\n    1616\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "df8410ca-a89d-4760-8dc6-b0648a7caccd",
+          "name": "Autodesk Create Activity Version",
+          "request": {
+            "name": "Autodesk Create Activity Version",
+            "description": {
+              "content": "Creates a new version of an Activity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "da",
+                "us-east",
+                "v3",
+                "activities",
+                ":id",
+                "versions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"engine\": \"<string>\",\n  \"commandLine\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"parameters\": {\n    \"key_0\": {\n      \"zip\": \"<boolean>\",\n      \"ondemand\": \"<boolean>\",\n      \"verb\": \"<string>\",\n      \"description\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"localName\": \"<string>\"\n    },\n    \"key_1\": {\n      \"zip\": \"<boolean>\",\n      \"ondemand\": \"<boolean>\",\n      \"verb\": \"<string>\",\n      \"description\": \"<string>\",\n      \"required\": \"<boolean>\",\n      \"localName\": \"<string>\"\n    }\n  },\n  \"description\": \"<string>\",\n  \"appbundles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"settings\": {\n    \"key_0\": \"<object>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "076e30a4-763c-4f4a-8554-d13de12f0706",
+              "name": "New version created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "da",
+                    "us-east",
+                    "v3",
+                    "activities",
+                    ":id",
+                    "versions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"engine\": \"<string>\",\n  \"commandLine\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"parameters\": {\n    \"key_0\": {\n      \"zip\": true,\n      \"ondemand\": true,\n      \"verb\": \"post\",\n      \"description\": \"string\",\n      \"required\": false,\n      \"localName\": \"string\"\n    }\n  },\n  \"description\": \"<string>\",\n  \"appbundles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"settings\": {\n    \"key_0\": \"<object>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"engine\": \"string\",\n  \"commandLine\": [\n    \"string\",\n    \"string\"\n  ],\n  \"description\": \"string\",\n  \"appbundles\": [\n    \"string\",\n    \"string\"\n  ],\n  \"parameters\": {\n    \"key_0\": {\n      \"zip\": false,\n      \"ondemand\": false,\n      \"verb\": \"get\",\n      \"description\": \"string\",\n      \"required\": false,\n      \"localName\": \"string\"\n    },\n    \"key_1\": {\n      \"zip\": false,\n      \"ondemand\": false,\n      \"verb\": \"patch\",\n      \"description\": \"string\",\n      \"required\": true,\n      \"localName\": \"string\"\n    },\n    \"key_2\": {\n      \"zip\": false,\n      \"ondemand\": true,\n      \"verb\": \"post\",\n      \"description\": \"string\",\n      \"required\": false,\n      \"localName\": \"string\"\n    }\n  },\n  \"version\": 2557\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8d8dc998-fd81-42e8-abe9-38e9a01801ce",
+          "name": "Autodesk List Activity Aliases",
+          "request": {
+            "name": "Autodesk List Activity Aliases",
+            "description": {
+              "content": "Returns all aliases for a specific Activity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "da",
+                "us-east",
+                "v3",
+                "activities",
+                ":id",
+                "aliases"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e65713e7-7eae-4e25-aee4-35ccdb4bc658",
+              "name": "Successfully retrieved aliases.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "da",
+                    "us-east",
+                    "v3",
+                    "activities",
+                    ":id",
+                    "aliases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"paginationToken\": \"string\",\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"version\": 8553,\n      \"receiver\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"version\": 1675,\n      \"receiver\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ebaec044-54f7-483d-beab-2c19ceb3d5ec",
+          "name": "Autodesk Create Activity Alias",
+          "request": {
+            "name": "Autodesk Create Activity Alias",
+            "description": {
+              "content": "Creates an alias for an Activity version.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "da",
+                "us-east",
+                "v3",
+                "activities",
+                ":id",
+                "aliases"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"receiver\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "db394fc0-c026-4995-871c-001aa153eb20",
+              "name": "Alias created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "da",
+                    "us-east",
+                    "v3",
+                    "activities",
+                    ":id",
+                    "aliases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"receiver\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"version\": 2363,\n  \"receiver\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "829b36e6-ad52-4e1e-8b83-0357e77e134e",
+          "name": "Autodesk Get Activity Alias",
+          "request": {
+            "name": "Autodesk Get Activity Alias",
+            "description": {
+              "content": "Returns details of a specific Activity alias.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "da",
+                "us-east",
+                "v3",
+                "activities",
+                ":id",
+                "aliases",
+                ":aliasId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "aliasId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "75eaeee5-1577-4ac8-ba43-e0a4b20f6771",
+              "name": "Successfully retrieved alias.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "da",
+                    "us-east",
+                    "v3",
+                    "activities",
+                    ":id",
+                    "aliases",
+                    ":aliasId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "aliasId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"version\": 2363,\n  \"receiver\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "68db1d04-5a0f-412d-ab22-c9b1ee1b76f1",
+          "name": "Autodesk Update Activity Alias",
+          "request": {
+            "name": "Autodesk Update Activity Alias",
+            "description": {
+              "content": "Updates an Activity alias to point to a different version.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "da",
+                "us-east",
+                "v3",
+                "activities",
+                ":id",
+                "aliases",
+                ":aliasId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "aliasId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"version\": \"<integer>\",\n  \"receiver\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a1c82b43-8783-4f67-b4fb-d4b67add3b98",
+              "name": "Alias updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "da",
+                    "us-east",
+                    "v3",
+                    "activities",
+                    ":id",
+                    "aliases",
+                    ":aliasId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "aliasId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"version\": \"<integer>\",\n  \"receiver\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"version\": 2363,\n  \"receiver\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4e2304da-1cc9-4cae-8c2d-afb441f2f756",
+          "name": "Autodesk Delete Activity Alias",
+          "request": {
+            "name": "Autodesk Delete Activity Alias",
+            "description": {
+              "content": "Deletes an Activity alias.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "da",
+                "us-east",
+                "v3",
+                "activities",
+                ":id",
+                "aliases",
+                ":aliasId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "aliasId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "59280e91-7f19-401c-9505-515844b5dda5",
+              "name": "Alias deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "da",
+                    "us-east",
+                    "v3",
+                    "activities",
+                    ":id",
+                    "aliases",
+                    ":aliasId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "aliasId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developer.api.autodesk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c261ddef-f8de-478d-9f90-73ea59700d18",
+    "name": "Autodesk ACC Account Admin Account Users Activities API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+      "type": "text/plain"
+    }
+  }
+}

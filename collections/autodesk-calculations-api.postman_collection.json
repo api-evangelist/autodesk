@@ -1,0 +1,205 @@
+{
+  "item": [
+    {
+      "id": "dc7d3b24-61f6-40c9-9b4f-06d351a5743f",
+      "name": "Calculations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "13d1a18b-8545-4fbe-8118-dbd11b18d4ea",
+          "name": "Autodesk Calculate Emissions",
+          "request": {
+            "name": "Autodesk Calculate Emissions",
+            "description": {
+              "content": "Calculates carbon emissions based on provided parameters such as energy consumption, material quantities, or transportation distances.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sustainability",
+                "v3",
+                "calculation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"datasetId\": \"<string>\",\n  \"recordId\": \"<string>\",\n  \"quantity\": \"<number>\",\n  \"unit\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "03a18dee-0d78-40ac-82dd-6a12037fe53d",
+              "name": "Calculation completed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sustainability",
+                    "v3",
+                    "calculation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"datasetId\": \"<string>\",\n  \"recordId\": \"<string>\",\n  \"quantity\": \"<number>\",\n  \"unit\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalEmissions\": 9542.929473176238,\n  \"unit\": \"kgCO2e\",\n  \"emissionFactor\": 9986.642736937569,\n  \"quantity\": 9446.366976057478,\n  \"record\": {\n    \"id\": \"string\",\n    \"datasetId\": \"string\",\n    \"name\": \"string\",\n    \"category\": \"string\",\n    \"region\": \"string\",\n    \"year\": 7385,\n    \"unit\": \"string\",\n    \"emissionFactor\": 8399.914670081675,\n    \"emissionFactorUnit\": \"string\",\n    \"gwp\": 4604.147898332854,\n    \"metadata\": {\n      \"key_0\": 1509,\n      \"key_1\": \"string\",\n      \"key_2\": 9784.909608546699,\n      \"key_3\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b178a639-2658-49fd-9f61-d90c5efe0832",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sustainability",
+                    "v3",
+                    "calculation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"datasetId\": \"<string>\",\n  \"recordId\": \"<string>\",\n  \"quantity\": \"<number>\",\n  \"unit\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developer.api.autodesk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1e2f08a7-c0e1-423e-a6cb-b983141024f8",
+    "name": "Autodesk ACC Account Admin Account Users Calculations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+      "type": "text/plain"
+    }
+  }
+}

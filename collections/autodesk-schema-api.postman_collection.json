@@ -1,0 +1,155 @@
+{
+  "item": [
+    {
+      "id": "a4f66c53-97b0-494d-89ed-09ce551c5464",
+      "name": "Schema",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1c7a677e-d762-48d1-9f2a-c7fa2190e68f",
+          "name": "Autodesk Get Twin Schema",
+          "request": {
+            "name": "Autodesk Get Twin Schema",
+            "description": {
+              "content": "Returns the schema definition for a digital twin, including built-in and custom property definitions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tandem",
+                "v1",
+                "twins",
+                ":twinId",
+                "schema"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "twinId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bc18bb29-b551-44c2-8cb4-fbc7d2d8ba3c",
+              "name": "Successfully retrieved schema.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tandem",
+                    "v1",
+                    "twins",
+                    ":twinId",
+                    "schema"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "twinId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"schemas\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"version\": 3731,\n      \"attrs\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"category\": \"string\",\n          \"dataType\": 3921,\n          \"flags\": 3011,\n          \"forgeUnit\": \"string\",\n          \"forgeSpec\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"category\": \"string\",\n          \"dataType\": 4823,\n          \"flags\": 3811,\n          \"forgeUnit\": \"string\",\n          \"forgeSpec\": \"string\"\n        }\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"version\": 3803,\n      \"attrs\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"category\": \"string\",\n          \"dataType\": 2854,\n          \"flags\": 5144,\n          \"forgeUnit\": \"string\",\n          \"forgeSpec\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"category\": \"string\",\n          \"dataType\": 8887,\n          \"flags\": 4026,\n          \"forgeUnit\": \"string\",\n          \"forgeSpec\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developer.api.autodesk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2e716cc6-4d40-45f9-bf56-77c655a78475",
+    "name": "Autodesk ACC Account Admin Account Users Schema API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+      "type": "text/plain"
+    }
+  }
+}

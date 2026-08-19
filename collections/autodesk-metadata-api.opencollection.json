@@ -1,0 +1,191 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Autodesk ACC Account Admin Account Users Metadata API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://developer.api.autodesk.com/authentication/v2/authorize",
+      "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metadata",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk Get Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/:urn/metadata",
+            "params": [
+              {
+                "name": "urn",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a list of model views (viewables) available for the source design. Each viewable has a GUID that can be used to query its object tree and properties."
+        },
+        {
+          "info": {
+            "name": "Autodesk Get Object Tree",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/:urn/metadata/:guid",
+            "params": [
+              {
+                "name": "urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "guid",
+                "value": "",
+                "type": "path",
+                "description": "The GUID of the viewable."
+              },
+              {
+                "name": "forceget",
+                "value": "",
+                "type": "query",
+                "description": "Set to true to force fetching the full tree instead of using pagination."
+              }
+            ]
+          },
+          "docs": "Returns the object hierarchy tree for a specific viewable within the source design."
+        },
+        {
+          "info": {
+            "name": "Autodesk Get All Properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/:urn/metadata/:guid/properties",
+            "params": [
+              {
+                "name": "urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "guid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "forceget",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "objectid",
+                "value": "",
+                "type": "query",
+                "description": "Filter properties by a specific object ID."
+              }
+            ]
+          },
+          "docs": "Returns the properties of all objects in a specific viewable. For large models, use the forceget parameter to ensure all data is returned."
+        },
+        {
+          "info": {
+            "name": "Autodesk Query Properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/:urn/metadata/:guid/properties:query",
+            "params": [
+              {
+                "name": "urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "guid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns a filtered set of properties for a viewable based on specified criteria. Supports pagination for large result sets."
+        },
+        {
+          "info": {
+            "name": "Autodesk List Specs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/parameters/v1/metadata/specs"
+          },
+          "docs": "Returns available spec types (data types) for parameter definitions (e.g., text, number, integer, length, area, volume, angle)."
+        },
+        {
+          "info": {
+            "name": "Autodesk List Categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/parameters/v1/metadata/categories"
+          },
+          "docs": "Returns available Revit categories for parameter binding."
+        },
+        {
+          "info": {
+            "name": "Autodesk List Disciplines",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/parameters/v1/metadata/disciplines"
+          },
+          "docs": "Returns available disciplines for parameter classification."
+        },
+        {
+          "info": {
+            "name": "Autodesk List Units",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/parameters/v1/metadata/units",
+            "params": [
+              {
+                "name": "filter[specId]",
+                "value": "",
+                "type": "query",
+                "description": "Filter units by spec ID."
+              }
+            ]
+          },
+          "docs": "Returns available unit types for parameter definitions."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

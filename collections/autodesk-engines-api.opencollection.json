@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Autodesk ACC Account Admin Account Users Engines API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://developer.api.autodesk.com/authentication/v2/authorize",
+      "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Engines",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk List Engines",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/engines",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page token for pagination."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of available engines. Engines correspond to Autodesk products that can process design files (AutoCAD, Revit, Inventor, 3ds Max)."
+        },
+        {
+          "info": {
+            "name": "Autodesk Get Engine",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/engines/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The fully qualified engine ID (e.g., Autodesk.AutoCAD+24_1)."
+              }
+            ]
+          },
+          "docs": "Returns details about a specific engine."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

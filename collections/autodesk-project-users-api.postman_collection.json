@@ -1,0 +1,703 @@
+{
+  "item": [
+    {
+      "id": "e4861577-db29-4228-9214-4319ebff23cb",
+      "name": "Project Users",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8a781106-986d-417f-9e37-e73e175743f3",
+          "name": "Autodesk List Project Users",
+          "request": {
+            "name": "Autodesk List Project Users",
+            "description": {
+              "content": "Returns users assigned to a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "construction",
+                "admin",
+                "v1",
+                "accounts",
+                ":accountId",
+                "projects",
+                ":projectId",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter[email]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[name]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a1273e33-eb18-4934-b637-3bebecda8c14",
+              "name": "Successfully retrieved project users.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "construction",
+                    "admin",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[email]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[name]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"email\": \"string\",\n      \"name\": \"string\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"autodeskId\": \"string\",\n      \"status\": \"active\",\n      \"accessLevels\": {\n        \"accountAdmin\": true,\n        \"projectAdmin\": false,\n        \"executive\": false\n      },\n      \"companyId\": \"string\",\n      \"companyName\": \"string\",\n      \"industryRoles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"products\": [\n        {\n          \"key\": \"string\",\n          \"access\": \"none\"\n        },\n        {\n          \"key\": \"string\",\n          \"access\": \"member\"\n        }\n      ],\n      \"addedOn\": \"1958-01-03T02:11:49.704Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"email\": \"string\",\n      \"name\": \"string\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"autodeskId\": \"string\",\n      \"status\": \"active\",\n      \"accessLevels\": {\n        \"accountAdmin\": false,\n        \"projectAdmin\": false,\n        \"executive\": false\n      },\n      \"companyId\": \"string\",\n      \"companyName\": \"string\",\n      \"industryRoles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"products\": [\n        {\n          \"key\": \"string\",\n          \"access\": \"member\"\n        },\n        {\n          \"key\": \"string\",\n          \"access\": \"none\"\n        }\n      ],\n      \"addedOn\": \"2025-09-03T10:58:45.393Z\"\n    }\n  ],\n  \"pagination\": {\n    \"offset\": 8217,\n    \"limit\": 3599,\n    \"totalResults\": 3750\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1fb9758a-d6d1-4f04-ad0c-59923c5dbb25",
+          "name": "Autodesk Add Project User",
+          "request": {
+            "name": "Autodesk Add Project User",
+            "description": {
+              "content": "Adds a user to a project with specified roles and products.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "construction",
+                "admin",
+                "v1",
+                "accounts",
+                ":accountId",
+                "projects",
+                ":projectId",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "account:read account:write"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"products\": [\n    {\n      \"key\": \"<string>\",\n      \"access\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"access\": \"<string>\"\n    }\n  ],\n  \"industryRoles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"companyId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "05daf4e2-1c39-4ea8-a4f6-3bfe3beca5c5",
+              "name": "User added to project.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "construction",
+                    "admin",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"products\": [\n    {\n      \"key\": \"<string>\",\n      \"access\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"access\": \"<string>\"\n    }\n  ],\n  \"industryRoles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"companyId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"email\": \"string\",\n  \"name\": \"string\",\n  \"firstName\": \"string\",\n  \"lastName\": \"string\",\n  \"autodeskId\": \"string\",\n  \"status\": \"inactive\",\n  \"accessLevels\": {\n    \"accountAdmin\": false,\n    \"projectAdmin\": true,\n    \"executive\": false\n  },\n  \"companyId\": \"string\",\n  \"companyName\": \"string\",\n  \"industryRoles\": [\n    \"string\",\n    \"string\"\n  ],\n  \"products\": [\n    {\n      \"key\": \"string\",\n      \"access\": \"administrator\"\n    },\n    {\n      \"key\": \"string\",\n      \"access\": \"member\"\n    }\n  ],\n  \"addedOn\": \"1961-11-01T01:09:20.629Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c5740cd-df72-494d-9bb7-f038e2ba1885",
+          "name": "Autodesk Update Project User",
+          "request": {
+            "name": "Autodesk Update Project User",
+            "description": {
+              "content": "Updates a user's role or product access in a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "construction",
+                "admin",
+                "v1",
+                "accounts",
+                ":accountId",
+                "projects",
+                ":projectId",
+                "users",
+                ":userId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "account:read account:write"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"products\": [\n    {\n      \"key\": \"<string>\",\n      \"access\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"access\": \"<string>\"\n    }\n  ],\n  \"industryRoles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"companyId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fadbe5da-9816-4d33-8499-c67681140c13",
+              "name": "User updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "construction",
+                    "admin",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"products\": [\n    {\n      \"key\": \"<string>\",\n      \"access\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"access\": \"<string>\"\n    }\n  ],\n  \"industryRoles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"companyId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"email\": \"string\",\n  \"name\": \"string\",\n  \"firstName\": \"string\",\n  \"lastName\": \"string\",\n  \"autodeskId\": \"string\",\n  \"status\": \"inactive\",\n  \"accessLevels\": {\n    \"accountAdmin\": false,\n    \"projectAdmin\": true,\n    \"executive\": false\n  },\n  \"companyId\": \"string\",\n  \"companyName\": \"string\",\n  \"industryRoles\": [\n    \"string\",\n    \"string\"\n  ],\n  \"products\": [\n    {\n      \"key\": \"string\",\n      \"access\": \"administrator\"\n    },\n    {\n      \"key\": \"string\",\n      \"access\": \"member\"\n    }\n  ],\n  \"addedOn\": \"1961-11-01T01:09:20.629Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e4fc72d4-a1c8-4be5-b78a-bc9a3bdb9b07",
+          "name": "Autodesk Remove Project User",
+          "request": {
+            "name": "Autodesk Remove Project User",
+            "description": {
+              "content": "Removes a user from a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "construction",
+                "admin",
+                "v1",
+                "accounts",
+                ":accountId",
+                "projects",
+                ":projectId",
+                "users",
+                ":userId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "account:read account:write"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b008197e-04d3-423c-b037-9839469c3072",
+              "name": "User removed from project.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "construction",
+                    "admin",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "projects",
+                    ":projectId",
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developer.api.autodesk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9a696d6b-c3ce-4da1-90a6-8000a03f182c",
+    "name": "Autodesk ACC Account Admin Account Users Project Users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+      "type": "text/plain"
+    }
+  }
+}

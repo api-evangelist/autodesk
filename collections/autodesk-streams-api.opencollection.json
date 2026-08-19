@@ -1,0 +1,116 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Autodesk ACC Account Admin Account Users Streams API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://developer.api.autodesk.com/authentication/v2/authorize",
+      "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Streams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk List Streams",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/tandem/v1/twins/:twinId/streams",
+            "params": [
+              {
+                "name": "twinId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns IoT data streams associated with a digital twin for time-series sensor data integration."
+        },
+        {
+          "info": {
+            "name": "Autodesk Get Timeseries Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/tandem/v1/timeseries/:streamId",
+            "params": [
+              {
+                "name": "streamId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start time (ISO 8601 or Unix timestamp)."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End time (ISO 8601 or Unix timestamp)."
+              },
+              {
+                "name": "resolution",
+                "value": "",
+                "type": "query",
+                "description": "Data resolution."
+              }
+            ]
+          },
+          "docs": "Returns time-series data for a specific IoT stream."
+        },
+        {
+          "info": {
+            "name": "Autodesk Push Timeseries Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/tandem/v1/timeseries/:streamId",
+            "params": [
+              {
+                "name": "streamId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://developer.api.autodesk.com/authentication/v2/authorize",
+              "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Pushes new time-series data points to a stream."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

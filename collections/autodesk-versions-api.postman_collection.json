@@ -1,0 +1,454 @@
+{
+  "item": [
+    {
+      "id": "51387a2f-782b-4e5b-a140-1671c13c25a1",
+      "name": "Versions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c607d5f8-56ad-4e25-95f6-4a01db0e532d",
+          "name": "Autodesk List Item Versions",
+          "request": {
+            "name": "Autodesk List Item Versions",
+            "description": {
+              "content": "Returns all versions of a given item.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "v1",
+                "projects",
+                ":project_id",
+                "items",
+                ":item_id",
+                "versions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page[number]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "item_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "de95e780-520c-40b0-9bb0-9d779dbabe41",
+              "name": "Successfully retrieved versions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "v1",
+                    "projects",
+                    ":project_id",
+                    "items",
+                    ":item_id",
+                    "versions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[number]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "item_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"jsonapi\": {\n    \"version\": \"1.0\"\n  },\n  \"data\": [\n    {\n      \"type\": \"versions\",\n      \"id\": \"string\",\n      \"attributes\": {\n        \"name\": \"string\",\n        \"displayName\": \"string\",\n        \"versionNumber\": 7017,\n        \"mimeType\": \"string\",\n        \"fileType\": \"string\",\n        \"storageSize\": 6029,\n        \"createTime\": \"1982-05-09T02:12:41.204Z\",\n        \"createUserId\": \"string\",\n        \"createUserName\": \"string\",\n        \"lastModifiedTime\": \"1979-06-17T03:42:59.134Z\",\n        \"lastModifiedUserId\": \"string\",\n        \"lastModifiedUserName\": \"string\",\n        \"extension\": {\n          \"type\": \"string\",\n          \"version\": \"string\",\n          \"data\": {}\n        }\n      }\n    },\n    {\n      \"type\": \"versions\",\n      \"id\": \"string\",\n      \"attributes\": {\n        \"name\": \"string\",\n        \"displayName\": \"string\",\n        \"versionNumber\": 4627,\n        \"mimeType\": \"string\",\n        \"fileType\": \"string\",\n        \"storageSize\": 2828,\n        \"createTime\": \"1964-11-16T01:13:37.818Z\",\n        \"createUserId\": \"string\",\n        \"createUserName\": \"string\",\n        \"lastModifiedTime\": \"1964-02-08T14:12:22.779Z\",\n        \"lastModifiedUserId\": \"string\",\n        \"lastModifiedUserName\": \"string\",\n        \"extension\": {\n          \"type\": \"string\",\n          \"version\": \"string\",\n          \"data\": {}\n        }\n      }\n    }\n  ],\n  \"links\": {\n    \"self\": {\n      \"href\": \"http://KClCQLRTllrCbeRWtgBBclei.nmKE1\"\n    },\n    \"first\": {\n      \"href\": \"http://olEITfwDYeJncGGmNmT.wavY0Jp8DSIAXViAVYTHRevupe2TN.\"\n    },\n    \"prev\": {\n      \"href\": \"https://QCprubfrtMUL.krwDGASXooGPcV.O-VWSKlgYPK615hW5ehS9sI\"\n    },\n    \"next\": {\n      \"href\": \"http://BpfllrJXTAkQfXBIyOxrtg.tjqxXMU6zmzOcnxAGId2XWBpCRKAdWb8MRpAOFCgU3dKegs.sv\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "81dc54e2-82d6-4bd1-9300-fc53fbaf71c1",
+          "name": "Autodesk Create Version",
+          "request": {
+            "name": "Autodesk Create Version",
+            "description": {
+              "content": "Creates a new version of an existing item. The version references a storage location containing the uploaded file.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "v1",
+                "projects",
+                ":project_id",
+                "versions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/vnd.api+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "account:read account:write"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jsonapi\": {\n    \"version\": \"<string>\"\n  },\n  \"data\": {\n    \"type\": \"<string>\",\n    \"attributes\": {\n      \"name\": \"<string>\",\n      \"extension\": {\n        \"type\": \"<string>\",\n        \"version\": \"<string>\",\n        \"data\": \"<object>\"\n      }\n    },\n    \"relationships\": {\n      \"item\": {\n        \"data\": {\n          \"type\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      },\n      \"storage\": {\n        \"data\": {\n          \"type\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8254ce14-7737-40ec-bcb7-9d9fa875f407",
+              "name": "Version created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "v1",
+                    "projects",
+                    ":project_id",
+                    "versions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"jsonapi\": {\n    \"version\": \"1.0\"\n  },\n  \"data\": {\n    \"type\": \"versions\",\n    \"attributes\": {\n      \"name\": \"<string>\",\n      \"extension\": {\n        \"type\": \"string\",\n        \"version\": \"string\",\n        \"data\": {}\n      }\n    },\n    \"relationships\": {\n      \"item\": {\n        \"data\": {\n          \"type\": \"items\",\n          \"id\": \"<string>\"\n        }\n      },\n      \"storage\": {\n        \"data\": {\n          \"type\": \"objects\",\n          \"id\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"jsonapi\": {\n    \"version\": \"1.0\"\n  },\n  \"data\": {\n    \"type\": \"versions\",\n    \"id\": \"string\",\n    \"attributes\": {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"versionNumber\": 6568,\n      \"mimeType\": \"string\",\n      \"fileType\": \"string\",\n      \"storageSize\": 2368,\n      \"createTime\": \"1948-04-07T10:32:50.707Z\",\n      \"createUserId\": \"string\",\n      \"createUserName\": \"string\",\n      \"lastModifiedTime\": \"1964-11-01T22:39:44.318Z\",\n      \"lastModifiedUserId\": \"string\",\n      \"lastModifiedUserName\": \"string\",\n      \"extension\": {\n        \"type\": \"string\",\n        \"version\": \"string\",\n        \"data\": {}\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb6643cd-60b6-43aa-94d1-2f807fe134ac",
+          "name": "Autodesk Get Version",
+          "request": {
+            "name": "Autodesk Get Version",
+            "description": {
+              "content": "Returns a specific version of an item.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "v1",
+                "projects",
+                ":project_id",
+                "versions",
+                ":version_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "version_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6329fa9a-2860-48d1-8643-e4c02f49da23",
+              "name": "Successfully retrieved version.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "v1",
+                    "projects",
+                    ":project_id",
+                    "versions",
+                    ":version_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "version_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"jsonapi\": {\n    \"version\": \"1.0\"\n  },\n  \"data\": {\n    \"type\": \"versions\",\n    \"id\": \"string\",\n    \"attributes\": {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"versionNumber\": 6568,\n      \"mimeType\": \"string\",\n      \"fileType\": \"string\",\n      \"storageSize\": 2368,\n      \"createTime\": \"1948-04-07T10:32:50.707Z\",\n      \"createUserId\": \"string\",\n      \"createUserName\": \"string\",\n      \"lastModifiedTime\": \"1964-11-01T22:39:44.318Z\",\n      \"lastModifiedUserId\": \"string\",\n      \"lastModifiedUserName\": \"string\",\n      \"extension\": {\n        \"type\": \"string\",\n        \"version\": \"string\",\n        \"data\": {}\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developer.api.autodesk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a6f7af70-c164-491b-8bd4-e10bcce47fa8",
+    "name": "Autodesk ACC Account Admin Account Users Versions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+      "type": "text/plain"
+    }
+  }
+}

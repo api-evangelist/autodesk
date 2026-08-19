@@ -1,0 +1,340 @@
+{
+  "item": [
+    {
+      "id": "b00ebb58-e05c-439c-87e7-41a13f6ab002",
+      "name": "Companies",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "38c8164e-dbb3-441a-a592-be6c50306498",
+          "name": "Autodesk List Companies",
+          "request": {
+            "name": "Autodesk List Companies",
+            "description": {
+              "content": "Returns partner companies in the account directory.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "construction",
+                "admin",
+                "v1",
+                "accounts",
+                ":accountId",
+                "companies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter[name]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[trade]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "836ba670-3fad-4ac1-b896-3b215b57f81f",
+              "name": "Successfully retrieved companies.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "construction",
+                    "admin",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "companies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[name]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[trade]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"trade\": \"string\",\n      \"addressLine1\": \"string\",\n      \"addressLine2\": \"string\",\n      \"city\": \"string\",\n      \"stateOrProvince\": \"string\",\n      \"postalCode\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"websiteUrl\": \"http://RNlgWZPPWhljtUrEUHMxfJj.ftd3uj+cYRsfumq8L0g+oON8HEO+H40kHgG1f7m-5SS\",\n      \"description\": \"string\",\n      \"erp_id\": \"string\",\n      \"tax_id\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"trade\": \"string\",\n      \"addressLine1\": \"string\",\n      \"addressLine2\": \"string\",\n      \"city\": \"string\",\n      \"stateOrProvince\": \"string\",\n      \"postalCode\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"websiteUrl\": \"http://gHVRqZRhbyICXZdIsZwJS.mezqCbkHlNCb1GpRZZPUOiIeeM2Xkf,X7NDgVR0BFje+zZAQ+3\",\n      \"description\": \"string\",\n      \"erp_id\": \"string\",\n      \"tax_id\": \"string\"\n    }\n  ],\n  \"pagination\": {\n    \"offset\": 4265,\n    \"limit\": 6289,\n    \"totalResults\": 2873\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a2e70f81-ff6a-4bb8-8472-d43594b8398a",
+          "name": "Autodesk Create Company",
+          "request": {
+            "name": "Autodesk Create Company",
+            "description": {
+              "content": "Creates a new partner company in the account directory.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "construction",
+                "admin",
+                "v1",
+                "accounts",
+                ":accountId",
+                "companies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "account:read account:write"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"trade\": \"<string>\",\n  \"addressLine1\": \"<string>\",\n  \"city\": \"<string>\",\n  \"stateOrProvince\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"country\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"websiteUrl\": \"<uri>\",\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2892bbf9-e814-4a49-8681-08e18b1445a6",
+              "name": "Company created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "construction",
+                    "admin",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "companies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"trade\": \"<string>\",\n  \"addressLine1\": \"<string>\",\n  \"city\": \"<string>\",\n  \"stateOrProvince\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"country\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"websiteUrl\": \"<uri>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"trade\": \"string\",\n  \"addressLine1\": \"string\",\n  \"addressLine2\": \"string\",\n  \"city\": \"string\",\n  \"stateOrProvince\": \"string\",\n  \"postalCode\": \"string\",\n  \"country\": \"string\",\n  \"phone\": \"string\",\n  \"websiteUrl\": \"https://KToBaU.zganFLbMgHdK+wdNMQk65b6v2FONoxIFvKC6,KAN8PK7kMAx343,NjhLvZAPjCJe\",\n  \"description\": \"string\",\n  \"erp_id\": \"string\",\n  \"tax_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developer.api.autodesk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6a7628f5-0224-466e-b660-d6dfee209f94",
+    "name": "Autodesk ACC Account Admin Account Users Companies API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+      "type": "text/plain"
+    }
+  }
+}

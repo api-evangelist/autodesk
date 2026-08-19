@@ -1,0 +1,284 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Autodesk ACC Account Admin Account Users Object Storage Service API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://developer.api.autodesk.com/authentication/v2/authorize",
+      "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Object Storage Service",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk List Buckets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/oss/v2/buckets",
+            "params": [
+              {
+                "name": "region",
+                "value": "",
+                "type": "query",
+                "description": "Region for the bucket (US, EMEA)."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startAt",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of buckets owned by the application."
+        },
+        {
+          "info": {
+            "name": "Autodesk Create Bucket",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/oss/v2/buckets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new OSS bucket."
+        },
+        {
+          "info": {
+            "name": "Autodesk Get Bucket Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/oss/v2/buckets/:bucketKey",
+            "params": [
+              {
+                "name": "bucketKey",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns details of a specific bucket."
+        },
+        {
+          "info": {
+            "name": "Autodesk Delete Bucket",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://developer.api.autodesk.com/oss/v2/buckets/:bucketKey",
+            "params": [
+              {
+                "name": "bucketKey",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a bucket. The bucket must be empty."
+        },
+        {
+          "info": {
+            "name": "Autodesk List Objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/oss/v2/buckets/:bucketKey/objects",
+            "params": [
+              {
+                "name": "bucketKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "beginsWith",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startAt",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of objects in a bucket."
+        },
+        {
+          "info": {
+            "name": "Autodesk Download Object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/oss/v2/buckets/:bucketKey/objects/:objectKey",
+            "headers": [
+              {
+                "name": "Range",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "bucketKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "objectKey",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Downloads an object from a bucket."
+        },
+        {
+          "info": {
+            "name": "Autodesk Upload Object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://developer.api.autodesk.com/oss/v2/buckets/:bucketKey/objects/:objectKey",
+            "headers": [
+              {
+                "name": "Content-Length",
+                "value": ""
+              },
+              {
+                "name": "Content-Type",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "bucketKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "objectKey",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Uploads an object to a bucket."
+        },
+        {
+          "info": {
+            "name": "Autodesk Delete Object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://developer.api.autodesk.com/oss/v2/buckets/:bucketKey/objects/:objectKey",
+            "params": [
+              {
+                "name": "bucketKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "objectKey",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes an object from a bucket."
+        },
+        {
+          "info": {
+            "name": "Autodesk Get Object Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/oss/v2/buckets/:bucketKey/objects/:objectKey/details",
+            "params": [
+              {
+                "name": "bucketKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "objectKey",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns metadata about a specific object."
+        },
+        {
+          "info": {
+            "name": "Autodesk Create Signed URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/oss/v2/buckets/:bucketKey/objects/:objectKey/signed",
+            "params": [
+              {
+                "name": "bucketKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "objectKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "access",
+                "value": "",
+                "type": "query",
+                "description": "Access level for the signed URL."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a signed URL for downloading or uploading an object without requiring an access token."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

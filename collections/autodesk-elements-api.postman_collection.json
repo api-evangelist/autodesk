@@ -1,0 +1,493 @@
+{
+  "item": [
+    {
+      "id": "cc489db9-2166-4b08-a8ed-9a71a022ea12",
+      "name": "Elements",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2189a75e-760c-4528-9994-b6a6e942604d",
+          "name": "Autodesk Scan Elements",
+          "request": {
+            "name": "Autodesk Scan Elements",
+            "description": {
+              "content": "Scans and returns elements from a model, optionally filtered by category, family, or property values. Returns element keys and properties.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tandem",
+                "v1",
+                "modeldata",
+                ":modelId",
+                "scan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "modelId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"families\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"categoryId\": \"<integer>\",\n  \"includeHistory\": \"<boolean>\",\n  \"columns\": [\n    {\n      \"fam\": \"<string>\",\n      \"col\": \"<string>\"\n    },\n    {\n      \"fam\": \"<string>\",\n      \"col\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f34171e1-1a74-42fd-8f18-6b423062a882",
+              "name": "Successfully scanned elements.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tandem",
+                    "v1",
+                    "modeldata",
+                    ":modelId",
+                    "scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "modelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"families\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"categoryId\": \"<integer>\",\n  \"includeHistory\": \"<boolean>\",\n  \"columns\": [\n    {\n      \"fam\": \"<string>\",\n      \"col\": \"<string>\"\n    },\n    {\n      \"fam\": \"<string>\",\n      \"col\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"rows\": [\n    [],\n    []\n  ],\n  \"qualifiedColumns\": [\n    {\n      \"fam\": \"string\",\n      \"col\": \"string\",\n      \"category\": \"string\"\n    },\n    {\n      \"fam\": \"string\",\n      \"col\": \"string\",\n      \"category\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bdd565fc-76f4-4527-8ab3-7fc5bb7959df",
+          "name": "Autodesk Get Element Properties",
+          "request": {
+            "name": "Autodesk Get Element Properties",
+            "description": {
+              "content": "Returns properties for specific elements identified by their keys.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tandem",
+                "v1",
+                "modeldata",
+                ":modelId",
+                "props"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "modelId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"columns\": [\n    {\n      \"fam\": \"<string>\",\n      \"col\": \"<string>\"\n    },\n    {\n      \"fam\": \"<string>\",\n      \"col\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5d60ad09-bb79-4786-86a1-4434436fd47e",
+              "name": "Successfully retrieved properties.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tandem",
+                    "v1",
+                    "modeldata",
+                    ":modelId",
+                    "props"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "modelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"columns\": [\n    {\n      \"fam\": \"<string>\",\n      \"col\": \"<string>\"\n    },\n    {\n      \"fam\": \"<string>\",\n      \"col\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"rows\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": 4446.464987284521,\n      \"key_2\": true\n    },\n    {\n      \"key_0\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7617ec21-510e-4b03-8f71-25864be47b09",
+          "name": "Autodesk Mutate Element Properties",
+          "request": {
+            "name": "Autodesk Mutate Element Properties",
+            "description": {
+              "content": "Creates, updates, or deletes custom property values on elements. Only properties defined in user-created schemas can be mutated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tandem",
+                "v1",
+                "modeldata",
+                ":modelId",
+                "mutate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "modelId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "account:read account:write"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mutations\": [\n    {\n      \"key\": \"<string>\",\n      \"properties\": {\n        \"key_0\": true,\n        \"key_1\": false\n      }\n    },\n    {\n      \"key\": \"<string>\",\n      \"properties\": {\n        \"key_0\": true\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6ea5272c-d820-4f28-92ee-16ef7e48b126",
+              "name": "Properties mutated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tandem",
+                    "v1",
+                    "modeldata",
+                    ":modelId",
+                    "mutate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "modelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mutations\": [\n    {\n      \"key\": \"<string>\",\n      \"properties\": {\n        \"key_0\": true,\n        \"key_1\": false,\n        \"key_2\": 3503\n      }\n    },\n    {\n      \"key\": \"<string>\",\n      \"properties\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": 3235.855417855393\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9e30144a-a3a0-4a18-92fa-787d77ac1e15",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tandem",
+                    "v1",
+                    "modeldata",
+                    ":modelId",
+                    "mutate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "modelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mutations\": [\n    {\n      \"key\": \"<string>\",\n      \"properties\": {\n        \"key_0\": true,\n        \"key_1\": false,\n        \"key_2\": 3503\n      }\n    },\n    {\n      \"key\": \"<string>\",\n      \"properties\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": 3235.855417855393\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developer.api.autodesk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9c0a04da-7734-452c-934f-f8edb12e6a2d",
+    "name": "Autodesk ACC Account Admin Account Users Elements API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+      "type": "text/plain"
+    }
+  }
+}

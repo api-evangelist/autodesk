@@ -1,0 +1,1028 @@
+{
+  "item": [
+    {
+      "id": "f6607a2e-a4a2-456c-be84-cef6f46af0a6",
+      "name": "Jobs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b241beb9-67e5-490f-8f24-0b7f504e90df",
+          "name": "Autodesk List Jobs",
+          "request": {
+            "name": "Autodesk List Jobs",
+            "description": {
+              "content": "Returns a list of graph evaluation jobs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fge",
+                "v1",
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter[status]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3dba2a53-2f89-4636-9c70-a9f585ecd884",
+              "name": "Successfully retrieved jobs.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fge",
+                    "v1",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[status]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"graphId\": \"string\",\n      \"status\": \"succeeded\",\n      \"progress\": 7021.377197982262,\n      \"createdAt\": \"2013-01-07T06:29:36.276Z\",\n      \"startedAt\": \"1963-02-06T06:25:12.120Z\",\n      \"completedAt\": \"2012-10-30T14:28:59.262Z\",\n      \"error\": \"string\",\n      \"inputs\": {\n        \"key_0\": 905.6803307475581\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"graphId\": \"string\",\n      \"status\": \"failed\",\n      \"progress\": 9377.598587822022,\n      \"createdAt\": \"1960-06-04T09:25:14.021Z\",\n      \"startedAt\": \"2023-04-12T14:57:08.156Z\",\n      \"completedAt\": \"1987-01-11T09:59:41.711Z\",\n      \"error\": \"string\",\n      \"inputs\": {\n        \"key_0\": \"string\",\n        \"key_1\": 2749.327241698868\n      }\n    }\n  ],\n  \"pagination\": {\n    \"offset\": 4017,\n    \"limit\": 4270,\n    \"totalResults\": 9367\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "92078bb8-7546-4b18-97f2-a5d772dd5182",
+          "name": "Autodesk Create Job",
+          "request": {
+            "name": "Autodesk Create Job",
+            "description": {
+              "content": "Creates and queues a new graph evaluation job. Specify the graph to evaluate and input parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fge",
+                "v1",
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"graphId\": \"<string>\",\n  \"inputs\": {\n    \"key_0\": 7409.412331827494,\n    \"key_1\": false,\n    \"key_2\": false,\n    \"key_3\": 4266\n  },\n  \"callbackUrl\": \"<uri>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b956a943-a8ec-408b-8eca-ceff885c50b2",
+              "name": "Job created and queued.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fge",
+                    "v1",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"graphId\": \"<string>\",\n  \"inputs\": {\n    \"key_0\": 1132.2527713112574,\n    \"key_1\": 9336.50674236255,\n    \"key_2\": 6440\n  },\n  \"callbackUrl\": \"<uri>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"graphId\": \"string\",\n  \"status\": \"queued\",\n  \"progress\": 8329.967979821107,\n  \"createdAt\": \"2007-09-23T07:06:43.050Z\",\n  \"startedAt\": \"2016-07-12T09:30:17.812Z\",\n  \"completedAt\": \"1962-12-08T04:46:49.616Z\",\n  \"error\": \"string\",\n  \"inputs\": {\n    \"key_0\": \"string\",\n    \"key_1\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b0b66ae1-3e4c-437b-be70-988a2aa7f60b",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fge",
+                    "v1",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"graphId\": \"<string>\",\n  \"inputs\": {\n    \"key_0\": 1132.2527713112574,\n    \"key_1\": 9336.50674236255,\n    \"key_2\": 6440\n  },\n  \"callbackUrl\": \"<uri>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6248f233-73c0-4582-af5c-5c937e9f4ea4",
+          "name": "Autodesk Get Job",
+          "request": {
+            "name": "Autodesk Get Job",
+            "description": {
+              "content": "Returns the status and details of a specific job.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fge",
+                "v1",
+                "jobs",
+                ":jobId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "jobId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "38648bf3-bd92-4304-89a7-051d784bc04d",
+              "name": "Successfully retrieved job.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fge",
+                    "v1",
+                    "jobs",
+                    ":jobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"graphId\": \"string\",\n  \"status\": \"queued\",\n  \"progress\": 8329.967979821107,\n  \"createdAt\": \"2007-09-23T07:06:43.050Z\",\n  \"startedAt\": \"2016-07-12T09:30:17.812Z\",\n  \"completedAt\": \"1962-12-08T04:46:49.616Z\",\n  \"error\": \"string\",\n  \"inputs\": {\n    \"key_0\": \"string\",\n    \"key_1\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4943a505-2836-487e-addc-d15a727161b5",
+              "name": "Job not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fge",
+                    "v1",
+                    "jobs",
+                    ":jobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c968faf4-3df1-4d60-8436-9f7365066102",
+          "name": "Autodesk Cancel Job",
+          "request": {
+            "name": "Autodesk Cancel Job",
+            "description": {
+              "content": "Cancels a queued or running job.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fge",
+                "v1",
+                "jobs",
+                ":jobId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "jobId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a64beb41-1d0e-4fe1-b778-f3128a1e780c",
+              "name": "Job cancelled.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fge",
+                    "v1",
+                    "jobs",
+                    ":jobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7dd9565f-dab2-468f-bad3-26ef6e3b797f",
+          "name": "Autodesk Get Job Result",
+          "request": {
+            "name": "Autodesk Get Job Result",
+            "description": {
+              "content": "Returns the output/result of a completed graph evaluation job.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fge",
+                "v1",
+                "jobs",
+                ":jobId",
+                "result"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "jobId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b0710cb-ec84-482d-add0-1be812023c5a",
+              "name": "Successfully retrieved result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fge",
+                    "v1",
+                    "jobs",
+                    ":jobId",
+                    "result"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"jobId\": \"string\",\n  \"outputs\": {\n    \"key_0\": 5905,\n    \"key_1\": \"string\"\n  },\n  \"downloadUrl\": \"https://HdPHTbCxKSNTnsIV.lpGgFQZI-gzis5i1+B4ad51ICaGfY9ro43Da7374IjMnpopVqk,G.crUFEwYrLPD8r9Am3\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cc083dd1-28c1-477c-af5b-a0ec90e7b991",
+              "name": "Result not found or job not complete.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fge",
+                    "v1",
+                    "jobs",
+                    ":jobId",
+                    "result"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5e34895c-033f-47c5-ad0b-242c1dec837e",
+          "name": "Autodesk Start Translation Job",
+          "request": {
+            "name": "Autodesk Start Translation Job",
+            "description": {
+              "content": "Starts a translation job to convert a source design file into one or more derivative formats. The source file is identified by its URN (Base64-encoded object ID from the Data Management or OSS API).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "modelderivative",
+                "v2",
+                "designdata",
+                "job"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Set to true to force re-translation even if the output already exists.",
+                "key": "x-ads-force",
+                "value": "<boolean>"
+              },
+              {
+                "disabled": false,
+                "description": "The derivative format version (v2 for SVF2).",
+                "key": "x-ads-derivative-format",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"input\": {\n    \"urn\": \"<string>\",\n    \"compressedUrn\": \"<boolean>\",\n    \"rootFilename\": \"<string>\"\n  },\n  \"output\": {\n    \"formats\": [\n      {\n        \"type\": \"<string>\",\n        \"views\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"<string>\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      },\n      {\n        \"type\": \"<string>\",\n        \"views\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"<string>\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      }\n    ],\n    \"destination\": {\n      \"region\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ab818c07-fc15-4587-a851-434bfdb29450",
+              "name": "Translation job started or already complete.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "modelderivative",
+                    "v2",
+                    "designdata",
+                    "job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Set to true to force re-translation even if the output already exists.",
+                    "key": "x-ads-force",
+                    "value": "<boolean>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The derivative format version (v2 for SVF2).",
+                    "key": "x-ads-derivative-format",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": {\n    \"urn\": \"<string>\",\n    \"compressedUrn\": \"<boolean>\",\n    \"rootFilename\": \"<string>\"\n  },\n  \"output\": {\n    \"formats\": [\n      {\n        \"type\": \"<string>\",\n        \"views\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"<string>\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      },\n      {\n        \"type\": \"<string>\",\n        \"views\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"<string>\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      }\n    ],\n    \"destination\": {\n      \"region\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"urn\": \"string\",\n  \"acceptedJobs\": {\n    \"output\": {\n      \"formats\": [\n        {\n          \"type\": \"string\"\n        },\n        {\n          \"type\": \"string\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d49a1dc4-dbfb-4deb-ad1e-fa364e50d352",
+              "name": "Translation job accepted and started.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "modelderivative",
+                    "v2",
+                    "designdata",
+                    "job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Set to true to force re-translation even if the output already exists.",
+                    "key": "x-ads-force",
+                    "value": "<boolean>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The derivative format version (v2 for SVF2).",
+                    "key": "x-ads-derivative-format",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": {\n    \"urn\": \"<string>\",\n    \"compressedUrn\": \"<boolean>\",\n    \"rootFilename\": \"<string>\"\n  },\n  \"output\": {\n    \"formats\": [\n      {\n        \"type\": \"<string>\",\n        \"views\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"<string>\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      },\n      {\n        \"type\": \"<string>\",\n        \"views\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"<string>\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      }\n    ],\n    \"destination\": {\n      \"region\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"urn\": \"string\",\n  \"acceptedJobs\": {\n    \"output\": {\n      \"formats\": [\n        {\n          \"type\": \"string\"\n        },\n        {\n          \"type\": \"string\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a61ca55d-52e7-4f2b-870f-784b5ef325d7",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "modelderivative",
+                    "v2",
+                    "designdata",
+                    "job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Set to true to force re-translation even if the output already exists.",
+                    "key": "x-ads-force",
+                    "value": "<boolean>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The derivative format version (v2 for SVF2).",
+                    "key": "x-ads-derivative-format",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": {\n    \"urn\": \"<string>\",\n    \"compressedUrn\": \"<boolean>\",\n    \"rootFilename\": \"<string>\"\n  },\n  \"output\": {\n    \"formats\": [\n      {\n        \"type\": \"<string>\",\n        \"views\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"<string>\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      },\n      {\n        \"type\": \"<string>\",\n        \"views\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"<string>\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      }\n    ],\n    \"destination\": {\n      \"region\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "51c0f4b9-e88e-491c-8451-276d60b68d30",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "modelderivative",
+                    "v2",
+                    "designdata",
+                    "job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Set to true to force re-translation even if the output already exists.",
+                    "key": "x-ads-force",
+                    "value": "<boolean>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The derivative format version (v2 for SVF2).",
+                    "key": "x-ads-derivative-format",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input\": {\n    \"urn\": \"<string>\",\n    \"compressedUrn\": \"<boolean>\",\n    \"rootFilename\": \"<string>\"\n  },\n  \"output\": {\n    \"formats\": [\n      {\n        \"type\": \"<string>\",\n        \"views\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"<string>\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      },\n      {\n        \"type\": \"<string>\",\n        \"views\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"advanced\": {\n          \"exportFileStructure\": \"<string>\",\n          \"modelGuid\": \"<string>\",\n          \"objectIds\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        }\n      }\n    ],\n    \"destination\": {\n      \"region\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developer.api.autodesk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ee4c562d-546e-4e13-a5b7-77333a14698b",
+    "name": "Autodesk ACC Account Admin Account Users Jobs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+      "type": "text/plain"
+    }
+  }
+}

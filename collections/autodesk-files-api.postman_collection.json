@@ -1,0 +1,287 @@
+{
+  "item": [
+    {
+      "id": "80516beb-0f2b-44e6-88cf-1d979d9b723c",
+      "name": "Files",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7343d326-a9fc-459e-a6c1-002c0edbed59",
+          "name": "Upload Files to Photoscene",
+          "request": {
+            "name": "Upload Files to Photoscene",
+            "description": {
+              "content": "Uploads one or more photos to a photoscene. Photos can be uploaded as file data or as URLs. Supports JPEG and PNG formats.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "photo-to-3d",
+                "v1",
+                "file"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "photosceneid",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "(Required) The photoscene to upload files to."
+                },
+                {
+                  "key": "type",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "(Required) Upload type. (This can only be one of image)"
+                },
+                {
+                  "key": "file[0]",
+                  "type": "file",
+                  "description": "First image file."
+                },
+                {
+                  "key": "file[1]",
+                  "type": "file",
+                  "description": "Additional image file."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b689e467-b1bf-4d5f-bf47-c8b07f8e3a8b",
+              "name": "Files uploaded successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "photo-to-3d",
+                    "v1",
+                    "file"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) The photoscene to upload files to.",
+                        "type": "text/plain"
+                      },
+                      "key": "photosceneid",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Upload type. (This can only be one of image)",
+                        "type": "text/plain"
+                      },
+                      "key": "type",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "First image file.",
+                        "type": "text/plain"
+                      },
+                      "key": "file[0]",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Additional image file.",
+                        "type": "text/plain"
+                      },
+                      "key": "file[1]",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"photosceneid\": \"string\",\n  \"Files\": {\n    \"file\": [\n      {\n        \"filename\": \"string\",\n        \"fileid\": \"string\",\n        \"filesize\": 162,\n        \"msg\": \"string\"\n      },\n      {\n        \"filename\": \"string\",\n        \"fileid\": \"string\",\n        \"filesize\": 3231,\n        \"msg\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "935f38bb-095b-49b1-98d0-e3fc86bd53c4",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "photo-to-3d",
+                    "v1",
+                    "file"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) The photoscene to upload files to.",
+                        "type": "text/plain"
+                      },
+                      "key": "photosceneid",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Upload type. (This can only be one of image)",
+                        "type": "text/plain"
+                      },
+                      "key": "type",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "First image file.",
+                        "type": "text/plain"
+                      },
+                      "key": "file[0]",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Additional image file.",
+                        "type": "text/plain"
+                      },
+                      "key": "file[1]",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developer.api.autodesk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "893d7503-f14e-4fcd-8dd7-1e49cbe4ba21",
+    "name": "Autodesk ACC Account Admin Account Users Files API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+      "type": "text/plain"
+    }
+  }
+}

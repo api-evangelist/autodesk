@@ -1,0 +1,60 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Autodesk ACC Account Admin Account Users Thumbnails API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://developer.api.autodesk.com/authentication/v2/authorize",
+      "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Thumbnails",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk Get Thumbnail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/:urn/thumbnail",
+            "params": [
+              {
+                "name": "urn",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "width",
+                "value": "",
+                "type": "query",
+                "description": "Width of the thumbnail in pixels (100, 200, or 400)."
+              },
+              {
+                "name": "height",
+                "value": "",
+                "type": "query",
+                "description": "Height of the thumbnail in pixels (100, 200, or 400)."
+              }
+            ]
+          },
+          "docs": "Returns a thumbnail image of the source design."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

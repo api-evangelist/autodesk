@@ -1,0 +1,525 @@
+{
+  "item": [
+    {
+      "id": "ec9e90eb-8679-48ad-9b9c-b1bc5111ab3b",
+      "name": "Hubs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f4ad94e5-3607-4def-ae15-c371b6148011",
+          "name": "Autodesk List Hubs",
+          "request": {
+            "name": "Autodesk List Hubs",
+            "description": {
+              "content": "Returns a collection of accessible hubs for the authenticated user. A hub represents an Autodesk account or BIM 360 account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "project",
+                "v1",
+                "hubs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter[id]",
+                  "value": "<string>",
+                  "description": "Filter by hub ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[name]",
+                  "value": "<string>",
+                  "description": "Filter by hub name."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[extension.type]",
+                  "value": "<string>",
+                  "description": "Filter by extension type."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e0df04b7-eb02-4724-bdf2-66ce5b435963",
+              "name": "Successfully retrieved hubs.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "project",
+                    "v1",
+                    "hubs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[name]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[extension.type]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"jsonapi\": {\n    \"version\": \"1.0\"\n  },\n  \"data\": [\n    {\n      \"type\": \"hubs\",\n      \"id\": \"string\",\n      \"attributes\": {\n        \"name\": \"string\",\n        \"extension\": {\n          \"type\": \"string\",\n          \"version\": \"string\",\n          \"data\": {}\n        },\n        \"region\": \"US\"\n      },\n      \"relationships\": {\n        \"projects\": {\n          \"links\": {\n            \"related\": {\n              \"href\": \"https://LHCCUFELsZzIFZyTRGcag.ijcqSjLZX7\"\n            }\n          }\n        }\n      },\n      \"links\": {\n        \"self\": {\n          \"href\": \"https://Wu.awygTkDdEfIsU0CgDWcvoLQgyNfwd,fp1dm+Kj1GKss+MvkhbqbM.jb\"\n        }\n      }\n    },\n    {\n      \"type\": \"hubs\",\n      \"id\": \"string\",\n      \"attributes\": {\n        \"name\": \"string\",\n        \"extension\": {\n          \"type\": \"string\",\n          \"version\": \"string\",\n          \"data\": {}\n        },\n        \"region\": \"US\"\n      },\n      \"relationships\": {\n        \"projects\": {\n          \"links\": {\n            \"related\": {\n              \"href\": \"http://HRLBbCYdHSPHOfShOqnWpa.hrpglqx1UDILu2,qTj8O.TAL8DYbsUR4Dnc1mD+T.RKaoY6PCBfzFqf.KpyXknUrNt\"\n            }\n          }\n        }\n      },\n      \"links\": {\n        \"self\": {\n          \"href\": \"https://LRxUeLpmH.dlXqzqv,ggKO5+w+7tggd9yZFcDf\"\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "07a29c23-74d4-4f96-bc7a-747904affe8e",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "project",
+                    "v1",
+                    "hubs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[name]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[extension.type]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "60eabe20-075c-4b8d-9033-e5d5b68fb3bb",
+              "name": "Forbidden.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "project",
+                    "v1",
+                    "hubs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[name]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[extension.type]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ac4de92d-1f26-4b95-b7d5-96d26aa93017",
+          "name": "Autodesk Get Hub",
+          "request": {
+            "name": "Autodesk Get Hub",
+            "description": {
+              "content": "Returns data for a specific hub.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "project",
+                "v1",
+                "hubs",
+                ":hub_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "hub_id",
+                  "description": "(Required) The unique identifier of the hub."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6e318a01-38e7-4735-9761-f2e8d7674971",
+              "name": "Successfully retrieved hub.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "project",
+                    "v1",
+                    "hubs",
+                    ":hub_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hub_id",
+                      "description": "(Required) The unique identifier of the hub."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"jsonapi\": {\n    \"version\": \"1.0\"\n  },\n  \"data\": {\n    \"type\": \"hubs\",\n    \"id\": \"string\",\n    \"attributes\": {\n      \"name\": \"string\",\n      \"extension\": {\n        \"type\": \"string\",\n        \"version\": \"string\",\n        \"data\": {}\n      },\n      \"region\": \"US\"\n    },\n    \"relationships\": {\n      \"projects\": {\n        \"links\": {\n          \"related\": {\n            \"href\": \"https://tzBpRvLRlNWgkPVaApyKMUgjMRoYRsOlf.saxqrezQAPZncGu1Bn6bDo3trENW4M1m.0rrD5\"\n          }\n        }\n      }\n    },\n    \"links\": {\n      \"self\": {\n        \"href\": \"http://WheTYbnUDPkfGOiaItbGKNScCRtwrI.yghyc0RAZZWZQkQjX0cYuaZj9m8zsT9EUBV98beDq5g.\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6c38da46-937b-4b0f-a41b-f5daca1d9c2f",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "project",
+                    "v1",
+                    "hubs",
+                    ":hub_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hub_id",
+                      "description": "(Required) The unique identifier of the hub."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a962a4a5-b44c-4908-914c-3042fef170b0",
+              "name": "Forbidden.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "project",
+                    "v1",
+                    "hubs",
+                    ":hub_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hub_id",
+                      "description": "(Required) The unique identifier of the hub."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "68a6fd33-6c9c-48e1-9e77-9780bfedcd8c",
+              "name": "Hub not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "project",
+                    "v1",
+                    "hubs",
+                    ":hub_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hub_id",
+                      "description": "(Required) The unique identifier of the hub."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developer.api.autodesk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "270783f0-e242-40aa-8cbe-77088d0b9666",
+    "name": "Autodesk ACC Account Admin Account Users Hubs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+      "type": "text/plain"
+    }
+  }
+}

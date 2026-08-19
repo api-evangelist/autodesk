@@ -1,0 +1,80 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Autodesk ACC Account Admin Account Users Hubs API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://developer.api.autodesk.com/authentication/v2/authorize",
+      "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Hubs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk List Hubs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/project/v1/hubs",
+            "params": [
+              {
+                "name": "filter[id]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by hub ID."
+              },
+              {
+                "name": "filter[name]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by hub name."
+              },
+              {
+                "name": "filter[extension.type]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by extension type."
+              }
+            ]
+          },
+          "docs": "Returns a collection of accessible hubs for the authenticated user. A hub represents an Autodesk account or BIM 360 account."
+        },
+        {
+          "info": {
+            "name": "Autodesk Get Hub",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/project/v1/hubs/:hub_id",
+            "params": [
+              {
+                "name": "hub_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the hub."
+              }
+            ]
+          },
+          "docs": "Returns data for a specific hub."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

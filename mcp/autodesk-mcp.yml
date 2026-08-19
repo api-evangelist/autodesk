@@ -1,6 +1,7 @@
 generated: '2026-06-20'
 method: searched
-status: reference
+status: published
+status_raw: reference
 source: https://github.com/autodesk-platform-services/aps-mcp-server-nodejs
 server:
   name: aps-mcp-server-nodejs
@@ -483,3 +484,8 @@ candidate_tools:
 - name: deleteToken
   description: Autodesk Delete Webhook Secret Token
   source_operation: openapi/autodesk-webhooks-openapi.yml#deleteToken
+deployment:
+  mode: local-stdio
+  verified: searched
+  checked: '2026-08-12'
+  source: catalog MCP census

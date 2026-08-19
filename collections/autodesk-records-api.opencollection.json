@@ -1,0 +1,99 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Autodesk ACC Account Admin Account Users Records API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://developer.api.autodesk.com/authentication/v2/authorize",
+      "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Records",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk List Records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/sustainability/v3/datasets/:datasetId/records",
+            "params": [
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "filter[region]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by region or country code."
+              },
+              {
+                "name": "filter[category]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by category."
+              },
+              {
+                "name": "filter[year]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by year."
+              },
+              {
+                "name": "page[offset]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page[limit]",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns environmental impact records from a specific dataset. Records contain emission factors, carbon intensities, and other environmental metrics."
+        },
+        {
+          "info": {
+            "name": "Autodesk Get Record",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/sustainability/v3/datasets/:datasetId/records/:recordId",
+            "params": [
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "recordId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a specific environmental impact record."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

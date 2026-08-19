@@ -1,0 +1,100 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Autodesk ACC Account Admin Account Users Photoscenes API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://developer.api.autodesk.com/authentication/v2/authorize",
+      "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Photoscenes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Photoscene",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.api.autodesk.com/photo-to-3d/v1/photoscene",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new photoscene, which is a container for a photogrammetry processing job. Specify the output format, processing type, and GPS settings."
+        },
+        {
+          "info": {
+            "name": "Get Photoscene Properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/photo-to-3d/v1/photoscene/:photosceneid",
+            "params": [
+              {
+                "name": "photosceneid",
+                "value": "",
+                "type": "path",
+                "description": "The unique photoscene identifier."
+              }
+            ]
+          },
+          "docs": "Returns properties and status of a specific photoscene."
+        },
+        {
+          "info": {
+            "name": "Delete Photoscene",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://developer.api.autodesk.com/photo-to-3d/v1/photoscene/:photosceneid",
+            "params": [
+              {
+                "name": "photosceneid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a photoscene and all associated data including uploaded images and generated outputs."
+        },
+        {
+          "info": {
+            "name": "Get Processing Progress",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/photo-to-3d/v1/photoscene/:photosceneid/progress",
+            "params": [
+              {
+                "name": "photosceneid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the processing progress of a photoscene. Poll this endpoint to track the status of a processing job."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

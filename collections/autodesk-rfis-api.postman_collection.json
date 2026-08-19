@@ -1,0 +1,186 @@
+{
+  "item": [
+    {
+      "id": "f330367d-169d-40aa-a262-9d4cd2a44c15",
+      "name": "RFIs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4c1a54b0-3245-4004-85fe-2aa17b7b7dd8",
+          "name": "Autodesk List RFIs",
+          "request": {
+            "name": "Autodesk List RFIs",
+            "description": {
+              "content": "Returns a list of RFIs in the container.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bim360",
+                "rfis",
+                "v2",
+                "containers",
+                ":containerId",
+                "rfis"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter[status]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page[offset]",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "containerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "af6906f6-6268-4c9f-bb15-321d830d3fe7",
+              "name": "Successfully retrieved RFIs.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bim360",
+                    "rfis",
+                    "v2",
+                    "containers",
+                    ":containerId",
+                    "rfis"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[status]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "containerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"status\": \"string\",\n      \"assignedTo\": \"string\",\n      \"dueDate\": \"1953-11-20\",\n      \"createdAt\": \"1998-12-10T14:27:07.093Z\",\n      \"updatedAt\": \"1967-02-14T12:11:11.681Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"status\": \"string\",\n      \"assignedTo\": \"string\",\n      \"dueDate\": \"2005-08-23\",\n      \"createdAt\": \"2005-02-04T15:39:00.552Z\",\n      \"updatedAt\": \"1993-06-01T08:51:02.758Z\"\n    }\n  ],\n  \"pagination\": {\n    \"offset\": 228,\n    \"limit\": 2920,\n    \"totalResults\": 7197\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developer.api.autodesk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "32cc604d-ae15-4d97-ac22-5aff88e7dd86",
+    "name": "Autodesk ACC Account Admin Account Users RFIs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,822 @@
+{
+  "item": [
+    {
+      "id": "c2fbf29f-a0bd-4dd4-8d2f-905911165d8f",
+      "name": "Parameters",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6052c192-4805-461b-9d0f-89f063e77091",
+          "name": "Autodesk List Parameters",
+          "request": {
+            "name": "Autodesk List Parameters",
+            "description": {
+              "content": "Returns parameters within a collection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "parameters",
+                "v1",
+                "accounts",
+                ":accountId",
+                "collections",
+                ":collectionId",
+                "parameters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[groupId]",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2e87a45e-01f6-4ae1-9e85-37898fd95b3f",
+              "name": "Successfully retrieved parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "parameters",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "collections",
+                    ":collectionId",
+                    "parameters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[groupId]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"specId\": \"string\",\n      \"groupId\": \"string\",\n      \"isReadOnly\": false,\n      \"isShared\": true,\n      \"isInstance\": true,\n      \"categories\": [\n        \"string\",\n        \"string\"\n      ],\n      \"disciplines\": [\n        \"string\",\n        \"string\"\n      ],\n      \"guid\": \"string\",\n      \"createdAt\": \"2013-07-20T12:52:13.041Z\",\n      \"updatedAt\": \"1991-07-19T18:51:33.861Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"specId\": \"string\",\n      \"groupId\": \"string\",\n      \"isReadOnly\": true,\n      \"isShared\": false,\n      \"isInstance\": true,\n      \"categories\": [\n        \"string\",\n        \"string\"\n      ],\n      \"disciplines\": [\n        \"string\",\n        \"string\"\n      ],\n      \"guid\": \"string\",\n      \"createdAt\": \"1989-05-24T09:21:28.338Z\",\n      \"updatedAt\": \"1966-06-03T18:34:47.160Z\"\n    }\n  ],\n  \"pagination\": {\n    \"offset\": 6948,\n    \"limit\": 4236,\n    \"totalResults\": 6629\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0a409e10-e710-43a0-8f81-a266be3eb464",
+          "name": "Autodesk Create Parameter",
+          "request": {
+            "name": "Autodesk Create Parameter",
+            "description": {
+              "content": "Creates a new parameter within a collection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "parameters",
+                "v1",
+                "accounts",
+                ":accountId",
+                "collections",
+                ":collectionId",
+                "parameters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "account:read account:write"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"specId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"groupId\": \"<string>\",\n  \"isInstance\": \"<boolean>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"disciplines\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c14a19f6-808c-4257-8fa4-4c8e3c39b65a",
+              "name": "Parameter created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "parameters",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "collections",
+                    ":collectionId",
+                    "parameters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"specId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"groupId\": \"<string>\",\n  \"isInstance\": \"<boolean>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"disciplines\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"specId\": \"string\",\n  \"groupId\": \"string\",\n  \"isReadOnly\": true,\n  \"isShared\": false,\n  \"isInstance\": false,\n  \"categories\": [\n    \"string\",\n    \"string\"\n  ],\n  \"disciplines\": [\n    \"string\",\n    \"string\"\n  ],\n  \"guid\": \"string\",\n  \"createdAt\": \"1994-12-14T15:18:58.611Z\",\n  \"updatedAt\": \"1988-07-16T08:49:45.908Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fd1f1178-5454-4d26-95ef-3660b31c8f22",
+          "name": "Autodesk Get Parameter",
+          "request": {
+            "name": "Autodesk Get Parameter",
+            "description": {
+              "content": "Returns a specific parameter definition.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "parameters",
+                "v1",
+                "accounts",
+                ":accountId",
+                "collections",
+                ":collectionId",
+                "parameters",
+                ":parameterId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parameterId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2abfdb81-93c4-462b-8c2c-c972972cc3ca",
+              "name": "Successfully retrieved parameter.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "parameters",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "collections",
+                    ":collectionId",
+                    "parameters",
+                    ":parameterId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "parameterId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"specId\": \"string\",\n  \"groupId\": \"string\",\n  \"isReadOnly\": true,\n  \"isShared\": false,\n  \"isInstance\": false,\n  \"categories\": [\n    \"string\",\n    \"string\"\n  ],\n  \"disciplines\": [\n    \"string\",\n    \"string\"\n  ],\n  \"guid\": \"string\",\n  \"createdAt\": \"1994-12-14T15:18:58.611Z\",\n  \"updatedAt\": \"1988-07-16T08:49:45.908Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "927b63f2-d4b1-4d61-bd41-6b6899aa6174",
+          "name": "Autodesk Update Parameter",
+          "request": {
+            "name": "Autodesk Update Parameter",
+            "description": {
+              "content": "Updates a parameter definition.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "parameters",
+                "v1",
+                "accounts",
+                ":accountId",
+                "collections",
+                ":collectionId",
+                "parameters",
+                ":parameterId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parameterId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "account:read account:write"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"groupId\": \"<string>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "77da9346-5160-402a-9de9-2a7a2e06f951",
+              "name": "Parameter updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "parameters",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "collections",
+                    ":collectionId",
+                    "parameters",
+                    ":parameterId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "parameterId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"groupId\": \"<string>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"specId\": \"string\",\n  \"groupId\": \"string\",\n  \"isReadOnly\": true,\n  \"isShared\": false,\n  \"isInstance\": false,\n  \"categories\": [\n    \"string\",\n    \"string\"\n  ],\n  \"disciplines\": [\n    \"string\",\n    \"string\"\n  ],\n  \"guid\": \"string\",\n  \"createdAt\": \"1994-12-14T15:18:58.611Z\",\n  \"updatedAt\": \"1988-07-16T08:49:45.908Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8ec5830a-3e93-4140-bd72-0d744f57cdd8",
+          "name": "Autodesk Delete Parameter",
+          "request": {
+            "name": "Autodesk Delete Parameter",
+            "description": {
+              "content": "Deletes a parameter from a collection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "parameters",
+                "v1",
+                "accounts",
+                ":accountId",
+                "collections",
+                ":collectionId",
+                "parameters",
+                ":parameterId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parameterId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "account:read account:write"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "428be6b7-8804-4d36-8c64-535786eeb404",
+              "name": "Parameter deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "parameters",
+                    "v1",
+                    "accounts",
+                    ":accountId",
+                    "collections",
+                    ":collectionId",
+                    "parameters",
+                    ":parameterId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "parameterId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developer.api.autodesk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4cb5b1ae-9680-4f50-9a07-429cbeb4abdf",
+    "name": "Autodesk ACC Account Admin Account Users Parameters API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Autodesk ACC Account Admin Account Users Forge Apps API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://developer.api.autodesk.com/authentication/v2/authorize",
+      "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Forge Apps",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk Get Nickname",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/forgeapps/me"
+          },
+          "docs": "Returns the nickname for the caller's Forge app."
+        },
+        {
+          "info": {
+            "name": "Autodesk Create/Update Nickname",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/forgeapps/me",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or updates the nickname for the caller's Forge app."
+        },
+        {
+          "info": {
+            "name": "Autodesk Delete Nickname",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://developer.api.autodesk.com/da/us-east/v3/forgeapps/me"
+          },
+          "docs": "Removes the nickname for the caller's Forge app, also removing all AppBundles and Activities."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

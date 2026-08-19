@@ -1,0 +1,285 @@
+{
+  "item": [
+    {
+      "id": "c9ae9ba3-e885-485a-b3e0-2d817c879f4b",
+      "name": "Twins",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c3330462-c6b1-466e-add4-91279336ed26",
+          "name": "Autodesk List Twins",
+          "request": {
+            "name": "Autodesk List Twins",
+            "description": {
+              "content": "Returns a list of digital twin facilities that the authenticated user has access to.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tandem",
+                "v1",
+                "twins"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "01ac246c-948e-4ca1-a148-b2d707248813",
+              "name": "Successfully retrieved twins.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tandem",
+                    "v1",
+                    "twins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"twins\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"settings\": {\n        \"dateCreated\": \"1971-02-06T03:23:02.713Z\",\n        \"dateModified\": \"2019-01-09T14:10:35.821Z\",\n        \"props\": {\n          \"key_0\": 4017.631369115593\n        }\n      },\n      \"docs\": [\n        {\n          \"modelId\": \"string\",\n          \"urn\": \"string\",\n          \"label\": \"string\"\n        },\n        {\n          \"modelId\": \"string\",\n          \"urn\": \"string\",\n          \"label\": \"string\"\n        }\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"settings\": {\n        \"dateCreated\": \"1955-03-19T07:12:31.438Z\",\n        \"dateModified\": \"1993-01-10T07:39:37.898Z\",\n        \"props\": {\n          \"key_0\": true\n        }\n      },\n      \"docs\": [\n        {\n          \"modelId\": \"string\",\n          \"urn\": \"string\",\n          \"label\": \"string\"\n        },\n        {\n          \"modelId\": \"string\",\n          \"urn\": \"string\",\n          \"label\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1092e29c-5ec3-419a-b5b6-70ce5dd66090",
+          "name": "Autodesk Get Twin",
+          "request": {
+            "name": "Autodesk Get Twin",
+            "description": {
+              "content": "Returns details of a specific digital twin facility.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tandem",
+                "v1",
+                "twins",
+                ":twinId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "twinId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "13f199b7-5bd9-4181-9a9d-c9486e4eb73c",
+              "name": "Successfully retrieved twin.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tandem",
+                    "v1",
+                    "twins",
+                    ":twinId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "twinId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"settings\": {\n    \"dateCreated\": \"1957-10-09T22:23:59.475Z\",\n    \"dateModified\": \"2016-05-20T15:21:02.725Z\",\n    \"props\": {\n      \"key_0\": true,\n      \"key_1\": true\n    }\n  },\n  \"docs\": [\n    {\n      \"modelId\": \"string\",\n      \"urn\": \"string\",\n      \"label\": \"string\"\n    },\n    {\n      \"modelId\": \"string\",\n      \"urn\": \"string\",\n      \"label\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "31ec90cc-53aa-492a-8576-0aa5f0a21bcb",
+              "name": "Twin not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tandem",
+                    "v1",
+                    "twins",
+                    ":twinId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "twinId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developer.api.autodesk.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "account:read account:write"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://developer.api.autodesk.com/authentication/v2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "02d0489e-0f3d-45ad-a91d-03c1ad270a96",
+    "name": "Autodesk ACC Account Admin Account Users Twins API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.\n\nContact Support:\n Name: Autodesk Platform Services\n Email: aps.help@autodesk.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Autodesk ACC Account Admin Account Users Manifest API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://developer.api.autodesk.com/authentication/v2/authorize",
+      "accessTokenUrl": "https://developer.api.autodesk.com/authentication/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Manifest",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autodesk Get Manifest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/:urn/manifest",
+            "params": [
+              {
+                "name": "urn",
+                "value": "",
+                "type": "path",
+                "description": "The Base64 (URL-safe) encoded URN of the source design."
+              }
+            ]
+          },
+          "docs": "Returns information about derivatives that correspond to a specific source design, including derivative URNs, translation status, and available outputs."
+        },
+        {
+          "info": {
+            "name": "Autodesk Delete Manifest",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/:urn/manifest",
+            "params": [
+              {
+                "name": "urn",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes the manifest and all derivatives of a source design. Does not delete the source design itself."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
