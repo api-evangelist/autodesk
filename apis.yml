@@ -258,6 +258,10 @@ apis:
   baseURL: https://developer.api.autodesk.com
   tags:
   - Construction
+  - Document-Management
+  - Sheets
+  tags_raw:
+  - Construction
   - Document Management
   - Sheets
   properties:
@@ -313,6 +317,10 @@ apis:
   humanURL: https://aps.autodesk.com/developer/overview/autodesk-construction-cloud
   baseURL: https://developer.api.autodesk.com
   tags:
+  - Construction
+  - Document-Management
+  - Transmittals
+  tags_raw:
   - Construction
   - Document Management
   - Transmittals
@@ -762,6 +770,8 @@ apis:
   humanURL: https://aps.autodesk.com/blog/autodesk-build-photos-api
   baseURL: https://developer.api.autodesk.com
   tags:
+  - Collection
+  tags_raw:
   - Collections
   properties:
   - type: OpenAPI
@@ -1170,6 +1180,8 @@ apis:
   humanURL: https://aps.autodesk.com/blog/autodesk-build-photos-api
   baseURL: https://developer.api.autodesk.com
   tags:
+  - File
+  tags_raw:
   - Files
   properties:
   - type: OpenAPI
@@ -1442,6 +1454,8 @@ apis:
   humanURL: https://aps.autodesk.com/blog/autodesk-build-photos-api
   baseURL: https://developer.api.autodesk.com
   tags:
+  - Group
+  tags_raw:
   - Groups
   properties:
   - type: OpenAPI
@@ -1578,6 +1592,8 @@ apis:
   humanURL: https://aps.autodesk.com/blog/autodesk-build-photos-api
   baseURL: https://developer.api.autodesk.com
   tags:
+  - Hub
+  tags_raw:
   - Hubs
   properties:
   - type: OpenAPI
@@ -1850,6 +1866,8 @@ apis:
   humanURL: https://aps.autodesk.com/blog/autodesk-build-photos-api
   baseURL: https://developer.api.autodesk.com
   tags:
+  - Item
+  tags_raw:
   - Items
   properties:
   - type: OpenAPI
@@ -1918,6 +1936,8 @@ apis:
   humanURL: https://aps.autodesk.com/blog/autodesk-build-photos-api
   baseURL: https://developer.api.autodesk.com
   tags:
+  - Job
+  tags_raw:
   - Jobs
   properties:
   - type: OpenAPI
@@ -2054,6 +2074,8 @@ apis:
   humanURL: https://aps.autodesk.com/blog/autodesk-build-photos-api
   baseURL: https://developer.api.autodesk.com
   tags:
+  - Manifests
+  tags_raw:
   - Manifest
   properties:
   - type: OpenAPI
@@ -2599,6 +2621,8 @@ apis:
   humanURL: https://aps.autodesk.com/blog/autodesk-build-photos-api
   baseURL: https://developer.api.autodesk.com
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
@@ -3415,6 +3439,8 @@ apis:
   humanURL: https://aps.autodesk.com/blog/autodesk-build-photos-api
   baseURL: https://developer.api.autodesk.com
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
@@ -3551,6 +3577,8 @@ apis:
   humanURL: https://aps.autodesk.com/blog/autodesk-build-photos-api
   baseURL: https://developer.api.autodesk.com
   tags:
+  - Work Items
+  tags_raw:
   - WorkItems
   properties:
   - type: OpenAPI
