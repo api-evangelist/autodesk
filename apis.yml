@@ -7,6 +7,18 @@ description: >-
   sustainability data across Autodesk's product ecosystem including AutoCAD, Revit, Inventor, Maya, BIM 360, and
   Autodesk Construction Cloud.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free
   onboarding: self-serve
@@ -3642,6 +3654,9 @@ apis:
   - type: APIReference
     url: https://aps.autodesk.com/en/docs/bim360/v1/reference/
 common:
+- type: CapabilityMap
+  url: capabilities/autodesk-capability-edges.yml
+  name: Autodesk Business Capability Map
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/autodesk/overview
 - type: AgenticAccess

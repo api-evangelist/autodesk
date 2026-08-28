@@ -1,0 +1,55 @@
+slug: autodesk
+provider: Autodesk
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: Hooks
+  spec_file: autodesk-hooks-api-openapi.yml
+  capability_id: BC-4270.80
+  capability_id_l1: BC-4270
+  capability_name: Webhook & Event Subscription Management
+  confidence: 0.85
+  evidence: GET /webhooks/v1/systems/{system}/events/{event}/hooks  getHooks  List Hooks for Event; POST
+    createHook
+  reason: Operations manage webhook subscriptions for platform events — outbound webhook/event subscription
+    lifecycle on a developer platform.
+- tag: Calculations
+  spec_file: autodesk-calculations-api-openapi.yml
+  capability_id: BC-740.20
+  capability_id_l1: BC-740
+  capability_name: Climate & Carbon Management
+  confidence: 0.75
+  evidence: POST /sustainability/v3/calculation  calculateEmissions  Autodesk Calculate Emissions
+  reason: The single operation computes emissions via a sustainability API, which realises carbon footprint
+    calculation (Climate & Carbon Management). Title mentions Account Admin but operations win.
+- tag: Issues
+  spec_file: autodesk-issues-api-openapi.yml
+  capability_id: BC-720.40
+  capability_id_l1: BC-720
+  capability_name: Non-Conformance Management
+  confidence: 0.7
+  evidence: GET /issues/v1/containers/{containerId}/quality-issues  List Issues; POST createIssue
+  reason: Endpoints create and track construction 'quality-issues' with types and comments — non-conformance/quality
+    issue tracking. Sub-capability choice somewhat uncertain (could be quality control).
+- tag: Projects
+  spec_file: autodesk-projects-api-openapi.yml
+  capability_id: BC-900.30
+  capability_id_l1: BC-900
+  capability_name: Project Management
+  confidence: 0.7
+  evidence: 'POST /construction/admin/v1/accounts/{accountId}/projects createProject; description: "automates
+    the creation and management of projects ... within Autodesk Construction Cloud"'
+  reason: Creation, retrieval and update of construction projects (plus project folders) is project execution/administration
+    tooling, mapping to Project Management. Some ambiguity as it is largely administrative provisioning
+    of project containers.
