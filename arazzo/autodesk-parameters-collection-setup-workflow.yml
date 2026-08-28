@@ -14,8 +14,17 @@ info:
     description.
   version: 1.0.0
 sourceDescriptions:
+- name: collectionsApi
+  url: ../openapi/autodesk-collections-api-openapi.yml
+  type: openapi
+- name: groupsApi
+  url: ../openapi/autodesk-groups-api-openapi.yml
+  type: openapi
+- name: metadataApi
+  url: ../openapi/autodesk-metadata-api-openapi.yml
+  type: openapi
 - name: parametersApi
-  url: ../openapi/autodesk-parameters-openapi.yml
+  url: ../openapi/autodesk-parameters-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: define-shared-parameter

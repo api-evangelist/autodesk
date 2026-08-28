@@ -13,8 +13,8 @@ info:
     OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: bim360Api
-  url: ../openapi/autodesk-bim360-openapi.yml
+- name: issuesApi
+  url: ../openapi/autodesk-issues-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: triage-quality-issue

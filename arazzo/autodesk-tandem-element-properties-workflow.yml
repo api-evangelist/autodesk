@@ -13,8 +13,17 @@ info:
     OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: tandemDataApi
-  url: ../openapi/autodesk-tandem-data-openapi.yml
+- name: elementsApi
+  url: ../openapi/autodesk-elements-api-openapi.yml
+  type: openapi
+- name: modelsApi
+  url: ../openapi/autodesk-models-api-openapi.yml
+  type: openapi
+- name: schemaApi
+  url: ../openapi/autodesk-schema-api-openapi.yml
+  type: openapi
+- name: twinsApi
+  url: ../openapi/autodesk-twins-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: sync-element-properties

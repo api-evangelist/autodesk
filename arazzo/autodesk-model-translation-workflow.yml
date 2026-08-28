@@ -12,11 +12,17 @@ info:
     underlying OpenAPI descriptions.
   version: 1.0.0
 sourceDescriptions:
-- name: dataManagementApi
-  url: ../openapi/autodesk-data-management-openapi.yml
+- name: jobsApi
+  url: ../openapi/autodesk-jobs-api-openapi.yml
   type: openapi
-- name: modelDerivativeApi
-  url: ../openapi/autodesk-model-derivative-openapi.yml
+- name: manifestApi
+  url: ../openapi/autodesk-manifest-api-openapi.yml
+  type: openapi
+- name: metadataApi
+  url: ../openapi/autodesk-metadata-api-openapi.yml
+  type: openapi
+- name: objectStorageServiceApi
+  url: ../openapi/autodesk-object-storage-service-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: upload-and-translate-model

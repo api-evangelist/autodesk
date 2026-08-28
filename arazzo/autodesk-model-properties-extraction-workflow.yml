@@ -13,8 +13,11 @@ info:
     underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: modelDerivativeApi
-  url: ../openapi/autodesk-model-derivative-openapi.yml
+- name: manifestApi
+  url: ../openapi/autodesk-manifest-api-openapi.yml
+  type: openapi
+- name: metadataApi
+  url: ../openapi/autodesk-metadata-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: extract-model-properties

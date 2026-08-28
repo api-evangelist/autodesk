@@ -11,8 +11,8 @@ info:
     description.
   version: 1.0.0
 sourceDescriptions:
-- name: dataManagementApi
-  url: ../openapi/autodesk-data-management-openapi.yml
+- name: objectStorageServiceApi
+  url: ../openapi/autodesk-object-storage-service-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: distribute-object-signed-url

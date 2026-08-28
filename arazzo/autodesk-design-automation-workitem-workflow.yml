@@ -12,8 +12,17 @@ info:
     without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: designAutomationApi
-  url: ../openapi/autodesk-design-automation-openapi.yml
+- name: activitiesApi
+  url: ../openapi/autodesk-activities-api-openapi.yml
+  type: openapi
+- name: appbundlesApi
+  url: ../openapi/autodesk-appbundles-api-openapi.yml
+  type: openapi
+- name: enginesApi
+  url: ../openapi/autodesk-engines-api-openapi.yml
+  type: openapi
+- name: workitemsApi
+  url: ../openapi/autodesk-workitems-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: run-design-automation-workitem

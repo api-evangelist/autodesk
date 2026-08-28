@@ -12,8 +12,14 @@ info:
     executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: webhooksApi
-  url: ../openapi/autodesk-webhooks-openapi.yml
+- name: hooksApi
+  url: ../openapi/autodesk-hooks-api-openapi.yml
+  type: openapi
+- name: systemsApi
+  url: ../openapi/autodesk-systems-api-openapi.yml
+  type: openapi
+- name: tokensApi
+  url: ../openapi/autodesk-tokens-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: subscribe-to-events

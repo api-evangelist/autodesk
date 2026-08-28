@@ -12,8 +12,11 @@ info:
     OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: flowGraphEngineApi
-  url: ../openapi/autodesk-flow-graph-engine-openapi.yml
+- name: graphsApi
+  url: ../openapi/autodesk-graphs-api-openapi.yml
+  type: openapi
+- name: jobsApi
+  url: ../openapi/autodesk-jobs-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: evaluate-bifrost-graph

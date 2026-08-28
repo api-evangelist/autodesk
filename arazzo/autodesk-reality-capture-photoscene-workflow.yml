@@ -12,8 +12,17 @@ info:
     executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: realityCaptureApi
-  url: ../openapi/autodesk-reality-capture-openapi.yml
+- name: filesApi
+  url: ../openapi/autodesk-files-api-openapi.yml
+  type: openapi
+- name: photoscenesApi
+  url: ../openapi/autodesk-photoscenes-api-openapi.yml
+  type: openapi
+- name: processingApi
+  url: ../openapi/autodesk-processing-api-openapi.yml
+  type: openapi
+- name: resultsApi
+  url: ../openapi/autodesk-results-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: reconstruct-photoscene

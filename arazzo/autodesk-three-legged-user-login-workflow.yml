@@ -11,8 +11,14 @@ info:
     without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: authenticationApi
-  url: ../openapi/autodesk-authentication-openapi.yml
+- name: authorizationApi
+  url: ../openapi/autodesk-authorization-api-openapi.yml
+  type: openapi
+- name: tokenApi
+  url: ../openapi/autodesk-token-api-openapi.yml
+  type: openapi
+- name: usersApi
+  url: ../openapi/autodesk-users-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: three-legged-user-login

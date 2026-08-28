@@ -12,8 +12,14 @@ info:
     OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: dataManagementApi
-  url: ../openapi/autodesk-data-management-openapi.yml
+- name: foldersApi
+  url: ../openapi/autodesk-folders-api-openapi.yml
+  type: openapi
+- name: itemsApi
+  url: ../openapi/autodesk-items-api-openapi.yml
+  type: openapi
+- name: versionsApi
+  url: ../openapi/autodesk-versions-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: add-new-file-version
