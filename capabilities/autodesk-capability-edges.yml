@@ -3,8 +3,7 @@ provider: Autodesk
 generated_by: planning/capability-mapping/scripts/classify_capabilities.py
 model: claude-opus-5
 frame:
-- Banking & Capital Markets
-- Software & Technology
+- Infrastructure
 min_confidence: 0.7
 capability_model:
   source: https://github.com/vincentmakes/turbo-ea-capabilities
@@ -12,44 +11,77 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 4
+edge_count: 7
 edges:
-- tag: Hooks
-  spec_file: autodesk-hooks-api-openapi.yml
-  capability_id: BC-4270.80
-  capability_id_l1: BC-4270
-  capability_name: Webhook & Event Subscription Management
-  confidence: 0.85
-  evidence: GET /webhooks/v1/systems/{system}/events/{event}/hooks  getHooks  List Hooks for Event; POST
-    createHook
-  reason: Operations manage webhook subscriptions for platform events — outbound webhook/event subscription
-    lifecycle on a developer platform.
 - tag: Calculations
   spec_file: autodesk-calculations-api-openapi.yml
   capability_id: BC-740.20
   capability_id_l1: BC-740
   capability_name: Climate & Carbon Management
-  confidence: 0.75
+  confidence: 0.85
   evidence: POST /sustainability/v3/calculation  calculateEmissions  Autodesk Calculate Emissions
-  reason: The single operation computes emissions via a sustainability API, which realises carbon footprint
-    calculation (Climate & Carbon Management). Title mentions Account Admin but operations win.
+  reason: The single operation calculates emissions via the sustainability service, with CalculationRequest/CalculationResponse
+    schemas. This realises carbon footprint computation, i.e. Climate & Carbon Management.
+- tag: Hooks
+  spec_file: autodesk-hooks-api-openapi.yml
+  capability_id: BC-4270.80
+  capability_id_l1: BC-4270
+  capability_name: Webhook & Event Subscription Management
+  confidence: 0.82
+  evidence: GET /webhooks/v1/systems/{system}/events/{event}/hooks  List Hooks for Event; POST .../hooks  Create
+    Hook
+  reason: The operations manage the lifecycle of outbound webhook subscriptions keyed by system and event,
+    which is exactly Webhook & Event Subscription Management. Confidence held below 0.9 because this is
+    integration plumbing whose capability framing is deliberately narrow.
+- tag: Streams
+  spec_file: autodesk-streams-api-openapi.yml
+  capability_id: BC-5060.50
+  capability_id_l1: BC-5060
+  capability_name: Digital Twin & Asset Data
+  confidence: 0.78
+  evidence: GET /tandem/v1/twins/{twinId}/streams  List Streams; POST /tandem/v1/timeseries/{streamId}  Push
+    Timeseries Data
+  reason: Operations list Tandem twin streams and read/write timeseries data, which is exactly digital
+    twins 'fed by operational data for the in-use asset'. Maps to Digital Twin & Asset Data.
 - tag: Issues
   spec_file: autodesk-issues-api-openapi.yml
-  capability_id: BC-720.40
-  capability_id_l1: BC-720
-  capability_name: Non-Conformance Management
+  capability_id: BC-5040.60
+  capability_id_l1: BC-5040
+  capability_name: Construction Quality Management
+  confidence: 0.75
+  evidence: GET /issues/v1/containers/{containerId}/quality-issues  List Issues; POST .../quality-issues/{issueId}/comments  Create
+    Issue Comment
+  reason: The resource path is explicitly 'quality-issues' within Autodesk Construction Cloud projects,
+    with issue types, updates and comment threads — the construction site quality/defect issue workflow.
+    Mapped to Construction Quality Management; some residual chance the intended home is generic non-conformance
+    management, hence 0.75.
+- tag: Twins
+  spec_file: autodesk-twins-api-openapi.yml
+  capability_id: BC-5060.50
+  capability_id_l1: BC-5060
+  capability_name: Digital Twin & Asset Data
+  confidence: 0.75
+  evidence: GET /tandem/v1/twins  getTwins  Autodesk List Twins; GET /tandem/v1/twins/{twinId}  Get Twin
+  reason: Operations enumerate and retrieve Autodesk Tandem digital twins of built assets, matching Digital
+    Twin & Asset Data. Read-only scope keeps confidence below 0.8.
+- tag: Elements
+  spec_file: autodesk-elements-api-openapi.yml
+  capability_id: BC-5060.50
+  capability_id_l1: BC-5060
+  capability_name: Digital Twin & Asset Data
+  confidence: 0.72
+  evidence: POST /tandem/v1/modeldata/{modelId}/scan  scanElements; POST /tandem/v1/modeldata/{modelId}/mutate  mutateElements  Autodesk
+    Mutate Element Properties
+  reason: Operations read and mutate element properties inside Autodesk Tandem model data; Tandem is Autodesk's
+    digital twin for built assets (vendor states 'create digital twins'), so this realises asset information
+    model / digital twin data management.
+- tag: Models
+  spec_file: autodesk-models-api-openapi.yml
+  capability_id: BC-5060.50
+  capability_id_l1: BC-5060
+  capability_name: Digital Twin & Asset Data
   confidence: 0.7
-  evidence: GET /issues/v1/containers/{containerId}/quality-issues  List Issues; POST createIssue
-  reason: Endpoints create and track construction 'quality-issues' with types and comments — non-conformance/quality
-    issue tracking. Sub-capability choice somewhat uncertain (could be quality control).
-- tag: Projects
-  spec_file: autodesk-projects-api-openapi.yml
-  capability_id: BC-900.30
-  capability_id_l1: BC-900
-  capability_name: Project Management
-  confidence: 0.7
-  evidence: 'POST /construction/admin/v1/accounts/{accountId}/projects createProject; description: "automates
-    the creation and management of projects ... within Autodesk Construction Cloud"'
-  reason: Creation, retrieval and update of construction projects (plus project folders) is project execution/administration
-    tooling, mapping to Project Management. Some ambiguity as it is largely administrative provisioning
-    of project containers.
+  evidence: GET /tandem/v1/twins/{twinId}/models  getModels  Autodesk List Models
+  reason: The path is Autodesk Tandem's digital-twin resource, listing the models that constitute a twin
+    — i.e. asset information models for the in-use asset, matching Digital Twin & Asset Data. Single read-only
+    operation keeps confidence below the top band.
