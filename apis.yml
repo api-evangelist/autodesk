@@ -1604,7 +1604,7 @@ apis:
   humanURL: https://aps.autodesk.com/blog/autodesk-build-photos-api
   baseURL: https://developer.api.autodesk.com
   tags:
-  - Hubs
+  - Hub
   tags_raw:
   - Hubs
   properties:
@@ -2086,7 +2086,7 @@ apis:
   humanURL: https://aps.autodesk.com/blog/autodesk-build-photos-api
   baseURL: https://developer.api.autodesk.com
   tags:
-  - Manifest
+  - Manifests
   tags_raw:
   - Manifest
   properties:
@@ -3589,7 +3589,7 @@ apis:
   humanURL: https://aps.autodesk.com/blog/autodesk-build-photos-api
   baseURL: https://developer.api.autodesk.com
   tags:
-  - WorkItems
+  - Work Items
   tags_raw:
   - WorkItems
   properties:
