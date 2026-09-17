@@ -572,74 +572,6 @@ apis:
     url: https://aps.autodesk.com/developer/overview/bim-360-api
   - type: APIReference
     url: https://aps.autodesk.com/en/docs/bim360/v1/reference/
-- aid: autodesk:autodesk-appbundles-api
-  name: Autodesk AppBundles API
-  description: The AppBundles API from Autodesk — 5 operation(s) for appbundles.
-  humanURL: https://aps.autodesk.com/blog/autodesk-build-photos-api
-  baseURL: https://developer.api.autodesk.com
-  tags:
-  - AppBundles
-  properties:
-  - type: OpenAPI
-    url: openapi/autodesk-appbundles-api-openapi.yml
-  - type: Documentation
-    url: https://aps.autodesk.com/developer/overview/authentication-api
-  - type: APIReference
-    url: https://aps.autodesk.com/en/docs/oauth/v2/reference/http
-  - type: GettingStarted
-    url: https://aps.autodesk.com/en/docs/oauth/v2/tutorials
-  - type: Documentation
-    url: https://aps.autodesk.com/developer/overview/data-management-api
-  - type: GettingStarted
-    url: https://aps.autodesk.com/en/docs/data/v2/tutorials/
-  - type: Documentation
-    url: https://aps.autodesk.com/developer/overview/model-derivative-api
-  - type: APIReference
-    url: https://aps.autodesk.com/en/docs/model-derivative/v2/reference/
-  - type: GettingStarted
-    url: https://aps.autodesk.com/en/docs/model-derivative/v2/tutorials/
-  - type: Documentation
-    url: https://aps.autodesk.com/developer/overview/automation-api
-  - type: Documentation
-    url: https://aps.autodesk.com/webhooks-api
-  - type: APIReference
-    url: https://aps.autodesk.com/en/docs/webhooks/v1/reference/
-  - type: GettingStarted
-    url: https://aps.autodesk.com/en/docs/webhooks/v1/tutorials/
-  - type: AsyncAPI
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/autodesk/refs/heads/main/asyncapi/autodesk-webhooks-asyncapi.yml
-  - type: Documentation
-    url: https://aps.autodesk.com/developer/overview/reality-capture-api
-  - type: GettingStarted
-    url: >-
-      https://aps.autodesk.com/en/docs/reality-capture/v1/tutorials/create-3d-mesh-from-photos/
-  - type: Documentation
-    url: https://aps.autodesk.com/developer/overview/sustainability-data-api
-  - type: APIReference
-    url: https://aps.autodesk.com/en/docs/sustainability/v3/reference/http/
-  - type: GettingStarted
-    url: https://aps.autodesk.com/en/docs/sustainability/v3/tutorials/tutorial_01/
-  - type: Documentation
-    url: https://aps.autodesk.com/developer/overview/parameters-api
-  - type: GettingStarted
-    url: https://aps.autodesk.com/en/docs/parameters/v1/tutorials/getting-started/
-  - type: Documentation
-    url: https://aps.autodesk.com/developer/overview/tandem-data-api
-  - type: Documentation
-    url: https://aps.autodesk.com/developer/overview/flow-graph-engine-api
-  - type: APIReference
-    url: https://aps.autodesk.com/en/docs/flow_graph_engine/v1/reference/quick_reference/
-  - type: Documentation
-    url: https://aps.autodesk.com/developer/overview/autodesk-construction-cloud
-  - type: GettingStarted
-    url: https://aps.autodesk.com/en/docs/acc/v1/tutorials/admin
-  - type: APIReference
-    url: https://aps.autodesk.com/en/docs/acc/v1/reference
-  - type: Documentation
-    url: https://aps.autodesk.com/developer/overview/bim-360-api
-  - type: APIReference
-    url: https://aps.autodesk.com/en/docs/bim360/v1/reference/
 - aid: autodesk:autodesk-authorization-api
   name: Autodesk Authorization API
   description: The Authorization API from Autodesk — 2 operation(s) for authorization.
@@ -3583,18 +3515,84 @@ apis:
     url: https://aps.autodesk.com/developer/overview/bim-360-api
   - type: APIReference
     url: https://aps.autodesk.com/en/docs/bim360/v1/reference/
-- aid: autodesk:autodesk-workitems-api
-  name: Autodesk WorkItems API
-  description: The WorkItems API from Autodesk — 2 operation(s) for workitems.
+- aid: autodesk:autodesk-app-bundles-api
+  name: Autodesk App Bundles API
+  description: The App Bundles API from Autodesk — 5 operation(s) for app bundles.
+  humanURL: https://aps.autodesk.com/blog/autodesk-build-photos-api
+  baseURL: https://developer.api.autodesk.com
+  tags:
+  - App Bundles
+  properties:
+  - type: OpenAPI
+    url: openapi/autodesk-app-bundles-api-openapi.yml
+  - type: Documentation
+    url: https://aps.autodesk.com/developer/overview/authentication-api
+  - type: APIReference
+    url: https://aps.autodesk.com/en/docs/oauth/v2/reference/http
+  - type: GettingStarted
+    url: https://aps.autodesk.com/en/docs/oauth/v2/tutorials
+  - type: Documentation
+    url: https://aps.autodesk.com/developer/overview/data-management-api
+  - type: GettingStarted
+    url: https://aps.autodesk.com/en/docs/data/v2/tutorials/
+  - type: Documentation
+    url: https://aps.autodesk.com/developer/overview/model-derivative-api
+  - type: APIReference
+    url: https://aps.autodesk.com/en/docs/model-derivative/v2/reference/
+  - type: GettingStarted
+    url: https://aps.autodesk.com/en/docs/model-derivative/v2/tutorials/
+  - type: Documentation
+    url: https://aps.autodesk.com/developer/overview/automation-api
+  - type: Documentation
+    url: https://aps.autodesk.com/webhooks-api
+  - type: APIReference
+    url: https://aps.autodesk.com/en/docs/webhooks/v1/reference/
+  - type: GettingStarted
+    url: https://aps.autodesk.com/en/docs/webhooks/v1/tutorials/
+  - type: AsyncAPI
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/autodesk/refs/heads/main/asyncapi/autodesk-webhooks-asyncapi.yml
+  - type: Documentation
+    url: https://aps.autodesk.com/developer/overview/reality-capture-api
+  - type: GettingStarted
+    url: >-
+      https://aps.autodesk.com/en/docs/reality-capture/v1/tutorials/create-3d-mesh-from-photos/
+  - type: Documentation
+    url: https://aps.autodesk.com/developer/overview/sustainability-data-api
+  - type: APIReference
+    url: https://aps.autodesk.com/en/docs/sustainability/v3/reference/http/
+  - type: GettingStarted
+    url: https://aps.autodesk.com/en/docs/sustainability/v3/tutorials/tutorial_01/
+  - type: Documentation
+    url: https://aps.autodesk.com/developer/overview/parameters-api
+  - type: GettingStarted
+    url: https://aps.autodesk.com/en/docs/parameters/v1/tutorials/getting-started/
+  - type: Documentation
+    url: https://aps.autodesk.com/developer/overview/tandem-data-api
+  - type: Documentation
+    url: https://aps.autodesk.com/developer/overview/flow-graph-engine-api
+  - type: APIReference
+    url: https://aps.autodesk.com/en/docs/flow_graph_engine/v1/reference/quick_reference/
+  - type: Documentation
+    url: https://aps.autodesk.com/developer/overview/autodesk-construction-cloud
+  - type: GettingStarted
+    url: https://aps.autodesk.com/en/docs/acc/v1/tutorials/admin
+  - type: APIReference
+    url: https://aps.autodesk.com/en/docs/acc/v1/reference
+  - type: Documentation
+    url: https://aps.autodesk.com/developer/overview/bim-360-api
+  - type: APIReference
+    url: https://aps.autodesk.com/en/docs/bim360/v1/reference/
+- aid: autodesk:autodesk-work-items-api
+  name: Autodesk Work Items API
+  description: The Work Items API from Autodesk — 2 operation(s) for work items.
   humanURL: https://aps.autodesk.com/blog/autodesk-build-photos-api
   baseURL: https://developer.api.autodesk.com
   tags:
   - Work Items
-  tags_raw:
-  - WorkItems
   properties:
   - type: OpenAPI
-    url: openapi/autodesk-workitems-api-openapi.yml
+    url: openapi/autodesk-work-items-api-openapi.yml
   - type: Documentation
     url: https://aps.autodesk.com/developer/overview/authentication-api
   - type: APIReference
