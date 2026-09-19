@@ -34,6 +34,8 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/autodesk.png
 tags:
+  - Digital Twin
+  - Autodesk
   - Fortune 1000
   - 3D Modeling
   - Architecture
@@ -41,7 +43,6 @@ tags:
   - CAD
   - Construction
   - Design
-  - Digital Twin
   - Engineering
   - Manufacturing
   - Media and Entertainment
