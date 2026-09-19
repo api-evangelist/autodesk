@@ -41,12 +41,26 @@ tags:
   - CAD
   - Construction
   - Design
+  - Digital Twin
+  - Engineering
+  - Manufacturing
+  - Media and Entertainment
+  - Sustainability
+tags_raw:
+  - Digital Twins
+  - Autodesk
+  - Fortune 1000
+  - 3D Modeling
+  - Architecture
+  - BIM
+  - CAD
+  - Construction
+  - Design
   - Digital Twins
   - Engineering
   - Manufacturing
   - Media and Entertainment
   - Sustainability
-  - Autodesk
 url: https://raw.githubusercontent.com/api-evangelist/autodesk/refs/heads/main/apis.yml
 created: '2024-11-13'
 modified: '2026-06-20'
@@ -215,6 +229,10 @@ apis:
   baseURL: https://developer.api.autodesk.com
   tags:
   - Construction
+  - Location
+  - Project Management
+  tags_raw:
+  - Construction
   - Locations
   - Project Management
   properties:
@@ -348,6 +366,10 @@ apis:
   humanURL: https://aps.autodesk.com/developer/overview/autodesk-construction-cloud
   baseURL: https://developer.api.autodesk.com
   tags:
+  - Construction
+  - Specification
+  - Submittals
+  tags_raw:
   - Construction
   - Specifications
   - Submittals
@@ -3180,6 +3202,8 @@ apis:
   humanURL: https://aps.autodesk.com/blog/autodesk-build-photos-api
   baseURL: https://developer.api.autodesk.com
   tags:
+  - Tokens
+  tags_raw:
   - Token
   properties:
   - type: OpenAPI
