@@ -11,7 +11,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 7
+edge_count: 8
 edges:
 - tag: Calculations
   spec_file: autodesk-calculations-api-openapi.yml
@@ -85,3 +85,15 @@ edges:
   reason: The path is Autodesk Tandem's digital-twin resource, listing the models that constitute a twin
     — i.e. asset information models for the in-use asset, matching Digital Twin & Asset Data. Single read-only
     operation keeps confidence below the top band.
+- tag: Projects
+  spec_file: autodesk-projects-api-openapi.yml
+  capability_id: BC-900.30
+  capability_id_l1: BC-900
+  capability_name: Project Management
+  confidence: 0.7
+  evidence: 'POST /construction/admin/v1/accounts/{accountId}/projects createProject; description: "automates
+    the creation and management of projects ... within Autodesk Construction Cloud"'
+  reason: Creation, retrieval and update of construction projects (plus project folders) is project execution/administration
+    tooling, mapping to Project Management. Some ambiguity as it is largely administrative provisioning
+    of project containers.
+  recovered_from: capability-edges-sweep.json
