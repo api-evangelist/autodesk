@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Autodesk ACC Account Admin Account Users API
   description: The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.
@@ -70,15 +70,6 @@ paths:
                 $ref: '#/components/schemas/AccountUsersResponse'
 components:
   schemas:
-    Pagination:
-      type: object
-      properties:
-        offset:
-          type: integer
-        limit:
-          type: integer
-        totalResults:
-          type: integer
     AccountUsersResponse:
       type: object
       properties:
@@ -110,6 +101,15 @@ components:
                 format: date-time
         pagination:
           $ref: '#/components/schemas/Pagination'
+    Pagination:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalResults:
+          type: integer
   securitySchemes:
     OAuth2ThreeLegged:
       type: oauth2

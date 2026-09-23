@@ -1,7 +1,7 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Autodesk ACC Account Admin Account Users Issues API
-  description: The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.
+  title: Autodesk BIM 360 Issues API
+  description: The BIM 360 API enables integration with the BIM 360 cloud-based construction management platform, providing access to project data, documents, issues, checklists, and administrative functions. It supports project administration, user management, and issue tracking workflows.
   version: 1.0.0
   termsOfService: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
   contact:
@@ -245,7 +245,7 @@ paths:
           description: Comment created.
 components:
   schemas:
-    IssueTypesResponse:
+    CommentsResponse:
       type: object
       properties:
         data:
@@ -260,17 +260,84 @@ components:
               attributes:
                 type: object
                 properties:
-                  title:
+                  body:
                     type: string
-                  subtypes:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
+                  created_at:
+                    type: string
+                    format: date-time
+                  created_by:
+                    type: string
+    CreateIssueRequest:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+              example: quality_issues
+            attributes:
+              type: object
+              required:
+              - title
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                status:
+                  type: string
+                assigned_to:
+                  type: string
+                assigned_to_type:
+                  type: string
+                due_date:
+                  type: string
+                  format: date
+                priority:
+                  type: string
+                issue_type_id:
+                  type: string
+                issue_sub_type_id:
+                  type: string
+                location_description:
+                  type: string
+                target_urn:
+                  type: string
+    IssueResponse:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Issue'
+    UpdateIssueRequest:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+              example: quality_issues
+            id:
+              type: string
+            attributes:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                status:
+                  type: string
+                assigned_to:
+                  type: string
+                due_date:
+                  type: string
+                  format: date
+                priority:
+                  type: string
+                answer:
+                  type: string
     Issue:
       type: object
       properties:
@@ -398,49 +465,7 @@ components:
               properties:
                 body:
                   type: string
-    IssueResponse:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/Issue'
-    CreateIssueRequest:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            type:
-              type: string
-              example: quality_issues
-            attributes:
-              type: object
-              required:
-              - title
-              properties:
-                title:
-                  type: string
-                description:
-                  type: string
-                status:
-                  type: string
-                assigned_to:
-                  type: string
-                assigned_to_type:
-                  type: string
-                due_date:
-                  type: string
-                  format: date
-                priority:
-                  type: string
-                issue_type_id:
-                  type: string
-                issue_sub_type_id:
-                  type: string
-                location_description:
-                  type: string
-                target_urn:
-                  type: string
-    CommentsResponse:
+    IssueTypesResponse:
       type: object
       properties:
         data:
@@ -455,42 +480,17 @@ components:
               attributes:
                 type: object
                 properties:
-                  body:
+                  title:
                     type: string
-                  created_at:
-                    type: string
-                    format: date-time
-                  created_by:
-                    type: string
-    UpdateIssueRequest:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            type:
-              type: string
-              example: quality_issues
-            id:
-              type: string
-            attributes:
-              type: object
-              properties:
-                title:
-                  type: string
-                description:
-                  type: string
-                status:
-                  type: string
-                assigned_to:
-                  type: string
-                due_date:
-                  type: string
-                  format: date
-                priority:
-                  type: string
-                answer:
-                  type: string
+                  subtypes:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        title:
+                          type: string
   securitySchemes:
     OAuth2ThreeLegged:
       type: oauth2
@@ -501,3 +501,5 @@ components:
           scopes:
             account:read: Read account data
             account:write: Write account data
+            data:read: Read data
+            data:write: Write data

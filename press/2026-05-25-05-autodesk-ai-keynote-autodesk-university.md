@@ -1,7 +1,9 @@
 ---
 title: Autodesk AI Keynote | Autodesk University
 url: https://www.autodesk.com/autodesk-university/class/Autodesk-AI-Keynote-2025
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Autodesk" press release artificial intelligence'
 position: 5
 source: serpapi-google

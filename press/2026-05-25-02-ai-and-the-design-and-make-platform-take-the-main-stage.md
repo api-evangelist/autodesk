@@ -1,7 +1,9 @@
 ---
 title: AI and the Design and Make Platform take the main stage ...
 url: https://www.prnewswire.com/news-releases/ai-and-the-design-and-make-platform-take-the-main-stage-at-autodesk-university-301985696.html
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Autodesk" press release artificial intelligence'
 position: 2
 source: serpapi-google

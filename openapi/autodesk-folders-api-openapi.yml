@@ -1,8 +1,8 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Autodesk ACC Account Admin Account Users Folders API
-  description: The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.
-  version: 1.0.0
+  title: Autodesk Data Management Folders API
+  description: The Data Management API enables management of data across Autodesk cloud services including Autodesk Docs, BIM 360, Fusion Team, and the Object Storage Service (OSS). It provides a consistent interface for navigating projects, managing folders, uploading and downloading files, and tracking item versions using a JSON:API compliant data model.
+  version: 2.0.0
   termsOfService: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
   contact:
     name: Autodesk Platform Services
@@ -16,7 +16,7 @@ servers:
   description: Production
 security:
 - OAuth2ThreeLegged:
-  - account:read
+  - data:read
 tags:
 - name: Folders
 paths:
@@ -182,81 +182,12 @@ paths:
           description: Forbidden.
 components:
   schemas:
-    Folder:
-      type: object
-      properties:
-        type:
-          type: string
-          example: folders
-        id:
-          type: string
-        attributes:
-          type: object
-          properties:
-            name:
-              type: string
-            displayName:
-              type: string
-            createTime:
-              type: string
-              format: date-time
-            createUserId:
-              type: string
-            createUserName:
-              type: string
-            lastModifiedTime:
-              type: string
-              format: date-time
-            lastModifiedUserId:
-              type: string
-            lastModifiedUserName:
-              type: string
-            objectCount:
-              type: integer
-            extension:
-              $ref: '#/components/schemas/Extension'
-            hidden:
-              type: boolean
-    FolderResponse:
-      type: object
-      properties:
-        jsonapi:
-          $ref: '#/components/schemas/JsonApiVersion'
-        data:
-          $ref: '#/components/schemas/Folder'
     JsonApiVersion:
       type: object
       properties:
         version:
           type: string
           example: '1.0'
-    PaginationLinks:
-      type: object
-      properties:
-        self:
-          type: object
-          properties:
-            href:
-              type: string
-              format: uri
-        first:
-          type: object
-          properties:
-            href:
-              type: string
-              format: uri
-        prev:
-          type: object
-          properties:
-            href:
-              type: string
-              format: uri
-        next:
-          type: object
-          properties:
-            href:
-              type: string
-              format: uri
     Extension:
       type: object
       properties:
@@ -298,19 +229,6 @@ components:
                           example: folders
                         id:
                           type: string
-    FolderContentsResponse:
-      type: object
-      properties:
-        jsonapi:
-          $ref: '#/components/schemas/JsonApiVersion'
-        data:
-          type: array
-          items:
-            oneOf:
-            - $ref: '#/components/schemas/Folder'
-            - $ref: '#/components/schemas/Item'
-        links:
-          $ref: '#/components/schemas/PaginationLinks'
     Item:
       type: object
       properties:
@@ -369,7 +287,103 @@ components:
                         href:
                           type: string
                           format: uri
+    FolderContentsResponse:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          type: array
+          items:
+            oneOf:
+            - $ref: '#/components/schemas/Folder'
+            - $ref: '#/components/schemas/Item'
+        links:
+          $ref: '#/components/schemas/PaginationLinks'
+    FolderResponse:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          $ref: '#/components/schemas/Folder'
+    Folder:
+      type: object
+      properties:
+        type:
+          type: string
+          example: folders
+        id:
+          type: string
+        attributes:
+          type: object
+          properties:
+            name:
+              type: string
+            displayName:
+              type: string
+            createTime:
+              type: string
+              format: date-time
+            createUserId:
+              type: string
+            createUserName:
+              type: string
+            lastModifiedTime:
+              type: string
+              format: date-time
+            lastModifiedUserId:
+              type: string
+            lastModifiedUserName:
+              type: string
+            objectCount:
+              type: integer
+            extension:
+              $ref: '#/components/schemas/Extension'
+            hidden:
+              type: boolean
+    PaginationLinks:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
+        first:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
+        prev:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
+        next:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
   securitySchemes:
+    OAuth2TwoLegged:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            data:read: Read access to data
+            data:write: Write access to data
+            data:create: Create new data
+            data:search: Search data
+            bucket:create: Create OSS buckets
+            bucket:read: Read OSS bucket metadata
+            bucket:update: Update OSS buckets
+            bucket:delete: Delete OSS buckets
     OAuth2ThreeLegged:
       type: oauth2
       flows:
@@ -377,5 +391,7 @@ components:
           authorizationUrl: https://developer.api.autodesk.com/authentication/v2/authorize
           tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
           scopes:
-            account:read: Read account data
-            account:write: Write account data
+            data:read: Read access to data
+            data:write: Write access to data
+            data:create: Create new data
+            data:search: Search data

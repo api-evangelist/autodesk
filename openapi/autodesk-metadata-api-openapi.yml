@@ -1,9 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Autodesk ACC Account Admin Account Users Metadata API
-  description: The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud. It supports bulk operations for enterprise-scale administration.
-  version: 1.0.0
-  termsOfService: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  title: Autodesk Metadata API
   contact:
     name: Autodesk Platform Services
     url: https://aps.autodesk.com
@@ -11,12 +8,14 @@ info:
   license:
     name: Autodesk API Terms of Service
     url: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  termsOfService: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
+  version: '1.0'
+  description: 'Operations tagged Metadata across 2 of this provider''s published API definitions: autodesk-model-derivative-openapi.yml, autodesk-parameters-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://developer.api.autodesk.com
-  description: Production
-security:
-- OAuth2ThreeLegged:
-  - account:read
+  description: Production (US)
+- url: https://developer.api.autodesk.com/regions/eu
+  description: Production (EMEA)
 tags:
 - name: Metadata
 paths:
@@ -44,6 +43,16 @@ paths:
           description: Unauthorized.
         '404':
           description: Metadata not found.
+      security:
+      - OAuth2TwoLegged:
+        - data:read
+        - data:write
+        - data:create
+    servers:
+    - url: https://developer.api.autodesk.com
+      description: Production (US)
+    - url: https://developer.api.autodesk.com/regions/eu
+      description: Production (EMEA)
   /modelderivative/v2/designdata/{urn}/metadata/{guid}:
     get:
       operationId: getObjectTree
@@ -78,6 +87,16 @@ paths:
                 $ref: '#/components/schemas/ObjectTreeResponse'
         '202':
           description: Object tree is being generated. Retry later.
+      security:
+      - OAuth2TwoLegged:
+        - data:read
+        - data:write
+        - data:create
+    servers:
+    - url: https://developer.api.autodesk.com
+      description: Production (US)
+    - url: https://developer.api.autodesk.com/regions/eu
+      description: Production (EMEA)
   /modelderivative/v2/designdata/{urn}/metadata/{guid}/properties:
     get:
       operationId: getProperties
@@ -116,6 +135,16 @@ paths:
                 $ref: '#/components/schemas/PropertiesResponse'
         '202':
           description: Properties are being generated. Retry later.
+      security:
+      - OAuth2TwoLegged:
+        - data:read
+        - data:write
+        - data:create
+    servers:
+    - url: https://developer.api.autodesk.com
+      description: Production (US)
+    - url: https://developer.api.autodesk.com/regions/eu
+      description: Production (EMEA)
   /modelderivative/v2/designdata/{urn}/metadata/{guid}/properties:query:
     post:
       operationId: queryProperties
@@ -147,6 +176,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PropertiesResponse'
+      security:
+      - OAuth2TwoLegged:
+        - data:read
+        - data:write
+        - data:create
+    servers:
+    - url: https://developer.api.autodesk.com
+      description: Production (US)
+    - url: https://developer.api.autodesk.com/regions/eu
+      description: Production (EMEA)
   /parameters/v1/metadata/specs:
     get:
       operationId: getSpecs
@@ -161,6 +200,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SpecsResponse'
+      security:
+      - OAuth2ThreeLegged:
+        - data:read
+    servers:
+    - url: https://developer.api.autodesk.com
+      description: Production
   /parameters/v1/metadata/categories:
     get:
       operationId: getCategories
@@ -175,6 +220,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CategoriesResponse'
+      security:
+      - OAuth2ThreeLegged:
+        - data:read
+    servers:
+    - url: https://developer.api.autodesk.com
+      description: Production
   /parameters/v1/metadata/disciplines:
     get:
       operationId: getDisciplines
@@ -189,6 +240,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DisciplinesResponse'
+      security:
+      - OAuth2ThreeLegged:
+        - data:read
+    servers:
+    - url: https://developer.api.autodesk.com
+      description: Production
   /parameters/v1/metadata/units:
     get:
       operationId: getUnits
@@ -210,6 +267,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UnitsResponse'
+      security:
+      - OAuth2ThreeLegged:
+        - data:read
+    servers:
+    - url: https://developer.api.autodesk.com
+      description: Production
 components:
   schemas:
     PropertiesResponse:
@@ -235,84 +298,6 @@ components:
                   properties:
                     type: object
                     additionalProperties: true
-    ObjectTreeResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            type:
-              type: string
-              example: objects
-            objects:
-              type: array
-              items:
-                $ref: '#/components/schemas/ObjectNode'
-    CategoriesResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              name:
-                type: string
-    DisciplinesResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              name:
-                type: string
-    ObjectNode:
-      type: object
-      properties:
-        objectid:
-          type: integer
-        name:
-          type: string
-        objects:
-          type: array
-          items:
-            $ref: '#/components/schemas/ObjectNode'
-    SpecsResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              name:
-                type: string
-              isBuiltIn:
-                type: boolean
-    UnitsResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              name:
-                type: string
-              specId:
-                type: string
-              symbol:
-                type: string
     PropertiesQuery:
       type: object
       properties:
@@ -391,7 +376,94 @@ components:
                     - 2d
                   isMasterView:
                     type: boolean
+    ObjectTreeResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+              example: objects
+            objects:
+              type: array
+              items:
+                $ref: '#/components/schemas/ObjectNode'
+    ObjectNode:
+      type: object
+      properties:
+        objectid:
+          type: integer
+        name:
+          type: string
+        objects:
+          type: array
+          items:
+            $ref: '#/components/schemas/ObjectNode'
+    DisciplinesResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+    CategoriesResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+    SpecsResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              isBuiltIn:
+                type: boolean
+    UnitsResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              specId:
+                type: string
+              symbol:
+                type: string
   securitySchemes:
+    OAuth2TwoLegged:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
+          scopes:
+            data:read: Read access to data
+            data:write: Write access to data
+            data:create: Create new data
     OAuth2ThreeLegged:
       type: oauth2
       flows:
@@ -399,5 +471,9 @@ components:
           authorizationUrl: https://developer.api.autodesk.com/authentication/v2/authorize
           tokenUrl: https://developer.api.autodesk.com/authentication/v2/token
           scopes:
-            account:read: Read account data
-            account:write: Write account data
+            data:read: Read access to data
+            data:write: Write access to data
+            data:create: Create new data
+x-refined-from:
+- autodesk-model-derivative-openapi.yml
+- autodesk-parameters-openapi.yml
