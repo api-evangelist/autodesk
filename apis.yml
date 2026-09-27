@@ -290,12 +290,13 @@ apis:
   baseURL: https://developer.api.autodesk.com
   tags:
   - Construction
-  - Document-Management
+  - Document Management
   - Sheets
   tags_raw:
   - Construction
   - Document Management
   - Sheets
+  - Document-Management
   properties:
   - type: Documentation
     url: https://aps.autodesk.com/developer/overview/autodesk-construction-cloud
@@ -350,12 +351,13 @@ apis:
   baseURL: https://developer.api.autodesk.com
   tags:
   - Construction
-  - Document-Management
+  - Document Management
   - Transmittals
   tags_raw:
   - Construction
   - Document Management
   - Transmittals
+  - Document-Management
   properties:
   - type: Documentation
     url: https://aps.autodesk.com/developer/overview/autodesk-construction-cloud

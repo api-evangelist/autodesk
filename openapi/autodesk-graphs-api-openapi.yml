@@ -117,6 +117,15 @@ paths:
           description: Graph deleted.
 components:
   schemas:
+    GraphsResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Graph'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     Graph:
       type: object
       properties:
@@ -155,15 +164,6 @@ components:
                 type: string
               type:
                 type: string
-    GraphsResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Graph'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
     Pagination:
       type: object
       properties:

@@ -120,38 +120,6 @@ paths:
                       $ref: '#/components/schemas/Bim360User'
 components:
   schemas:
-    AddBim360UserRequest:
-      type: object
-      required:
-      - email
-      properties:
-        email:
-          type: string
-        services:
-          type: object
-          properties:
-            document_management:
-              type: object
-              properties:
-                access_level:
-                  type: string
-                  enum:
-                  - admin
-                  - user
-            project_administration:
-              type: object
-              properties:
-                access_level:
-                  type: string
-                  enum:
-                  - admin
-                  - user
-        company_id:
-          type: string
-        industry_roles:
-          type: array
-          items:
-            type: string
     Bim360UsersResponse:
       type: object
       properties:
@@ -161,6 +129,15 @@ components:
             $ref: '#/components/schemas/Bim360User'
         pagination:
           $ref: '#/components/schemas/Pagination'
+    Pagination:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalResults:
+          type: integer
     Bim360User:
       type: object
       properties:
@@ -197,15 +174,38 @@ components:
           type: array
           items:
             type: string
-    Pagination:
+    AddBim360UserRequest:
       type: object
+      required:
+      - email
       properties:
-        offset:
-          type: integer
-        limit:
-          type: integer
-        totalResults:
-          type: integer
+        email:
+          type: string
+        services:
+          type: object
+          properties:
+            document_management:
+              type: object
+              properties:
+                access_level:
+                  type: string
+                  enum:
+                  - admin
+                  - user
+            project_administration:
+              type: object
+              properties:
+                access_level:
+                  type: string
+                  enum:
+                  - admin
+                  - user
+        company_id:
+          type: string
+        industry_roles:
+          type: array
+          items:
+            type: string
   securitySchemes:
     OAuth2ThreeLegged:
       type: oauth2

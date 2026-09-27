@@ -221,34 +221,6 @@ paths:
       description: Production (EMEA)
 components:
   schemas:
-    JobResult:
-      type: object
-      properties:
-        jobId:
-          type: string
-        outputs:
-          type: object
-          additionalProperties: true
-          description: Output values from the graph evaluation.
-        downloadUrl:
-          type: string
-          format: uri
-          description: URL to download binary output if applicable.
-    CreateJobRequest:
-      type: object
-      required:
-      - graphId
-      properties:
-        graphId:
-          type: string
-        inputs:
-          type: object
-          additionalProperties: true
-          description: Input parameter values matching the graph's input port names.
-        callbackUrl:
-          type: string
-          format: uri
-          description: Optional URL to receive completion notification.
     Job:
       type: object
       properties:
@@ -301,6 +273,56 @@ components:
           type: integer
         totalResults:
           type: integer
+    CreateJobRequest:
+      type: object
+      required:
+      - graphId
+      properties:
+        graphId:
+          type: string
+        inputs:
+          type: object
+          additionalProperties: true
+          description: Input parameter values matching the graph's input port names.
+        callbackUrl:
+          type: string
+          format: uri
+          description: Optional URL to receive completion notification.
+    JobResult:
+      type: object
+      properties:
+        jobId:
+          type: string
+        outputs:
+          type: object
+          additionalProperties: true
+          description: Output values from the graph evaluation.
+        downloadUrl:
+          type: string
+          format: uri
+          description: URL to download binary output if applicable.
+    JobResponse:
+      type: object
+      properties:
+        result:
+          type: string
+          description: Result status of the job submission.
+        urn:
+          type: string
+          description: The URN of the source design.
+        acceptedJobs:
+          type: object
+          properties:
+            output:
+              type: object
+              properties:
+                formats:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      type:
+                        type: string
     JobPayload:
       type: object
       required:
@@ -378,28 +400,6 @@ components:
                         type: array
                         items:
                           type: integer
-    JobResponse:
-      type: object
-      properties:
-        result:
-          type: string
-          description: Result status of the job submission.
-        urn:
-          type: string
-          description: The URN of the source design.
-        acceptedJobs:
-          type: object
-          properties:
-            output:
-              type: object
-              properties:
-                formats:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      type:
-                        type: string
   securitySchemes:
     OAuth2TwoLegged:
       type: oauth2

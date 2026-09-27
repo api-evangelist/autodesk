@@ -117,19 +117,24 @@ paths:
                 $ref: '#/components/schemas/ItemResponse'
 components:
   schemas:
-    JsonApiVersion:
-      type: object
-      properties:
-        version:
-          type: string
-          example: '1.0'
-    ItemResponse:
+    PatchItemRequest:
       type: object
       properties:
         jsonapi:
           $ref: '#/components/schemas/JsonApiVersion'
         data:
-          $ref: '#/components/schemas/Item'
+          type: object
+          properties:
+            type:
+              type: string
+              example: items
+            id:
+              type: string
+            attributes:
+              type: object
+              properties:
+                displayName:
+                  type: string
     Extension:
       type: object
       properties:
@@ -139,6 +144,12 @@ components:
           type: string
         data:
           type: object
+    JsonApiVersion:
+      type: object
+      properties:
+        version:
+          type: string
+          example: '1.0'
     CreateItemRequest:
       type: object
       properties:
@@ -244,24 +255,13 @@ components:
                         href:
                           type: string
                           format: uri
-    PatchItemRequest:
+    ItemResponse:
       type: object
       properties:
         jsonapi:
           $ref: '#/components/schemas/JsonApiVersion'
         data:
-          type: object
-          properties:
-            type:
-              type: string
-              example: items
-            id:
-              type: string
-            attributes:
-              type: object
-              properties:
-                displayName:
-                  type: string
+          $ref: '#/components/schemas/Item'
   securitySchemes:
     OAuth2TwoLegged:
       type: oauth2

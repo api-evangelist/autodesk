@@ -58,13 +58,6 @@ paths:
           description: Twin not found.
 components:
   schemas:
-    TwinsResponse:
-      type: object
-      properties:
-        twins:
-          type: array
-          items:
-            $ref: '#/components/schemas/Twin'
     Twin:
       type: object
       properties:
@@ -96,6 +89,13 @@ components:
                 type: string
               label:
                 type: string
+    TwinsResponse:
+      type: object
+      properties:
+        twins:
+          type: array
+          items:
+            $ref: '#/components/schemas/Twin'
   securitySchemes:
     OAuth2ThreeLegged:
       type: oauth2

@@ -101,34 +101,6 @@ paths:
           description: Bad request.
 components:
   schemas:
-    MutateRequest:
-      type: object
-      required:
-      - mutations
-      properties:
-        mutations:
-          type: array
-          items:
-            type: object
-            required:
-            - key
-            - properties
-            properties:
-              key:
-                type: string
-                description: Element key to mutate.
-              properties:
-                type: object
-                additionalProperties: true
-                description: Property family:column pairs and their new values.
-    PropsResponse:
-      type: object
-      properties:
-        rows:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
     PropsRequest:
       type: object
       required:
@@ -168,6 +140,34 @@ components:
                 type: string
               category:
                 type: string
+    MutateRequest:
+      type: object
+      required:
+      - mutations
+      properties:
+        mutations:
+          type: array
+          items:
+            type: object
+            required:
+            - key
+            - properties
+            properties:
+              key:
+                type: string
+                description: Element key to mutate.
+              properties:
+                type: object
+                additionalProperties: true
+                description: Property family:column pairs and their new values.
+    PropsResponse:
+      type: object
+      properties:
+        rows:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
     ScanRequest:
       type: object
       properties:

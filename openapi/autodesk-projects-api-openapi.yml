@@ -231,7 +231,7 @@ paths:
       description: Production
   /project/v1/hubs/{hub_id}/projects/{project_id}:
     get:
-      operationId: getProject
+      operationId: getProjectV1HubsByHubIdProjectsByProjectId
       summary: Autodesk Get Project
       description: Returns a specific project within a hub.
       tags:
@@ -261,6 +261,8 @@ paths:
       security:
       - OAuth2ThreeLegged:
         - data:read
+      x-operation-id-source: normalized
+      x-operation-id-original: getProject
     servers:
     - url: https://developer.api.autodesk.com
       description: Production
@@ -301,6 +303,35 @@ paths:
       description: Production
 components:
   schemas:
+    UpdateProjectRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        status:
+          type: string
+          enum:
+          - active
+          - inactive
+          - archived
+        jobNumber:
+          type: string
+        addressLine1:
+          type: string
+        city:
+          type: string
+        stateOrProvince:
+          type: string
+        postalCode:
+          type: string
+        country:
+          type: string
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
     Project:
       type: object
       properties:
@@ -373,35 +404,6 @@ components:
             $ref: '#/components/schemas/Project'
         pagination:
           $ref: '#/components/schemas/Pagination'
-    UpdateProjectRequest:
-      type: object
-      properties:
-        name:
-          type: string
-        status:
-          type: string
-          enum:
-          - active
-          - inactive
-          - archived
-        jobNumber:
-          type: string
-        addressLine1:
-          type: string
-        city:
-          type: string
-        stateOrProvince:
-          type: string
-        postalCode:
-          type: string
-        country:
-          type: string
-        startDate:
-          type: string
-          format: date
-        endDate:
-          type: string
-          format: date
     Pagination:
       type: object
       properties:
@@ -453,6 +455,77 @@ components:
           type: number
         currency:
           type: string
+    FoldersResponse:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Folder'
+    Folder:
+      type: object
+      properties:
+        type:
+          type: string
+          example: folders
+        id:
+          type: string
+        attributes:
+          type: object
+          properties:
+            name:
+              type: string
+            displayName:
+              type: string
+            createTime:
+              type: string
+              format: date-time
+            createUserId:
+              type: string
+            createUserName:
+              type: string
+            lastModifiedTime:
+              type: string
+              format: date-time
+            lastModifiedUserId:
+              type: string
+            lastModifiedUserName:
+              type: string
+            objectCount:
+              type: integer
+            extension:
+              $ref: '#/components/schemas/Extension'
+            hidden:
+              type: boolean
+    PaginationLinks:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
+        first:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
+        prev:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
+        next:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
     Project_2:
       type: object
       properties:
@@ -503,12 +576,6 @@ components:
                         href:
                           type: string
                           format: uri
-    JsonApiVersion:
-      type: object
-      properties:
-        version:
-          type: string
-          example: '1.0'
     Extension:
       type: object
       properties:
@@ -529,42 +596,12 @@ components:
             $ref: '#/components/schemas/Project_2'
         links:
           $ref: '#/components/schemas/PaginationLinks'
-    PaginationLinks:
+    JsonApiVersion:
       type: object
       properties:
-        self:
-          type: object
-          properties:
-            href:
-              type: string
-              format: uri
-        first:
-          type: object
-          properties:
-            href:
-              type: string
-              format: uri
-        prev:
-          type: object
-          properties:
-            href:
-              type: string
-              format: uri
-        next:
-          type: object
-          properties:
-            href:
-              type: string
-              format: uri
-    FoldersResponse:
-      type: object
-      properties:
-        jsonapi:
-          $ref: '#/components/schemas/JsonApiVersion'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Folder'
+        version:
+          type: string
+          example: '1.0'
     ProjectResponse:
       type: object
       properties:
@@ -572,41 +609,6 @@ components:
           $ref: '#/components/schemas/JsonApiVersion'
         data:
           $ref: '#/components/schemas/Project_2'
-    Folder:
-      type: object
-      properties:
-        type:
-          type: string
-          example: folders
-        id:
-          type: string
-        attributes:
-          type: object
-          properties:
-            name:
-              type: string
-            displayName:
-              type: string
-            createTime:
-              type: string
-              format: date-time
-            createUserId:
-              type: string
-            createUserName:
-              type: string
-            lastModifiedTime:
-              type: string
-              format: date-time
-            lastModifiedUserId:
-              type: string
-            lastModifiedUserName:
-              type: string
-            objectCount:
-              type: integer
-            extension:
-              $ref: '#/components/schemas/Extension'
-            hidden:
-              type: boolean
   securitySchemes:
     OAuth2ThreeLegged:
       type: oauth2

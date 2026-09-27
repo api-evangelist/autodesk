@@ -104,6 +104,21 @@ components:
           type: string
         optional:
           type: boolean
+    WorkItemPayload:
+      type: object
+      required:
+      - activityId
+      properties:
+        activityId:
+          type: string
+          description: Fully qualified Activity ID (e.g., owner.activityname+alias).
+        arguments:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/WorkItemArgument'
+        limitProcessingTimeSec:
+          type: integer
+          description: Processing time limit in seconds.
     WorkItemStatus:
       type: object
       properties:
@@ -149,21 +164,6 @@ components:
               type: integer
         id:
           type: string
-    WorkItemPayload:
-      type: object
-      required:
-      - activityId
-      properties:
-        activityId:
-          type: string
-          description: Fully qualified Activity ID (e.g., owner.activityname+alias).
-        arguments:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/WorkItemArgument'
-        limitProcessingTimeSec:
-          type: integer
-          description: Processing time limit in seconds.
   securitySchemes:
     OAuth2TwoLegged:
       type: oauth2

@@ -58,17 +58,6 @@ paths:
                 $ref: '#/components/schemas/EventsResponse'
 components:
   schemas:
-    SystemsResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: object
-            properties:
-              system:
-                type: string
-                description: System identifier (data, derivative, adsk.c4r, adsk.docs).
     EventsResponse:
       type: object
       properties:
@@ -80,6 +69,17 @@ components:
               event:
                 type: string
                 description: Event type identifier.
+    SystemsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              system:
+                type: string
+                description: System identifier (data, derivative, adsk.c4r, adsk.docs).
   securitySchemes:
     OAuth2TwoLegged:
       type: oauth2

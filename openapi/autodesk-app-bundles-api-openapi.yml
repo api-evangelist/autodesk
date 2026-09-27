@@ -279,8 +279,77 @@ paths:
           description: Alias deleted.
 components:
   schemas:
+    AliasPatch:
+      type: object
+      required:
+      - version
+      properties:
+        version:
+          type: integer
+        receiver:
+          type: string
     Alias:
       type: object
+      properties:
+        id:
+          type: string
+        version:
+          type: integer
+        receiver:
+          type: string
+    AppBundle:
+      type: object
+      properties:
+        uploadParameters:
+          type: object
+          properties:
+            endpointURL:
+              type: string
+              format: uri
+            formData:
+              type: object
+              additionalProperties:
+                type: string
+        id:
+          type: string
+        engine:
+          type: string
+        description:
+          type: string
+        version:
+          type: integer
+    PagedAliases:
+      type: object
+      properties:
+        paginationToken:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alias'
+    PagedVersions:
+      type: object
+      properties:
+        paginationToken:
+          type: string
+        data:
+          type: array
+          items:
+            type: integer
+    PagedAppBundles:
+      type: object
+      properties:
+        paginationToken:
+          type: string
+        data:
+          type: array
+          items:
+            type: string
+    AliasPayload:
+      type: object
+      required:
+      - id
+      - version
       properties:
         id:
           type: string
@@ -306,75 +375,6 @@ components:
           type: array
           items:
             type: string
-    AliasPayload:
-      type: object
-      required:
-      - id
-      - version
-      properties:
-        id:
-          type: string
-        version:
-          type: integer
-        receiver:
-          type: string
-    PagedVersions:
-      type: object
-      properties:
-        paginationToken:
-          type: string
-        data:
-          type: array
-          items:
-            type: integer
-    AppBundle:
-      type: object
-      properties:
-        uploadParameters:
-          type: object
-          properties:
-            endpointURL:
-              type: string
-              format: uri
-            formData:
-              type: object
-              additionalProperties:
-                type: string
-        id:
-          type: string
-        engine:
-          type: string
-        description:
-          type: string
-        version:
-          type: integer
-    PagedAppBundles:
-      type: object
-      properties:
-        paginationToken:
-          type: string
-        data:
-          type: array
-          items:
-            type: string
-    PagedAliases:
-      type: object
-      properties:
-        paginationToken:
-          type: string
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Alias'
-    AliasPatch:
-      type: object
-      required:
-      - version
-      properties:
-        version:
-          type: integer
-        receiver:
-          type: string
   securitySchemes:
     OAuth2TwoLegged:
       type: oauth2

@@ -70,6 +70,15 @@ paths:
                 $ref: '#/components/schemas/AccountUsersResponse'
 components:
   schemas:
+    Pagination:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalResults:
+          type: integer
     AccountUsersResponse:
       type: object
       properties:
@@ -101,15 +110,6 @@ components:
                 format: date-time
         pagination:
           $ref: '#/components/schemas/Pagination'
-    Pagination:
-      type: object
-      properties:
-        offset:
-          type: integer
-        limit:
-          type: integer
-        totalResults:
-          type: integer
   securitySchemes:
     OAuth2ThreeLegged:
       type: oauth2

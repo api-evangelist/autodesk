@@ -167,6 +167,46 @@ paths:
           description: User removed from project.
 components:
   schemas:
+    ProjectUsersResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectUser'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    UpdateProjectUserRequest:
+      type: object
+      properties:
+        products:
+          type: array
+          items:
+            type: object
+            properties:
+              key:
+                type: string
+              access:
+                type: string
+                enum:
+                - administrator
+                - member
+                - none
+        industryRoles:
+          type: array
+          items:
+            type: string
+        companyId:
+          type: string
+    Pagination:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalResults:
+          type: integer
     ProjectUser:
       type: object
       properties:
@@ -221,37 +261,6 @@ components:
         addedOn:
           type: string
           format: date-time
-    ProjectUsersResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProjectUser'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-    UpdateProjectUserRequest:
-      type: object
-      properties:
-        products:
-          type: array
-          items:
-            type: object
-            properties:
-              key:
-                type: string
-              access:
-                type: string
-                enum:
-                - administrator
-                - member
-                - none
-        industryRoles:
-          type: array
-          items:
-            type: string
-        companyId:
-          type: string
     AddProjectUserRequest:
       type: object
       required:
@@ -277,15 +286,6 @@ components:
             type: string
         companyId:
           type: string
-    Pagination:
-      type: object
-      properties:
-        offset:
-          type: integer
-        limit:
-          type: integer
-        totalResults:
-          type: integer
   securitySchemes:
     OAuth2ThreeLegged:
       type: oauth2

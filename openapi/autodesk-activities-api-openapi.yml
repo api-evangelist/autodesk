@@ -263,6 +263,15 @@ paths:
           description: Alias deleted.
 components:
   schemas:
+    AliasPatch:
+      type: object
+      required:
+      - version
+      properties:
+        version:
+          type: integer
+        receiver:
+          type: string
     Alias:
       type: object
       properties:
@@ -272,42 +281,47 @@ components:
           type: integer
         receiver:
           type: string
-    AliasPayload:
+    PagedAliases:
       type: object
-      required:
-      - id
-      - version
+      properties:
+        paginationToken:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alias'
+    PagedActivities:
+      type: object
+      properties:
+        paginationToken:
+          type: string
+        data:
+          type: array
+          items:
+            type: string
+    Activity:
+      type: object
       properties:
         id:
           type: string
-        version:
-          type: integer
-        receiver:
+        engine:
           type: string
-    Parameter:
-      type: object
-      properties:
-        zip:
-          type: boolean
-          description: Whether the parameter is a zip file.
-        ondemand:
-          type: boolean
-        verb:
-          type: string
-          description: HTTP verb for accessing the parameter.
-          enum:
-          - get
-          - put
-          - post
-          - patch
-          - read
+        commandLine:
+          type: array
+          items:
+            type: string
         description:
           type: string
-        required:
-          type: boolean
-        localName:
-          type: string
-          description: Local filename for the parameter.
+        appbundles:
+          type: array
+          items:
+            type: string
+        parameters:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Parameter'
+        version:
+          type: integer
     ActivityPayload:
       type: object
       required:
@@ -340,15 +354,6 @@ components:
           type: object
           additionalProperties:
             type: object
-    PagedActivities:
-      type: object
-      properties:
-        paginationToken:
-          type: string
-        data:
-          type: array
-          items:
-            type: string
     PagedVersions:
       type: object
       properties:
@@ -358,43 +363,38 @@ components:
           type: array
           items:
             type: integer
-    Activity:
+    Parameter:
       type: object
+      properties:
+        zip:
+          type: boolean
+          description: Whether the parameter is a zip file.
+        ondemand:
+          type: boolean
+        verb:
+          type: string
+          description: HTTP verb for accessing the parameter.
+          enum:
+          - get
+          - put
+          - post
+          - patch
+          - read
+        description:
+          type: string
+        required:
+          type: boolean
+        localName:
+          type: string
+          description: Local filename for the parameter.
+    AliasPayload:
+      type: object
+      required:
+      - id
+      - version
       properties:
         id:
           type: string
-        engine:
-          type: string
-        commandLine:
-          type: array
-          items:
-            type: string
-        description:
-          type: string
-        appbundles:
-          type: array
-          items:
-            type: string
-        parameters:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Parameter'
-        version:
-          type: integer
-    PagedAliases:
-      type: object
-      properties:
-        paginationToken:
-          type: string
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Alias'
-    AliasPatch:
-      type: object
-      required:
-      - version
-      properties:
         version:
           type: integer
         receiver:

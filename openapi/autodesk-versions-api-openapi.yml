@@ -111,12 +111,17 @@ paths:
                 $ref: '#/components/schemas/VersionResponse'
 components:
   schemas:
-    JsonApiVersion:
+    VersionsResponse:
       type: object
       properties:
-        version:
-          type: string
-          example: '1.0'
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Version'
+        links:
+          $ref: '#/components/schemas/PaginationLinks'
     VersionResponse:
       type: object
       properties:
@@ -124,6 +129,72 @@ components:
           $ref: '#/components/schemas/JsonApiVersion'
         data:
           $ref: '#/components/schemas/Version'
+    PaginationLinks:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
+        first:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
+        prev:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
+        next:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
+    Version:
+      type: object
+      properties:
+        type:
+          type: string
+          example: versions
+        id:
+          type: string
+        attributes:
+          type: object
+          properties:
+            name:
+              type: string
+            displayName:
+              type: string
+            versionNumber:
+              type: integer
+            mimeType:
+              type: string
+            fileType:
+              type: string
+            storageSize:
+              type: integer
+            createTime:
+              type: string
+              format: date-time
+            createUserId:
+              type: string
+            createUserName:
+              type: string
+            lastModifiedTime:
+              type: string
+              format: date-time
+            lastModifiedUserId:
+              type: string
+            lastModifiedUserName:
+              type: string
+            extension:
+              $ref: '#/components/schemas/Extension'
     Extension:
       type: object
       properties:
@@ -176,83 +247,12 @@ components:
                           example: objects
                         id:
                           type: string
-    Version:
+    JsonApiVersion:
       type: object
       properties:
-        type:
+        version:
           type: string
-          example: versions
-        id:
-          type: string
-        attributes:
-          type: object
-          properties:
-            name:
-              type: string
-            displayName:
-              type: string
-            versionNumber:
-              type: integer
-            mimeType:
-              type: string
-            fileType:
-              type: string
-            storageSize:
-              type: integer
-            createTime:
-              type: string
-              format: date-time
-            createUserId:
-              type: string
-            createUserName:
-              type: string
-            lastModifiedTime:
-              type: string
-              format: date-time
-            lastModifiedUserId:
-              type: string
-            lastModifiedUserName:
-              type: string
-            extension:
-              $ref: '#/components/schemas/Extension'
-    VersionsResponse:
-      type: object
-      properties:
-        jsonapi:
-          $ref: '#/components/schemas/JsonApiVersion'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Version'
-        links:
-          $ref: '#/components/schemas/PaginationLinks'
-    PaginationLinks:
-      type: object
-      properties:
-        self:
-          type: object
-          properties:
-            href:
-              type: string
-              format: uri
-        first:
-          type: object
-          properties:
-            href:
-              type: string
-              format: uri
-        prev:
-          type: object
-          properties:
-            href:
-              type: string
-              format: uri
-        next:
-          type: object
-          properties:
-            href:
-              type: string
-              format: uri
+          example: '1.0'
   securitySchemes:
     OAuth2TwoLegged:
       type: oauth2

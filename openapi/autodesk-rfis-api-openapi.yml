@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Autodesk BIM 360 RF Is API
+  title: Autodesk BIM 360 RFIs API
   description: The BIM 360 API enables integration with the BIM 360 cloud-based construction management platform, providing access to project data, documents, issues, checklists, and administrative functions. It supports project administration, user management, and issue tracking workflows.
   version: 1.0.0
   termsOfService: https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service
@@ -57,6 +57,15 @@ paths:
                 $ref: '#/components/schemas/RfisResponse'
 components:
   schemas:
+    Pagination:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalResults:
+          type: integer
     RfisResponse:
       type: object
       properties:
@@ -84,15 +93,6 @@ components:
                 format: date-time
         pagination:
           $ref: '#/components/schemas/Pagination'
-    Pagination:
-      type: object
-      properties:
-        offset:
-          type: integer
-        limit:
-          type: integer
-        totalResults:
-          type: integer
   securitySchemes:
     OAuth2ThreeLegged:
       type: oauth2

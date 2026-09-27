@@ -275,6 +275,17 @@ paths:
       description: Production
 components:
   schemas:
+    ObjectNode:
+      type: object
+      properties:
+        objectid:
+          type: integer
+        name:
+          type: string
+        objects:
+          type: array
+          items:
+            $ref: '#/components/schemas/ObjectNode'
     PropertiesResponse:
       type: object
       properties:
@@ -351,6 +362,19 @@ components:
               type: integer
             limit:
               type: integer
+    ObjectTreeResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+              example: objects
+            objects:
+              type: array
+              items:
+                $ref: '#/components/schemas/ObjectNode'
     MetadataResponse:
       type: object
       properties:
@@ -376,42 +400,6 @@ components:
                     - 2d
                   isMasterView:
                     type: boolean
-    ObjectTreeResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            type:
-              type: string
-              example: objects
-            objects:
-              type: array
-              items:
-                $ref: '#/components/schemas/ObjectNode'
-    ObjectNode:
-      type: object
-      properties:
-        objectid:
-          type: integer
-        name:
-          type: string
-        objects:
-          type: array
-          items:
-            $ref: '#/components/schemas/ObjectNode'
-    DisciplinesResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              name:
-                type: string
     CategoriesResponse:
       type: object
       properties:
@@ -424,20 +412,6 @@ components:
                 type: string
               name:
                 type: string
-    SpecsResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              name:
-                type: string
-              isBuiltIn:
-                type: boolean
     UnitsResponse:
       type: object
       properties:
@@ -453,6 +427,32 @@ components:
               specId:
                 type: string
               symbol:
+                type: string
+    SpecsResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              isBuiltIn:
+                type: boolean
+    DisciplinesResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
                 type: string
   securitySchemes:
     OAuth2TwoLegged:
