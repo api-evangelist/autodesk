@@ -125,6 +125,15 @@ paths:
       description: Production
 components:
   schemas:
+    Group:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
     CreateGroupRequest:
       type: object
       required:
@@ -141,22 +150,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Group'
-    Group:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-    GroupsResponse_2:
-      type: object
-      properties:
-        groups:
-          type: array
-          items:
-            $ref: '#/components/schemas/Group_2'
     Group_2:
       type: object
       properties:
@@ -169,6 +162,13 @@ components:
           items:
             type: string
             description: Twin IDs in this group.
+    GroupsResponse_2:
+      type: object
+      properties:
+        groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/Group_2'
   securitySchemes:
     OAuth2ThreeLegged:
       type: oauth2

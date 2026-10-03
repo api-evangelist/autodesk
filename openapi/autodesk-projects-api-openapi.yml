@@ -303,6 +303,24 @@ paths:
       description: Production
 components:
   schemas:
+    Pagination:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalResults:
+          type: integer
+    ProjectsResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     UpdateProjectRequest:
       type: object
       properties:
@@ -395,24 +413,6 @@ components:
         updatedAt:
           type: string
           format: date-time
-    ProjectsResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Project'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-    Pagination:
-      type: object
-      properties:
-        offset:
-          type: integer
-        limit:
-          type: integer
-        totalResults:
-          type: integer
     CreateProjectRequest:
       type: object
       required:
@@ -464,6 +464,17 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Folder'
+    ProjectsResponse_2:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project_2'
+        links:
+          $ref: '#/components/schemas/PaginationLinks'
     Folder:
       type: object
       properties:
@@ -499,33 +510,13 @@ components:
               $ref: '#/components/schemas/Extension'
             hidden:
               type: boolean
-    PaginationLinks:
+    ProjectResponse:
       type: object
       properties:
-        self:
-          type: object
-          properties:
-            href:
-              type: string
-              format: uri
-        first:
-          type: object
-          properties:
-            href:
-              type: string
-              format: uri
-        prev:
-          type: object
-          properties:
-            href:
-              type: string
-              format: uri
-        next:
-          type: object
-          properties:
-            href:
-              type: string
-              format: uri
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          $ref: '#/components/schemas/Project_2'
     Project_2:
       type: object
       properties:
@@ -576,6 +567,33 @@ components:
                         href:
                           type: string
                           format: uri
+    PaginationLinks:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
+        first:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
+        prev:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
+        next:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
     Extension:
       type: object
       properties:
@@ -585,30 +603,12 @@ components:
           type: string
         data:
           type: object
-    ProjectsResponse_2:
-      type: object
-      properties:
-        jsonapi:
-          $ref: '#/components/schemas/JsonApiVersion'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Project_2'
-        links:
-          $ref: '#/components/schemas/PaginationLinks'
     JsonApiVersion:
       type: object
       properties:
         version:
           type: string
           example: '1.0'
-    ProjectResponse:
-      type: object
-      properties:
-        jsonapi:
-          $ref: '#/components/schemas/JsonApiVersion'
-        data:
-          $ref: '#/components/schemas/Project_2'
   securitySchemes:
     OAuth2ThreeLegged:
       type: oauth2

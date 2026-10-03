@@ -263,65 +263,6 @@ paths:
           description: Alias deleted.
 components:
   schemas:
-    AliasPatch:
-      type: object
-      required:
-      - version
-      properties:
-        version:
-          type: integer
-        receiver:
-          type: string
-    Alias:
-      type: object
-      properties:
-        id:
-          type: string
-        version:
-          type: integer
-        receiver:
-          type: string
-    PagedAliases:
-      type: object
-      properties:
-        paginationToken:
-          type: string
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Alias'
-    PagedActivities:
-      type: object
-      properties:
-        paginationToken:
-          type: string
-        data:
-          type: array
-          items:
-            type: string
-    Activity:
-      type: object
-      properties:
-        id:
-          type: string
-        engine:
-          type: string
-        commandLine:
-          type: array
-          items:
-            type: string
-        description:
-          type: string
-        appbundles:
-          type: array
-          items:
-            type: string
-        parameters:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Parameter'
-        version:
-          type: integer
     ActivityPayload:
       type: object
       required:
@@ -354,7 +295,42 @@ components:
           type: object
           additionalProperties:
             type: object
-    PagedVersions:
+    Activity:
+      type: object
+      properties:
+        id:
+          type: string
+        engine:
+          type: string
+        commandLine:
+          type: array
+          items:
+            type: string
+        description:
+          type: string
+        appbundles:
+          type: array
+          items:
+            type: string
+        parameters:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Parameter'
+        version:
+          type: integer
+    AliasPayload:
+      type: object
+      required:
+      - id
+      - version
+      properties:
+        id:
+          type: string
+        version:
+          type: integer
+        receiver:
+          type: string
+    PagedAliases:
       type: object
       properties:
         paginationToken:
@@ -362,7 +338,7 @@ components:
         data:
           type: array
           items:
-            type: integer
+            $ref: '#/components/schemas/Alias'
     Parameter:
       type: object
       properties:
@@ -387,11 +363,17 @@ components:
         localName:
           type: string
           description: Local filename for the parameter.
-    AliasPayload:
+    PagedActivities:
       type: object
-      required:
-      - id
-      - version
+      properties:
+        paginationToken:
+          type: string
+        data:
+          type: array
+          items:
+            type: string
+    Alias:
+      type: object
       properties:
         id:
           type: string
@@ -399,6 +381,24 @@ components:
           type: integer
         receiver:
           type: string
+    AliasPatch:
+      type: object
+      required:
+      - version
+      properties:
+        version:
+          type: integer
+        receiver:
+          type: string
+    PagedVersions:
+      type: object
+      properties:
+        paginationToken:
+          type: string
+        data:
+          type: array
+          items:
+            type: integer
   securitySchemes:
     OAuth2TwoLegged:
       type: oauth2

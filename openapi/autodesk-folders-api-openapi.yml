@@ -182,103 +182,38 @@ paths:
           description: Forbidden.
 components:
   schemas:
-    FolderResponse:
+    CreateFolderRequest:
       type: object
       properties:
         jsonapi:
           $ref: '#/components/schemas/JsonApiVersion'
         data:
-          $ref: '#/components/schemas/Folder'
-    Folder:
-      type: object
-      properties:
-        type:
-          type: string
-          example: folders
-        id:
-          type: string
-        attributes:
           type: object
           properties:
-            name:
+            type:
               type: string
-            displayName:
-              type: string
-            createTime:
-              type: string
-              format: date-time
-            createUserId:
-              type: string
-            createUserName:
-              type: string
-            lastModifiedTime:
-              type: string
-              format: date-time
-            lastModifiedUserId:
-              type: string
-            lastModifiedUserName:
-              type: string
-            objectCount:
-              type: integer
-            extension:
-              $ref: '#/components/schemas/Extension'
-            hidden:
-              type: boolean
-    PaginationLinks:
-      type: object
-      properties:
-        self:
-          type: object
-          properties:
-            href:
-              type: string
-              format: uri
-        first:
-          type: object
-          properties:
-            href:
-              type: string
-              format: uri
-        prev:
-          type: object
-          properties:
-            href:
-              type: string
-              format: uri
-        next:
-          type: object
-          properties:
-            href:
-              type: string
-              format: uri
-    Extension:
-      type: object
-      properties:
-        type:
-          type: string
-        version:
-          type: string
-        data:
-          type: object
-    JsonApiVersion:
-      type: object
-      properties:
-        version:
-          type: string
-          example: '1.0'
-    FolderContentsResponse:
-      type: object
-      properties:
-        jsonapi:
-          $ref: '#/components/schemas/JsonApiVersion'
-        data:
-          type: array
-          items:
-            oneOf:
-            - $ref: '#/components/schemas/Folder'
-            - $ref: '#/components/schemas/Item'
-        links:
-          $ref: '#/components/schemas/PaginationLinks'
+              example: folders
+            attributes:
+              type: object
+              properties:
+                name:
+                  type: string
+                extension:
+                  $ref: '#/components/schemas/Extension'
+            relationships:
+              type: object
+              properties:
+                parent:
+                  type: object
+                  properties:
+                    data:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: folders
+                        id:
+                          type: string
     Item:
       type: object
       properties:
@@ -337,38 +272,103 @@ components:
                         href:
                           type: string
                           format: uri
-    CreateFolderRequest:
+    FolderContentsResponse:
       type: object
       properties:
         jsonapi:
           $ref: '#/components/schemas/JsonApiVersion'
         data:
+          type: array
+          items:
+            oneOf:
+            - $ref: '#/components/schemas/Folder'
+            - $ref: '#/components/schemas/Item'
+        links:
+          $ref: '#/components/schemas/PaginationLinks'
+    Folder:
+      type: object
+      properties:
+        type:
+          type: string
+          example: folders
+        id:
+          type: string
+        attributes:
           type: object
           properties:
-            type:
+            name:
               type: string
-              example: folders
-            attributes:
-              type: object
-              properties:
-                name:
-                  type: string
-                extension:
-                  $ref: '#/components/schemas/Extension'
-            relationships:
-              type: object
-              properties:
-                parent:
-                  type: object
-                  properties:
-                    data:
-                      type: object
-                      properties:
-                        type:
-                          type: string
-                          example: folders
-                        id:
-                          type: string
+            displayName:
+              type: string
+            createTime:
+              type: string
+              format: date-time
+            createUserId:
+              type: string
+            createUserName:
+              type: string
+            lastModifiedTime:
+              type: string
+              format: date-time
+            lastModifiedUserId:
+              type: string
+            lastModifiedUserName:
+              type: string
+            objectCount:
+              type: integer
+            extension:
+              $ref: '#/components/schemas/Extension'
+            hidden:
+              type: boolean
+    FolderResponse:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          $ref: '#/components/schemas/Folder'
+    PaginationLinks:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
+        first:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
+        prev:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
+        next:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
+    Extension:
+      type: object
+      properties:
+        type:
+          type: string
+        version:
+          type: string
+        data:
+          type: object
+    JsonApiVersion:
+      type: object
+      properties:
+        version:
+          type: string
+          example: '1.0'
   securitySchemes:
     OAuth2TwoLegged:
       type: oauth2

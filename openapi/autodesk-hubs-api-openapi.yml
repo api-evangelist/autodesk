@@ -86,37 +86,6 @@ paths:
           description: Hub not found.
 components:
   schemas:
-    HubResponse:
-      type: object
-      properties:
-        jsonapi:
-          $ref: '#/components/schemas/JsonApiVersion'
-        data:
-          $ref: '#/components/schemas/Hub'
-    Extension:
-      type: object
-      properties:
-        type:
-          type: string
-        version:
-          type: string
-        data:
-          type: object
-    JsonApiVersion:
-      type: object
-      properties:
-        version:
-          type: string
-          example: '1.0'
-    HubsResponse:
-      type: object
-      properties:
-        jsonapi:
-          $ref: '#/components/schemas/JsonApiVersion'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Hub'
     Hub:
       type: object
       properties:
@@ -162,6 +131,37 @@ components:
                 href:
                   type: string
                   format: uri
+    HubsResponse:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hub'
+    HubResponse:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          $ref: '#/components/schemas/Hub'
+    Extension:
+      type: object
+      properties:
+        type:
+          type: string
+        version:
+          type: string
+        data:
+          type: object
+    JsonApiVersion:
+      type: object
+      properties:
+        version:
+          type: string
+          example: '1.0'
   securitySchemes:
     OAuth2TwoLegged:
       type: oauth2

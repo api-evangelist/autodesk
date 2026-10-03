@@ -57,15 +57,6 @@ paths:
                 $ref: '#/components/schemas/RfisResponse'
 components:
   schemas:
-    Pagination:
-      type: object
-      properties:
-        offset:
-          type: integer
-        limit:
-          type: integer
-        totalResults:
-          type: integer
     RfisResponse:
       type: object
       properties:
@@ -93,6 +84,15 @@ components:
                 format: date-time
         pagination:
           $ref: '#/components/schemas/Pagination'
+    Pagination:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalResults:
+          type: integer
   securitySchemes:
     OAuth2ThreeLegged:
       type: oauth2

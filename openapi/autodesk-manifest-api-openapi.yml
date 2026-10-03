@@ -77,62 +77,6 @@ paths:
           description: Manifest not found.
 components:
   schemas:
-    Manifest:
-      type: object
-      properties:
-        type:
-          type: string
-          example: manifest
-        hasThumbnail:
-          type: string
-          enum:
-          - 'true'
-          - 'false'
-        status:
-          type: string
-          description: Overall translation status.
-          enum:
-          - pending
-          - inprogress
-          - success
-          - failed
-          - timeout
-        progress:
-          type: string
-          description: Translation progress percentage.
-        region:
-          type: string
-        urn:
-          type: string
-        version:
-          type: string
-        derivatives:
-          type: array
-          items:
-            $ref: '#/components/schemas/Derivative'
-    Derivative:
-      type: object
-      properties:
-        name:
-          type: string
-        hasThumbnail:
-          type: string
-        status:
-          type: string
-          enum:
-          - pending
-          - inprogress
-          - success
-          - failed
-          - timeout
-        progress:
-          type: string
-        outputType:
-          type: string
-        children:
-          type: array
-          items:
-            $ref: '#/components/schemas/DerivativeChild'
     DerivativeChild:
       type: object
       properties:
@@ -166,6 +110,62 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/DerivativeChild'
+    Derivative:
+      type: object
+      properties:
+        name:
+          type: string
+        hasThumbnail:
+          type: string
+        status:
+          type: string
+          enum:
+          - pending
+          - inprogress
+          - success
+          - failed
+          - timeout
+        progress:
+          type: string
+        outputType:
+          type: string
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/DerivativeChild'
+    Manifest:
+      type: object
+      properties:
+        type:
+          type: string
+          example: manifest
+        hasThumbnail:
+          type: string
+          enum:
+          - 'true'
+          - 'false'
+        status:
+          type: string
+          description: Overall translation status.
+          enum:
+          - pending
+          - inprogress
+          - success
+          - failed
+          - timeout
+        progress:
+          type: string
+          description: Translation progress percentage.
+        region:
+          type: string
+        urn:
+          type: string
+        version:
+          type: string
+        derivatives:
+          type: array
+          items:
+            $ref: '#/components/schemas/Derivative'
   securitySchemes:
     OAuth2TwoLegged:
       type: oauth2

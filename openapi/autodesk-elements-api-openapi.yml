@@ -101,25 +101,6 @@ paths:
           description: Bad request.
 components:
   schemas:
-    PropsRequest:
-      type: object
-      required:
-      - keys
-      properties:
-        keys:
-          type: array
-          description: Element keys to retrieve properties for.
-          items:
-            type: string
-        columns:
-          type: array
-          items:
-            type: object
-            properties:
-              fam:
-                type: string
-              col:
-                type: string
     ScanResponse:
       type: object
       properties:
@@ -160,6 +141,25 @@ components:
                 type: object
                 additionalProperties: true
                 description: Property family:column pairs and their new values.
+    PropsRequest:
+      type: object
+      required:
+      - keys
+      properties:
+        keys:
+          type: array
+          description: Element keys to retrieve properties for.
+          items:
+            type: string
+        columns:
+          type: array
+          items:
+            type: object
+            properties:
+              fam:
+                type: string
+              col:
+                type: string
     PropsResponse:
       type: object
       properties:

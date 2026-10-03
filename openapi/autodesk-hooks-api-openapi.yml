@@ -231,6 +231,24 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Hook'
+    UpdateHookPayload:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - active
+          - inactive
+        filter:
+          type: string
+        hookAttribute:
+          type: object
+          additionalProperties: true
+        hookExpiry:
+          type: string
+          format: date-time
+        autoReactivateHook:
+          type: boolean
     CreateHookPayload:
       type: object
       required:
@@ -263,24 +281,6 @@ components:
         autoReactivateHook:
           type: boolean
           description: Auto-reactivate after consecutive failures.
-    UpdateHookPayload:
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - active
-          - inactive
-        filter:
-          type: string
-        hookAttribute:
-          type: object
-          additionalProperties: true
-        hookExpiry:
-          type: string
-          format: date-time
-        autoReactivateHook:
-          type: boolean
     Hook:
       type: object
       properties:

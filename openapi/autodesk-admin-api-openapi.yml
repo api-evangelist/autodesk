@@ -120,24 +120,6 @@ paths:
                       $ref: '#/components/schemas/Bim360User'
 components:
   schemas:
-    Bim360UsersResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Bim360User'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-    Pagination:
-      type: object
-      properties:
-        offset:
-          type: integer
-        limit:
-          type: integer
-        totalResults:
-          type: integer
     Bim360User:
       type: object
       properties:
@@ -174,6 +156,24 @@ components:
           type: array
           items:
             type: string
+    Bim360UsersResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bim360User'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Pagination:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalResults:
+          type: integer
     AddBim360UserRequest:
       type: object
       required:

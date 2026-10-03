@@ -204,6 +204,39 @@ components:
           type: array
           items:
             type: string
+    CreateParameterRequest:
+      type: object
+      required:
+      - name
+      - specId
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        specId:
+          type: string
+        groupId:
+          type: string
+        isInstance:
+          type: boolean
+        categories:
+          type: array
+          items:
+            type: string
+        disciplines:
+          type: array
+          items:
+            type: string
+    Pagination:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalResults:
+          type: integer
     ParameterDefinition:
       type: object
       properties:
@@ -251,39 +284,6 @@ components:
             $ref: '#/components/schemas/ParameterDefinition'
         pagination:
           $ref: '#/components/schemas/Pagination'
-    Pagination:
-      type: object
-      properties:
-        offset:
-          type: integer
-        limit:
-          type: integer
-        totalResults:
-          type: integer
-    CreateParameterRequest:
-      type: object
-      required:
-      - name
-      - specId
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        specId:
-          type: string
-        groupId:
-          type: string
-        isInstance:
-          type: boolean
-        categories:
-          type: array
-          items:
-            type: string
-        disciplines:
-          type: array
-          items:
-            type: string
   securitySchemes:
     OAuth2ThreeLegged:
       type: oauth2

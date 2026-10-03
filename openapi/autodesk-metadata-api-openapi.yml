@@ -275,17 +275,6 @@ paths:
       description: Production
 components:
   schemas:
-    ObjectNode:
-      type: object
-      properties:
-        objectid:
-          type: integer
-        name:
-          type: string
-        objects:
-          type: array
-          items:
-            $ref: '#/components/schemas/ObjectNode'
     PropertiesResponse:
       type: object
       properties:
@@ -309,6 +298,42 @@ components:
                   properties:
                     type: object
                     additionalProperties: true
+    ObjectNode:
+      type: object
+      properties:
+        objectid:
+          type: integer
+        name:
+          type: string
+        objects:
+          type: array
+          items:
+            $ref: '#/components/schemas/ObjectNode'
+    MetadataResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+              example: metadata
+            metadata:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  guid:
+                    type: string
+                  role:
+                    type: string
+                    enum:
+                    - 3d
+                    - 2d
+                  isMasterView:
+                    type: boolean
     PropertiesQuery:
       type: object
       properties:
@@ -375,32 +400,33 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/ObjectNode'
-    MetadataResponse:
+    SpecsResponse:
       type: object
       properties:
-        data:
-          type: object
-          properties:
-            type:
-              type: string
-              example: metadata
-            metadata:
-              type: array
-              items:
-                type: object
-                properties:
-                  name:
-                    type: string
-                  guid:
-                    type: string
-                  role:
-                    type: string
-                    enum:
-                    - 3d
-                    - 2d
-                  isMasterView:
-                    type: boolean
+        results:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              isBuiltIn:
+                type: boolean
     CategoriesResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+    DisciplinesResponse:
       type: object
       properties:
         results:
@@ -427,32 +453,6 @@ components:
               specId:
                 type: string
               symbol:
-                type: string
-    SpecsResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              name:
-                type: string
-              isBuiltIn:
-                type: boolean
-    DisciplinesResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              name:
                 type: string
   securitySchemes:
     OAuth2TwoLegged:

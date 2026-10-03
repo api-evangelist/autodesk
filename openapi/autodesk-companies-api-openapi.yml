@@ -90,6 +90,41 @@ paths:
                 $ref: '#/components/schemas/Company'
 components:
   schemas:
+    CompaniesResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Company'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    CreateCompanyRequest:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        trade:
+          type: string
+        addressLine1:
+          type: string
+        city:
+          type: string
+        stateOrProvince:
+          type: string
+        postalCode:
+          type: string
+        country:
+          type: string
+        phone:
+          type: string
+        websiteUrl:
+          type: string
+          format: uri
+        description:
+          type: string
     Pagination:
       type: object
       properties:
@@ -130,41 +165,6 @@ components:
         erp_id:
           type: string
         tax_id:
-          type: string
-    CompaniesResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Company'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-    CreateCompanyRequest:
-      type: object
-      required:
-      - name
-      properties:
-        name:
-          type: string
-        trade:
-          type: string
-        addressLine1:
-          type: string
-        city:
-          type: string
-        stateOrProvince:
-          type: string
-        postalCode:
-          type: string
-        country:
-          type: string
-        phone:
-          type: string
-        websiteUrl:
-          type: string
-          format: uri
-        description:
           type: string
   securitySchemes:
     OAuth2ThreeLegged:

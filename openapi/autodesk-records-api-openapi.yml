@@ -127,15 +127,6 @@ components:
         metadata:
           type: object
           additionalProperties: true
-    Pagination:
-      type: object
-      properties:
-        offset:
-          type: integer
-        limit:
-          type: integer
-        totalResults:
-          type: integer
     RecordsResponse:
       type: object
       properties:
@@ -145,6 +136,15 @@ components:
             $ref: '#/components/schemas/Record'
         pagination:
           $ref: '#/components/schemas/Pagination'
+    Pagination:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalResults:
+          type: integer
   securitySchemes:
     OAuth2TwoLegged:
       type: oauth2

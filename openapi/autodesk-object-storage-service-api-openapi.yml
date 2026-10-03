@@ -346,6 +346,25 @@ paths:
                 $ref: '#/components/schemas/SignedUrlResponse'
 components:
   schemas:
+    ObjectDetail:
+      type: object
+      properties:
+        bucketKey:
+          type: string
+        objectKey:
+          type: string
+        objectId:
+          type: string
+          description: URN-encoded object identifier.
+        sha1:
+          type: string
+        size:
+          type: integer
+        contentType:
+          type: string
+        location:
+          type: string
+          format: uri
     SignedUrlResponse:
       type: object
       properties:
@@ -362,6 +381,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Bucket'
+        next:
+          type: string
+    ObjectsResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ObjectDetail'
         next:
           type: string
     Bucket:
@@ -395,34 +423,6 @@ components:
           - transient
           - temporary
           - persistent
-    ObjectsResponse:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/ObjectDetail'
-        next:
-          type: string
-    ObjectDetail:
-      type: object
-      properties:
-        bucketKey:
-          type: string
-        objectKey:
-          type: string
-        objectId:
-          type: string
-          description: URN-encoded object identifier.
-        sha1:
-          type: string
-        size:
-          type: integer
-        contentType:
-          type: string
-        location:
-          type: string
-          format: uri
     CreateBucketRequest:
       type: object
       required:
