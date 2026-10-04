@@ -117,60 +117,6 @@ paths:
                 $ref: '#/components/schemas/ItemResponse'
 components:
   schemas:
-    ItemResponse:
-      type: object
-      properties:
-        jsonapi:
-          $ref: '#/components/schemas/JsonApiVersion'
-        data:
-          $ref: '#/components/schemas/Item'
-    CreateItemRequest:
-      type: object
-      properties:
-        jsonapi:
-          $ref: '#/components/schemas/JsonApiVersion'
-        data:
-          type: object
-          properties:
-            type:
-              type: string
-              example: items
-            attributes:
-              type: object
-              properties:
-                displayName:
-                  type: string
-                extension:
-                  $ref: '#/components/schemas/Extension'
-            relationships:
-              type: object
-              properties:
-                tip:
-                  type: object
-                  properties:
-                    data:
-                      type: object
-                      properties:
-                        type:
-                          type: string
-                          example: versions
-                        id:
-                          type: string
-                parent:
-                  type: object
-                  properties:
-                    data:
-                      type: object
-                      properties:
-                        type:
-                          type: string
-                          example: folders
-                        id:
-                          type: string
-        included:
-          type: array
-          items:
-            type: object
     Item:
       type: object
       properties:
@@ -229,6 +175,53 @@ components:
                         href:
                           type: string
                           format: uri
+    CreateItemRequest:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+              example: items
+            attributes:
+              type: object
+              properties:
+                displayName:
+                  type: string
+                extension:
+                  $ref: '#/components/schemas/Extension'
+            relationships:
+              type: object
+              properties:
+                tip:
+                  type: object
+                  properties:
+                    data:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: versions
+                        id:
+                          type: string
+                parent:
+                  type: object
+                  properties:
+                    data:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: folders
+                        id:
+                          type: string
+        included:
+          type: array
+          items:
+            type: object
     Extension:
       type: object
       properties:
@@ -238,12 +231,6 @@ components:
           type: string
         data:
           type: object
-    JsonApiVersion:
-      type: object
-      properties:
-        version:
-          type: string
-          example: '1.0'
     PatchItemRequest:
       type: object
       properties:
@@ -262,6 +249,19 @@ components:
               properties:
                 displayName:
                   type: string
+    JsonApiVersion:
+      type: object
+      properties:
+        version:
+          type: string
+          example: '1.0'
+    ItemResponse:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          $ref: '#/components/schemas/Item'
   securitySchemes:
     OAuth2TwoLegged:
       type: oauth2

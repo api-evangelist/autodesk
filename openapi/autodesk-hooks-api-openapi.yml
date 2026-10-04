@@ -219,18 +219,6 @@ paths:
                 $ref: '#/components/schemas/HooksResponse'
 components:
   schemas:
-    HooksResponse:
-      type: object
-      properties:
-        links:
-          type: object
-          properties:
-            next:
-              type: string
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Hook'
     UpdateHookPayload:
       type: object
       properties:
@@ -249,38 +237,18 @@ components:
           format: date-time
         autoReactivateHook:
           type: boolean
-    CreateHookPayload:
+    HooksResponse:
       type: object
-      required:
-      - callbackUrl
       properties:
-        callbackUrl:
-          type: string
-          format: uri
-          description: The URL that will receive webhook POST callbacks.
-        scope:
+        links:
           type: object
-          description: Scope criteria to filter which resources trigger the webhook.
           properties:
-            folder:
+            next:
               type: string
-              description: Folder URN to scope events to.
-            workflow:
-              type: string
-        hookAttribute:
-          type: object
-          description: Custom metadata to include in callbacks.
-          additionalProperties: true
-        filter:
-          type: string
-          description: JSON filter expression to narrow events (e.g., by file extension).
-        hookExpiry:
-          type: string
-          format: date-time
-          description: Expiration date for the webhook.
-        autoReactivateHook:
-          type: boolean
-          description: Auto-reactivate after consecutive failures.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hook'
     Hook:
       type: object
       properties:
@@ -335,6 +303,38 @@ components:
         filter:
           type: string
           description: JSON-encoded filter criteria for narrowing events.
+    CreateHookPayload:
+      type: object
+      required:
+      - callbackUrl
+      properties:
+        callbackUrl:
+          type: string
+          format: uri
+          description: The URL that will receive webhook POST callbacks.
+        scope:
+          type: object
+          description: Scope criteria to filter which resources trigger the webhook.
+          properties:
+            folder:
+              type: string
+              description: Folder URN to scope events to.
+            workflow:
+              type: string
+        hookAttribute:
+          type: object
+          description: Custom metadata to include in callbacks.
+          additionalProperties: true
+        filter:
+          type: string
+          description: JSON filter expression to narrow events (e.g., by file extension).
+        hookExpiry:
+          type: string
+          format: date-time
+          description: Expiration date for the webhook.
+        autoReactivateHook:
+          type: boolean
+          description: Auto-reactivate after consecutive failures.
   securitySchemes:
     OAuth2TwoLegged:
       type: oauth2

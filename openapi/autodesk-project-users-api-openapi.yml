@@ -221,6 +221,40 @@ components:
         addedOn:
           type: string
           format: date-time
+    ProjectUsersResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectUser'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    AddProjectUserRequest:
+      type: object
+      required:
+      - email
+      properties:
+        email:
+          type: string
+        products:
+          type: array
+          items:
+            type: object
+            properties:
+              key:
+                type: string
+              access:
+                type: string
+                enum:
+                - administrator
+                - member
+        industryRoles:
+          type: array
+          items:
+            type: string
+        companyId:
+          type: string
     UpdateProjectUserRequest:
       type: object
       properties:
@@ -252,40 +286,6 @@ components:
           type: integer
         totalResults:
           type: integer
-    AddProjectUserRequest:
-      type: object
-      required:
-      - email
-      properties:
-        email:
-          type: string
-        products:
-          type: array
-          items:
-            type: object
-            properties:
-              key:
-                type: string
-              access:
-                type: string
-                enum:
-                - administrator
-                - member
-        industryRoles:
-          type: array
-          items:
-            type: string
-        companyId:
-          type: string
-    ProjectUsersResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProjectUser'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
   securitySchemes:
     OAuth2ThreeLegged:
       type: oauth2

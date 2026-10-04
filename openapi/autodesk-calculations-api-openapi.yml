@@ -44,6 +44,21 @@ paths:
           description: Bad request.
 components:
   schemas:
+    CalculationResponse:
+      type: object
+      properties:
+        totalEmissions:
+          type: number
+          description: Total calculated emissions in kgCO2e.
+        unit:
+          type: string
+          example: kgCO2e
+        emissionFactor:
+          type: number
+        quantity:
+          type: number
+        record:
+          $ref: '#/components/schemas/Record'
     Record:
       type: object
       properties:
@@ -91,21 +106,6 @@ components:
         unit:
           type: string
           description: Unit of the quantity.
-    CalculationResponse:
-      type: object
-      properties:
-        totalEmissions:
-          type: number
-          description: Total calculated emissions in kgCO2e.
-        unit:
-          type: string
-          example: kgCO2e
-        emissionFactor:
-          type: number
-        quantity:
-          type: number
-        record:
-          $ref: '#/components/schemas/Record'
   securitySchemes:
     OAuth2TwoLegged:
       type: oauth2

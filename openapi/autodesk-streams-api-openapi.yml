@@ -111,19 +111,6 @@ paths:
           description: Bad request.
 components:
   schemas:
-    TimeseriesResponse:
-      type: object
-      properties:
-        timestamps:
-          type: array
-          items:
-            type: string
-            format: date-time
-        values:
-          type: array
-          items: {}
-        count:
-          type: integer
     StreamsResponse:
       type: object
       properties:
@@ -144,6 +131,19 @@ components:
               lastTimestamp:
                 type: string
                 format: date-time
+    TimeseriesResponse:
+      type: object
+      properties:
+        timestamps:
+          type: array
+          items:
+            type: string
+            format: date-time
+        values:
+          type: array
+          items: {}
+        count:
+          type: integer
     PushTimeseriesRequest:
       type: object
       required:

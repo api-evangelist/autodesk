@@ -163,21 +163,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
-    ErrorResponse:
-      type: object
-      properties:
-        developerMessage:
-          type: string
-          description: A developer-facing error message.
-        userMessage:
-          type: string
-          description: A user-facing error message.
-        errorCode:
-          type: string
-          description: An error code.
-        more info:
-          type: string
-          description: A link to more information about the error.
     TokenResponse:
       type: object
       properties:
@@ -216,6 +201,21 @@ components:
         userid:
           type: string
           description: The user ID (for three-legged tokens).
+    ErrorResponse:
+      type: object
+      properties:
+        developerMessage:
+          type: string
+          description: A developer-facing error message.
+        userMessage:
+          type: string
+          description: A user-facing error message.
+        errorCode:
+          type: string
+          description: An error code.
+        more info:
+          type: string
+          description: A link to more information about the error.
   securitySchemes:
     OAuth2TwoLegged:
       type: oauth2

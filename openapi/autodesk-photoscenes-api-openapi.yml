@@ -150,14 +150,6 @@ components:
           type: string
           format: uri
           description: Optional callback URL to receive notification when processing completes.
-    PhotosceneResponse:
-      type: object
-      properties:
-        Photoscene:
-          type: object
-          properties:
-            photosceneid:
-              type: string
     ProgressResponse:
       type: object
       properties:
@@ -172,6 +164,14 @@ components:
             progress:
               type: string
               description: Processing progress percentage.
+    PhotosceneResponse:
+      type: object
+      properties:
+        Photoscene:
+          type: object
+          properties:
+            photosceneid:
+              type: string
     PhotoscenePropertiesResponse:
       type: object
       properties:

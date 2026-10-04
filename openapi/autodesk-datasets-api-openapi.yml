@@ -82,6 +82,24 @@ paths:
           description: Dataset not found.
 components:
   schemas:
+    Pagination:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalResults:
+          type: integer
+    DatasetsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Dataset'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     Dataset:
       type: object
       properties:
@@ -110,24 +128,6 @@ components:
         lastUpdated:
           type: string
           format: date-time
-    DatasetsResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Dataset'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-    Pagination:
-      type: object
-      properties:
-        offset:
-          type: integer
-        limit:
-          type: integer
-        totalResults:
-          type: integer
   securitySchemes:
     OAuth2TwoLegged:
       type: oauth2

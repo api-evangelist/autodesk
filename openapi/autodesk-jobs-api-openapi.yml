@@ -221,15 +221,15 @@ paths:
       description: Production (EMEA)
 components:
   schemas:
-    Pagination:
+    JobsResponse:
       type: object
       properties:
-        offset:
-          type: integer
-        limit:
-          type: integer
-        totalResults:
-          type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Job'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     Job:
       type: object
       properties:
@@ -264,6 +264,28 @@ components:
           type: object
           additionalProperties: true
           description: Input parameter values.
+    Pagination:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalResults:
+          type: integer
+    JobResult:
+      type: object
+      properties:
+        jobId:
+          type: string
+        outputs:
+          type: object
+          additionalProperties: true
+          description: Output values from the graph evaluation.
+        downloadUrl:
+          type: string
+          format: uri
+          description: URL to download binary output if applicable.
     CreateJobRequest:
       type: object
       required:
@@ -279,28 +301,6 @@ components:
           type: string
           format: uri
           description: Optional URL to receive completion notification.
-    JobResult:
-      type: object
-      properties:
-        jobId:
-          type: string
-        outputs:
-          type: object
-          additionalProperties: true
-          description: Output values from the graph evaluation.
-        downloadUrl:
-          type: string
-          format: uri
-          description: URL to download binary output if applicable.
-    JobsResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Job'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
     JobPayload:
       type: object
       required:

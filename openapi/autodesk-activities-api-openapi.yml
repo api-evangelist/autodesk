@@ -263,6 +263,62 @@ paths:
           description: Alias deleted.
 components:
   schemas:
+    PagedVersions:
+      type: object
+      properties:
+        paginationToken:
+          type: string
+        data:
+          type: array
+          items:
+            type: integer
+    Parameter:
+      type: object
+      properties:
+        zip:
+          type: boolean
+          description: Whether the parameter is a zip file.
+        ondemand:
+          type: boolean
+        verb:
+          type: string
+          description: HTTP verb for accessing the parameter.
+          enum:
+          - get
+          - put
+          - post
+          - patch
+          - read
+        description:
+          type: string
+        required:
+          type: boolean
+        localName:
+          type: string
+          description: Local filename for the parameter.
+    Activity:
+      type: object
+      properties:
+        id:
+          type: string
+        engine:
+          type: string
+        commandLine:
+          type: array
+          items:
+            type: string
+        description:
+          type: string
+        appbundles:
+          type: array
+          items:
+            type: string
+        parameters:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Parameter'
+        version:
+          type: integer
     ActivityPayload:
       type: object
       required:
@@ -295,34 +351,8 @@ components:
           type: object
           additionalProperties:
             type: object
-    Activity:
+    Alias:
       type: object
-      properties:
-        id:
-          type: string
-        engine:
-          type: string
-        commandLine:
-          type: array
-          items:
-            type: string
-        description:
-          type: string
-        appbundles:
-          type: array
-          items:
-            type: string
-        parameters:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Parameter'
-        version:
-          type: integer
-    AliasPayload:
-      type: object
-      required:
-      - id
-      - version
       properties:
         id:
           type: string
@@ -330,50 +360,11 @@ components:
           type: integer
         receiver:
           type: string
-    PagedAliases:
+    AliasPayload:
       type: object
-      properties:
-        paginationToken:
-          type: string
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Alias'
-    Parameter:
-      type: object
-      properties:
-        zip:
-          type: boolean
-          description: Whether the parameter is a zip file.
-        ondemand:
-          type: boolean
-        verb:
-          type: string
-          description: HTTP verb for accessing the parameter.
-          enum:
-          - get
-          - put
-          - post
-          - patch
-          - read
-        description:
-          type: string
-        required:
-          type: boolean
-        localName:
-          type: string
-          description: Local filename for the parameter.
-    PagedActivities:
-      type: object
-      properties:
-        paginationToken:
-          type: string
-        data:
-          type: array
-          items:
-            type: string
-    Alias:
-      type: object
+      required:
+      - id
+      - version
       properties:
         id:
           type: string
@@ -390,7 +381,7 @@ components:
           type: integer
         receiver:
           type: string
-    PagedVersions:
+    PagedAliases:
       type: object
       properties:
         paginationToken:
@@ -398,7 +389,16 @@ components:
         data:
           type: array
           items:
-            type: integer
+            $ref: '#/components/schemas/Alias'
+    PagedActivities:
+      type: object
+      properties:
+        paginationToken:
+          type: string
+        data:
+          type: array
+          items:
+            type: string
   securitySchemes:
     OAuth2TwoLegged:
       type: oauth2

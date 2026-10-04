@@ -97,6 +97,24 @@ paths:
           description: Record not found.
 components:
   schemas:
+    RecordsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Record'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Pagination:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalResults:
+          type: integer
     Record:
       type: object
       properties:
@@ -127,24 +145,6 @@ components:
         metadata:
           type: object
           additionalProperties: true
-    RecordsResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Record'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-    Pagination:
-      type: object
-      properties:
-        offset:
-          type: integer
-        limit:
-          type: integer
-        totalResults:
-          type: integer
   securitySchemes:
     OAuth2TwoLegged:
       type: oauth2

@@ -117,6 +117,15 @@ paths:
           description: Graph deleted.
 components:
   schemas:
+    Pagination:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalResults:
+          type: integer
     GraphsResponse:
       type: object
       properties:
@@ -164,15 +173,6 @@ components:
                 type: string
               type:
                 type: string
-    Pagination:
-      type: object
-      properties:
-        offset:
-          type: integer
-        limit:
-          type: integer
-        totalResults:
-          type: integer
   securitySchemes:
     OAuth2TwoLegged:
       type: oauth2

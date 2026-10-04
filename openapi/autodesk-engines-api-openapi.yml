@@ -68,15 +68,6 @@ paths:
           description: Engine not found.
 components:
   schemas:
-    PagedEngines:
-      type: object
-      properties:
-        paginationToken:
-          type: string
-        data:
-          type: array
-          items:
-            type: string
     Engine:
       type: object
       properties:
@@ -88,6 +79,15 @@ components:
           type: integer
         id:
           type: string
+    PagedEngines:
+      type: object
+      properties:
+        paginationToken:
+          type: string
+        data:
+          type: array
+          items:
+            type: string
   securitySchemes:
     OAuth2TwoLegged:
       type: oauth2

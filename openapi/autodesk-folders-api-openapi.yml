@@ -182,6 +182,33 @@ paths:
           description: Forbidden.
 components:
   schemas:
+    PaginationLinks:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
+        first:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
+        prev:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
+        next:
+          type: object
+          properties:
+            href:
+              type: string
+              format: uri
     CreateFolderRequest:
       type: object
       properties:
@@ -214,6 +241,19 @@ components:
                           example: folders
                         id:
                           type: string
+    FolderContentsResponse:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          type: array
+          items:
+            oneOf:
+            - $ref: '#/components/schemas/Folder'
+            - $ref: '#/components/schemas/Item'
+        links:
+          $ref: '#/components/schemas/PaginationLinks'
     Item:
       type: object
       properties:
@@ -272,19 +312,28 @@ components:
                         href:
                           type: string
                           format: uri
-    FolderContentsResponse:
+    FolderResponse:
       type: object
       properties:
         jsonapi:
           $ref: '#/components/schemas/JsonApiVersion'
         data:
-          type: array
-          items:
-            oneOf:
-            - $ref: '#/components/schemas/Folder'
-            - $ref: '#/components/schemas/Item'
-        links:
-          $ref: '#/components/schemas/PaginationLinks'
+          $ref: '#/components/schemas/Folder'
+    Extension:
+      type: object
+      properties:
+        type:
+          type: string
+        version:
+          type: string
+        data:
+          type: object
+    JsonApiVersion:
+      type: object
+      properties:
+        version:
+          type: string
+          example: '1.0'
     Folder:
       type: object
       properties:
@@ -320,55 +369,6 @@ components:
               $ref: '#/components/schemas/Extension'
             hidden:
               type: boolean
-    FolderResponse:
-      type: object
-      properties:
-        jsonapi:
-          $ref: '#/components/schemas/JsonApiVersion'
-        data:
-          $ref: '#/components/schemas/Folder'
-    PaginationLinks:
-      type: object
-      properties:
-        self:
-          type: object
-          properties:
-            href:
-              type: string
-              format: uri
-        first:
-          type: object
-          properties:
-            href:
-              type: string
-              format: uri
-        prev:
-          type: object
-          properties:
-            href:
-              type: string
-              format: uri
-        next:
-          type: object
-          properties:
-            href:
-              type: string
-              format: uri
-    Extension:
-      type: object
-      properties:
-        type:
-          type: string
-        version:
-          type: string
-        data:
-          type: object
-    JsonApiVersion:
-      type: object
-      properties:
-        version:
-          type: string
-          example: '1.0'
   securitySchemes:
     OAuth2TwoLegged:
       type: oauth2

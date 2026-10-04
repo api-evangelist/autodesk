@@ -191,6 +191,15 @@ paths:
           description: Parameter deleted.
 components:
   schemas:
+    ParametersResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ParameterDefinition'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     UpdateParameterRequest:
       type: object
       properties:
@@ -201,30 +210,6 @@ components:
         groupId:
           type: string
         categories:
-          type: array
-          items:
-            type: string
-    CreateParameterRequest:
-      type: object
-      required:
-      - name
-      - specId
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        specId:
-          type: string
-        groupId:
-          type: string
-        isInstance:
-          type: boolean
-        categories:
-          type: array
-          items:
-            type: string
-        disciplines:
           type: array
           items:
             type: string
@@ -275,15 +260,30 @@ components:
         updatedAt:
           type: string
           format: date-time
-    ParametersResponse:
+    CreateParameterRequest:
       type: object
+      required:
+      - name
+      - specId
       properties:
-        results:
+        name:
+          type: string
+        description:
+          type: string
+        specId:
+          type: string
+        groupId:
+          type: string
+        isInstance:
+          type: boolean
+        categories:
           type: array
           items:
-            $ref: '#/components/schemas/ParameterDefinition'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
+            type: string
+        disciplines:
+          type: array
+          items:
+            type: string
   securitySchemes:
     OAuth2ThreeLegged:
       type: oauth2

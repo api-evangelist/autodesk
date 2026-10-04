@@ -77,62 +77,6 @@ paths:
           description: Manifest not found.
 components:
   schemas:
-    DerivativeChild:
-      type: object
-      properties:
-        guid:
-          type: string
-        type:
-          type: string
-          enum:
-          - resource
-          - geometry
-          - view
-        role:
-          type: string
-          enum:
-          - 3d
-          - 2d
-          - graphics
-          - thumbnail
-          - Autodesk.CloudPlatform.PropertyDatabase
-        name:
-          type: string
-        status:
-          type: string
-        progress:
-          type: string
-        mime:
-          type: string
-        urn:
-          type: string
-        children:
-          type: array
-          items:
-            $ref: '#/components/schemas/DerivativeChild'
-    Derivative:
-      type: object
-      properties:
-        name:
-          type: string
-        hasThumbnail:
-          type: string
-        status:
-          type: string
-          enum:
-          - pending
-          - inprogress
-          - success
-          - failed
-          - timeout
-        progress:
-          type: string
-        outputType:
-          type: string
-        children:
-          type: array
-          items:
-            $ref: '#/components/schemas/DerivativeChild'
     Manifest:
       type: object
       properties:
@@ -166,6 +110,62 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Derivative'
+    Derivative:
+      type: object
+      properties:
+        name:
+          type: string
+        hasThumbnail:
+          type: string
+        status:
+          type: string
+          enum:
+          - pending
+          - inprogress
+          - success
+          - failed
+          - timeout
+        progress:
+          type: string
+        outputType:
+          type: string
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/DerivativeChild'
+    DerivativeChild:
+      type: object
+      properties:
+        guid:
+          type: string
+        type:
+          type: string
+          enum:
+          - resource
+          - geometry
+          - view
+        role:
+          type: string
+          enum:
+          - 3d
+          - 2d
+          - graphics
+          - thumbnail
+          - Autodesk.CloudPlatform.PropertyDatabase
+        name:
+          type: string
+        status:
+          type: string
+        progress:
+          type: string
+        mime:
+          type: string
+        urn:
+          type: string
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/DerivativeChild'
   securitySchemes:
     OAuth2TwoLegged:
       type: oauth2

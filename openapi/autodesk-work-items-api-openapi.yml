@@ -79,46 +79,6 @@ paths:
           description: WorkItem cancelled.
 components:
   schemas:
-    WorkItemArgument:
-      type: object
-      properties:
-        url:
-          type: string
-          format: uri
-          description: URL to download input or upload output.
-        verb:
-          type: string
-          enum:
-          - get
-          - put
-          - post
-          - patch
-          - read
-        headers:
-          type: object
-          additionalProperties:
-            type: string
-        localName:
-          type: string
-        pathInZip:
-          type: string
-        optional:
-          type: boolean
-    WorkItemPayload:
-      type: object
-      required:
-      - activityId
-      properties:
-        activityId:
-          type: string
-          description: Fully qualified Activity ID (e.g., owner.activityname+alias).
-        arguments:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/WorkItemArgument'
-        limitProcessingTimeSec:
-          type: integer
-          description: Processing time limit in seconds.
     WorkItemStatus:
       type: object
       properties:
@@ -164,6 +124,46 @@ components:
               type: integer
         id:
           type: string
+    WorkItemArgument:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          description: URL to download input or upload output.
+        verb:
+          type: string
+          enum:
+          - get
+          - put
+          - post
+          - patch
+          - read
+        headers:
+          type: object
+          additionalProperties:
+            type: string
+        localName:
+          type: string
+        pathInZip:
+          type: string
+        optional:
+          type: boolean
+    WorkItemPayload:
+      type: object
+      required:
+      - activityId
+      properties:
+        activityId:
+          type: string
+          description: Fully qualified Activity ID (e.g., owner.activityname+alias).
+        arguments:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/WorkItemArgument'
+        limitProcessingTimeSec:
+          type: integer
+          description: Processing time limit in seconds.
   securitySchemes:
     OAuth2TwoLegged:
       type: oauth2

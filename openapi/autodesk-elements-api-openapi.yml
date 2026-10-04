@@ -101,6 +101,33 @@ paths:
           description: Bad request.
 components:
   schemas:
+    PropsResponse:
+      type: object
+      properties:
+        rows:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+    PropsRequest:
+      type: object
+      required:
+      - keys
+      properties:
+        keys:
+          type: array
+          description: Element keys to retrieve properties for.
+          items:
+            type: string
+        columns:
+          type: array
+          items:
+            type: object
+            properties:
+              fam:
+                type: string
+              col:
+                type: string
     ScanResponse:
       type: object
       properties:
@@ -121,53 +148,6 @@ components:
                 type: string
               category:
                 type: string
-    MutateRequest:
-      type: object
-      required:
-      - mutations
-      properties:
-        mutations:
-          type: array
-          items:
-            type: object
-            required:
-            - key
-            - properties
-            properties:
-              key:
-                type: string
-                description: Element key to mutate.
-              properties:
-                type: object
-                additionalProperties: true
-                description: Property family:column pairs and their new values.
-    PropsRequest:
-      type: object
-      required:
-      - keys
-      properties:
-        keys:
-          type: array
-          description: Element keys to retrieve properties for.
-          items:
-            type: string
-        columns:
-          type: array
-          items:
-            type: object
-            properties:
-              fam:
-                type: string
-              col:
-                type: string
-    PropsResponse:
-      type: object
-      properties:
-        rows:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
     ScanRequest:
       type: object
       properties:
@@ -191,6 +171,26 @@ components:
                 type: string
               col:
                 type: string
+    MutateRequest:
+      type: object
+      required:
+      - mutations
+      properties:
+        mutations:
+          type: array
+          items:
+            type: object
+            required:
+            - key
+            - properties
+            properties:
+              key:
+                type: string
+                description: Element key to mutate.
+              properties:
+                type: object
+                additionalProperties: true
+                description: Property family:column pairs and their new values.
   securitySchemes:
     OAuth2ThreeLegged:
       type: oauth2
