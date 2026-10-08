@@ -3680,6 +3680,12 @@ apis:
   - type: APIReference
     url: https://aps.autodesk.com/en/docs/bim360/v1/reference/
 common:
+- type: Plans
+  url: plans/autodesk-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/autodesk-rate-limits.yml
+- type: FinOps
+  url: finops/autodesk-finops.yml
 - type: CapabilityMap
   url: capabilities/autodesk-capability-edges.yml
   name: Autodesk Business Capability Map
