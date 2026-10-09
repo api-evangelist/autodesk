@@ -162,3 +162,43 @@ plans:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - hybrid
+  - metered
+  - subscription
+  units:
+  - compute
+  - period
+  - request
+  - seat
+  plans:
+  - name: APS Free APIs
+    access: freemium
+    model: hybrid
+    model_how: derived
+    units:
+    - period
+    - request
+    periods:
+    - month
+    - per-use
+  - name: APS Cloud Credits
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - compute
+    - request
+    periods:
+    - per-use
+  - name: Autodesk Product Subscriptions
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - seat
+    periods:
+    - month
