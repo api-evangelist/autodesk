@@ -101,14 +101,26 @@ paths:
           description: Bad request.
 components:
   schemas:
-    PropsResponse:
+    MutateRequest:
       type: object
+      required:
+      - mutations
       properties:
-        rows:
+        mutations:
           type: array
           items:
             type: object
-            additionalProperties: true
+            required:
+            - key
+            - properties
+            properties:
+              key:
+                type: string
+                description: Element key to mutate.
+              properties:
+                type: object
+                additionalProperties: true
+                description: Property family:column pairs and their new values.
     PropsRequest:
       type: object
       required:
@@ -121,6 +133,29 @@ components:
             type: string
         columns:
           type: array
+          items:
+            type: object
+            properties:
+              fam:
+                type: string
+              col:
+                type: string
+    ScanRequest:
+      type: object
+      properties:
+        families:
+          type: array
+          description: Filter by Revit family names.
+          items:
+            type: string
+        categoryId:
+          type: integer
+          description: Filter by category ID.
+        includeHistory:
+          type: boolean
+        columns:
+          type: array
+          description: Property columns to return.
           items:
             type: object
             properties:
@@ -148,49 +183,14 @@ components:
                 type: string
               category:
                 type: string
-    ScanRequest:
+    PropsResponse:
       type: object
       properties:
-        families:
-          type: array
-          description: Filter by Revit family names.
-          items:
-            type: string
-        categoryId:
-          type: integer
-          description: Filter by category ID.
-        includeHistory:
-          type: boolean
-        columns:
-          type: array
-          description: Property columns to return.
-          items:
-            type: object
-            properties:
-              fam:
-                type: string
-              col:
-                type: string
-    MutateRequest:
-      type: object
-      required:
-      - mutations
-      properties:
-        mutations:
+        rows:
           type: array
           items:
             type: object
-            required:
-            - key
-            - properties
-            properties:
-              key:
-                type: string
-                description: Element key to mutate.
-              properties:
-                type: object
-                additionalProperties: true
-                description: Property family:column pairs and their new values.
+            additionalProperties: true
   securitySchemes:
     OAuth2ThreeLegged:
       type: oauth2

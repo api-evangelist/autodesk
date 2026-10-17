@@ -275,6 +275,19 @@ paths:
       description: Production
 components:
   schemas:
+    ObjectTreeResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+              example: objects
+            objects:
+              type: array
+              items:
+                $ref: '#/components/schemas/ObjectNode'
     PropertiesQuery:
       type: object
       properties:
@@ -328,29 +341,17 @@ components:
               type: integer
             limit:
               type: integer
-    PropertiesResponse:
+    ObjectNode:
       type: object
       properties:
-        data:
-          type: object
-          properties:
-            type:
-              type: string
-              example: properties
-            collection:
-              type: array
-              items:
-                type: object
-                properties:
-                  objectid:
-                    type: integer
-                  name:
-                    type: string
-                  externalId:
-                    type: string
-                  properties:
-                    type: object
-                    additionalProperties: true
+        objectid:
+          type: integer
+        name:
+          type: string
+        objects:
+          type: array
+          items:
+            $ref: '#/components/schemas/ObjectNode'
     MetadataResponse:
       type: object
       properties:
@@ -376,18 +377,7 @@ components:
                     - 2d
                   isMasterView:
                     type: boolean
-    ObjectNode:
-      type: object
-      properties:
-        objectid:
-          type: integer
-        name:
-          type: string
-        objects:
-          type: array
-          items:
-            $ref: '#/components/schemas/ObjectNode'
-    ObjectTreeResponse:
+    PropertiesResponse:
       type: object
       properties:
         data:
@@ -395,11 +385,21 @@ components:
           properties:
             type:
               type: string
-              example: objects
-            objects:
+              example: properties
+            collection:
               type: array
               items:
-                $ref: '#/components/schemas/ObjectNode'
+                type: object
+                properties:
+                  objectid:
+                    type: integer
+                  name:
+                    type: string
+                  externalId:
+                    type: string
+                  properties:
+                    type: object
+                    additionalProperties: true
     UnitsResponse:
       type: object
       properties:
@@ -416,6 +416,30 @@ components:
                 type: string
               symbol:
                 type: string
+    CategoriesResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+    DisciplinesResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
     SpecsResponse:
       type: object
       properties:
@@ -430,30 +454,6 @@ components:
                 type: string
               isBuiltIn:
                 type: boolean
-    DisciplinesResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              name:
-                type: string
-    CategoriesResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              name:
-                type: string
   securitySchemes:
     OAuth2TwoLegged:
       type: oauth2

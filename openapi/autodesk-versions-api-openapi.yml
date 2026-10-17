@@ -111,6 +111,33 @@ paths:
                 $ref: '#/components/schemas/VersionResponse'
 components:
   schemas:
+    VersionResponse:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          $ref: '#/components/schemas/Version'
+    Extension:
+      type: object
+      properties:
+        type:
+          type: string
+        version:
+          type: string
+        data:
+          type: object
+    VersionsResponse:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Version'
+        links:
+          $ref: '#/components/schemas/PaginationLinks'
     PaginationLinks:
       type: object
       properties:
@@ -220,39 +247,12 @@ components:
                           example: objects
                         id:
                           type: string
-    Extension:
-      type: object
-      properties:
-        type:
-          type: string
-        version:
-          type: string
-        data:
-          type: object
     JsonApiVersion:
       type: object
       properties:
         version:
           type: string
           example: '1.0'
-    VersionsResponse:
-      type: object
-      properties:
-        jsonapi:
-          $ref: '#/components/schemas/JsonApiVersion'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Version'
-        links:
-          $ref: '#/components/schemas/PaginationLinks'
-    VersionResponse:
-      type: object
-      properties:
-        jsonapi:
-          $ref: '#/components/schemas/JsonApiVersion'
-        data:
-          $ref: '#/components/schemas/Version'
   securitySchemes:
     OAuth2TwoLegged:
       type: oauth2

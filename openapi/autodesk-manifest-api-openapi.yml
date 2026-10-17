@@ -77,6 +77,29 @@ paths:
           description: Manifest not found.
 components:
   schemas:
+    Derivative:
+      type: object
+      properties:
+        name:
+          type: string
+        hasThumbnail:
+          type: string
+        status:
+          type: string
+          enum:
+          - pending
+          - inprogress
+          - success
+          - failed
+          - timeout
+        progress:
+          type: string
+        outputType:
+          type: string
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/DerivativeChild'
     Manifest:
       type: object
       properties:
@@ -110,29 +133,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Derivative'
-    Derivative:
-      type: object
-      properties:
-        name:
-          type: string
-        hasThumbnail:
-          type: string
-        status:
-          type: string
-          enum:
-          - pending
-          - inprogress
-          - success
-          - failed
-          - timeout
-        progress:
-          type: string
-        outputType:
-          type: string
-        children:
-          type: array
-          items:
-            $ref: '#/components/schemas/DerivativeChild'
     DerivativeChild:
       type: object
       properties:

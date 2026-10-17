@@ -90,15 +90,6 @@ paths:
                 $ref: '#/components/schemas/Company'
 components:
   schemas:
-    Pagination:
-      type: object
-      properties:
-        offset:
-          type: integer
-        limit:
-          type: integer
-        totalResults:
-          type: integer
     Company:
       type: object
       properties:
@@ -131,15 +122,15 @@ components:
           type: string
         tax_id:
           type: string
-    CompaniesResponse:
+    Pagination:
       type: object
       properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Company'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalResults:
+          type: integer
     CreateCompanyRequest:
       type: object
       required:
@@ -166,6 +157,15 @@ components:
           format: uri
         description:
           type: string
+    CompaniesResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Company'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
   securitySchemes:
     OAuth2ThreeLegged:
       type: oauth2

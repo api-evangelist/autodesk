@@ -44,6 +44,23 @@ paths:
           description: Bad request.
 components:
   schemas:
+    CalculationRequest:
+      type: object
+      required:
+      - datasetId
+      - recordId
+      - quantity
+      properties:
+        datasetId:
+          type: string
+        recordId:
+          type: string
+        quantity:
+          type: number
+          description: Quantity in the unit specified by the record.
+        unit:
+          type: string
+          description: Unit of the quantity.
     CalculationResponse:
       type: object
       properties:
@@ -89,23 +106,6 @@ components:
         metadata:
           type: object
           additionalProperties: true
-    CalculationRequest:
-      type: object
-      required:
-      - datasetId
-      - recordId
-      - quantity
-      properties:
-        datasetId:
-          type: string
-        recordId:
-          type: string
-        quantity:
-          type: number
-          description: Quantity in the unit specified by the record.
-        unit:
-          type: string
-          description: Unit of the quantity.
   securitySchemes:
     OAuth2TwoLegged:
       type: oauth2

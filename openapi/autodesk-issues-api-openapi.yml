@@ -245,25 +245,6 @@ paths:
           description: Comment created.
 components:
   schemas:
-    IssuesResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue'
-        meta:
-          type: object
-          properties:
-            record_count:
-              type: integer
-            page:
-              type: object
-              properties:
-                limit:
-                  type: integer
-                offset:
-                  type: integer
     CreateCommentRequest:
       type: object
       properties:
@@ -280,49 +261,7 @@ components:
               properties:
                 body:
                   type: string
-    IssueResponse:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/Issue'
-    CreateIssueRequest:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            type:
-              type: string
-              example: quality_issues
-            attributes:
-              type: object
-              required:
-              - title
-              properties:
-                title:
-                  type: string
-                description:
-                  type: string
-                status:
-                  type: string
-                assigned_to:
-                  type: string
-                assigned_to_type:
-                  type: string
-                due_date:
-                  type: string
-                  format: date
-                priority:
-                  type: string
-                issue_type_id:
-                  type: string
-                issue_sub_type_id:
-                  type: string
-                location_description:
-                  type: string
-                target_urn:
-                  type: string
-    IssueTypesResponse:
+    CommentsResponse:
       type: object
       properties:
         data:
@@ -337,17 +276,42 @@ components:
               attributes:
                 type: object
                 properties:
-                  title:
+                  body:
                     type: string
-                  subtypes:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
+                  created_at:
+                    type: string
+                    format: date-time
+                  created_by:
+                    type: string
+    UpdateIssueRequest:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+              example: quality_issues
+            id:
+              type: string
+            attributes:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                status:
+                  type: string
+                assigned_to:
+                  type: string
+                due_date:
+                  type: string
+                  format: date
+                priority:
+                  type: string
+                answer:
+                  type: string
     Issue:
       type: object
       properties:
@@ -440,36 +404,7 @@ components:
               type: integer
             attachment_count:
               type: integer
-    UpdateIssueRequest:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            type:
-              type: string
-              example: quality_issues
-            id:
-              type: string
-            attributes:
-              type: object
-              properties:
-                title:
-                  type: string
-                description:
-                  type: string
-                status:
-                  type: string
-                assigned_to:
-                  type: string
-                due_date:
-                  type: string
-                  format: date
-                priority:
-                  type: string
-                answer:
-                  type: string
-    CommentsResponse:
+    IssueTypesResponse:
       type: object
       properties:
         data:
@@ -484,13 +419,78 @@ components:
               attributes:
                 type: object
                 properties:
-                  body:
+                  title:
                     type: string
-                  created_at:
-                    type: string
-                    format: date-time
-                  created_by:
-                    type: string
+                  subtypes:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        title:
+                          type: string
+    IssuesResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+        meta:
+          type: object
+          properties:
+            record_count:
+              type: integer
+            page:
+              type: object
+              properties:
+                limit:
+                  type: integer
+                offset:
+                  type: integer
+    CreateIssueRequest:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+              example: quality_issues
+            attributes:
+              type: object
+              required:
+              - title
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                status:
+                  type: string
+                assigned_to:
+                  type: string
+                assigned_to_type:
+                  type: string
+                due_date:
+                  type: string
+                  format: date
+                priority:
+                  type: string
+                issue_type_id:
+                  type: string
+                issue_sub_type_id:
+                  type: string
+                location_description:
+                  type: string
+                target_urn:
+                  type: string
+    IssueResponse:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Issue'
   securitySchemes:
     OAuth2ThreeLegged:
       type: oauth2

@@ -303,20 +303,26 @@ paths:
       description: Production
 components:
   schemas:
-    CreateProjectRequest:
+    Pagination:
       type: object
-      required:
-      - name
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalResults:
+          type: integer
+    UpdateProjectRequest:
+      type: object
       properties:
         name:
-          type: string
-        type:
           type: string
         status:
           type: string
           enum:
           - active
           - inactive
+          - archived
         jobNumber:
           type: string
         addressLine1:
@@ -329,22 +335,12 @@ components:
           type: string
         country:
           type: string
-        timezone:
-          type: string
-        constructionType:
-          type: string
-        deliveryMethod:
-          type: string
         startDate:
           type: string
           format: date
         endDate:
           type: string
           format: date
-        value:
-          type: number
-        currency:
-          type: string
     Project:
       type: object
       properties:
@@ -408,35 +404,20 @@ components:
         updatedAt:
           type: string
           format: date-time
-    Pagination:
+    CreateProjectRequest:
       type: object
-      properties:
-        offset:
-          type: integer
-        limit:
-          type: integer
-        totalResults:
-          type: integer
-    ProjectsResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Project'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-    UpdateProjectRequest:
-      type: object
+      required:
+      - name
       properties:
         name:
+          type: string
+        type:
           type: string
         status:
           type: string
           enum:
           - active
           - inactive
-          - archived
         jobNumber:
           type: string
         addressLine1:
@@ -449,12 +430,75 @@ components:
           type: string
         country:
           type: string
+        timezone:
+          type: string
+        constructionType:
+          type: string
+        deliveryMethod:
+          type: string
         startDate:
           type: string
           format: date
         endDate:
           type: string
           format: date
+        value:
+          type: number
+        currency:
+          type: string
+    ProjectsResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Extension:
+      type: object
+      properties:
+        type:
+          type: string
+        version:
+          type: string
+        data:
+          type: object
+    Folder:
+      type: object
+      properties:
+        type:
+          type: string
+          example: folders
+        id:
+          type: string
+        attributes:
+          type: object
+          properties:
+            name:
+              type: string
+            displayName:
+              type: string
+            createTime:
+              type: string
+              format: date-time
+            createUserId:
+              type: string
+            createUserName:
+              type: string
+            lastModifiedTime:
+              type: string
+              format: date-time
+            lastModifiedUserId:
+              type: string
+            lastModifiedUserName:
+              type: string
+            objectCount:
+              type: integer
+            extension:
+              $ref: '#/components/schemas/Extension'
+            hidden:
+              type: boolean
     PaginationLinks:
       type: object
       properties:
@@ -482,21 +526,13 @@ components:
             href:
               type: string
               format: uri
-    Extension:
+    ProjectResponse:
       type: object
       properties:
-        type:
-          type: string
-        version:
-          type: string
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
         data:
-          type: object
-    JsonApiVersion:
-      type: object
-      properties:
-        version:
-          type: string
-          example: '1.0'
+          $ref: '#/components/schemas/Project_2'
     Project_2:
       type: object
       properties:
@@ -547,57 +583,6 @@ components:
                         href:
                           type: string
                           format: uri
-    ProjectResponse:
-      type: object
-      properties:
-        jsonapi:
-          $ref: '#/components/schemas/JsonApiVersion'
-        data:
-          $ref: '#/components/schemas/Project_2'
-    Folder:
-      type: object
-      properties:
-        type:
-          type: string
-          example: folders
-        id:
-          type: string
-        attributes:
-          type: object
-          properties:
-            name:
-              type: string
-            displayName:
-              type: string
-            createTime:
-              type: string
-              format: date-time
-            createUserId:
-              type: string
-            createUserName:
-              type: string
-            lastModifiedTime:
-              type: string
-              format: date-time
-            lastModifiedUserId:
-              type: string
-            lastModifiedUserName:
-              type: string
-            objectCount:
-              type: integer
-            extension:
-              $ref: '#/components/schemas/Extension'
-            hidden:
-              type: boolean
-    FoldersResponse:
-      type: object
-      properties:
-        jsonapi:
-          $ref: '#/components/schemas/JsonApiVersion'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Folder'
     ProjectsResponse_2:
       type: object
       properties:
@@ -609,6 +594,21 @@ components:
             $ref: '#/components/schemas/Project_2'
         links:
           $ref: '#/components/schemas/PaginationLinks'
+    FoldersResponse:
+      type: object
+      properties:
+        jsonapi:
+          $ref: '#/components/schemas/JsonApiVersion'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Folder'
+    JsonApiVersion:
+      type: object
+      properties:
+        version:
+          type: string
+          example: '1.0'
   securitySchemes:
     OAuth2ThreeLegged:
       type: oauth2

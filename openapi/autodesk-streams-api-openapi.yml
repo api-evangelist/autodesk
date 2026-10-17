@@ -111,26 +111,6 @@ paths:
           description: Bad request.
 components:
   schemas:
-    StreamsResponse:
-      type: object
-      properties:
-        streams:
-          type: array
-          items:
-            type: object
-            properties:
-              streamId:
-                type: string
-              name:
-                type: string
-              elementKey:
-                type: string
-              propertyId:
-                type: string
-              lastValue: {}
-              lastTimestamp:
-                type: string
-                format: date-time
     TimeseriesResponse:
       type: object
       properties:
@@ -161,6 +141,26 @@ components:
                 type: string
                 format: date-time
               value: {}
+    StreamsResponse:
+      type: object
+      properties:
+        streams:
+          type: array
+          items:
+            type: object
+            properties:
+              streamId:
+                type: string
+              name:
+                type: string
+              elementKey:
+                type: string
+              propertyId:
+                type: string
+              lastValue: {}
+              lastTimestamp:
+                type: string
+                format: date-time
   securitySchemes:
     OAuth2ThreeLegged:
       type: oauth2

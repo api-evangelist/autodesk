@@ -279,6 +279,33 @@ paths:
           description: Alias deleted.
 components:
   schemas:
+    PagedAppBundles:
+      type: object
+      properties:
+        paginationToken:
+          type: string
+        data:
+          type: array
+          items:
+            type: string
+    PagedVersions:
+      type: object
+      properties:
+        paginationToken:
+          type: string
+        data:
+          type: array
+          items:
+            type: integer
+    AliasPatch:
+      type: object
+      required:
+      - version
+      properties:
+        version:
+          type: integer
+        receiver:
+          type: string
     AppBundle:
       type: object
       properties:
@@ -300,24 +327,6 @@ components:
           type: string
         version:
           type: integer
-    PagedVersions:
-      type: object
-      properties:
-        paginationToken:
-          type: string
-        data:
-          type: array
-          items:
-            type: integer
-    Alias:
-      type: object
-      properties:
-        id:
-          type: string
-        version:
-          type: integer
-        receiver:
-          type: string
     AliasPayload:
       type: object
       required:
@@ -330,7 +339,16 @@ components:
           type: integer
         receiver:
           type: string
-    PagedAppBundles:
+    Alias:
+      type: object
+      properties:
+        id:
+          type: string
+        version:
+          type: integer
+        receiver:
+          type: string
+    PagedAliases:
       type: object
       properties:
         paginationToken:
@@ -338,7 +356,7 @@ components:
         data:
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/Alias'
     AppBundlePayload:
       type: object
       required:
@@ -357,24 +375,6 @@ components:
           type: array
           items:
             type: string
-    AliasPatch:
-      type: object
-      required:
-      - version
-      properties:
-        version:
-          type: integer
-        receiver:
-          type: string
-    PagedAliases:
-      type: object
-      properties:
-        paginationToken:
-          type: string
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Alias'
   securitySchemes:
     OAuth2TwoLegged:
       type: oauth2

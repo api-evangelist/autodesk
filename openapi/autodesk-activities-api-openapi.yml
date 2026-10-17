@@ -272,6 +272,15 @@ components:
           type: array
           items:
             type: integer
+    AliasPatch:
+      type: object
+      required:
+      - version
+      properties:
+        version:
+          type: integer
+        receiver:
+          type: string
     Parameter:
       type: object
       properties:
@@ -296,6 +305,27 @@ components:
         localName:
           type: string
           description: Local filename for the parameter.
+    Alias:
+      type: object
+      properties:
+        id:
+          type: string
+        version:
+          type: integer
+        receiver:
+          type: string
+    AliasPayload:
+      type: object
+      required:
+      - id
+      - version
+      properties:
+        id:
+          type: string
+        version:
+          type: integer
+        receiver:
+          type: string
     Activity:
       type: object
       properties:
@@ -319,6 +349,15 @@ components:
             $ref: '#/components/schemas/Parameter'
         version:
           type: integer
+    PagedActivities:
+      type: object
+      properties:
+        paginationToken:
+          type: string
+        data:
+          type: array
+          items:
+            type: string
     ActivityPayload:
       type: object
       required:
@@ -351,36 +390,6 @@ components:
           type: object
           additionalProperties:
             type: object
-    Alias:
-      type: object
-      properties:
-        id:
-          type: string
-        version:
-          type: integer
-        receiver:
-          type: string
-    AliasPayload:
-      type: object
-      required:
-      - id
-      - version
-      properties:
-        id:
-          type: string
-        version:
-          type: integer
-        receiver:
-          type: string
-    AliasPatch:
-      type: object
-      required:
-      - version
-      properties:
-        version:
-          type: integer
-        receiver:
-          type: string
     PagedAliases:
       type: object
       properties:
@@ -390,15 +399,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Alias'
-    PagedActivities:
-      type: object
-      properties:
-        paginationToken:
-          type: string
-        data:
-          type: array
-          items:
-            type: string
   securitySchemes:
     OAuth2TwoLegged:
       type: oauth2

@@ -168,33 +168,6 @@ paths:
           description: Collection deleted.
 components:
   schemas:
-    CollectionsResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Collection'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-    Pagination:
-      type: object
-      properties:
-        offset:
-          type: integer
-        limit:
-          type: integer
-        totalResults:
-          type: integer
-    CreateCollectionRequest:
-      type: object
-      required:
-      - name
-      properties:
-        name:
-          type: string
-        description:
-          type: string
     Collection:
       type: object
       properties:
@@ -214,6 +187,33 @@ components:
           type: string
         updatedBy:
           type: string
+    Pagination:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        totalResults:
+          type: integer
+    CreateCollectionRequest:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+    CollectionsResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Collection'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     UpdateCollectionRequest:
       type: object
       properties:
