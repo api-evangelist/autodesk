@@ -3,7 +3,12 @@ provider: Autodesk
 generated_by: planning/capability-mapping/scripts/classify_capabilities.py
 model: claude-opus-5
 frame:
+- Automotive & Mobility
+- Electrical Components & Equipment
+- Engineering Services
 - Infrastructure
+- Manufacturing & Industrial
+- Power & Water Utilities
 min_confidence: 0.7
 capability_model:
   source: https://github.com/vincentmakes/turbo-ea-capabilities
@@ -11,7 +16,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 8
+edge_count: 9
 edges:
 - tag: Calculations
   spec_file: autodesk-calculations-api-openapi.yml
@@ -75,6 +80,27 @@ edges:
   reason: Operations read and mutate element properties inside Autodesk Tandem model data; Tandem is Autodesk's
     digital twin for built assets (vendor states 'create digital twins'), so this realises asset information
     model / digital twin data management.
+- tag: Projects
+  spec_file: autodesk-projects-api-openapi.yml
+  capability_id: BC-900.30
+  capability_id_l1: BC-900
+  capability_name: Project Management
+  confidence: 0.72
+  evidence: POST /construction/admin/v1/accounts/{accountId}/projects createProject 'Autodesk Create Project'
+  reason: Creation and maintenance of construction project records and their folder structures — project
+    administration/execution tooling.
+- tag: Datasets
+  spec_file: autodesk-datasets-api-openapi.yml
+  capability_id: BC-740.20
+  capability_id_l1: BC-740
+  capability_name: Climate & Carbon Management
+  confidence: 0.7
+  evidence: '"provides access to regional environmental data ... enabling accurate carbon calculations
+    and integration of trusted third-party sustainability datasets" — includes "data on electricity grids,
+    materials, transportation, and construction activities"'
+  reason: The datasets served are emission-factor style environmental reference data explicitly intended
+    for carbon calculation, which supports carbon footprinting. It is a read-only reference data feed
+    rather than a carbon accounting process itself, hence moderate confidence.
 - tag: Models
   spec_file: autodesk-models-api-openapi.yml
   capability_id: BC-5060.50
@@ -85,15 +111,3 @@ edges:
   reason: The path is Autodesk Tandem's digital-twin resource, listing the models that constitute a twin
     — i.e. asset information models for the in-use asset, matching Digital Twin & Asset Data. Single read-only
     operation keeps confidence below the top band.
-- tag: Projects
-  spec_file: autodesk-projects-api-openapi.yml
-  capability_id: BC-900.30
-  capability_id_l1: BC-900
-  capability_name: Project Management
-  confidence: 0.7
-  evidence: 'POST /construction/admin/v1/accounts/{accountId}/projects createProject; description: "automates
-    the creation and management of projects ... within Autodesk Construction Cloud"'
-  reason: Creation, retrieval and update of construction projects (plus project folders) is project execution/administration
-    tooling, mapping to Project Management. Some ambiguity as it is largely administrative provisioning
-    of project containers.
-  recovered_from: capability-edges-sweep.json
