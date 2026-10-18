@@ -16,7 +16,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 9
+edge_count: 10
 edges:
 - tag: Calculations
   spec_file: autodesk-calculations-api-openapi.yml
@@ -111,3 +111,15 @@ edges:
   reason: The path is Autodesk Tandem's digital-twin resource, listing the models that constitute a twin
     — i.e. asset information models for the in-use asset, matching Digital Twin & Asset Data. Single read-only
     operation keeps confidence below the top band.
+- tag: Versions
+  spec_file: autodesk-versions-api-openapi.yml
+  capability_id: BC-1130.10
+  capability_id_l1: BC-1130
+  capability_name: Document Control Management
+  confidence: 0.7
+  evidence: '"navigating projects, managing folders, uploading and downloading files, and tracking item
+    versions"; GET .../items/{item_id}/versions "List Item Versions"; POST "Create Version"'
+  reason: Version creation and retrieval for files held in Autodesk Docs/BIM 360 project folders is revision
+    control over controlled project documents and drawings, matching BC-1130.10 Document Control Management
+    (revision control, master register). Not 0.8+ because the surface is a generic JSON:API file-versioning
+    model rather than an engineering document-register with numbering/approval semantics.
