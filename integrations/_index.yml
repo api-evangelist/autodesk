@@ -111,7 +111,7 @@
     - bronze
     - unknown
     builder: 'community (Meltano Hub variant maintainers: datamill-co, singer-io)'
-  status: pending-partner-spec
+  status: not-a-workflow
   arazzo: null
 - slug: autodesk-google-workspace-own
   label: Google Workspace (own)
