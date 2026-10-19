@@ -206,3 +206,607 @@
     detected: '2026-10-18'
   status: not-a-workflow
   arazzo: null
+- slug: autodesk-amd
+  label: AMD
+  partner: advanced-micro-devices
+  partner_name: AMD
+  category: INVNTOR
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.autodesk.com/apps/3248534f-7d11-4c94-9607-72e0527b7ee2
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: Autodesk App Store (marketplace.autodesk.com sitemap + app pages' __NEXT_DATA__ publisherProfile)
+    spec_file: null
+    role: autodesk-app
+    registered_name: AMD
+    matched_domain: amd.com
+    matched_by: domain+verified
+    listings: 1
+    sample_apps:
+    - Radeon ProRender
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-engineering-cad.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: autodesk-agave
+  label: Agave
+  partner: agave
+  partner_name: Agave
+  category: ACCBD5K/BIM360/BM36DP
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.autodesk.com/apps/bcad733d-ca9f-4c2e-8150-b6786e495ac1
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: Autodesk App Store (marketplace.autodesk.com sitemap + app pages' __NEXT_DATA__ publisherProfile)
+    spec_file: null
+    role: autodesk-app
+    registered_name: Agave
+    matched_domain: useagave.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - Agave ERP Sync
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-engineering-cad.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: autodesk-assignar
+  label: Assignar
+  partner: assignar
+  partner_name: Assignar
+  category: ACCBD5K/BIM360/BM36DP
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.autodesk.com/apps/254a47ff-adf8-422f-bdf4-3e29bf2a7e78
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: Autodesk App Store (marketplace.autodesk.com sitemap + app pages' __NEXT_DATA__ publisherProfile)
+    spec_file: null
+    role: autodesk-app
+    registered_name: Assignar
+    matched_domain: assignar.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - Assignar
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-engineering-cad.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: autodesk-atkore
+  label: Atkore
+  partner: atkore
+  partner_name: Atkore
+  category: RVT
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.autodesk.com/apps/0d0ef480-cf63-44c1-ba5d-0e756f138765
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: Autodesk App Store (marketplace.autodesk.com sitemap + app pages' __NEXT_DATA__ publisherProfile)
+    spec_file: null
+    role: autodesk-app
+    registered_name: Atkore
+    matched_domain: atkore.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - Atkore BIM Toolbar
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-engineering-cad.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: autodesk-buildots
+  label: Buildots
+  partner: buildots
+  partner_name: Buildots
+  category: BIM360
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.autodesk.com/apps/5d0214e5-9653-4142-98ff-e3329a6b07ad
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: Autodesk App Store (marketplace.autodesk.com sitemap + app pages' __NEXT_DATA__ publisherProfile)
+    spec_file: null
+    role: autodesk-app
+    registered_name: Buildots
+    matched_domain: buildots.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - Buildots for Autodesk® BIM 360® Integration
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-engineering-cad.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: autodesk-dronedeploy
+  label: DroneDeploy
+  partner: dronedeploy
+  partner_name: DroneDeploy
+  category: ACCBD5K/BIM360/BM36DP
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.autodesk.com/apps/cf6228ad-19d7-4ca7-98ed-eb0b25a38e42
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: Autodesk App Store (marketplace.autodesk.com sitemap + app pages' __NEXT_DATA__ publisherProfile)
+    spec_file: null
+    role: autodesk-app
+    registered_name: DroneDeploy
+    matched_domain: dronedeploy.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - DroneDeploy
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-engineering-cad.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: autodesk-dusty-robotics
+  label: Dusty Robotics
+  partner: dusty-robotics
+  partner_name: Dusty Robotics
+  category: ACD/ARCHDESK
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.autodesk.com/apps/9250b580-7af6-4f64-b3b5-fafd0d12cac8
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: Autodesk App Store (marketplace.autodesk.com sitemap + app pages' __NEXT_DATA__ publisherProfile)
+    spec_file: null
+    role: autodesk-app
+    registered_name: Dusty Robotics
+    matched_domain: dustyrobotics.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - Dusty for Autodesk® AutoCAD®
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-engineering-cad.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: autodesk-esri
+  label: Esri
+  partner: esri
+  partner_name: Esri
+  category: SPCMKR
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.autodesk.com/apps/1a6f2c32-8958-4179-a9bc-e086207918a9
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: Autodesk App Store (marketplace.autodesk.com sitemap + app pages' __NEXT_DATA__ publisherProfile)
+    spec_file: null
+    role: autodesk-app
+    registered_name: Esri
+    matched_domain: esri.com
+    matched_by: domain
+    listings: 4
+    sample_apps:
+    - ArcGIS GeoBIM
+    - ArcGIS® Pro
+    - ArcGIS® for Autodesk® AutoCAD®
+    - ArcGIS® for Autodesk® Forma®
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-engineering-cad.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: autodesk-hexagon-multivista-analyze-hub
+  label: Hexagon Multivista | Analyze Hub
+  partner: hexagon
+  partner_name: Hexagon Multivista | Analyze Hub
+  category: ACCBD5K/BM36DP
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.autodesk.com/apps/d49bb035-51a3-4df9-8b0f-327fe861cd55
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: Autodesk App Store (marketplace.autodesk.com sitemap + app pages' __NEXT_DATA__ publisherProfile)
+    spec_file: null
+    role: autodesk-app
+    registered_name: Hexagon Multivista | Analyze Hub
+    matched_domain: hexagon.com
+    matched_by: domain+name-among-holders
+    listings: 1
+    sample_apps:
+    - Hexagon Multivista | Analyze Hub
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-engineering-cad.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: autodesk-kennametal
+  label: Kennametal
+  partner: kennametal
+  partner_name: Kennametal
+  category: FSN
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.autodesk.com/apps/de4bf160-0bce-4351-a0f9-a168dd4df5e0
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: Autodesk App Store (marketplace.autodesk.com sitemap + app pages' __NEXT_DATA__ publisherProfile)
+    spec_file: null
+    role: autodesk-app
+    registered_name: Kennametal
+    matched_domain: kennametal.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - Import Tools
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-engineering-cad.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: autodesk-matterport
+  label: Matterport
+  partner: matterport
+  partner_name: Matterport
+  category: RVT
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.autodesk.com/apps/c4b6fc32-3777-4ba1-965a-44d7a5963bf8
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: Autodesk App Store (marketplace.autodesk.com sitemap + app pages' __NEXT_DATA__ publisherProfile)
+    spec_file: null
+    role: autodesk-app
+    registered_name: Matterport
+    matched_domain: matterport.com
+    matched_by: domain
+    listings: 2
+    sample_apps:
+    - Matterport
+    - Matterport for Autodesk® Revit®
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-engineering-cad.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: autodesk-openspace-ai
+  label: OpenSpace AI
+  partner: openspace
+  partner_name: OpenSpace AI
+  category: ACCBD5K/BIM360/BM36DP
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.autodesk.com/apps/64fb730f-60da-415e-a012-32fe869c584d
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: Autodesk App Store (marketplace.autodesk.com sitemap + app pages' __NEXT_DATA__ publisherProfile)
+    spec_file: null
+    role: autodesk-app
+    registered_name: OpenSpace AI
+    matched_domain: openspace.ai
+    matched_by: domain+name-among-holders
+    listings: 2
+    sample_apps:
+    - OpenSpace
+    - OpenSpace Two-Way Sync
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-engineering-cad.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: autodesk-planradar-gmbh
+  label: PlanRadar GmbH
+  partner: planradar
+  partner_name: PlanRadar GmbH
+  category: RVT
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.autodesk.com/apps/1d1b94c3-1405-4c9c-81ab-ecce9117dd28
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: Autodesk App Store (marketplace.autodesk.com sitemap + app pages' __NEXT_DATA__ publisherProfile)
+    spec_file: null
+    role: autodesk-app
+    registered_name: PlanRadar GmbH
+    matched_domain: planradar.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - PlanRadar
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-engineering-cad.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: autodesk-pvcase
+  label: PVcase
+  partner: pvcase
+  partner_name: PVcase
+  category: ACD/CIV3D
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.autodesk.com/apps/b08f55f2-8052-4867-85f1-7f2228f1c90c
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: Autodesk App Store (marketplace.autodesk.com sitemap + app pages' __NEXT_DATA__ publisherProfile)
+    spec_file: null
+    role: autodesk-app
+    registered_name: PVcase
+    matched_domain: pvcase.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - PVcase Ground Mount
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-engineering-cad.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: autodesk-sendcutsend
+  label: SendCutSend
+  partner: sendcutsend
+  partner_name: SendCutSend
+  category: FSN
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.autodesk.com/apps/299eaa6d-7bb1-4c8f-a8a7-81c3e16d5a58
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: Autodesk App Store (marketplace.autodesk.com sitemap + app pages' __NEXT_DATA__ publisherProfile)
+    spec_file: null
+    role: autodesk-app
+    registered_name: SendCutSend
+    matched_domain: sendcutsend.com
+    matched_by: domain
+    listings: 2
+    sample_apps:
+    - SendCutSend
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-engineering-cad.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: autodesk-siemens
+  label: SIEMENS
+  partner: siemens
+  partner_name: SIEMENS
+  category: RVT
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.autodesk.com/apps/6976f871-b4d7-4c1a-bce8-c50121ca0eb0
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: Autodesk App Store (marketplace.autodesk.com sitemap + app pages' __NEXT_DATA__ publisherProfile)
+    spec_file: null
+    role: autodesk-app
+    registered_name: SIEMENS
+    matched_domain: siemens.com
+    matched_by: domain+name-among-holders
+    listings: 2
+    sample_apps:
+    - BIMPOWER
+    - Power System Design
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-engineering-cad.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: autodesk-simscale-gmbh
+  label: SimScale GmbH
+  partner: simscale
+  partner_name: SimScale GmbH
+  category: FSN
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.autodesk.com/apps/1bb7e9e8-6f14-4cda-94fa-2569839b0812
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: Autodesk App Store (marketplace.autodesk.com sitemap + app pages' __NEXT_DATA__ publisherProfile)
+    spec_file: null
+    role: autodesk-app
+    registered_name: SimScale GmbH
+    matched_domain: simscale.com
+    matched_by: domain
+    listings: 2
+    sample_apps:
+    - SimScale
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-engineering-cad.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: autodesk-sketchfab
+  label: Sketchfab
+  partner: sketchfab
+  partner_name: Sketchfab
+  category: MAYA
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.autodesk.com/apps/3f0d6927-e5b3-49f5-8bdb-3583b3dd4441
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: Autodesk App Store (marketplace.autodesk.com sitemap + app pages' __NEXT_DATA__ publisherProfile)
+    spec_file: null
+    role: autodesk-app
+    registered_name: Sketchfab
+    matched_domain: sketchfab.com
+    matched_by: domain
+    listings: 3
+    sample_apps:
+    - Sketchfab for Autodesk® Maya®
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-engineering-cad.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: autodesk-splashtop-high-performance-3d-remote-desktop
+  label: Splashtop -- High Performance 3D Remote Desktop
+  partner: splashtop
+  partner_name: Splashtop -- High Performance 3D Remote Desktop
+  category: 3DSMAX/ACAD_E/ACD/ADSTPR/ALAUST/ALSCPT/AMECH_PP/ARCHDESK/BLDSYS/CIV3D/FSN/INVNTOR/INVVAU/MAYA/PLNT3D/RVT/SCFD/SURFST/VLTM
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.autodesk.com/apps/5f5a0d2b-e390-42b9-b454-da2692092823
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: Autodesk App Store (marketplace.autodesk.com sitemap + app pages' __NEXT_DATA__ publisherProfile)
+    spec_file: null
+    role: autodesk-app
+    registered_name: Splashtop -- High Performance 3D Remote Desktop
+    matched_domain: splashtop.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - Splashtop Streamer -- Secure Remote 3D Graphics
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-engineering-cad.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: autodesk-trimble-inc
+  label: Trimble Inc
+  partner: trimble
+  partner_name: Trimble Inc
+  category: ACCBD5K/BIM360/BM36DP
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.autodesk.com/apps/3003d920-aea5-4d24-ae15-ef605af53ad1
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: Autodesk App Store (marketplace.autodesk.com sitemap + app pages' __NEXT_DATA__ publisherProfile)
+    spec_file: null
+    role: autodesk-app
+    registered_name: Trimble Inc
+    matched_domain: trimble.com
+    matched_by: domain+name-among-holders
+    listings: 1
+    sample_apps:
+    - Trimble® Connect® Integrator for Autodesk® Forma®
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-engineering-cad.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: autodesk-trunk-tools
+  label: Trunk Tools
+  partner: trunk-tools
+  partner_name: Trunk Tools
+  category: ACCBD5K/BIM360/BM36DP
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.autodesk.com/apps/e416596b-a570-4073-ae0e-c8e26397d0a3
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: Autodesk App Store (marketplace.autodesk.com sitemap + app pages' __NEXT_DATA__ publisherProfile)
+    spec_file: null
+    role: autodesk-app
+    registered_name: Trunk Tools
+    matched_domain: trunktools.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - Trunk Tools
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-engineering-cad.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: autodesk-unity-technologies
+  label: Unity Technologies
+  partner: unity
+  partner_name: Unity Technologies
+  category: ACCBD5K/BIM360/BM36DP
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.autodesk.com/apps/b5f2036a-4745-4801-a4ae-838318454c53
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: Autodesk App Store (marketplace.autodesk.com sitemap + app pages' __NEXT_DATA__ publisherProfile)
+    spec_file: null
+    role: autodesk-app
+    registered_name: Unity Technologies
+    matched_domain: unity.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - Unity Reflect
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-engineering-cad.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: autodesk-vizcom
+  label: Vizcom
+  partner: vizcom
+  partner_name: Vizcom
+  category: FSN
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.autodesk.com/apps/cbb206eb-b594-4cc1-9d87-9ed186bcdc55
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: Autodesk App Store (marketplace.autodesk.com sitemap + app pages' __NEXT_DATA__ publisherProfile)
+    spec_file: null
+    role: autodesk-app
+    registered_name: Vizcom
+    matched_domain: vizcom.com
+    matched_by: domain
+    listings: 2
+    sample_apps:
+    - Vizcom
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-engineering-cad.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
