@@ -886,6 +886,84 @@ edges:
     builder: Pipedream repo (component)
   detected_by: sweep-workflow-automation.py
   first_seen: '2026-10-15'
+- partner_name: Khronos Group (members)
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.khronos.org/members/list
+  category: graphics standards body membership
+  partner_tier: contributor
+  contract_reference:
+    register: Khronos Group members list (khronos.org/members/list)
+    standard: Khronos Group
+    spec_file: null
+    role: khronos-member
+    registered_name: Autodesk
+    register_id: https://www.khronos.org/members/list
+    matched_domain: autodesk.com
+    matched_by: domain+name-among-holders
+    signal_note: 'participation only: membership level is partner_tier, never counted'
+    detected_by: sweep-xr-graphics.py
+    detected: '2026-10-20'
+  detected_by: sweep-xr-graphics.py
+  first_seen: '2026-10-20'
+- partner_name: Alliance for OpenUSD (AOUSD)
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://aousd.org/members/
+  category: OpenUSD standards body
+  partner_tier: steering
+  contract_reference:
+    register: Alliance for OpenUSD members (aousd.org/members; landscape.aousd.org/data/full.json)
+    standard: OpenUSD
+    spec_file: null
+    role: aousd-member
+    registered_name: Autodesk
+    register_id: aousd-members--steering--autodesk
+    matched_domain: autodesk.com
+    matched_by: domain+name-among-holders
+    signal_note: 'participation only: steering / general is partner_tier, never counted'
+    detected_by: sweep-xr-graphics.py
+    detected: '2026-10-20'
+  detected_by: sweep-xr-graphics.py
+  first_seen: '2026-10-20'
+- partner_name: Khronos file format adopters
+  partner: null
+  partner_match: register-name
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.khronos.org/conformance/adopters/file-format-adopters
+  category: 3D file format adoption
+  contract_reference:
+    register: Khronos file format adopters (khronos.org/conformance/adopters/file-format-adopters)
+    standard: Khronos file formats
+    spec_file: null
+    role: file-format-adopter
+    registered_name: Autodesk
+    register_id: https://www.khronos.org/conformance/adopters/file-format-adopters
+    matched_domain: null
+    matched_by: register-name
+    register_name_note: register-name 'autodesk' = autodesk; wikidata P856 autodesk.com agrees or unheld
+    specs_adopted:
+    - glTF
+    signal_note: 'participation only: a self-filed adopter registration (free, no conformance test); specs adopted
+      are context'
+    detected_by: sweep-xr-graphics.py
+    detected: '2026-10-20'
+    identity_source: register-name
+    identity_note: register gave only the name; exact normalised match to the repo's apis.yml name, one repo, Wikidata
+      P856 not contradicting (Kin 2026-10-20 decision 2)
+  detected_by: sweep-xr-graphics.py
+  first_seen: '2026-10-20'
 generated: '2026-10-14'
 method: searched
 checked:
@@ -907,6 +985,11 @@ checked:
 - https://www.applytosupply.digitalmarketplace.service.gov.uk/g-cloud-15/suppliers
 - power-bi/integrations/power-bi-integration-edges.yml
 - zoom/integrations/zoom-integration-edges.yml
+- https://landscape.aousd.org/data/full.json
+- https://www.khronos.org/conformance/adopters/conformant-companies
+- https://www.khronos.org/conformance/adopters/conformant-products
+- https://www.khronos.org/conformance/adopters/file-format-adopters
+- https://www.khronos.org/members/list
 marketplace_apps:
 - marketplace: own
   channel: partner-built
