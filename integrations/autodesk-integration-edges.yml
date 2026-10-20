@@ -1,180 +1,4 @@
 edges:
-- partner_name: Open Geospatial Consortium
-  partner: ogc
-  detected_by: sweep-geospatial.py
-  first_seen: '2026-10-14'
-  partner_match: register
-  type: register
-  direction: partner-built
-  channel: standard-directory
-  relationship: standard-participant
-  evidence: https://portal.ogc.org/public_ogc/compliance/implementing.php?org_match=Autodesk
-  conformance:
-    organization: Autodesk
-    domain: autodesk.com
-    products: 3
-    compliant_specs: []
-    implementing_specs:
-    - Web Feature Service (WFS) Implementation Specification 1.1.0
-    - Web Feature Service 1.0.0
-    - Web Map Service (WMS) Implementation Specification 1.3.0
-    - Web Map Service 1.1.1
-    - Web Map Tile Service Implementation Standard 1.0.0
-    products_list:
-    - name: AutoCAD Map 3D
-      version: '2022'
-      type: Client (Desktop, Mobile, or Web)
-      pid: '1685'
-      valid_until: null
-      compliant: []
-    - name: AutoCAD Map 3D
-      version: '2021'
-      type: Client (Desktop, Mobile, or Web)
-      pid: '1686'
-      valid_until: null
-      compliant: []
-    - name: AutoCAD Map 3D
-      version: '2020'
-      type: Client (Desktop, Mobile, or Web)
-      pid: '1687'
-      valid_until: null
-      compliant: []
-  match:
-    method: domain+name-among-holders
-    domain: autodesk.com
-  contract_reference:
-    register: portal.ogc.org/public_ogc/compliance
-    spec_file: null
-    role: implementation-registration
-    registered_name: Autodesk
-    register_id: Autodesk
-    detected_by: sweep-geospatial.py
-    detected: '2026-10-14'
-- partner_name: Pipedream
-  partner: pipedream
-  partner_match: aggregator
-  type: marketplace
-  marketplace: pipedream-components
-  channel: open-source-node
-  relationship: ipaas-bridge
-  direction: third-party
-  evidence: https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/autodesk
-  category: null
-  contract_reference:
-    register: Pipedream components (PipedreamHQ/pipedream components/)
-    spec_file: null
-    role: ipaas-connector:pipedream
-    registered_name: autodesk
-    matched_domain: autodesk.com
-    matched_by: domain+name-among-holders
-    detected_by: sweep-workflow-automation.py
-    detected: '2026-10-15'
-    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
-    app_slug: autodesk
-    actions: true
-    sources: true
-    builder: Pipedream repo (component)
-  detected_by: sweep-workflow-automation.py
-  first_seen: '2026-10-15'
-- partner_name: FedRAMP
-  partner: null
-  partner_match: register
-  type: contract
-  channel: regulator-register
-  relationship: standard-participant
-  direction: partner-built
-  evidence: https://marketplace.fedramp.gov/products/FR2226322745
-  category: FedRAMP In Process
-  contract_reference:
-    register: FedRAMP Marketplace data (github.com/18F/fedramp-data data/data.json @4b73d9247f)
-    standard: FedRAMP
-    spec_file: null
-    role: fedramp-in-process
-    registered_name: Autodesk
-    register_id: FR2226322745
-    matched_domain: autodesk.com
-    matched_by: domain+name-among-holders
-    domain_source: website
-    designations:
-    - In Process
-    packages:
-    - Autodesk for Government
-    service_models:
-    - SaaS
-    paths:
-    - Agency
-    signal_note: certified_products = one entry per AUTHORIZED impact level, never per package; packages, service
-      models, paths and leveraging agencies are context, never counted. The register lists current designations
-      only (revoked / expired are removed), so lapsed is always false
-    detected_by: sweep-gov-cloud.py
-    detected: '2026-10-15'
-  detected_by: sweep-gov-cloud.py
-  first_seen: '2026-10-15'
-- partner_name: Meltano
-  partner: meltano
-  partner_match: aggregator
-  type: marketplace
-  marketplace: meltano-hub
-  channel: elt-connector
-  relationship: ipaas-bridge
-  direction: third-party
-  evidence: https://hub.meltano.com/extractors/tap-autodesk-bim-360--datamill-co
-  category: null
-  contract_reference:
-    register: Meltano Hub (github.com/meltano/hub _data/meltano extractors + loaders)
-    spec_file: null
-    role: elt-connector:meltano-hub
-    registered_name: AutoDesk Forge BIM 360
-    matched_domain: autodesk.com
-    matched_by: domain+name-among-holders
-    detected_by: sweep-data-integration.py
-    detected: '2026-10-18'
-    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
-    plugins:
-    - tap-autodesk-bim-360--datamill-co
-    - tap-autodesk-bim-360--singer-io
-    maintenance_status:
-    - unknown
-    quality:
-    - bronze
-    - unknown
-    builder: 'community (Meltano Hub variant maintainers: datamill-co, singer-io)'
-  detected_by: sweep-data-integration.py
-  first_seen: '2026-10-18'
-- partner_name: Google Workspace (own)
-  partner: google-workspace
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://workspace.google.com/marketplace/app/autodesk_tinkercad/614288788007
-  mirror_of: google-workspace/integrations/google-workspace-integration-edges.yml
-  apps:
-  - Autodesk Tinkercad
-  listing_count: 1
-  detected: '2026-10-18'
-  detected_by: mirror-platform-listings.py
-  category: Google Workspace app
-- partner_name: Zoom (own)
-  partner: zoom
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://marketplace.zoom.us/apps/TNP1Jl2EQdSG5sjfdt_6oA
-  mirror_of: zoom/integrations/zoom-integration-edges.yml
-  apps:
-  - Autodesk Construction Cloud
-  listing_count: 1
-  detected: '2026-10-18'
-  detected_by: mirror-platform-listings.py
-  category: Zoom app
 - partner_name: npm registry
   partner: npm
   partner_match: register
@@ -869,6 +693,199 @@ edges:
   detected: '2026-10-19'
   publisher_verified:
   - autodesk-digital-signature
+- partner_name: Meltano
+  partner: meltano
+  partner_match: aggregator
+  type: marketplace
+  marketplace: meltano-hub
+  channel: elt-connector
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://hub.meltano.com/extractors/tap-autodesk-bim-360--datamill-co
+  category: null
+  contract_reference:
+    register: Meltano Hub (github.com/meltano/hub _data/meltano extractors + loaders)
+    spec_file: null
+    role: elt-connector:meltano-hub
+    registered_name: AutoDesk Forge BIM 360
+    matched_domain: autodesk.com
+    matched_by: domain+name-among-holders
+    detected_by: sweep-data-integration.py
+    detected: '2026-10-18'
+    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
+    plugins:
+    - tap-autodesk-bim-360--datamill-co
+    - tap-autodesk-bim-360--singer-io
+    maintenance_status:
+    - unknown
+    quality:
+    - bronze
+    - unknown
+    builder: 'community (Meltano Hub variant maintainers: datamill-co, singer-io)'
+  detected_by: sweep-data-integration.py
+  first_seen: '2026-10-18'
+- partner_name: Open Geospatial Consortium
+  partner: ogc
+  detected_by: sweep-geospatial.py
+  first_seen: '2026-10-14'
+  partner_match: register
+  type: register
+  direction: partner-built
+  channel: standard-directory
+  relationship: standard-participant
+  evidence: https://portal.ogc.org/public_ogc/compliance/implementing.php?org_match=Autodesk
+  conformance:
+    organization: Autodesk
+    domain: autodesk.com
+    products: 3
+    compliant_specs: []
+    implementing_specs:
+    - Web Feature Service (WFS) Implementation Specification 1.1.0
+    - Web Feature Service 1.0.0
+    - Web Map Service (WMS) Implementation Specification 1.3.0
+    - Web Map Service 1.1.1
+    - Web Map Tile Service Implementation Standard 1.0.0
+    products_list:
+    - name: AutoCAD Map 3D
+      version: '2022'
+      type: Client (Desktop, Mobile, or Web)
+      pid: '1685'
+      valid_until: null
+      compliant: []
+    - name: AutoCAD Map 3D
+      version: '2021'
+      type: Client (Desktop, Mobile, or Web)
+      pid: '1686'
+      valid_until: null
+      compliant: []
+    - name: AutoCAD Map 3D
+      version: '2020'
+      type: Client (Desktop, Mobile, or Web)
+      pid: '1687'
+      valid_until: null
+      compliant: []
+  match:
+    method: domain+name-among-holders
+    domain: autodesk.com
+  contract_reference:
+    register: portal.ogc.org/public_ogc/compliance
+    spec_file: null
+    role: implementation-registration
+    registered_name: Autodesk
+    register_id: Autodesk
+    detected_by: sweep-geospatial.py
+    detected: '2026-10-19'
+- partner_name: FedRAMP
+  partner: null
+  partner_match: register
+  type: contract
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://marketplace.fedramp.gov/products/FR2226322745
+  category: FedRAMP In Process
+  contract_reference:
+    register: FedRAMP Marketplace data (github.com/18F/fedramp-data data/data.json @4b73d9247f)
+    standard: FedRAMP
+    spec_file: null
+    role: fedramp-in-process
+    registered_name: Autodesk
+    register_id: FR2226322745
+    matched_domain: autodesk.com
+    matched_by: domain+name-among-holders
+    domain_source: website
+    designations:
+    - In Process
+    packages:
+    - Autodesk for Government
+    service_models:
+    - SaaS
+    paths:
+    - Agency
+    signal_note: certified_products = one entry per AUTHORIZED impact level, never per package; packages, service
+      models, paths and leveraging agencies are context, never counted. The register lists current designations
+      only (revoked / expired are removed), so lapsed is always false
+    detected_by: sweep-gov-cloud.py
+    detected: '2026-10-15'
+  detected_by: sweep-gov-cloud.py
+  first_seen: '2026-10-15'
+- partner_name: Google Workspace (own)
+  partner: google-workspace
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://workspace.google.com/marketplace/app/autodesk_tinkercad/614288788007
+  mirror_of: google-workspace/integrations/google-workspace-integration-edges.yml
+  apps:
+  - Autodesk Tinkercad
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Google Workspace app
+- partner_name: Power BI (own)
+  partner: power-bi
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://learn.microsoft.com/en-us/power-query/connectors/assemble-views
+  mirror_of: power-bi/integrations/power-bi-integration-edges.yml
+  apps:
+  - Assemble Views
+  listing_count: 1
+  detected: '2026-10-19'
+  detected_by: mirror-platform-listings.py
+  category: Online Services
+- partner_name: Zoom (own)
+  partner: zoom
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.zoom.us/apps/TNP1Jl2EQdSG5sjfdt_6oA
+  mirror_of: zoom/integrations/zoom-integration-edges.yml
+  apps:
+  - Autodesk Construction Cloud
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Zoom app
+- partner_name: Pipedream
+  partner: pipedream
+  partner_match: aggregator
+  type: marketplace
+  marketplace: pipedream-components
+  channel: open-source-node
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://github.com/PipedreamHQ/pipedream/tree/d5872355ef27b4efa769f05352f2820c299a456e/components/autodesk
+  category: null
+  contract_reference:
+    register: Pipedream components (PipedreamHQ/pipedream components/)
+    spec_file: null
+    role: ipaas-connector:pipedream
+    registered_name: autodesk
+    matched_domain: autodesk.com
+    matched_by: domain+name-among-holders
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    app_slug: autodesk
+    actions: true
+    sources: true
+    builder: Pipedream repo (component)
+  detected_by: sweep-workflow-automation.py
+  first_seen: '2026-10-15'
 generated: '2026-10-14'
 method: searched
 checked:
@@ -876,6 +893,7 @@ checked:
 - https://api.nuget.org/v3
 - https://crates.io/api/v1
 - https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/
+- https://github.com/PipedreamHQ/pipedream/tree/d5872355ef27b4efa769f05352f2820c299a456e/components/
 - https://github.com/meltano/hub
 - https://govramp.org/program-participants
 - https://marketplace.autodesk.com/
@@ -887,6 +905,7 @@ checked:
 - https://repo1.maven.org/maven2
 - https://rubygems.org/api/v1
 - https://www.applytosupply.digitalmarketplace.service.gov.uk/g-cloud-15/suppliers
+- power-bi/integrations/power-bi-integration-edges.yml
 - zoom/integrations/zoom-integration-edges.yml
 marketplace_apps:
 - marketplace: own
