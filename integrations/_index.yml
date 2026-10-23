@@ -758,45 +758,6 @@
     detected: '2026-10-15'
   status: not-a-workflow
   arazzo: null
-- slug: autodesk-google-workspace-own
-  label: Google Workspace (own)
-  partner: google-workspace
-  partner_name: Google Workspace (own)
-  category: Google Workspace app
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://workspace.google.com/marketplace/app/autodesk_tinkercad/614288788007
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
-- slug: autodesk-power-bi-own
-  label: Power BI (own)
-  partner: power-bi
-  partner_name: Power BI (own)
-  category: Online Services
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://learn.microsoft.com/en-us/power-query/connectors/assemble-views
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
-- slug: autodesk-zoom-own
-  label: Zoom (own)
-  partner: zoom
-  partner_name: Zoom (own)
-  category: Zoom app
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://marketplace.zoom.us/apps/TNP1Jl2EQdSG5sjfdt_6oA
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
 - slug: autodesk-pipedream
   label: Pipedream
   partner: pipedream
@@ -925,5 +886,57 @@
       to mirror.
     detected_by: sweep-browser-extension-stores.py
     detected: '2026-10-21'
+  status: not-a-workflow
+  arazzo: null
+- slug: autodesk-google-workspace-own
+  label: Google Workspace (own)
+  partner: google-workspace
+  partner_name: Google Workspace (own)
+  category: Google Workspace app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://workspace.google.com/marketplace/app/autodesk_tinkercad/614288788007
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: autodesk-power-bi-own
+  label: Power BI (own)
+  partner: power-bi
+  partner_name: Power BI (own)
+  category: Online Services
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://learn.microsoft.com/en-us/power-query/connectors/assemble-views
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: autodesk-zoom-own
+  label: Zoom (own)
+  partner: zoom
+  partner_name: Zoom (own)
+  category: Zoom app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.zoom.us/apps/TNP1Jl2EQdSG5sjfdt_6oA
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: autodesk-adobe-creative-cloud-own
+  label: Adobe Creative Cloud (own)
+  partner: adobe-creative-cloud
+  partner_name: Adobe Creative Cloud (own)
+  category: Adobe Exchange Creative Cloud listing (After Effects)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/17593/autodesk-maya-live-link
+  source: edge
+  relationship: platform-app
   status: not-a-workflow
   arazzo: null

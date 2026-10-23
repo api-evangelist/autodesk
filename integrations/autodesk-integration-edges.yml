@@ -809,57 +809,6 @@ edges:
     detected: '2026-10-15'
   detected_by: sweep-gov-cloud.py
   first_seen: '2026-10-15'
-- partner_name: Google Workspace (own)
-  partner: google-workspace
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://workspace.google.com/marketplace/app/autodesk_tinkercad/614288788007
-  mirror_of: google-workspace/integrations/google-workspace-integration-edges.yml
-  apps:
-  - Autodesk Tinkercad
-  listing_count: 1
-  detected: '2026-10-18'
-  detected_by: mirror-platform-listings.py
-  category: Google Workspace app
-- partner_name: Power BI (own)
-  partner: power-bi
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://learn.microsoft.com/en-us/power-query/connectors/assemble-views
-  mirror_of: power-bi/integrations/power-bi-integration-edges.yml
-  apps:
-  - Assemble Views
-  listing_count: 1
-  detected: '2026-10-19'
-  detected_by: mirror-platform-listings.py
-  category: Online Services
-- partner_name: Zoom (own)
-  partner: zoom
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://marketplace.zoom.us/apps/TNP1Jl2EQdSG5sjfdt_6oA
-  mirror_of: zoom/integrations/zoom-integration-edges.yml
-  apps:
-  - Autodesk Construction Cloud
-  listing_count: 1
-  detected: '2026-10-18'
-  detected_by: mirror-platform-listings.py
-  category: Zoom app
 - partner_name: Pipedream
   partner: pipedream
   partner_match: aggregator
@@ -995,6 +944,74 @@ edges:
     detected: '2026-10-21'
   detected_by: sweep-browser-extension-stores.py
   first_seen: '2026-10-21'
+- partner_name: Google Workspace (own)
+  partner: google-workspace
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://workspace.google.com/marketplace/app/autodesk_tinkercad/614288788007
+  mirror_of: google-workspace/integrations/google-workspace-integration-edges.yml
+  apps:
+  - Autodesk Tinkercad
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Google Workspace app
+- partner_name: Power BI (own)
+  partner: power-bi
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://learn.microsoft.com/en-us/power-query/connectors/assemble-views
+  mirror_of: power-bi/integrations/power-bi-integration-edges.yml
+  apps:
+  - Assemble Views
+  listing_count: 1
+  detected: '2026-10-19'
+  detected_by: mirror-platform-listings.py
+  category: Online Services
+- partner_name: Zoom (own)
+  partner: zoom
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.zoom.us/apps/TNP1Jl2EQdSG5sjfdt_6oA
+  mirror_of: zoom/integrations/zoom-integration-edges.yml
+  apps:
+  - Autodesk Construction Cloud
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Zoom app
+- partner_name: Adobe Creative Cloud (own)
+  partner: adobe-creative-cloud
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://exchange.adobe.com/apps/cc/17593/autodesk-maya-live-link
+  mirror_of: adobe-creative-cloud/integrations/adobe-creative-cloud-integration-edges.yml
+  apps:
+  - Autodesk Maya Live Link
+  listing_count: 1
+  detected: '2026-10-23'
+  detected_by: mirror-platform-listings.py
+  category: Adobe Exchange Creative Cloud listing (After Effects)
 generated: '2026-10-14'
 method: searched
 checked:
@@ -1024,6 +1041,7 @@ checked:
 - https://addons.mozilla.org/api/v5/addons/addon/<slug>/
 - https://addons.mozilla.org/api/v5/addons/search/?type=extension&app=firefox
 - https://chromewebstore.google.com/sitemap
+- adobe-creative-cloud/integrations/adobe-creative-cloud-integration-edges.yml
 marketplace_apps:
 - marketplace: own
   channel: partner-built
