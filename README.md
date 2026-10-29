@@ -1,4 +1,4 @@
-# Autodesk (autodesk)
+# Autodesk
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,1391 +66,368 @@
 
 Autodesk is a global leader in design, engineering, and entertainment software, providing cloud-connected platform APIs through Autodesk Platform Services (APS). APS APIs enable developers to build applications that access design data, automate workflows, visualize 3D models, manage construction projects, create digital twins, and integrate sustainability data across Autodesk's product ecosystem including AutoCAD, Revit, Inventor, Maya, BIM 360, and Autodesk Construction Cloud.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/autodesk/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/autodesk/refs/heads/main/apis.yml)
-
-## Scope
-
-- **Type:** Index
-
-## Tags
-
-- 3D Modeling
-- Architecture
-- BIM
-- CAD
-- Construction
-- Design
-- Digital Twins
-- Engineering
-- Manufacturing
-- Media and Entertainment
-- Sustainability
-
-## Timestamps
-
-- **Created:** 2024-11-13
-- **Modified:** 2026-05-19
-
-## APIs
-
-### Autodesk Build Photos API
-
-Provides a single, unified place to view and manage photos and videos in Autodesk Build. This is useful for documenting progress photos on construction projects.
-
-- **Human URL:** [https://aps.autodesk.com/blog/autodesk-build-photos-api](https://aps.autodesk.com/blog/autodesk-build-photos-api)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- Construction
-- Photos
-- Documentation
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/blog/autodesk-build-photos-api)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk Authentication API
-
-The Authentication API provides OAuth 2.0 based authentication and authorization for Autodesk Platform Services, enabling applications to securely access user data across different services without directly handling user passwords.
-
-- **Human URL:** [https://aps.autodesk.com/developer/overview/authentication-api](https://aps.autodesk.com/developer/overview/authentication-api)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- Authentication
-- OAuth
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/developer/overview/authentication-api)
-- [API Reference](https://aps.autodesk.com/en/docs/oauth/v2/reference/http)
-- [Getting Started](https://aps.autodesk.com/en/docs/oauth/v2/tutorials)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/autodesk/refs/heads/main/openapi/autodesk-authentication-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk Data Management API
-
-The Data Management API enables management of data across Autodesk Docs, BIM 360 Docs, Fusion Team, and the Object Storage Service. It provides project navigation, folder management, and version control for items stored across Autodesk cloud services.
-
-- **Human URL:** [https://aps.autodesk.com/developer/overview/data-management-api](https://aps.autodesk.com/developer/overview/data-management-api)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- BIM 360
-- Data Management
-- Storage
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/developer/overview/data-management-api)
-- [Getting Started](https://aps.autodesk.com/en/docs/data/v2/tutorials/)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/autodesk/refs/heads/main/openapi/autodesk-data-management-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk Model Derivative API
-
-The Model Derivative API translates designs into formats like SVF and SVF2 for rendering in the Viewer, supports over 60 file input formats, converts designs to STL and OBJ, and extracts object hierarchy trees, properties, and geometries for analysis.
-
-- **Human URL:** [https://aps.autodesk.com/developer/overview/model-derivative-api](https://aps.autodesk.com/developer/overview/model-derivative-api)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- 3D Models
-- File Conversion
-- Metadata
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/developer/overview/model-derivative-api)
-- [API Reference](https://aps.autodesk.com/en/docs/model-derivative/v2/reference/)
-- [Getting Started](https://aps.autodesk.com/en/docs/model-derivative/v2/tutorials/)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/autodesk/refs/heads/main/openapi/autodesk-model-derivative-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk Design Automation API
-
-The Automation API enables batch processing of design files, parameter adjustments, drawing generation, and data extraction at enterprise scale using AutoCAD, Revit, Inventor, 3ds Max, and Fusion cloud engines.
-
-- **Human URL:** [https://aps.autodesk.com/developer/overview/automation-api](https://aps.autodesk.com/developer/overview/automation-api)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- 3ds Max
-- AutoCAD
-- Automation
-- Fusion
-- Inventor
-- Revit
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/developer/overview/automation-api)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/autodesk/refs/heads/main/openapi/autodesk-design-automation-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk Viewer SDK
-
-The Viewer SDK is a JavaScript library for building interactive web applications that display 2D and 3D design models. It supports various file formats, offers customizable toolbars, and provides a flexible extension framework for creating immersive design experiences.
-
-- **Human URL:** [https://aps.autodesk.com/developer/overview/viewer-sdk](https://aps.autodesk.com/developer/overview/viewer-sdk)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- 2D Visualization
-- 3D Visualization
-- Viewer
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/developer/overview/viewer-sdk)
-- [Getting Started](https://aps.autodesk.com/en/docs/viewer/v7/developers_guide/)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk Webhooks API
-
-The Webhooks API enables applications to receive event notifications via POST requests to a callback URL, eliminating the need for continuous polling. It works with Data Management and Model Derivative APIs to monitor events like file modifications within projects.
-
-- **Human URL:** [https://aps.autodesk.com/webhooks-api](https://aps.autodesk.com/webhooks-api)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- Events
-- Notifications
-- Webhooks
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/webhooks-api)
-- [API Reference](https://aps.autodesk.com/en/docs/webhooks/v1/reference/)
-- [Getting Started](https://aps.autodesk.com/en/docs/webhooks/v1/tutorials/)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/autodesk/refs/heads/main/openapi/autodesk-webhooks-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [AsyncAPI](https://raw.githubusercontent.com/api-evangelist/autodesk/refs/heads/main/asyncapi/autodesk-webhooks-asyncapi.yml) — [AsyncAPI Specification](https://www.asyncapi.com/docs/reference/specification/latest)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk Reality Capture API
-
-The Reality Capture API uses photogrammetry techniques to generate high-resolution 3D models, point clouds, and orthophotos from photographs. It leverages cloud computing for structure-from-motion and multi-view-geometry algorithms, with output compatible with ReCap, Civil 3D, and InfraWorks.
-
-- **Human URL:** [https://aps.autodesk.com/developer/overview/reality-capture-api](https://aps.autodesk.com/developer/overview/reality-capture-api)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- 3D Models
-- Photogrammetry
-- Point Clouds
-- Reality Capture
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/developer/overview/reality-capture-api)
-- [Getting Started](https://aps.autodesk.com/en/docs/reality-capture/v1/tutorials/create-3d-mesh-from-photos/)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/autodesk/refs/heads/main/openapi/autodesk-reality-capture-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk AEC Data Model API
-
-The AEC Data Model API provides direct cloud access to granular design data via GraphQL, enabling navigation through data structures from hubs and projects to individual elements and parameters without requiring desktop authoring plugins. Currently offers read-only access to Revit elements and properties.
-
-- **Human URL:** [https://aps.autodesk.com/developer/overview/aec-data-model-api](https://aps.autodesk.com/developer/overview/aec-data-model-api)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- AEC
-- BIM
-- Design Data
-- GraphQL
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/developer/overview/aec-data-model-api)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk Data Exchange API
-
-The Data Exchange API enables seamless sharing of complete or selective 3D model data across BIM, CAD, and other business applications through Autodesk Docs. It supports both GraphQL API and .NET SDK for querying and building custom integrations.
-
-- **Human URL:** [https://aps.autodesk.com/developer/overview/data-exchange](https://aps.autodesk.com/developer/overview/data-exchange)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- BIM
-- CAD
-- Data Exchange
-- Interoperability
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/developer/overview/data-exchange)
-- [API Reference](https://aps.autodesk.com/en/docs/fdxgraph/v1/reference/graphql_endpoint/)
-- [Getting Started](https://aps.autodesk.com/en/docs/fdxgraph/v1/tutorials/getting_started/task1/)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk Sustainability Data API
-
-The Sustainability Data API provides access to regional environmental data through a standardized interface, enabling accurate carbon calculations and integration of trusted third-party sustainability datasets into applications at all design stages.
-
-- **Human URL:** [https://aps.autodesk.com/developer/overview/sustainability-data-api](https://aps.autodesk.com/developer/overview/sustainability-data-api)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- Carbon Calculations
-- Environmental Data
-- Sustainability
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/developer/overview/sustainability-data-api)
-- [API Reference](https://aps.autodesk.com/en/docs/sustainability/v3/reference/http/)
-- [Getting Started](https://aps.autodesk.com/en/docs/sustainability/v3/tutorials/tutorial_01/)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/autodesk/refs/heads/main/openapi/autodesk-sustainability-data-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk Parameters API
-
-The Parameters API manages parameter definitions and related metadata in the Autodesk platform cloud, including parameters, groups, collections, labels, and classifications. It enables synchronized, up-to-date parameter collections across products with support for disciplines, specs, units, and Revit categories.
-
-- **Human URL:** [https://aps.autodesk.com/developer/overview/parameters-api](https://aps.autodesk.com/developer/overview/parameters-api)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- BIM
-- Parameters
-- Revit
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/developer/overview/parameters-api)
-- [Getting Started](https://aps.autodesk.com/en/docs/parameters/v1/tutorials/getting-started/)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/autodesk/refs/heads/main/openapi/autodesk-parameters-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk Tandem Data API
-
-The Tandem Data API enables reading BIM model data and reading/writing custom schema properties for facility management. It facilitates integration with external systems like asset management platforms, work-order systems, and IoT sensors for creating and managing digital twins.
-
-- **Human URL:** [https://aps.autodesk.com/developer/overview/tandem-data-api](https://aps.autodesk.com/developer/overview/tandem-data-api)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- Digital Twins
-- Facility Management
-- IoT
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/developer/overview/tandem-data-api)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/autodesk/refs/heads/main/openapi/autodesk-tandem-data-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk Flow Graph Engine API
-
-The Flow Graph Engine API enables evaluation of Bifrost graphs in the cloud for media and entertainment workflows, allowing developers to offload heavy processing tasks like creating complex effects and simulations to concurrent cloud operations.
-
-- **Human URL:** [https://aps.autodesk.com/developer/overview/flow-graph-engine-api](https://aps.autodesk.com/developer/overview/flow-graph-engine-api)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- Bifrost
-- Cloud Computing
-- Media and Entertainment
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/developer/overview/flow-graph-engine-api)
-- [API Reference](https://aps.autodesk.com/en/docs/flow_graph_engine/v1/reference/quick_reference/)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/autodesk/refs/heads/main/openapi/autodesk-flow-graph-engine-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk ACC Account Admin API
-
-The ACC Account Admin API automates the creation and management of projects, assignment and management of project users, and management of member and partner company directories within Autodesk Construction Cloud.
-
-- **Human URL:** [https://aps.autodesk.com/en/docs/acc/v1/tutorials/admin](https://aps.autodesk.com/en/docs/acc/v1/tutorials/admin)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- Account Administration
-- Construction
-- Project Management
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- [Getting Started](https://aps.autodesk.com/en/docs/acc/v1/tutorials/admin)
-- [API Reference](https://aps.autodesk.com/en/docs/acc/v1/reference)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/autodesk/refs/heads/main/openapi/autodesk-acc-account-admin-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk ACC Issues API
-
-The ACC Issues API enables creating, tracking, and managing project issues in Autodesk Construction Cloud with automated assignments, status reporting, and workflow management.
-
-- **Human URL:** [https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/issues/](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/issues/)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- Construction
-- Issues
-- Project Management
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/issues/)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk ACC RFIs API
-
-The ACC RFIs API enables creation and lifecycle tracking of Requests for Information with automated routing, support for assigning members, transitioning between states, and adding comments within Autodesk Construction Cloud projects.
-
-- **Human URL:** [https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/rfis/](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/rfis/)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- Construction
-- Project Management
-- RFIs
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/rfis/)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk ACC Cost Management API
-
-The ACC Cost Management API provides access to cost management data including budgets, contracts, and change orders, enabling integration with ERP systems within Autodesk Construction Cloud.
-
-- **Human URL:** [https://aps.autodesk.com/developer/overview/autodesk-construction-cloud](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- Budgets
-- Construction
-- Cost Management
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk ACC Data Connector API
-
-The ACC Data Connector API retrieves data from ACC services such as Admin, Issues, Locations, Submittals, Cost, and RFIs for local data analysis, reporting, and business intelligence purposes.
-
-- **Human URL:** [https://aps.autodesk.com/developer/overview/autodesk-construction-cloud](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- Business Intelligence
-- Construction
-- Data Analytics
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk ACC Model Coordination API
-
-The ACC Model Coordination API manages model sets and clash detection test results throughout the coordination process within Autodesk Construction Cloud projects.
-
-- **Human URL:** [https://aps.autodesk.com/developer/overview/autodesk-construction-cloud](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- Clash Detection
-- Construction
-- Model Coordination
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk ACC Assets API
-
-The ACC Assets API enables creating, searching, and managing construction assets with custom categories and attributes within Autodesk Construction Cloud.
-
-- **Human URL:** [https://aps.autodesk.com/developer/overview/autodesk-construction-cloud](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- Asset Management
-- Assets
-- Construction
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk ACC Locations API
-
-The ACC Locations API enables configuration of project location hierarchies for organizing assets, filtering issues, and structuring building areas within Autodesk Construction Cloud.
-
-- **Human URL:** [https://aps.autodesk.com/developer/overview/autodesk-construction-cloud](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- Construction
-- Locations
-- Project Management
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk ACC Forms API
-
-The ACC Forms API provides access to and management of project form submissions and templates within Autodesk Construction Cloud.
-
-- **Human URL:** [https://aps.autodesk.com/developer/overview/autodesk-construction-cloud](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- Construction
-- Data Collection
-- Forms
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk ACC Photos API
-
-The ACC Photos API enables retrieval of project photos and videos, with querying and filtering capabilities for visual data, progress report export, and integration with external systems.
-
-- **Human URL:** [https://aps.autodesk.com/developer/overview/autodesk-construction-cloud](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- Construction
-- Documentation
-- Photos
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk ACC Submittals API
-
-The ACC Submittals API manages submittal packages and tracks their approval status throughout the project lifecycle within Autodesk Construction Cloud.
-
-- **Human URL:** [https://aps.autodesk.com/developer/overview/autodesk-construction-cloud](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- Approvals
-- Construction
-- Submittals
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk ACC Sheets API
-
-The ACC Sheets API handles construction sheet set management, versioning, and distribution across project teams within Autodesk Construction Cloud.
-
-- **Human URL:** [https://aps.autodesk.com/developer/overview/autodesk-construction-cloud](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- Construction
-- Document Management
-- Sheets
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk ACC Reviews API
-
-The ACC Reviews API manages approval workflows and file reviews, enabling tracking of review status, automation of approval processes, and integration with document control systems.
-
-- **Human URL:** [https://aps.autodesk.com/developer/overview/autodesk-construction-cloud](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- Approvals
-- Construction
-- Reviews
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk ACC Relationships API
-
-The ACC Relationships API creates connections between entities across ACC domains, enabling linking of issues to files, RFIs to assets, and other cross-domain relationships.
-
-- **Human URL:** [https://aps.autodesk.com/developer/overview/autodesk-construction-cloud](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- Construction
-- Data Linking
-- Relationships
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk ACC Model Properties API
-
-The ACC Model Properties API queries and compares model data across versions for element tracking and analysis within Autodesk Construction Cloud.
-
-- **Human URL:** [https://aps.autodesk.com/developer/overview/autodesk-construction-cloud](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- BIM
-- Construction
-- Model Properties
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk ACC Transmittals API
-
-The ACC Transmittals API provides access to transmittal data, recipients, documents, and folders, enabling retrieval of transmittal lists and querying by ID within Autodesk Construction Cloud.
-
-- **Human URL:** [https://aps.autodesk.com/developer/overview/autodesk-construction-cloud](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- Construction
-- Document Management
-- Transmittals
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk ACC AutoSpecs API
-
-The ACC AutoSpecs API retrieves Smart Register data from specification PDFs and submittal requirements within Autodesk Construction Cloud.
-
-- **Human URL:** [https://aps.autodesk.com/developer/overview/autodesk-construction-cloud](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- Construction
-- Specifications
-- Submittals
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk ACC Takeoff API
-
-The ACC Takeoff API provides access to takeoff items, types, and classification systems, enabling extraction of quantity data, management of packages, and integration of takeoff data with estimating tools.
-
-- **Human URL:** [https://aps.autodesk.com/developer/overview/autodesk-construction-cloud](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- Construction
-- Quantity Estimation
-- Takeoff
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/developer/overview/autodesk-construction-cloud)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Autodesk BIM 360 API
-
-The BIM 360 API enables integration with the BIM 360 cloud-based construction management platform, providing access to project data, documents, issues, and workflows for greater customization and workflow automation.
-
-- **Human URL:** [https://aps.autodesk.com/developer/overview/bim-360-api](https://aps.autodesk.com/developer/overview/bim-360-api)
-- **Base URL:** `https://developer.api.autodesk.com`
-
-#### Tags
-
-- BIM
-- Construction
-- Project Management
-
-#### Properties
-
-- [Documentation](https://aps.autodesk.com/developer/overview/bim-360-api)
-- [API Reference](https://aps.autodesk.com/en/docs/bim360/v1/reference/)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/autodesk/refs/heads/main/openapi/autodesk-bim360-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/autodesk-acc-account-admin.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-acc-account-admin.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-authentication.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-authentication.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-bim360.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-bim360.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-data-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-data-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-design-automation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-design-automation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-flow-graph-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-flow-graph-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-model-derivative.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-model-derivative.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-parameters.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-parameters.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-sustainability-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-sustainability-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-tandem-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-tandem-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/autodesk-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/autodesk-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/autodesk)
-- [Portal](https://aps.autodesk.com/)
-- [Blog](https://aps.autodesk.com/blog)
-- [Support](https://aps.autodesk.com/en/support/get-help)
-- [Getting Started](https://aps.autodesk.com/en/docs/oauth/v2/tutorials/get-started-with-aps/)
-- [Terms of Service](https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service)
-- [Privacy Policy](https://www.autodesk.com/company/legal-notices-trademarks/privacy-statement)
-- [GitHub Organization](https://github.com/autodesk-platform-services)
-- [Documentation](https://aps.autodesk.com/developer/documentation)
-- [Pricing](https://aps.autodesk.com/pricing)
-- [Code Examples](https://aps.autodesk.com/code-samples)
-- [Tutorials](https://tutorials.autodesk.io/)
-- [Quickstart](https://get-started.aps.autodesk.com/)
-- [Status Page](https://health.autodesk.com/)
-- [Changelog](https://aps.autodesk.com/developer/overview/changelog)
-- [Console](https://aps.autodesk.com/myapps/)
-- [Login](https://accounts.autodesk.com)
-- [Authentication](https://aps.autodesk.com/en/docs/oauth/v2)
-- [YouTube](https://www.youtube.com/@autodesk)
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/autodesk-forge+or+autodesk-aps)
+**Areas:** Digital Twin · Autodesk · Fortune 1000 · 3D Modeling · Architecture · BIM · CAD · Construction · Design · Engineering · Manufacturing · Media and Entertainment
+
+## Autodesk on APIs.io
+
+Everything profiled for Autodesk is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/autodesk/](https://apis.io/providers/autodesk/)** — or go straight to one of the APIs or properties below.
+
+### APIs (69)
+
+- [Autodesk Build Photos API](https://apis.io/apis/autodesk/autodesk-build-photos/) — Provides a single, unified place to view and manage photos and videos in Autodesk Build. This is useful for documenting progress photos on construction…
+- [Autodesk Viewer SDK](https://apis.io/apis/autodesk/viewer-sdk/) — The Viewer SDK is a JavaScript library for building interactive web applications that display 2D and 3D design models. It supports various file formats,…
+- [Autodesk AEC Data Model API](https://apis.io/apis/autodesk/aec-data-model-api/) — The AEC Data Model API provides direct cloud access to granular design data via GraphQL, enabling navigation through data structures from hubs and projects…
+- [Autodesk Data Exchange API](https://apis.io/apis/autodesk/data-exchange-api/) — The Data Exchange API enables seamless sharing of complete or selective 3D model data across BIM, CAD, and other business applications through Autodesk…
+- [Autodesk ACC Issues API](https://apis.io/apis/autodesk/acc-issues-api/) — The ACC Issues API enables creating, tracking, and managing project issues in Autodesk Construction Cloud with automated assignments, status reporting, and…
+- [Autodesk ACC RFIs API](https://apis.io/apis/autodesk/acc-rfis-api/) — The ACC RFIs API enables creation and lifecycle tracking of Requests for Information with automated routing, support for assigning members, transitioning…
+- [Autodesk ACC Cost Management API](https://apis.io/apis/autodesk/acc-cost-management-api/) — The ACC Cost Management API provides access to cost management data including budgets, contracts, and change orders, enabling integration with ERP systems…
+- [Autodesk ACC Data Connector API](https://apis.io/apis/autodesk/acc-data-connector-api/) — The ACC Data Connector API retrieves data from ACC services such as Admin, Issues, Locations, Submittals, Cost, and RFIs for local data analysis, reporting,…
+- [Autodesk ACC Model Coordination API](https://apis.io/apis/autodesk/acc-model-coordination-api/) — The ACC Model Coordination API manages model sets and clash detection test results throughout the coordination process within Autodesk Construction Cloud…
+- [Autodesk ACC Assets API](https://apis.io/apis/autodesk/acc-assets-api/) — The ACC Assets API enables creating, searching, and managing construction assets with custom categories and attributes within Autodesk Construction Cloud.
+- [Autodesk ACC Locations API](https://apis.io/apis/autodesk/acc-locations-api/) — The ACC Locations API enables configuration of project location hierarchies for organizing assets, filtering issues, and structuring building areas within…
+- [Autodesk ACC Forms API](https://apis.io/apis/autodesk/acc-forms-api/) — The ACC Forms API provides access to and management of project form submissions and templates within Autodesk Construction Cloud.
+- [Autodesk ACC Photos API](https://apis.io/apis/autodesk/acc-photos-api/) — The ACC Photos API enables retrieval of project photos and videos, with querying and filtering capabilities for visual data, progress report export, and…
+- [Autodesk ACC Submittals API](https://apis.io/apis/autodesk/acc-submittals-api/) — The ACC Submittals API manages submittal packages and tracks their approval status throughout the project lifecycle within Autodesk Construction Cloud.
+- [Autodesk ACC Sheets API](https://apis.io/apis/autodesk/acc-sheets-api/) — The ACC Sheets API handles construction sheet set management, versioning, and distribution across project teams within Autodesk Construction Cloud.
+- [Autodesk ACC Reviews API](https://apis.io/apis/autodesk/acc-reviews-api/) — The ACC Reviews API manages approval workflows and file reviews, enabling tracking of review status, automation of approval processes, and integration with…
+- [Autodesk ACC Relationships API](https://apis.io/apis/autodesk/acc-relationships-api/) — The ACC Relationships API creates connections between entities across ACC domains, enabling linking of issues to files, RFIs to assets, and other…
+- [Autodesk ACC Model Properties API](https://apis.io/apis/autodesk/acc-model-properties-api/) — The ACC Model Properties API queries and compares model data across versions for element tracking and analysis within Autodesk Construction Cloud.
+- [Autodesk ACC Transmittals API](https://apis.io/apis/autodesk/acc-transmittals-api/) — The ACC Transmittals API provides access to transmittal data, recipients, documents, and folders, enabling retrieval of transmittal lists and querying by ID…
+- [Autodesk ACC AutoSpecs API](https://apis.io/apis/autodesk/acc-autospecs-api/) — The ACC AutoSpecs API retrieves Smart Register data from specification PDFs and submittal requirements within Autodesk Construction Cloud.
+- [Autodesk ACC Takeoff API](https://apis.io/apis/autodesk/acc-takeoff-api/) — The ACC Takeoff API provides access to takeoff items, types, and classification systems, enabling extraction of quantity data, management of packages, and…
+- [Autodesk Account Users API](https://apis.io/apis/autodesk/autodesk-account-users-api/) — The Account Users API from Autodesk — 1 operation(s) for account users.
+- [Autodesk Activities API](https://apis.io/apis/autodesk/autodesk-activities-api/) — The Activities API from Autodesk — 5 operation(s) for activities.
+- [Autodesk Admin API](https://apis.io/apis/autodesk/autodesk-admin-api/) — The Admin API from Autodesk — 2 operation(s) for admin.
+- [Autodesk Authorization API](https://apis.io/apis/autodesk/autodesk-authorization-api/) — The Authorization API from Autodesk — 2 operation(s) for authorization.
+- [Autodesk Calculations API](https://apis.io/apis/autodesk/autodesk-calculations-api/) — The Calculations API from Autodesk — 1 operation(s) for calculations.
+- [Autodesk Collections API](https://apis.io/apis/autodesk/autodesk-collections-api/) — The Collections API from Autodesk — 2 operation(s) for collections.
+- [Autodesk Companies API](https://apis.io/apis/autodesk/autodesk-companies-api/) — The Companies API from Autodesk — 1 operation(s) for companies.
+- [Autodesk Datasets API](https://apis.io/apis/autodesk/autodesk-datasets-api/) — The Datasets API from Autodesk — 2 operation(s) for datasets.
+- [Autodesk Derivatives API](https://apis.io/apis/autodesk/autodesk-derivatives-api/) — The Derivatives API from Autodesk — 1 operation(s) for derivatives.
+- [Autodesk Elements API](https://apis.io/apis/autodesk/autodesk-elements-api/) — The Elements API from Autodesk — 3 operation(s) for elements.
+- [Autodesk Engines API](https://apis.io/apis/autodesk/autodesk-engines-api/) — The Engines API from Autodesk — 2 operation(s) for engines.
+- [Autodesk Files API](https://apis.io/apis/autodesk/autodesk-files-api/) — The Files API from Autodesk — 1 operation(s) for files.
+- [Autodesk Folders API](https://apis.io/apis/autodesk/autodesk-folders-api/) — The Folders API from Autodesk — 4 operation(s) for folders.
+- [Autodesk Forge Apps API](https://apis.io/apis/autodesk/autodesk-forge-apps-api/) — The Forge Apps API from Autodesk — 1 operation(s) for forge apps.
+- [Autodesk Graphs API](https://apis.io/apis/autodesk/autodesk-graphs-api/) — The Graphs API from Autodesk — 2 operation(s) for graphs.
+- [Autodesk Groups API](https://apis.io/apis/autodesk/autodesk-groups-api/) — The Groups API from Autodesk — 3 operation(s) for groups.
+- [Autodesk Hooks API](https://apis.io/apis/autodesk/autodesk-hooks-api/) — The Hooks API from Autodesk — 3 operation(s) for hooks.
+- [Autodesk Hubs API](https://apis.io/apis/autodesk/autodesk-hubs-api/) — The Hubs API from Autodesk — 2 operation(s) for hubs.
+- [Autodesk Industry Roles API](https://apis.io/apis/autodesk/autodesk-industry-roles-api/) — The Industry Roles API from Autodesk — 1 operation(s) for industry roles.
+- [Autodesk Informational API](https://apis.io/apis/autodesk/autodesk-informational-api/) — The Informational API from Autodesk — 1 operation(s) for informational.
+- [Autodesk Issues API](https://apis.io/apis/autodesk/autodesk-issues-api/) — The Issues API from Autodesk — 4 operation(s) for issues.
+- [Autodesk Items API](https://apis.io/apis/autodesk/autodesk-items-api/) — The Items API from Autodesk — 2 operation(s) for items.
+- [Autodesk Jobs API](https://apis.io/apis/autodesk/autodesk-jobs-api/) — The Jobs API from Autodesk — 4 operation(s) for jobs.
+- [Autodesk Keys API](https://apis.io/apis/autodesk/autodesk-keys-api/) — The Keys API from Autodesk — 1 operation(s) for keys.
+- [Autodesk Manifest API](https://apis.io/apis/autodesk/autodesk-manifest-api/) — The Manifest API from Autodesk — 1 operation(s) for manifest.
+- [Autodesk Metadata API](https://apis.io/apis/autodesk/autodesk-metadata-api/) — The Metadata API from Autodesk — 8 operation(s) for metadata.
+- [Autodesk Models API](https://apis.io/apis/autodesk/autodesk-models-api/) — The Models API from Autodesk — 1 operation(s) for models.
+- [Autodesk Object Storage Service API](https://apis.io/apis/autodesk/autodesk-object-storage-service-api/) — The Object Storage Service API from Autodesk — 6 operation(s) for object storage service.
+- [Autodesk Parameters API](https://apis.io/apis/autodesk/autodesk-parameters-api/) — The Parameters API from Autodesk — 2 operation(s) for parameters.
+- [Autodesk Photoscenes API](https://apis.io/apis/autodesk/autodesk-photoscenes-api/) — The Photoscenes API from Autodesk — 3 operation(s) for photoscenes.
+- [Autodesk Processing API](https://apis.io/apis/autodesk/autodesk-processing-api/) — The Processing API from Autodesk — 1 operation(s) for processing.
+- [Autodesk Project Users API](https://apis.io/apis/autodesk/autodesk-project-users-api/) — The Project Users API from Autodesk — 2 operation(s) for project users.
+- [Autodesk Projects API](https://apis.io/apis/autodesk/autodesk-projects-api/) — The Projects API from Autodesk — 5 operation(s) for projects.
+- [Autodesk Records API](https://apis.io/apis/autodesk/autodesk-records-api/) — The Records API from Autodesk — 2 operation(s) for records.
+- [Autodesk Results API](https://apis.io/apis/autodesk/autodesk-results-api/) — The Results API from Autodesk — 1 operation(s) for results.
+- [Autodesk RFIs API](https://apis.io/apis/autodesk/autodesk-rfis-api/) — The RFIs API from Autodesk — 1 operation(s) for rfis.
+- [Autodesk Schema API](https://apis.io/apis/autodesk/autodesk-schema-api/) — The Schema API from Autodesk — 1 operation(s) for schema.
+- [Autodesk Service Limits API](https://apis.io/apis/autodesk/autodesk-service-limits-api/) — The Service Limits API from Autodesk — 1 operation(s) for service limits.
+- [Autodesk Streams API](https://apis.io/apis/autodesk/autodesk-streams-api/) — The Streams API from Autodesk — 2 operation(s) for streams.
+- [Autodesk Systems API](https://apis.io/apis/autodesk/autodesk-systems-api/) — The Systems API from Autodesk — 2 operation(s) for systems.
+- [Autodesk Thumbnails API](https://apis.io/apis/autodesk/autodesk-thumbnails-api/) — The Thumbnails API from Autodesk — 1 operation(s) for thumbnails.
+- [Autodesk Token API](https://apis.io/apis/autodesk/autodesk-token-api/) — The Token API from Autodesk — 3 operation(s) for token.
+- [Autodesk Tokens API](https://apis.io/apis/autodesk/autodesk-tokens-api/) — The Tokens API from Autodesk — 1 operation(s) for tokens.
+- [Autodesk Twins API](https://apis.io/apis/autodesk/autodesk-twins-api/) — The Twins API from Autodesk — 2 operation(s) for twins.
+- [Autodesk Users API](https://apis.io/apis/autodesk/autodesk-users-api/) — The Users API from Autodesk — 1 operation(s) for users.
+- [Autodesk Versions API](https://apis.io/apis/autodesk/autodesk-versions-api/) — The Versions API from Autodesk — 3 operation(s) for versions.
+- [Autodesk App Bundles API](https://apis.io/apis/autodesk/autodesk-app-bundles-api/) — The App Bundles API from Autodesk — 5 operation(s) for app bundles.
+- [Autodesk Work Items API](https://apis.io/apis/autodesk/autodesk-work-items-api/) — The Work Items API from Autodesk — 2 operation(s) for work items.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Arazzo workflows (17)
+
+Multi-step workflows that chain operations into a business task.
+
+- [Autodesk Onboard a Project and Its First Member](https://apis.io/arazzos/autodesk/autodesk-acc-project-onboarding-workflow/)
+- [Autodesk Open, Comment On, and Close a BIM 360 Issue](https://apis.io/arazzos/autodesk/autodesk-bim360-issue-triage-workflow/)
+- [Autodesk Run a Design Automation WorkItem](https://apis.io/arazzos/autodesk/autodesk-design-automation-workitem-workflow/)
+- [Autodesk Evaluate a Bifrost Graph in the Cloud](https://apis.io/arazzos/autodesk/autodesk-flow-graph-evaluation-workflow/)
+- [Autodesk Add a New Version to an Existing File](https://apis.io/arazzos/autodesk/autodesk-item-new-version-workflow/)
+- [Autodesk Extract Model Properties](https://apis.io/arazzos/autodesk/autodesk-model-properties-extraction-workflow/)
+- [Autodesk Upload and Translate a Model for the Viewer](https://apis.io/arazzos/autodesk/autodesk-model-translation-workflow/)
+- [Autodesk Distribute an OSS Object via Signed URL](https://apis.io/arazzos/autodesk/autodesk-oss-signed-url-distribution-workflow/)
+- [Autodesk Define a Shared Parameter in a Collection](https://apis.io/arazzos/autodesk/autodesk-parameters-collection-setup-workflow/)
+- [Autodesk Publish a File into a Project Folder](https://apis.io/arazzos/autodesk/autodesk-project-file-upload-workflow/)
+- [Autodesk Photogrammetry Reconstruction](https://apis.io/arazzos/autodesk/autodesk-reality-capture-photoscene-workflow/)
+- [Autodesk Calculate Embodied Carbon from a Regional Dataset](https://apis.io/arazzos/autodesk/autodesk-sustainability-carbon-calculation-workflow/)
+- [Autodesk Write Facility Data Back to a Tandem Twin](https://apis.io/arazzos/autodesk/autodesk-tandem-element-properties-workflow/)
+- [Autodesk Push Sensor Readings into a Tandem Stream](https://apis.io/arazzos/autodesk/autodesk-tandem-iot-stream-workflow/)
+- [Autodesk Three-Legged User Login](https://apis.io/arazzos/autodesk/autodesk-three-legged-user-login-workflow/)
+- [Autodesk Two-Legged Token Lifecycle](https://apis.io/arazzos/autodesk/autodesk-two-legged-token-lifecycle-workflow/)
+- [Autodesk Subscribe to Events with a Signed Webhook](https://apis.io/arazzos/autodesk/autodesk-webhook-subscription-workflow/)
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Autodesk Webhooks Events](https://apis.io/asyncapis/autodesk/autodesk-webhooks-asyncapi/)
+
+#### Event channels (15)
+
+Individual events and webhooks the provider emits.
+
+- [/adsk-docs/item-locked](https://apis.io/channels/autodesk/adsk-docs-item-locked/)
+- [/adsk-docs/item-unlocked](https://apis.io/channels/autodesk/adsk-docs-item-unlocked/)
+- [/c4r/model-sync-publish](https://apis.io/channels/autodesk/c4r-model-sync-publish/)
+- [/data-management/folder-added](https://apis.io/channels/autodesk/data-management-folder-added/)
+- [/data-management/folder-copied](https://apis.io/channels/autodesk/data-management-folder-copied/)
+- [/data-management/folder-deleted](https://apis.io/channels/autodesk/data-management-folder-deleted/)
+- [/data-management/folder-modified](https://apis.io/channels/autodesk/data-management-folder-modified/)
+- [/data-management/folder-moved](https://apis.io/channels/autodesk/data-management-folder-moved/)
+- [/data-management/version-added](https://apis.io/channels/autodesk/data-management-version-added/)
+- [/data-management/version-copied](https://apis.io/channels/autodesk/data-management-version-copied/)
+- [/data-management/version-deleted](https://apis.io/channels/autodesk/data-management-version-deleted/)
+- [/data-management/version-modified](https://apis.io/channels/autodesk/data-management-version-modified/)
+- [/data-management/version-moved](https://apis.io/channels/autodesk/data-management-version-moved/)
+- [/model-derivative/extraction-finished](https://apis.io/channels/autodesk/model-derivative-extraction-finished/)
+- [/model-derivative/extraction-updated](https://apis.io/channels/autodesk/model-derivative-extraction-updated/)
+
+#### GraphQL (1)
+
+GraphQL schemas.
+
+- [Autodesk GraphQL API](https://apis.io/graphqls/autodesk/autodesk-graphql/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [aps-mcp-server-nodejs](https://apis.io/servers/autodesk/aps-mcp-server-nodejs/)
+
+#### Agent skills (5)
+
+Agent skills built on the API.
+
+- [acad-arx-wizard](https://apis.io/agent-skills/autodesk/acad-arx-wizard/)
+- [acad-cuix-builder](https://apis.io/agent-skills/autodesk/acad-cuix-builder/)
+- [acad-dotnet](https://apis.io/agent-skills/autodesk/acad-dotnet/)
+- [aps-docs-portal](https://apis.io/agent-skills/autodesk/aps-docs-portal/)
+- [aps-mcp-server-gen](https://apis.io/agent-skills/autodesk/aps-mcp-server-gen/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Autodesk Agentic Access](https://apis.io/agentic-access/autodesk/autodesk-agentic-access/)
+
+#### JSON Schema (138)
+
+The data models the API reads and writes.
+
+- [AccountUsersResponse](https://apis.io/schemas/autodesk/autodesk-accountusersresponse/)
+- [Activity](https://apis.io/schemas/autodesk/autodesk-activity/)
+- [ActivityPayload](https://apis.io/schemas/autodesk/autodesk-activitypayload/)
+- [AddBim360UserRequest](https://apis.io/schemas/autodesk/autodesk-addbim360userrequest/)
+- [AddProjectUserRequest](https://apis.io/schemas/autodesk/autodesk-addprojectuserrequest/)
+- [Alias](https://apis.io/schemas/autodesk/autodesk-alias/)
+- [AliasPatch](https://apis.io/schemas/autodesk/autodesk-aliaspatch/)
+- [AliasPayload](https://apis.io/schemas/autodesk/autodesk-aliaspayload/)
+- [AppBundle](https://apis.io/schemas/autodesk/autodesk-appbundle/)
+- [AppBundlePayload](https://apis.io/schemas/autodesk/autodesk-appbundlepayload/)
+- [Bim360User](https://apis.io/schemas/autodesk/autodesk-bim360user/)
+- [Bim360UsersResponse](https://apis.io/schemas/autodesk/autodesk-bim360usersresponse/)
+- [Bucket](https://apis.io/schemas/autodesk/autodesk-bucket/)
+- [BucketsResponse](https://apis.io/schemas/autodesk/autodesk-bucketsresponse/)
+- [CalculationRequest](https://apis.io/schemas/autodesk/autodesk-calculationrequest/)
+- [CalculationResponse](https://apis.io/schemas/autodesk/autodesk-calculationresponse/)
+- [CategoriesResponse](https://apis.io/schemas/autodesk/autodesk-categoriesresponse/)
+- [Collection](https://apis.io/schemas/autodesk/autodesk-collection/)
+- [CollectionsResponse](https://apis.io/schemas/autodesk/autodesk-collectionsresponse/)
+- [CommentsResponse](https://apis.io/schemas/autodesk/autodesk-commentsresponse/)
+- [CompaniesResponse](https://apis.io/schemas/autodesk/autodesk-companiesresponse/)
+- [Company](https://apis.io/schemas/autodesk/autodesk-company/)
+- [CreateBucketRequest](https://apis.io/schemas/autodesk/autodesk-createbucketrequest/)
+- [CreateCollectionRequest](https://apis.io/schemas/autodesk/autodesk-createcollectionrequest/)
+- [CreateCommentRequest](https://apis.io/schemas/autodesk/autodesk-createcommentrequest/)
+- …and 113 more published on APIs.io
+
+#### JSON Structure (1)
+
+Data models expressed in JSON Structure.
+
+- [Autodesk Structure](https://apis.io/json-structure/autodesk/autodesk-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Autodesk Context](https://apis.io/jsonld/autodesk/autodesk-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Autodesk Domain Vocabulary](https://apis.io/vocabularies/autodesk/autodesk-vocabulary/)
+
+#### Collections (107)
+
+Postman and Open Collection request collections.
+
+- [Autodesk ACC Account Admin API](https://apis.io/collections/autodesk/open-autodesk-acc-account-admin/)
+- [Autodesk ACC Account Admin Account Users API](https://apis.io/collections/autodesk/open-autodesk-account-users-api/)
+- [Autodesk ACC Account Admin Account Users Activities API](https://apis.io/collections/autodesk/open-autodesk-activities-api/)
+- [Autodesk ACC Account Account Users Admin API](https://apis.io/collections/autodesk/open-autodesk-admin-api/)
+- [Autodesk ACC Account Admin Account Users AppBundles API](https://apis.io/collections/autodesk/open-autodesk-appbundles-api/)
+- [Autodesk Authentication API](https://apis.io/collections/autodesk/open-autodesk-authentication/)
+- [Autodesk ACC Account Admin Account Users Authorization API](https://apis.io/collections/autodesk/open-autodesk-authorization-api/)
+- [Autodesk BIM 360 API](https://apis.io/collections/autodesk/open-autodesk-bim360/)
+- [Autodesk ACC Account Admin Account Users Calculations API](https://apis.io/collections/autodesk/open-autodesk-calculations-api/)
+- [Autodesk ACC Account Admin Account Users Collections API](https://apis.io/collections/autodesk/open-autodesk-collections-api/)
+- [Autodesk ACC Account Admin Account Users Companies API](https://apis.io/collections/autodesk/open-autodesk-companies-api/)
+- [Autodesk Data Management API](https://apis.io/collections/autodesk/open-autodesk-data-management/)
+- [Autodesk ACC Account Admin Account Users Datasets API](https://apis.io/collections/autodesk/open-autodesk-datasets-api/)
+- [Autodesk ACC Account Admin Account Users Derivatives API](https://apis.io/collections/autodesk/open-autodesk-derivatives-api/)
+- [Autodesk Design Automation API](https://apis.io/collections/autodesk/open-autodesk-design-automation/)
+- [Autodesk ACC Account Admin Account Users Elements API](https://apis.io/collections/autodesk/open-autodesk-elements-api/)
+- [Autodesk ACC Account Admin Account Users Engines API](https://apis.io/collections/autodesk/open-autodesk-engines-api/)
+- [Autodesk ACC Account Admin Account Users Files API](https://apis.io/collections/autodesk/open-autodesk-files-api/)
+- [Autodesk Flow Graph Engine API](https://apis.io/collections/autodesk/open-autodesk-flow-graph-engine/)
+- [Autodesk ACC Account Admin Account Users Folders API](https://apis.io/collections/autodesk/open-autodesk-folders-api/)
+- [Autodesk ACC Account Admin Account Users Forge Apps API](https://apis.io/collections/autodesk/open-autodesk-forge-apps-api/)
+- [Autodesk ACC Account Admin Account Users Graphs API](https://apis.io/collections/autodesk/open-autodesk-graphs-api/)
+- [Autodesk ACC Account Admin Account Users Groups API](https://apis.io/collections/autodesk/open-autodesk-groups-api/)
+- [Autodesk ACC Account Admin Account Users Hooks API](https://apis.io/collections/autodesk/open-autodesk-hooks-api/)
+- [Autodesk ACC Account Admin Account Users Hubs API](https://apis.io/collections/autodesk/open-autodesk-hubs-api/)
+- …and 82 more published on APIs.io
+
+#### Overlays (12)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Autodesk Acc Account Admin Overlay](https://apis.io/overlays/autodesk/autodesk-acc-account-admin-overlay/)
+- [Autodesk Authentication Overlay](https://apis.io/overlays/autodesk/autodesk-authentication-overlay/)
+- [Autodesk Bim360 Overlay](https://apis.io/overlays/autodesk/autodesk-bim360-overlay/)
+- [Autodesk Data Management Overlay](https://apis.io/overlays/autodesk/autodesk-data-management-overlay/)
+- [Autodesk Design Automation Overlay](https://apis.io/overlays/autodesk/autodesk-design-automation-overlay/)
+- [Autodesk Flow Graph Engine Overlay](https://apis.io/overlays/autodesk/autodesk-flow-graph-engine-overlay/)
+- [Autodesk Model Derivative Overlay](https://apis.io/overlays/autodesk/autodesk-model-derivative-overlay/)
+- [Autodesk Parameters Overlay](https://apis.io/overlays/autodesk/autodesk-parameters-overlay/)
+- [Autodesk Reality Capture Overlay](https://apis.io/overlays/autodesk/autodesk-reality-capture-overlay/)
+- [Autodesk Sustainability Data Overlay](https://apis.io/overlays/autodesk/autodesk-sustainability-data-overlay/)
+- [Autodesk Tandem Data Overlay](https://apis.io/overlays/autodesk/autodesk-tandem-data-overlay/)
+- [Autodesk Webhooks Overlay](https://apis.io/overlays/autodesk/autodesk-webhooks-overlay/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Autodesk — asyncapi rules](https://apis.io/rules/autodesk/autodesk-asyncapi-spectral-rules/)
+- [Autodesk — jsonschema rules](https://apis.io/rules/autodesk/autodesk-jsonschema-spectral-rules/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Autodesk Authentication](https://apis.io/security/autodesk/autodesk-authentication/)
+- [Autodesk Domain Security](https://apis.io/security/autodesk/autodesk-domain-security/)
+- [Autodesk Trust Center](https://apis.io/security/autodesk/autodesk-trust-center/)
+- [Autodesk Vulnerability Disclosure](https://apis.io/security/autodesk/autodesk-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Autodesk Scopes](https://apis.io/scopes/autodesk/autodesk-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Autodesk Plans Pricing](https://apis.io/plans/autodesk/autodesk-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Autodesk Rate Limits](https://apis.io/rate-limits/autodesk/autodesk-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Autodesk Finops](https://apis.io/finops/autodesk/autodesk-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.autodesk.com)
-- [JSON Schema](https://raw.githubusercontent.com/api-evangelist/autodesk/refs/heads/main/json-schema/autodesk-hub.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](https://raw.githubusercontent.com/api-evangelist/autodesk/refs/heads/main/json-schema/autodesk-project.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](https://raw.githubusercontent.com/api-evangelist/autodesk/refs/heads/main/json-schema/autodesk-item.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](https://raw.githubusercontent.com/api-evangelist/autodesk/refs/heads/main/json-schema/autodesk-version.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](https://raw.githubusercontent.com/api-evangelist/autodesk/refs/heads/main/json-schema/autodesk-webhook-event.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](https://raw.githubusercontent.com/api-evangelist/autodesk/refs/heads/main/json-schema/autodesk-issue.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](https://raw.githubusercontent.com/api-evangelist/autodesk/refs/heads/main/json-ld/autodesk-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
+- [Documentation](https://aps.autodesk.com/developer/documentation)
+- [Getting started](https://aps.autodesk.com/en/docs/oauth/v2/tutorials/get-started-with-aps/)
+- [Pricing](https://aps.autodesk.com/pricing)
+- [Support](https://aps.autodesk.com/en/support/get-help)
+- [Changelog](https://aps.autodesk.com/developer/overview/changelog)
+- [Blog](https://aps.autodesk.com/blog)
+- [Terms of service](https://www.autodesk.com/company/legal-notices-trademarks/terms-of-service-autodesk360-web-services/autodesk-web-services-api-terms-of-service)
+- [Privacy policy](https://www.autodesk.com/company/legal-notices-trademarks/privacy-statement)
+- [GitHub](https://github.com/autodesk-platform-services)
+- [Status](https://health.autodesk.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 60.3** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 70.0 |
+| Contract quality | 69.4 |
+| Contract governance | 18.2 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 71.9 |
+| Access clarity | 53.9 |
+
+**Agent readiness 43.1** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | derived (partial credit) |
+| Agent Skills | unknown |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | partial |
+| Operation Distinctiveness | mostly |
+
+**Regulatory alignment 45.1** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/autodesk/](https://apis.io/providers/autodesk/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Autodesk: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/autodesk/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
